@@ -1,4 +1,4 @@
 library(testthat)
-library(r2dii.stress.test.data)
+library(STDataMGMT)
 
-test_check("r2dii.stress.test.data")
+test_check("STDataMGMT")
