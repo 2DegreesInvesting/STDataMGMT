@@ -1,2 +1,9 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # STDataMGMT
-Private Stress Test Data and their wrangling
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of STDataMGMT is to …

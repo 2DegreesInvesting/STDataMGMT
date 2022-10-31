@@ -1,0 +1,14 @@
+^STDataMGMT\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^LICENSE\.md$
+^data-raw$
+^data_overview$
+^prepare_data\.R$
+^prepare_eikon_data\.R$
+^prepare_production_data\.R$
+^\.github$
+^prepare_price_data_long_2021Q1\.R$
+^prepare_st_master_data\.R$
+^test_validate_data_sets$
+^test_investigate_data_sets$
