@@ -1,13 +1,13 @@
 devtools::load_all()
 
-path_pams_raw <- r2dii.utils::path_dropbox_2dii("PortCheck", "00_Data", "07_AnalysisInputs", "ST_INPUTS_MASTER", "2022-02-17_AR_2021Q4_2DII-PAMS-Data.xlsx")
+path_pams_raw <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "2022-02-17_AR_2021Q4_2DII-PAMS-Data.xlsx")
 pams_raw <- readxl::read_xlsx(
   path_pams_raw,
   sheet = "Company Indicators"
 )
 
 output_path_stress_test_inputs <- fs::path(
-  r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "ST_INPUTS_MASTER"
+  r2dii.utils::path_dropbox_2dii(), "ST_INPUTS", "ST_INPUTS_MASTER"
 )
 
 pams_raw <- pams_raw %>% dplyr::filter(`Company Name` != "Unknown Owner")
