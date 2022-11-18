@@ -2,12 +2,43 @@ library(tidyverse)
 library(datapasta)
 devtools::load_all()
 
-# This document is a preparation for the whitelisting of weo2021 data in the climate.stress.test.repo
+# This document is a preparation for the whitelisting of the weo2021 data in the climate.stress.test.repo
+# It first checks if sectors are complete
+# It then filters distinct geography x sector combinations for each scenario
+# Only those combinations that are present for all scenarios can stay 
+# Repeat process for capacity 
+# Join 
+# Done.
+
 # Overview of supported scenarios x scenario-geographies x sectors --------
 # Scenario_AnalysisInput_2021 ---------------------------------------------
 Scenario_AnalysisInput_2021 <- readr::read_csv(
   file.path("data-raw", glue::glue("weo2021_manually_added_Scenarios_AnalysisInput_2021.csv"))
 )
+
+# first look at whether the sectors are complete 
+# if active in power, oil&gas and coal -> 9 technologies 
+# if active in  oil&gas and coal -> 3 technologies 
+# if active in  oil&gas and power -> 8 technologies 
+# if active only in power -> 6 technologies 
+# if active only in coal -> 1 technology 
+# if active only in oil&gas -> 2 technologies 
+Scenario_AnalysisInput_2021 %>%
+  group_by(scenario_geography, scenario) %>%
+  summarise(nrow = n(),
+            n_sector = length(unique(ald_sector)),
+            n_technologies = length(unique(technology)),
+            sectors = list(unique(ald_sector)),
+            technologies = list(unique(technology))) %>%
+  dplyr::arrange(scenario_geography) %>% 
+  View()
+
+#remove sector if not complete 
+Scenario_AnalysisInput_2021 <- Scenario_AnalysisInput_2021 %>%
+  dplyr::filter(Scenario_AnalysisInput_2021$ald_sector %in% unique(p4i_p4b_sector_technology_lookup$sector_p4i))
+
+Scenario_AnalysisInput_2021 <- remove_incomplete_sectors(Scenario_AnalysisInput_2021)
+
 
 # we can only include geographies that are present both in baseline (currently APS, STEPS, GEO ref )
 # and shock scenario (currently SDS, nze250)
@@ -58,6 +89,7 @@ Scenario_AnalysisInput_2021_without_nze <- Scenario_AnalysisInput_2021_APS %>%
     inner_join(Scenario_AnalysisInput_2021_STEPS) %>%
     select(scenario_geography, ald_sector)) %>%
   arrange(scenario_geography)
+
 
 # Scenario_AnalysisInput_2021_without_nze <- Scenario_AnalysisInput_2021_without_nze %>% tribble_paste()
 tibble::tribble(
