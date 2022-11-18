@@ -9,8 +9,8 @@ Scenario_AnalysisInput_2021 <- readr::read_csv(
   file.path("data-raw", glue::glue("weo2021_manually_added_Scenarios_AnalysisInput_2021.csv"))
 )
 
-# we can only include geographies that are present both in baseline (currently APS, SPS, GEO ref )
-# and shock scenario (currently SDS, nze250) 
+# we can only include geographies that are present both in baseline (currently APS, STEPS, GEO ref )
+# and shock scenario (currently SDS, nze250)
 Scenario_AnalysisInput_2021_STEPS <- Scenario_AnalysisInput_2021 %>%
   filter(scenario %in% c("WEO2021_STEPS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
@@ -32,83 +32,83 @@ Scenario_AnalysisInput_2021_NZE_2050 <- Scenario_AnalysisInput_2021 %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-#GECO baseline (_ref) and shock (_1.5c, 2c_m)
+# GECO baseline (_ref) and shock (_1.5c, 2c_m)
 Scenario_AnalysisInput_2021_GECO2019_ref <- Scenario_AnalysisInput_2021 %>%
   filter(scenario %in% c("GECO2019_ref")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GECO2019_1.5c<- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2021_GECO2019_1.5c <- Scenario_AnalysisInput_2021 %>%
   filter(scenario %in% c("GECO2019_1.5c")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GECO2019_2c_m<- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2021_GECO2019_2c_m <- Scenario_AnalysisInput_2021 %>%
   filter(scenario %in% c("GECO2019_2c_m")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-#binding GECO scenario together add later to overlap_all df 
-Scenario_AnalysisInput_2021_Geco <- rbind(Scenario_AnalysisInput_2021_GECO2019_ref, Scenario_AnalysisInput_2021_GECO2019_1.5c,Scenario_AnalysisInput_2021_GECO2019_2c_m)
+# binding GECO scenario together add later to overlap_all df
+Scenario_AnalysisInput_2021_Geco <- rbind(Scenario_AnalysisInput_2021_GECO2019_ref, Scenario_AnalysisInput_2021_GECO2019_1.5c, Scenario_AnalysisInput_2021_GECO2019_2c_m)
 
-Scenario_AnalysisInput_2021_without_nze  <- Scenario_AnalysisInput_2021_APS %>%
+Scenario_AnalysisInput_2021_without_nze <- Scenario_AnalysisInput_2021_APS %>%
   select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_SDS %>%
-               select(scenario_geography, ald_sector) %>%
- inner_join(Scenario_AnalysisInput_2021_STEPS) %>%
-               select(scenario_geography, ald_sector)) %>%
+    select(scenario_geography, ald_sector) %>%
+    inner_join(Scenario_AnalysisInput_2021_STEPS) %>%
+    select(scenario_geography, ald_sector)) %>%
   arrange(scenario_geography)
 
-#Scenario_AnalysisInput_2021_without_nze <- Scenario_AnalysisInput_2021_without_nze %>% tribble_paste()
+# Scenario_AnalysisInput_2021_without_nze <- Scenario_AnalysisInput_2021_without_nze %>% tribble_paste()
 tibble::tribble(
-                         ~scenario_geography, ~ald_sector,
-                        "Advanced economies",      "Coal",
-                        "Advanced economies",   "Oil&Gas",
-                        "Advanced economies",     "Power",
-                                    "Africa",      "Coal",
-                                    "Africa",   "Oil&Gas",
-                                    "Africa",     "Power",
-                               "AsiaPacific",      "Coal",
-                               "AsiaPacific",   "Oil&Gas",
-                               "AsiaPacific",     "Power",
-                                    "Brazil",     "Power",
-                                     "China",     "Power",
-  "Emerging market and developing economies",      "Coal",
-  "Emerging market and developing economies",   "Oil&Gas",
-  "Emerging market and developing economies",     "Power",
-                                      "EU27",     "Power",
-                                   "Eurasia",      "Coal",
-                                   "Eurasia",   "Oil&Gas",
-                                   "Eurasia",     "Power",
-                                    "Europe",      "Coal",
-                                    "Europe",   "Oil&Gas",
-                                    "Europe",     "Power",
-                                    "Global",      "Coal",
-                                    "Global",   "Oil&Gas",
-                                    "Global",     "Power",
-                                     "India",     "Power",
-                                     "Japan",     "Power",
-                              "LatinAmerica",      "Coal",
-                              "LatinAmerica",   "Oil&Gas",
-                              "LatinAmerica",     "Power",
-                                "MiddleEast",      "Coal",
-                                "MiddleEast",   "Oil&Gas",
-                                "MiddleEast",     "Power",
-                                   "NonOECD",      "Coal",
-                                   "NonOECD",   "Oil&Gas",
-                                   "NonOECD",     "Power",
-                              "NorthAmerica",      "Coal",
-                              "NorthAmerica",   "Oil&Gas",
-                              "NorthAmerica",     "Power",
-                                      "OECD",      "Coal",
-                                      "OECD",   "Oil&Gas",
-                                      "OECD",     "Power",
-                                    "Russia",     "Power",
-                                        "US",     "Power"
-  )
+  ~scenario_geography, ~ald_sector,
+  "Advanced economies", "Coal",
+  "Advanced economies", "Oil&Gas",
+  "Advanced economies", "Power",
+  "Africa", "Coal",
+  "Africa", "Oil&Gas",
+  "Africa", "Power",
+  "AsiaPacific", "Coal",
+  "AsiaPacific", "Oil&Gas",
+  "AsiaPacific", "Power",
+  "Brazil", "Power",
+  "China", "Power",
+  "Emerging market and developing economies", "Coal",
+  "Emerging market and developing economies", "Oil&Gas",
+  "Emerging market and developing economies", "Power",
+  "EU27", "Power",
+  "Eurasia", "Coal",
+  "Eurasia", "Oil&Gas",
+  "Eurasia", "Power",
+  "Europe", "Coal",
+  "Europe", "Oil&Gas",
+  "Europe", "Power",
+  "Global", "Coal",
+  "Global", "Oil&Gas",
+  "Global", "Power",
+  "India", "Power",
+  "Japan", "Power",
+  "LatinAmerica", "Coal",
+  "LatinAmerica", "Oil&Gas",
+  "LatinAmerica", "Power",
+  "MiddleEast", "Coal",
+  "MiddleEast", "Oil&Gas",
+  "MiddleEast", "Power",
+  "NonOECD", "Coal",
+  "NonOECD", "Oil&Gas",
+  "NonOECD", "Power",
+  "NorthAmerica", "Coal",
+  "NorthAmerica", "Oil&Gas",
+  "NorthAmerica", "Power",
+  "OECD", "Coal",
+  "OECD", "Oil&Gas",
+  "OECD", "Power",
+  "Russia", "Power",
+  "US", "Power"
+)
 
 
-Scenario_AnalysisInput_2021_scenarios  <- Scenario_AnalysisInput_2021_APS %>%
+Scenario_AnalysisInput_2021_scenarios <- Scenario_AnalysisInput_2021_APS %>%
   select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_SDS) %>%
   select(scenario_geography, ald_sector) %>%
@@ -118,20 +118,20 @@ Scenario_AnalysisInput_2021_scenarios  <- Scenario_AnalysisInput_2021_APS %>%
   select(scenario_geography, ald_sector) %>%
   arrange(scenario_geography)
 
-#Scenario_AnalysisInput_2021_scenarios <- Scenario_AnalysisInput_2021_scenarios %>% %>% tribble_paste()
+# Scenario_AnalysisInput_2021_scenarios <- Scenario_AnalysisInput_2021_scenarios %>% %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography, ~ald_sector,
-             "Global",      "Coal",
-             "Global",   "Oil&Gas",
-             "Global",     "Power"
-  )
+  "Global", "Coal",
+  "Global", "Oil&Gas",
+  "Global", "Power"
+)
 
 
 # prewrangled_capacity_factors --------------------------------------------
 # NOTE: Only relevant for power sector
 
 # prewrangled_capacity_factors
-#using prepared_data as prewrangled_capacity_data is outdated address!-----------------------------------
+# using prepared_data as prewrangled_capacity_data is outdated address!-----------------------------------
 prewrangled_capacity_factors <- readr::read_csv(
   file.path("data-raw", glue::glue("prewrangled_capacity_factors.csv"))
 )
@@ -162,38 +162,38 @@ prewrangled_capacity_factors_WEO2021_NZE_2050 <- prewrangled_capacity_factors %>
 prewrangled_capacity_factors_WEO_2021_scenarios <- prewrangled_capacity_factors_WEO2021_STEPS %>%
   select(scenario_geography) %>%
   inner_join(prewrangled_capacity_factors_WEO2021_SDS %>%
-               select(scenario_geography)) %>%
+    select(scenario_geography)) %>%
   inner_join(prewrangled_capacity_factors_WEO2021_APS %>%
-               select(scenario_geography)) %>%
+    select(scenario_geography)) %>%
   inner_join(prewrangled_capacity_factors_WEO2021_NZE_2050 %>%
-               select(scenario_geography)) %>%
+    select(scenario_geography)) %>%
   arrange(scenario_geography)
 
 # prewrangled_capacity_factors_WEO_2021_scenarios %>% tribble_paste()
 tibble::tribble(
-          ~scenario_geography,
-         "Advanced Economies",
-                     "Africa",
-               "Asia Pacific",
-                     "Brazil",
+  ~scenario_geography,
+  "Advanced Economies",
+  "Africa",
+  "Asia Pacific",
+  "Brazil",
   "Central and South America",
-                      "China",
-       "Developing Economies",
-                    "Eurasia",
-                     "Europe",
-             "European Union",
-                     "Global",
-                      "India",
-                      "Japan",
-                "Middle East",
-                   "Non-OECD",
-              "North America",
-                       "OECD",
-                     "Russia",
-               "South Africa",
-             "Southeast Asia",
-              "United States"
-  )
+  "China",
+  "Developing Economies",
+  "Eurasia",
+  "Europe",
+  "European Union",
+  "Global",
+  "India",
+  "Japan",
+  "Middle East",
+  "Non-OECD",
+  "North America",
+  "OECD",
+  "Russia",
+  "South Africa",
+  "Southeast Asia",
+  "United States"
+)
 
 
 # Supported overlap -------------------------------------------------------
@@ -204,80 +204,86 @@ tibble::tribble(
 # Harmonizing naming conventions to P4I standard
 cap_fac_harmonised <- prewrangled_capacity_factors_WEO_2021_scenarios %>%
   dplyr::mutate(scenario_geography = gsub(" ", "", scenario_geography, fixed = TRUE)) %>%
-  dplyr::mutate(scenario_geography = case_when(scenario_geography == "EuropeanUnion" ~ "EU",
-                                               scenario_geography == "Non-OECD" ~ "NonOECD",
-                                               scenario_geography == "UnitedStates" ~ "US",
-                                               TRUE ~ scenario_geography))
+  dplyr::mutate(scenario_geography = case_when(
+    scenario_geography == "EuropeanUnion" ~ "EU",
+    scenario_geography == "Non-OECD" ~ "NonOECD",
+    scenario_geography == "UnitedStates" ~ "US",
+    TRUE ~ scenario_geography
+  ))
 
 Scenario_AnalysisInput_2021_without_nze_harmonized <- Scenario_AnalysisInput_2021_without_nze %>%
-  dplyr::mutate(scenario_geography = case_when(scenario_geography == "EU27" ~ "EU",
-                                               scenario_geography == "Emerging market and developing economies"~ "Emergingmarket&developingeconomies",
-                                               scenario_geography == "Advanced economies"~  "AdvancedEconomies",
-                                                TRUE ~ scenario_geography))
+  dplyr::mutate(scenario_geography = case_when(
+    scenario_geography == "EU27" ~ "EU",
+    scenario_geography == "Emerging market and developing economies" ~ "Emergingmarket&developingeconomies",
+    scenario_geography == "Advanced economies" ~ "AdvancedEconomies",
+    TRUE ~ scenario_geography
+  ))
 
 
 # removing scenario_geography x Power combinations that are missing in cap_fac_harmonised
 
-overlap_all <- Scenario_AnalysisInput_2021_without_nze_harmonized  %>%
+overlap_all <- Scenario_AnalysisInput_2021_without_nze_harmonized %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% cap_fac_harmonised$scenario_geography))
 
-##excluded is the power sector in Latin america as not present in capacity factors 
-##we also drop the power sector DevelopingEconomis as this category is not present in ScenarioAnalysisInput -> Question: we could rename to Emergingmarket&developingeconomies as this is present in the scenario analysis
-excluded <- setdiff( Scenario_AnalysisInput_2021_without_nze_harmonized, overlap_all)
+## excluded is the power sector in Latin america as not present in capacity factors
+## we also drop the power sector DevelopingEconomis as this category is not present in ScenarioAnalysisInput -> Question: we could rename to Emergingmarket&developingeconomies as this is present in the scenario analysis
+excluded <- setdiff(Scenario_AnalysisInput_2021_without_nze_harmonized, overlap_all)
 
 
-#overlap_all %>% tribble_paste()
+# overlap_all %>% tribble_paste()
 tibble::tribble(
-                   ~scenario_geography, ~ald_sector,
-                   "AdvancedEconomies",      "Coal",
-                   "AdvancedEconomies",   "Oil&Gas",
-                   "AdvancedEconomies",     "Power",
-                              "Africa",      "Coal",
-                              "Africa",   "Oil&Gas",
-                              "Africa",     "Power",
-                         "AsiaPacific",      "Coal",
-                         "AsiaPacific",   "Oil&Gas",
-                         "AsiaPacific",     "Power",
-                              "Brazil",     "Power",
-                               "China",     "Power",
-  "Emergingmarket&developingeconomies",      "Coal",
-  "Emergingmarket&developingeconomies",   "Oil&Gas",
-                                  "EU",     "Power",
-                             "Eurasia",      "Coal",
-                             "Eurasia",   "Oil&Gas",
-                             "Eurasia",     "Power",
-                              "Europe",      "Coal",
-                              "Europe",   "Oil&Gas",
-                              "Europe",     "Power",
-                              "Global",      "Coal",
-                              "Global",   "Oil&Gas",
-                              "Global",     "Power",
-                               "India",     "Power",
-                               "Japan",     "Power",
-                        "LatinAmerica",      "Coal",
-                        "LatinAmerica",   "Oil&Gas",
-                          "MiddleEast",      "Coal",
-                          "MiddleEast",   "Oil&Gas",
-                          "MiddleEast",     "Power",
-                             "NonOECD",      "Coal",
-                             "NonOECD",   "Oil&Gas",
-                             "NonOECD",     "Power",
-                        "NorthAmerica",      "Coal",
-                        "NorthAmerica",   "Oil&Gas",
-                        "NorthAmerica",     "Power",
-                                "OECD",      "Coal",
-                                "OECD",   "Oil&Gas",
-                                "OECD",     "Power",
-                              "Russia",     "Power",
-                                  "US",     "Power"
-  )
+  ~scenario_geography, ~ald_sector,
+  "AdvancedEconomies", "Coal",
+  "AdvancedEconomies", "Oil&Gas",
+  "AdvancedEconomies", "Power",
+  "Africa", "Coal",
+  "Africa", "Oil&Gas",
+  "Africa", "Power",
+  "AsiaPacific", "Coal",
+  "AsiaPacific", "Oil&Gas",
+  "AsiaPacific", "Power",
+  "Brazil", "Power",
+  "China", "Power",
+  "Emergingmarket&developingeconomies", "Coal",
+  "Emergingmarket&developingeconomies", "Oil&Gas",
+  "EU", "Power",
+  "Eurasia", "Coal",
+  "Eurasia", "Oil&Gas",
+  "Eurasia", "Power",
+  "Europe", "Coal",
+  "Europe", "Oil&Gas",
+  "Europe", "Power",
+  "Global", "Coal",
+  "Global", "Oil&Gas",
+  "Global", "Power",
+  "India", "Power",
+  "Japan", "Power",
+  "LatinAmerica", "Coal",
+  "LatinAmerica", "Oil&Gas",
+  "MiddleEast", "Coal",
+  "MiddleEast", "Oil&Gas",
+  "MiddleEast", "Power",
+  "NonOECD", "Coal",
+  "NonOECD", "Oil&Gas",
+  "NonOECD", "Power",
+  "NorthAmerica", "Coal",
+  "NorthAmerica", "Oil&Gas",
+  "NorthAmerica", "Power",
+  "OECD", "Coal",
+  "OECD", "Oil&Gas",
+  "OECD", "Power",
+  "Russia", "Power",
+  "US", "Power"
+)
 
 
 overlap_all$scenario_SPS <- "WEO2021_SPS"
 overlap_all$scenario_SDS <- "WEO2021_SDS"
 overlap_all$scenario_APS <- "WEO2021_APS"
 
-overlap_all <- overlap_all %>% pivot_longer(scenario_SPS: scenario_APS, values_to = "scenario") %>% select(-c(name))
+overlap_all <- overlap_all %>%
+  pivot_longer(scenario_SPS:scenario_APS, values_to = "scenario") %>%
+  select(-c(name))
 
 overlap_all <- overlap_all %>% arrange(scenario_geography, scenario)
 
@@ -289,136 +295,135 @@ overlap_all <- overlap_all %>% arrange(scenario_geography, scenario)
 
 
 tibble::tribble(
-                   ~scenario_geography,  ~ald_sector,          ~scenario,
-                   "AdvancedEconomies",       "Coal",      "WEO2021_APS",
-                   "AdvancedEconomies",    "Oil&Gas",      "WEO2021_APS",
-                   "AdvancedEconomies",      "Power",      "WEO2021_APS",
-                   "AdvancedEconomies",       "Coal",      "WEO2021_SDS",
-                   "AdvancedEconomies",    "Oil&Gas",      "WEO2021_SDS",
-                   "AdvancedEconomies",      "Power",      "WEO2021_SDS",
-                   "AdvancedEconomies",       "Coal",      "WEO2021_SPS",
-                   "AdvancedEconomies",    "Oil&Gas",      "WEO2021_SPS",
-                   "AdvancedEconomies",      "Power",      "WEO2021_SPS",
-                              "Africa",       "Coal",      "WEO2021_APS",
-                              "Africa",    "Oil&Gas",      "WEO2021_APS",
-                              "Africa",      "Power",      "WEO2021_APS",
-                              "Africa",       "Coal",      "WEO2021_SDS",
-                              "Africa",    "Oil&Gas",      "WEO2021_SDS",
-                              "Africa",      "Power",      "WEO2021_SDS",
-                              "Africa",       "Coal",      "WEO2021_SPS",
-                              "Africa",    "Oil&Gas",      "WEO2021_SPS",
-                              "Africa",      "Power",      "WEO2021_SPS",
-                         "AsiaPacific",       "Coal",      "WEO2021_APS",
-                         "AsiaPacific",    "Oil&Gas",      "WEO2021_APS",
-                         "AsiaPacific",      "Power",      "WEO2021_APS",
-                         "AsiaPacific",       "Coal",      "WEO2021_SDS",
-                         "AsiaPacific",    "Oil&Gas",      "WEO2021_SDS",
-                         "AsiaPacific",      "Power",      "WEO2021_SDS",
-                         "AsiaPacific",       "Coal",      "WEO2021_SPS",
-                         "AsiaPacific",    "Oil&Gas",      "WEO2021_SPS",
-                         "AsiaPacific",      "Power",      "WEO2021_SPS",
-                              "Brazil",      "Power",      "WEO2021_APS",
-                              "Brazil",      "Power",      "WEO2021_SDS",
-                              "Brazil",      "Power",      "WEO2021_SPS",
-                               "China",      "Power",      "WEO2021_APS",
-                               "China",      "Power",      "WEO2021_SDS",
-                               "China",      "Power",      "WEO2021_SPS",
-  "Emergingmarket&developingeconomies",       "Coal",      "WEO2021_APS",
-  "Emergingmarket&developingeconomies",    "Oil&Gas",      "WEO2021_APS",
-  "Emergingmarket&developingeconomies",       "Coal",      "WEO2021_SDS",
-  "Emergingmarket&developingeconomies",    "Oil&Gas",      "WEO2021_SDS",
-  "Emergingmarket&developingeconomies",       "Coal",      "WEO2021_SPS",
-  "Emergingmarket&developingeconomies",    "Oil&Gas",      "WEO2021_SPS",
-                                  "EU",      "Power",      "WEO2021_APS",
-                                  "EU",      "Power",      "WEO2021_SDS",
-                                  "EU",      "Power",      "WEO2021_SPS",
-                             "Eurasia",       "Coal",      "WEO2021_APS",
-                             "Eurasia",    "Oil&Gas",      "WEO2021_APS",
-                             "Eurasia",      "Power",      "WEO2021_APS",
-                             "Eurasia",       "Coal",      "WEO2021_SDS",
-                             "Eurasia",    "Oil&Gas",      "WEO2021_SDS",
-                             "Eurasia",      "Power",      "WEO2021_SDS",
-                             "Eurasia",       "Coal",      "WEO2021_SPS",
-                             "Eurasia",    "Oil&Gas",      "WEO2021_SPS",
-                             "Eurasia",      "Power",      "WEO2021_SPS",
-                              "Europe",       "Coal",      "WEO2021_APS",
-                              "Europe",    "Oil&Gas",      "WEO2021_APS",
-                              "Europe",      "Power",      "WEO2021_APS",
-                              "Europe",       "Coal",      "WEO2021_SDS",
-                              "Europe",    "Oil&Gas",      "WEO2021_SDS",
-                              "Europe",      "Power",      "WEO2021_SDS",
-                              "Europe",       "Coal",      "WEO2021_SPS",
-                              "Europe",    "Oil&Gas",      "WEO2021_SPS",
-                              "Europe",      "Power",      "WEO2021_SPS",
-                              "Global", "Automotive",    "GECO2019_1.5c",
-                              "Global", "Automotive",    "GECO2019_2c_m",
-                              "Global", "Automotive",     "GECO2019_ref",
-                              "Global",       "Coal",      "WEO2021_APS",
-                              "Global",    "Oil&Gas",      "WEO2021_APS",
-                              "Global",      "Power",      "WEO2021_APS",
-                              "Global", "Automotive", "WEO2021_NZE_2050",
-                              "Global",       "Coal", "WEO2021_NZE_2050",
-                              "Global",    "Oil&Gas", "WEO2021_NZE_2050",
-                              "Global",      "Power", "WEO2021_NZE_2050",
-                              "Global",       "Coal",      "WEO2021_SDS",
-                              "Global",    "Oil&Gas",      "WEO2021_SDS",
-                              "Global",      "Power",      "WEO2021_SDS",
-                              "Global",       "Coal",      "WEO2021_SPS",
-                              "Global",    "Oil&Gas",      "WEO2021_SPS",
-                              "Global",      "Power",      "WEO2021_SPS",
-                               "India",      "Power",      "WEO2021_APS",
-                               "India",      "Power",      "WEO2021_SDS",
-                               "India",      "Power",      "WEO2021_SPS",
-                               "Japan",      "Power",      "WEO2021_APS",
-                               "Japan",      "Power",      "WEO2021_SDS",
-                               "Japan",      "Power",      "WEO2021_SPS",
-                        "LatinAmerica",       "Coal",      "WEO2021_APS",
-                        "LatinAmerica",    "Oil&Gas",      "WEO2021_APS",
-                        "LatinAmerica",       "Coal",      "WEO2021_SDS",
-                        "LatinAmerica",    "Oil&Gas",      "WEO2021_SDS",
-                        "LatinAmerica",       "Coal",      "WEO2021_SPS",
-                        "LatinAmerica",    "Oil&Gas",      "WEO2021_SPS",
-                          "MiddleEast",       "Coal",      "WEO2021_APS",
-                          "MiddleEast",    "Oil&Gas",      "WEO2021_APS",
-                          "MiddleEast",      "Power",      "WEO2021_APS",
-                          "MiddleEast",       "Coal",      "WEO2021_SDS",
-                          "MiddleEast",    "Oil&Gas",      "WEO2021_SDS",
-                          "MiddleEast",      "Power",      "WEO2021_SDS",
-                          "MiddleEast",       "Coal",      "WEO2021_SPS",
-                          "MiddleEast",    "Oil&Gas",      "WEO2021_SPS",
-                          "MiddleEast",      "Power",      "WEO2021_SPS",
-                             "NonOECD",       "Coal",      "WEO2021_APS",
-                             "NonOECD",    "Oil&Gas",      "WEO2021_APS",
-                             "NonOECD",      "Power",      "WEO2021_APS",
-                             "NonOECD",       "Coal",      "WEO2021_SDS",
-                             "NonOECD",    "Oil&Gas",      "WEO2021_SDS",
-                             "NonOECD",      "Power",      "WEO2021_SDS",
-                             "NonOECD",       "Coal",      "WEO2021_SPS",
-                             "NonOECD",    "Oil&Gas",      "WEO2021_SPS",
-                             "NonOECD",      "Power",      "WEO2021_SPS",
-                        "NorthAmerica",       "Coal",      "WEO2021_APS",
-                        "NorthAmerica",    "Oil&Gas",      "WEO2021_APS",
-                        "NorthAmerica",      "Power",      "WEO2021_APS",
-                        "NorthAmerica",       "Coal",      "WEO2021_SDS",
-                        "NorthAmerica",    "Oil&Gas",      "WEO2021_SDS",
-                        "NorthAmerica",      "Power",      "WEO2021_SDS",
-                        "NorthAmerica",       "Coal",      "WEO2021_SPS",
-                        "NorthAmerica",    "Oil&Gas",      "WEO2021_SPS",
-                        "NorthAmerica",      "Power",      "WEO2021_SPS",
-                                "OECD",       "Coal",      "WEO2021_APS",
-                                "OECD",    "Oil&Gas",      "WEO2021_APS",
-                                "OECD",      "Power",      "WEO2021_APS",
-                                "OECD",       "Coal",      "WEO2021_SDS",
-                                "OECD",    "Oil&Gas",      "WEO2021_SDS",
-                                "OECD",      "Power",      "WEO2021_SDS",
-                                "OECD",       "Coal",      "WEO2021_SPS",
-                                "OECD",    "Oil&Gas",      "WEO2021_SPS",
-                                "OECD",      "Power",      "WEO2021_SPS",
-                              "Russia",      "Power",      "WEO2021_APS",
-                              "Russia",      "Power",      "WEO2021_SDS",
-                              "Russia",      "Power",      "WEO2021_SPS",
-                                  "US",      "Power",      "WEO2021_APS",
-                                  "US",      "Power",      "WEO2021_SDS",
-                                  "US",      "Power",      "WEO2021_SPS"
-  )
-
+  ~scenario_geography, ~ald_sector, ~scenario,
+  "AdvancedEconomies", "Coal", "WEO2021_APS",
+  "AdvancedEconomies", "Oil&Gas", "WEO2021_APS",
+  "AdvancedEconomies", "Power", "WEO2021_APS",
+  "AdvancedEconomies", "Coal", "WEO2021_SDS",
+  "AdvancedEconomies", "Oil&Gas", "WEO2021_SDS",
+  "AdvancedEconomies", "Power", "WEO2021_SDS",
+  "AdvancedEconomies", "Coal", "WEO2021_SPS",
+  "AdvancedEconomies", "Oil&Gas", "WEO2021_SPS",
+  "AdvancedEconomies", "Power", "WEO2021_SPS",
+  "Africa", "Coal", "WEO2021_APS",
+  "Africa", "Oil&Gas", "WEO2021_APS",
+  "Africa", "Power", "WEO2021_APS",
+  "Africa", "Coal", "WEO2021_SDS",
+  "Africa", "Oil&Gas", "WEO2021_SDS",
+  "Africa", "Power", "WEO2021_SDS",
+  "Africa", "Coal", "WEO2021_SPS",
+  "Africa", "Oil&Gas", "WEO2021_SPS",
+  "Africa", "Power", "WEO2021_SPS",
+  "AsiaPacific", "Coal", "WEO2021_APS",
+  "AsiaPacific", "Oil&Gas", "WEO2021_APS",
+  "AsiaPacific", "Power", "WEO2021_APS",
+  "AsiaPacific", "Coal", "WEO2021_SDS",
+  "AsiaPacific", "Oil&Gas", "WEO2021_SDS",
+  "AsiaPacific", "Power", "WEO2021_SDS",
+  "AsiaPacific", "Coal", "WEO2021_SPS",
+  "AsiaPacific", "Oil&Gas", "WEO2021_SPS",
+  "AsiaPacific", "Power", "WEO2021_SPS",
+  "Brazil", "Power", "WEO2021_APS",
+  "Brazil", "Power", "WEO2021_SDS",
+  "Brazil", "Power", "WEO2021_SPS",
+  "China", "Power", "WEO2021_APS",
+  "China", "Power", "WEO2021_SDS",
+  "China", "Power", "WEO2021_SPS",
+  "Emergingmarket&developingeconomies", "Coal", "WEO2021_APS",
+  "Emergingmarket&developingeconomies", "Oil&Gas", "WEO2021_APS",
+  "Emergingmarket&developingeconomies", "Coal", "WEO2021_SDS",
+  "Emergingmarket&developingeconomies", "Oil&Gas", "WEO2021_SDS",
+  "Emergingmarket&developingeconomies", "Coal", "WEO2021_SPS",
+  "Emergingmarket&developingeconomies", "Oil&Gas", "WEO2021_SPS",
+  "EU", "Power", "WEO2021_APS",
+  "EU", "Power", "WEO2021_SDS",
+  "EU", "Power", "WEO2021_SPS",
+  "Eurasia", "Coal", "WEO2021_APS",
+  "Eurasia", "Oil&Gas", "WEO2021_APS",
+  "Eurasia", "Power", "WEO2021_APS",
+  "Eurasia", "Coal", "WEO2021_SDS",
+  "Eurasia", "Oil&Gas", "WEO2021_SDS",
+  "Eurasia", "Power", "WEO2021_SDS",
+  "Eurasia", "Coal", "WEO2021_SPS",
+  "Eurasia", "Oil&Gas", "WEO2021_SPS",
+  "Eurasia", "Power", "WEO2021_SPS",
+  "Europe", "Coal", "WEO2021_APS",
+  "Europe", "Oil&Gas", "WEO2021_APS",
+  "Europe", "Power", "WEO2021_APS",
+  "Europe", "Coal", "WEO2021_SDS",
+  "Europe", "Oil&Gas", "WEO2021_SDS",
+  "Europe", "Power", "WEO2021_SDS",
+  "Europe", "Coal", "WEO2021_SPS",
+  "Europe", "Oil&Gas", "WEO2021_SPS",
+  "Europe", "Power", "WEO2021_SPS",
+  "Global", "Automotive", "GECO2019_1.5c",
+  "Global", "Automotive", "GECO2019_2c_m",
+  "Global", "Automotive", "GECO2019_ref",
+  "Global", "Coal", "WEO2021_APS",
+  "Global", "Oil&Gas", "WEO2021_APS",
+  "Global", "Power", "WEO2021_APS",
+  "Global", "Automotive", "WEO2021_NZE_2050",
+  "Global", "Coal", "WEO2021_NZE_2050",
+  "Global", "Oil&Gas", "WEO2021_NZE_2050",
+  "Global", "Power", "WEO2021_NZE_2050",
+  "Global", "Coal", "WEO2021_SDS",
+  "Global", "Oil&Gas", "WEO2021_SDS",
+  "Global", "Power", "WEO2021_SDS",
+  "Global", "Coal", "WEO2021_SPS",
+  "Global", "Oil&Gas", "WEO2021_SPS",
+  "Global", "Power", "WEO2021_SPS",
+  "India", "Power", "WEO2021_APS",
+  "India", "Power", "WEO2021_SDS",
+  "India", "Power", "WEO2021_SPS",
+  "Japan", "Power", "WEO2021_APS",
+  "Japan", "Power", "WEO2021_SDS",
+  "Japan", "Power", "WEO2021_SPS",
+  "LatinAmerica", "Coal", "WEO2021_APS",
+  "LatinAmerica", "Oil&Gas", "WEO2021_APS",
+  "LatinAmerica", "Coal", "WEO2021_SDS",
+  "LatinAmerica", "Oil&Gas", "WEO2021_SDS",
+  "LatinAmerica", "Coal", "WEO2021_SPS",
+  "LatinAmerica", "Oil&Gas", "WEO2021_SPS",
+  "MiddleEast", "Coal", "WEO2021_APS",
+  "MiddleEast", "Oil&Gas", "WEO2021_APS",
+  "MiddleEast", "Power", "WEO2021_APS",
+  "MiddleEast", "Coal", "WEO2021_SDS",
+  "MiddleEast", "Oil&Gas", "WEO2021_SDS",
+  "MiddleEast", "Power", "WEO2021_SDS",
+  "MiddleEast", "Coal", "WEO2021_SPS",
+  "MiddleEast", "Oil&Gas", "WEO2021_SPS",
+  "MiddleEast", "Power", "WEO2021_SPS",
+  "NonOECD", "Coal", "WEO2021_APS",
+  "NonOECD", "Oil&Gas", "WEO2021_APS",
+  "NonOECD", "Power", "WEO2021_APS",
+  "NonOECD", "Coal", "WEO2021_SDS",
+  "NonOECD", "Oil&Gas", "WEO2021_SDS",
+  "NonOECD", "Power", "WEO2021_SDS",
+  "NonOECD", "Coal", "WEO2021_SPS",
+  "NonOECD", "Oil&Gas", "WEO2021_SPS",
+  "NonOECD", "Power", "WEO2021_SPS",
+  "NorthAmerica", "Coal", "WEO2021_APS",
+  "NorthAmerica", "Oil&Gas", "WEO2021_APS",
+  "NorthAmerica", "Power", "WEO2021_APS",
+  "NorthAmerica", "Coal", "WEO2021_SDS",
+  "NorthAmerica", "Oil&Gas", "WEO2021_SDS",
+  "NorthAmerica", "Power", "WEO2021_SDS",
+  "NorthAmerica", "Coal", "WEO2021_SPS",
+  "NorthAmerica", "Oil&Gas", "WEO2021_SPS",
+  "NorthAmerica", "Power", "WEO2021_SPS",
+  "OECD", "Coal", "WEO2021_APS",
+  "OECD", "Oil&Gas", "WEO2021_APS",
+  "OECD", "Power", "WEO2021_APS",
+  "OECD", "Coal", "WEO2021_SDS",
+  "OECD", "Oil&Gas", "WEO2021_SDS",
+  "OECD", "Power", "WEO2021_SDS",
+  "OECD", "Coal", "WEO2021_SPS",
+  "OECD", "Oil&Gas", "WEO2021_SPS",
+  "OECD", "Power", "WEO2021_SPS",
+  "Russia", "Power", "WEO2021_APS",
+  "Russia", "Power", "WEO2021_SDS",
+  "Russia", "Power", "WEO2021_SPS",
+  "US", "Power", "WEO2021_APS",
+  "US", "Power", "WEO2021_SDS",
+  "US", "Power", "WEO2021_SPS"
+)
