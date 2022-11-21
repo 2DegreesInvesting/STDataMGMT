@@ -73,7 +73,7 @@ abcd_data <- pams_raw
 
 # from data_prep_v2022:
 # scenario prep options
-scenario_sources_list <- c("WEO2019", "WEO2020", "GECO2019")
+scenario_sources_list <- c("WEO2021", "GECO2019")
 sector_list <- c("HDV", "Automotive", "Power", "Fossil Fuels", "Oil&Gas", "Coal")
 other_sector_list <- c("Shipping", "Steel", "Aviation", "Cement")
 start_year <- 2021
@@ -86,9 +86,11 @@ relevant_years <- sort(unique(c(start_year:(start_year + time_horizon), addition
 global_aggregate <- FALSE
 
 # read scenario data
-scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv")))
+scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("weo2021_manually_added_Scenarios_AnalysisInput_{start_year}.csv")))
+
 
 scenario_geographies_list <- scenario_data %>% dplyr::distinct(scenario_geography)
+
 not_available <- c(
   "AdvancedEconomies",
   "Central&SouthAmerica",
@@ -100,6 +102,7 @@ not_available <- c(
 scenario_geographies_list <- scenario_geographies_list %>%
   dplyr::filter(!scenario_geography %in% not_available) %>%
   dplyr::pull()
+
 
 # from data_prep_v2022:
 
@@ -116,7 +119,7 @@ tech_exclude <-
     "Passenger / Freight"
   )
 
-global_aggregate_scenario_sources_list <- c("WEO2019", "WEO2020", "GECO2019")
+global_aggregate_scenario_sources_list <- c("WEO2021", "GECO2019")
 global_aggregate_sector_list <- c("Power")
 
 # this should be based on the scenario.preparation repo as a single source of
