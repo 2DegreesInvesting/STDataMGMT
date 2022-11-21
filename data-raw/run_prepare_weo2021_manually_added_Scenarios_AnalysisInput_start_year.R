@@ -91,7 +91,7 @@ if (start_year == 2021) {
     ) %>%
     dplyr::mutate(
       scenario_geography = dplyr::if_else(
-        .data$scenario_geography == "EU 27",
+        .data$scenario_geography == "EU27",
         "EU",
         .data$scenario_geography
       )
