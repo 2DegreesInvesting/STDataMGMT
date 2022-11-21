@@ -73,7 +73,7 @@ if (start_year == 2020) {
     )
 }
 
-if (start_year == 2022) {
+if (start_year == 2021) {
   prepared_data <- prepared_data %>%
     dplyr::mutate(
       scenario_geography = dplyr::if_else(
@@ -88,8 +88,16 @@ if (start_year == 2022) {
         "Emergingmarket&developingeconomies",
         .data$scenario_geography
       )
+    ) %>%
+    dplyr::mutate(
+      scenario_geography = dplyr::if_else(
+        .data$scenario_geography == "EU 27",
+        "EU",
+        .data$scenario_geography
+      )
     )
 }
+
 
 
 prepared_data %>% readr::write_csv(
