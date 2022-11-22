@@ -72,7 +72,8 @@ if (start_year == 2020) {
       )
     )
 }
-
+#EU27 and EU are two distinct in the 2021 data which are combined here 
+#same goes for advanced - and emerging market and developing economies
 if (start_year == 2021) {
   prepared_data <- prepared_data %>%
     dplyr::mutate(
