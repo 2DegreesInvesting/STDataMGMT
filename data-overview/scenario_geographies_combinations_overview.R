@@ -338,12 +338,12 @@ tibble::tribble(
   )
 
 
-overlap_all$scenario_SPS <- "WEO2021_SPS"
+overlap_all$scenario_STEPS <- "WEO2021_STEPS"
 overlap_all$scenario_SDS <- "WEO2021_SDS"
 overlap_all$scenario_APS <- "WEO2021_APS"
 
 overlap_all <- overlap_all %>%
-  pivot_longer(scenario_SPS:scenario_APS, values_to = "scenario") %>%
+  pivot_longer(scenario_STEPS:scenario_APS, values_to = "scenario") %>%
   select(-c(name))
 
 overlap_all <- overlap_all %>% arrange(scenario_geography, scenario)
@@ -353,7 +353,6 @@ overlap_all <- overlap_all %>% full_join(Scenario_AnalysisInput_2021_Geco)
 overlap_all <- overlap_all %>% full_join(Scenario_AnalysisInput_2021_NZE_2050)
 
 overlap_all <- overlap_all %>% arrange(scenario_geography, scenario)
-
 
 tibble::tribble(
   ~scenario_geography,  ~ald_sector,          ~scenario,
