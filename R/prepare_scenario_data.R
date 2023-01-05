@@ -11,8 +11,7 @@ prepare_scenario_data <- function(data, start_year) {
   data_has_expected_columns <- all(
     c(
       "Source", "Technology", "ScenarioGeography", "Sector", "Units",
-      "Indicator", "Scenario", "Sub_Technology", "Year", "AnnualvalIEAtech",
-      "refvalIEAtech", "refvalIEAsec", "Direction", "mktFSRatio", "techFSRatio",
+      "Indicator", "Scenario", "Sub_Technology", "Year", "Direction", "mktFSRatio", "techFSRatio",
       "FairSharePerc"
     ) %in% colnames(data)
   )
@@ -45,8 +44,7 @@ prepare_scenario_data <- function(data, start_year) {
     ) %>%
     dplyr::select(
       -c(
-        .data$Sub_Technology, .data$Indicator, .data$AnnualvalIEAtech,
-        .data$refvalIEAtech, .data$refvalIEAsec, .data$mktFSRatio, .data$techFSRatio
+        .data$Sub_Technology, .data$Indicator, .data$mktFSRatio, .data$techFSRatio
       )
     ) %>%
     dplyr::rename(
