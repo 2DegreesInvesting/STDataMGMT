@@ -16,31 +16,22 @@ prepare_scenario_data <- function(data, start_year) {
     ) %in% colnames(data)
   )
   stopifnot(data_has_expected_columns)
-
+  
   # due to inconsistencies in the raw data across sources, we need to filter for
   # other Indicators in IEA scenarios than in GECO scenarios at least up until
-  # WEO 2020 and GECO 2019. Please review once new scenarios are available
+  # WEO 2021 and GECO 2021. Please review once new scenarios are available
   data <- data %>%
     dplyr::filter(
-      (stringr::str_detect(.data$Source, "WEO") & .data$Indicator %in% c("Capacity", "Production", "Sales")) |
-        # Energy supply should likely be transformed to the common production units first...
-        (stringr::str_detect(.data$Source, "WEO2021") & .data$Indicator %in% c("Capacity", "Energy Supply", "Production", "Sales")) |
-        (stringr::str_detect(.data$Source, "ETP") & .data$Indicator %in% c("Capacity", "Production", "Sales")) |
-        (stringr::str_detect(.data$Source, "GECO2021") & .data$Indicator %in% c("Capacity", "Production", "Sales")) |
-        # ADO4977 - for GECO up until 2019, there is no distinction and indicators are
-        # prepared to the appropriate unit used in PACTA
-        (stringr::str_detect(.data$Source, "GECO2019") & is.na(.data$Indicator))
+      (stringr::str_detect(.data$Source, "WEO2021") & .data$Indicator %in% c("Capacity", "Energy Supply", "Production", "Sales")) |
+        (stringr::str_detect(.data$Source, "GECO2021") & .data$Indicator %in% c("Capacity", "Production", "Sales")) 
     ) %>%
-    # for GECO2019, we can only cover Automotive, as we do not have any price or
+    # for GECO2021, we can only cover Automotive, as we do not have any price or
     # cost information for other sectors
     dplyr::filter(
-      !(stringr::str_detect(.data$Source, "GECO2019") & .data$Sector != "Automotive")
+      !(stringr::str_detect(.data$Source, "GECO2021") & .data$Sector != "Automotive")
     ) %>%
     dplyr::filter(
-      !(.data$Technology == "RenewablesCap" & !is.na(.data$Sub_Technology))
-    ) %>%
-    dplyr::filter(
-      !(.data$Source %in% c("GP_ER_2015", "BNEF2017", "WEO2017", "WEO2018", "SBTI"))
+      !(.data$Technology == "RenewablesCap" & !is.na(.data$Sub_Technology))     #THIS NEEDS TO BE INVESTIGATED AS SUBTECHNOLOGIES CURRENTLY ALWAYS EMPTY
     ) %>%
     dplyr::select(
       -c(
@@ -64,40 +55,36 @@ prepare_scenario_data <- function(data, start_year) {
       .data$direction, .data$fair_share_perc
     ) %>%
     dplyr::mutate(
-      scenario = stringr::str_replace(.data$scenario, "NPSRTS", "NPS")
-    ) %>%
-    dplyr::mutate(
       scenario = stringr::str_c(.data$scenario_source, .data$scenario, sep = "_")
     ) %>%
-    dplyr::filter(!(.data$scenario_source == "ETP2017" & .data$ald_sector == "Power")) %>%
     dplyr::distinct_all()
-
+  
   # We can only use scenario x scenario_geography combinations that do not have
-  # NAs on any not nullable columns. We currently only use SPS and SDS, thus for
+  # NAs on any not nullable columns. We currently  use STEPS, SDS, APS and NZE_2050, thus for
   # now only affected scenario x scenario_geography combinations in those sectors
   # are removed. Rows are removed from all scenarios as soon as scenario_geography
   # is affected on any of the scenarios.
   NA_geos <- data %>%
     dplyr::filter(
       .data$scenario %in% c(
-        "ETP2017_NPS", "ETP2017_SDS", "WEO2019_SDS", "WEO2019_SPS", "WEO2020_SDS",
-        "WEO2020_SPS", "GECO2019_ref", "GECO2019_1.5c", "GECO2019_2c_m"
+        "WEO2021_STEPS", "WEO2021_SDS", "WEO2021_NZE_2050", "WEO2021_APS",
+        "WEO2020_SPS", "GECO2021_CurPol", "GECO2021_1.5C-Unif", "GECO2021_NDC-LTS"
       )
     ) %>%
     dplyr::filter_all(dplyr::any_vars(is.na(.))) %>%
     dplyr::distinct(.data$scenario_source, .data$scenario_geography, .data$ald_sector)
-
+  
   data <- data %>%
     dplyr::anti_join(NA_geos, by = c("scenario_source", "scenario_geography", "ald_sector"))
-
+  
   # removing sectors that are not supported by stress testing
   data <- data %>%
     dplyr::filter(.data$ald_sector %in% unique(p4i_p4b_sector_technology_lookup$sector_p4i))
-
+  
   data <- remove_incomplete_sectors(data)
-
+  
   data <- data %>%
     dplyr::select(-.data$scenario_source)
-
+  
   return(data)
 }
