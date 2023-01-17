@@ -1,0 +1,109 @@
+year,model,scenario,scenario_geography,variable,unit,carbon_tax
+2015,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2016,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2017,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2018,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2019,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2020,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2021,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2022,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2023,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2024,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2025,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,86.48881429000001
+2026,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,91.26785873200001
+2027,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,96.04690317400001
+2028,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,100.825947616
+2029,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,105.604992058
+2030,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,110.3840365
+2031,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,116.48339967999999
+2032,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,122.58276286
+2033,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,128.68212604000001
+2034,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,134.78148922
+2035,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,140.8808524
+2036,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,148.66542448
+2037,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,156.44999656000002
+2038,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,164.23456864
+2039,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,172.01914072
+2040,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,179.8037128
+2041,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,189.73901198000002
+2042,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,199.67431116
+2043,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,209.60961034000002
+2044,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,219.54490952000003
+2045,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,229.48020870000002
+2046,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,242.16041148000002
+2047,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,254.84061426000002
+2048,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,267.52081704
+2049,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,280.20101982
+2050,GCAM 5.2,"Immediate 2C with CDR (Orderly, Rep)",Global,Price|Carbon,US$2010/t CO2,292.8812226
+2015,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2016,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2017,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2018,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2019,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2020,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2021,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2022,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2023,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2024,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2025,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2026,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2027,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2028,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2029,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2030,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,5.578258917
+2031,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,5.998937596
+2032,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,6.419616275000001
+2033,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,6.840294954000001
+2034,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,7.260973633000001
+2035,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,7.681652312000001
+2036,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,7.814373725000001
+2037,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,7.947095138000001
+2038,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.079816551
+2039,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.212537964000001
+2040,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.345259377000001
+2041,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.450009997000002
+2042,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.554760617000001
+2043,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.659511237000002
+2044,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.764261857000001
+2045,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.869012477000002
+2046,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,8.990364088800002
+2047,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,9.111715700600001
+2048,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,9.233067312400003
+2049,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,9.354418924200003
+2050,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,9.475770536000002
+2015,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2016,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2017,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2018,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2019,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2020,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2021,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2022,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2023,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2024,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
+2025,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,13.5603
+2026,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,13.699
+2027,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,13.8377
+2028,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,13.9764
+2029,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,14.1151
+2030,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,14.2538
+2031,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,48.72942
+2032,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,83.20504
+2033,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,117.68065999999999
+2034,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,152.15628
+2035,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,186.6319
+2036,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,221.24322
+2037,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,255.85454
+2038,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,290.46585999999996
+2039,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,325.07718
+2040,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,359.6885
+2041,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,394.25311999999997
+2042,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,428.81773999999996
+2043,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,463.38235999999995
+2044,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,497.94697999999994
+2045,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,532.5115999999999
+2046,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,566.8923
+2047,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,601.2729999999999
+2048,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,635.6537
+2049,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,670.0344
+2050,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,704.4150999999999
