@@ -60,9 +60,8 @@ green_techs <- c(
   "Hybrid_HDV"
 )
 
-preprepared_ngfs_data <- preprepared_ngfs_data %>%  format_p4i(green_techs)
+preprepared_ngfs_data <- preprepared_ngfs_data %>% format_p4i(green_techs)
 
 preprepared_ngfs_data %>% readr::write_csv(
   file.path("data-raw", glue::glue("preprepared_NGFS_Scenarios_AnalysisInput_{start_year}.csv"))
 )
-

@@ -8,56 +8,63 @@
 #' @export
 
 preprepare_ngfs_scenario_data <- function(data) {
-  
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
-    dplyr::mutate(scenario = dplyr::case_when(
-      .data$scenario == "Nationally Determined Contributions (NDCs)" ~ "NDC",
-      .data$scenario == "Below 2°C" ~ "B2DS",
-      .data$scenario == "Delayed transition" ~ "DT",
-      .data$scenario == "Current Policies" ~ "CP",
-      .data$scenario == "Divergent Net Zero" ~ "DN0",
-      .data$scenario == "Net Zero 2050" ~ "NZ2050",
-      TRUE ~ .data$scenario),
+    dplyr::mutate(
+      scenario = dplyr::case_when(
+        .data$scenario == "Nationally Determined Contributions (NDCs)" ~ "NDC",
+        .data$scenario == "Below 2°C" ~ "B2DS",
+        .data$scenario == "Delayed transition" ~ "DT",
+        .data$scenario == "Current Policies" ~ "CP",
+        .data$scenario == "Divergent Net Zero" ~ "DN0",
+        .data$scenario == "Net Zero 2050" ~ "NZ2050",
+        TRUE ~ .data$scenario
+      ),
       sector = dplyr::case_when(
         .data$category_b == "Oil" ~ "Oil&Gas",
         .data$category_b == "Gas" ~ "Oil&Gas",
-        .data$category_b  == "Coal" ~ "Coal",
-        TRUE ~ "Power" ),
+        .data$category_b == "Coal" ~ "Coal",
+        TRUE ~ "Power"
+      ),
       technology = dplyr::case_when(
-        .data$category_b  == "Oil" ~ "Oil",
-        .data$category_b  == "Gas" ~ "Gas",
-        .data$category_b  == "Coal" ~ "Coal",
-        .data$category_b  == "Electricity" & .data$category_c == "Coal"  ~ "CoalCap",
-        .data$category_b  == "Electricity" & .data$category_c == "Gas"  ~ "GasCap",
-        .data$category_b == "Electricity" &  .data$category_c == "Hydro"  ~ "HydroCap",
-        .data$category_b  == "Electricity" & .data$category_c == "Nuclear"  ~ "NuclearCap",
-        .data$category_b == "Electricity" &  .data$category_c == "Oil"  ~ "OilCap",
-        .data$category_b == "Electricity" &  .data$category_c == "Solar"  ~ "RenewablesCap",
-        .data$category_b == "Electricity" &  .data$category_c == "Geothermal"  ~ "RenewablesCap",
-        .data$category_b  == "Electricity" & .data$category_c == "Biomass"  ~ "RenewablesCap",
-        .data$category_b  == "Electricity" & .data$category_c == "Wind"  ~ "RenewablesCap",
-        TRUE ~ .data$category_c),
+        .data$category_b == "Oil" ~ "Oil",
+        .data$category_b == "Gas" ~ "Gas",
+        .data$category_b == "Coal" ~ "Coal",
+        .data$category_b == "Electricity" & .data$category_c == "Coal" ~ "CoalCap",
+        .data$category_b == "Electricity" & .data$category_c == "Gas" ~ "GasCap",
+        .data$category_b == "Electricity" & .data$category_c == "Hydro" ~ "HydroCap",
+        .data$category_b == "Electricity" & .data$category_c == "Nuclear" ~ "NuclearCap",
+        .data$category_b == "Electricity" & .data$category_c == "Oil" ~ "OilCap",
+        .data$category_b == "Electricity" & .data$category_c == "Solar" ~ "RenewablesCap",
+        .data$category_b == "Electricity" & .data$category_c == "Geothermal" ~ "RenewablesCap",
+        .data$category_b == "Electricity" & .data$category_c == "Biomass" ~ "RenewablesCap",
+        .data$category_b == "Electricity" & .data$category_c == "Wind" ~ "RenewablesCap",
+        TRUE ~ .data$category_c
+      ),
       indicator = dplyr::if_else(
-        .data$sector == "Power", "Capacity", "Production"),
+        .data$sector == "Power", "Capacity", "Production"
+      ),
       source = paste("NGFS", start_year, sep = ""),
       model = dplyr::case_when(
         .data$Model == "GCAM 5.3+ NGFS" ~ "GCAM",
         .data$Model == "REMIND-MAgPIE 3.0-4.4" ~ "REMIND-MAgPIE",
         .data$Model == "MESSAGEix-GLOBIOM 1.1-M-R12" ~ "MESSAGEix - GLOBIUM",
         TRUE ~ .data$Model
-      )) %>%
+      )
+    ) %>%
     dplyr::rename(scenario_geography = .data$Region, units = .data$Unit) %>%
     dplyr::select(-c(Model, Variable, Scenario, category_c, category_a, category_b))
-  
 
- combine_renewables_cap <- data %>% dplyr::filter(technology == "RenewablesCap") %>% dplyr::group_by(year, technology, scenario_geography, model, scenario) %>%
-    dplyr::mutate(value = sum(value)) %>% unique()
- 
- delete_renewables <- data %>% dplyr::filter(!technology == "RenewablesCap")
- 
- data <- dplyr::full_join(combine_renewables_cap,delete_renewables)
-  
+
+  combine_renewables_cap <- data %>%
+    dplyr::filter(technology == "RenewablesCap") %>%
+    dplyr::group_by(year, technology, scenario_geography, model, scenario) %>%
+    dplyr::mutate(value = sum(value)) %>%
+    unique()
+
+  delete_renewables <- data %>% dplyr::filter(!technology == "RenewablesCap")
+
+  data <- dplyr::full_join(combine_renewables_cap, delete_renewables)
 }
 
 #' Interpolate values in a dataset, by year.
@@ -98,7 +105,7 @@ interpolate_yearly <- function(data, ...) {
 add_market_share_columns <- function(data, start_year) {
   old_groups <- dplyr::groups(data)
   data <- dplyr::ungroup(data)
-  
+
   data %>%
     add_technology_fair_share_ratio() %>%
     add_market_fair_share_percentage() %>%
@@ -134,7 +141,6 @@ common_fs_groups <- function() {
 }
 
 format_p4i <- function(data, green_techs) {
-  
   crucial_names <- c(
     "source",
     "scenario",
@@ -148,9 +154,9 @@ format_p4i <- function(data, green_techs) {
     "tmsr",
     "smsp"
   )
-  
+
   check_crucial_names(data, crucial_names)
-  
+
   data %>%
     dplyr::mutate(Sub_Technology = NA) %>% # this column should be dropped from PACTA
     dplyr::mutate(
@@ -173,7 +179,6 @@ format_p4i <- function(data, green_techs) {
       .data$Direction,
       .data$FairSharePerc
     )
-  
 }
 
 #' Check if a named object contains expected names
@@ -193,12 +198,12 @@ format_p4i <- function(data, green_techs) {
 check_crucial_names <- function(x, expected_names) {
   stopifnot(rlang::is_named(x))
   stopifnot(is.character(expected_names))
-  
+
   ok <- all(unique(expected_names) %in% names(x))
   if (!ok) {
     abort_missing_names(sort(setdiff(expected_names, names(x))))
   }
-  
+
   invisible(x)
 }
 

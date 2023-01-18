@@ -12,14 +12,16 @@ output_path_stress_test_inputs <- fs::path(
   r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "ST_INPUTS_MASTER"
 )
 
-sample_names <- c("Mbuyelo Investment Holdings",
-                  "Solid Fuel, Inc.",
-                  "Talbot Group Holdings Pty Ltd.",
-                  "Nika Energy Co",
-                  "Omega Energy Developer Pvt Ltd",
-                  "Sofoensa",
-                  "Star Metallics And Power Private Limited",
-                  "Tangent Energy Solutions, Inc.")
+sample_names <- c(
+  "Mbuyelo Investment Holdings",
+  "Solid Fuel, Inc.",
+  "Talbot Group Holdings Pty Ltd.",
+  "Nika Energy Co",
+  "Omega Energy Developer Pvt Ltd",
+  "Sofoensa",
+  "Star Metallics And Power Private Limited",
+  "Tangent Energy Solutions, Inc."
+)
 
 abcd_full_test <- abcd_full %>% dplyr::filter(company_name %in% sample_names)
 

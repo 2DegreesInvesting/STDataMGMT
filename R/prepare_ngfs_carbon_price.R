@@ -73,13 +73,13 @@ prepare_ngfs_carbon_price <- function(data,
       carbon_tax = dplyr::case_when(
         .data$scenario == "Immediate 2C with CDR (Orderly, Rep)" &
           .data$year >= 2025 ~
-        zoo::na.approx(object = .data$carbon_tax),
+          zoo::na.approx(object = .data$carbon_tax),
         .data$scenario == "Delayed 2C with limited CDR (Disorderly, Rep)" &
           .data$year >= 2025 ~
-        zoo::na.approx(object = .data$carbon_tax),
+          zoo::na.approx(object = .data$carbon_tax),
         .data$scenario == "Current policies (Hot house world, Rep)" &
           .data$year >= 2030 ~
-        zoo::na.approx(object = .data$carbon_tax),
+          zoo::na.approx(object = .data$carbon_tax),
         TRUE ~ 0
       )
     ) %>%

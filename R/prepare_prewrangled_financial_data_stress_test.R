@@ -30,12 +30,12 @@ prepare_prewrangled_financial_data_stress_test <- function(eikon_data) {
       net_profit_margin = dplyr::case_when(
         .data$net_profit_margin < 0 &
           dplyr::between(.data$profit_margin_unpreferred, 0, 1) ~
-        .data$profit_margin_unpreferred,
+          .data$profit_margin_unpreferred,
         .data$net_profit_margin < 0 & .data$profit_margin_unpreferred < 0 ~ 0,
         .data$net_profit_margin < 0 & .data$profit_margin_unpreferred > 1 ~ 0,
         .data$net_profit_margin > 1 &
           dplyr::between(.data$profit_margin_unpreferred, 0, 1) ~
-        .data$profit_margin_unpreferred,
+          .data$profit_margin_unpreferred,
         .data$net_profit_margin > 1 & .data$profit_margin_unpreferred > 1 ~ 1,
         .data$net_profit_margin > 1 & .data$profit_margin_unpreferred < 0 ~ 1,
         TRUE ~ .data$net_profit_margin

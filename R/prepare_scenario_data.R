@@ -16,14 +16,14 @@ prepare_scenario_data <- function(data, start_year) {
     ) %in% colnames(data)
   )
   stopifnot(data_has_expected_columns)
-  
+
   # due to inconsistencies in the raw data across sources, we need to filter for
   # other Indicators in IEA scenarios than in GECO scenarios at least up until
   # WEO 2021 and GECO 2021. Please review once new scenarios are available
   data <- data %>%
     dplyr::filter(
       (stringr::str_detect(.data$Source, "WEO2021") & .data$Indicator %in% c("Capacity", "Energy Supply", "Production", "Sales")) |
-        (stringr::str_detect(.data$Source, "GECO2021") & .data$Indicator %in% c("Capacity", "Production", "Sales")) 
+        (stringr::str_detect(.data$Source, "GECO2021") & .data$Indicator %in% c("Capacity", "Production", "Sales"))
     ) %>%
     # for GECO2021, we can only cover Automotive, as we do not have any price or
     # cost information for other sectors
@@ -31,7 +31,7 @@ prepare_scenario_data <- function(data, start_year) {
       !(stringr::str_detect(.data$Source, "GECO2021") & .data$Sector != "Automotive")
     ) %>%
     dplyr::filter(
-      !(.data$Technology == "RenewablesCap" & !is.na(.data$Sub_Technology))     #THIS NEEDS TO BE INVESTIGATED AS SUBTECHNOLOGIES CURRENTLY ALWAYS EMPTY
+      !(.data$Technology == "RenewablesCap" & !is.na(.data$Sub_Technology)) # THIS NEEDS TO BE INVESTIGATED AS SUBTECHNOLOGIES CURRENTLY ALWAYS EMPTY
     ) %>%
     dplyr::select(
       -c(
@@ -58,7 +58,7 @@ prepare_scenario_data <- function(data, start_year) {
       scenario = stringr::str_c(.data$scenario_source, .data$scenario, sep = "_")
     ) %>%
     dplyr::distinct_all()
-  
+
   # We can only use scenario x scenario_geography combinations that do not have
   # NAs on any not nullable columns. We currently  use STEPS, SDS, APS and NZE_2050, thus for
   # now only affected scenario x scenario_geography combinations in those sectors
@@ -73,18 +73,18 @@ prepare_scenario_data <- function(data, start_year) {
     ) %>%
     dplyr::filter_all(dplyr::any_vars(is.na(.))) %>%
     dplyr::distinct(.data$scenario_source, .data$scenario_geography, .data$ald_sector)
-  
+
   data <- data %>%
     dplyr::anti_join(NA_geos, by = c("scenario_source", "scenario_geography", "ald_sector"))
-  
+
   # removing sectors that are not supported by stress testing
   data <- data %>%
     dplyr::filter(.data$ald_sector %in% unique(p4i_p4b_sector_technology_lookup$sector_p4i))
-  
+
   data <- remove_incomplete_sectors(data)
-  
+
   data <- data %>%
     dplyr::select(-.data$scenario_source)
-  
+
   return(data)
 }
