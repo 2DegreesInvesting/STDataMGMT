@@ -21,6 +21,7 @@ stress test.
 }
 \seealso{
 Other data preparation functions: 
+\code{\link{prepare_ngfs_carbon_price}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2019}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2020}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2021}()},
