@@ -8,13 +8,16 @@
 #' @export
 
 preprepare_ngfs_scenario_data <- function(data) {
+  
+  start_year <- 2021
+  
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(
       scenario = dplyr::case_when(
         .data$scenario == "Nationally Determined Contributions (NDCs)" ~ "NDC",
-        .data$scenario == "Below 2°C" ~ "B2DS",
-        .data$scenario == "Delayed transition" ~ "DT",
+        .data$scenario == "Below 2 C" ~ "B2DS",
+        .data$scenario == "Delayed transition" ~ "DT", 
         .data$scenario == "Current Policies" ~ "CP",
         .data$scenario == "Divergent Net Zero" ~ "DN0",
         .data$scenario == "Net Zero 2050" ~ "NZ2050",
@@ -53,16 +56,16 @@ preprepare_ngfs_scenario_data <- function(data) {
       )
     ) %>%
     dplyr::rename(scenario_geography = .data$Region, units = .data$Unit) %>%
-    dplyr::select(-c(Model, Variable, Scenario, category_c, category_a, category_b))
+    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_c, .data$category_a, .data$category_b))
 
 
   combine_renewables_cap <- data %>%
-    dplyr::filter(technology == "RenewablesCap") %>%
-    dplyr::group_by(year, technology, scenario_geography, model, scenario) %>%
-    dplyr::mutate(value = sum(value)) %>%
+    dplyr::filter(.data$technology == "RenewablesCap") %>%
+    dplyr::group_by(.data$year, .data$technology, .data$scenario_geography, .data$model, .data$scenario) %>%
+    dplyr::mutate(value = sum(.data$value)) %>%
     unique()
 
-  delete_renewables <- data %>% dplyr::filter(!technology == "RenewablesCap")
+  delete_renewables <- data %>% dplyr::filter(!.data$technology == "RenewablesCap")
 
   data <- dplyr::full_join(combine_renewables_cap, delete_renewables)
 }
@@ -115,7 +118,7 @@ add_market_share_columns <- function(data, start_year) {
 add_technology_fair_share_ratio <- function(data) {
   data %>%
     dplyr::ungroup() %>%
-    dplyr::group_by(!!!syms(c(common_fs_groups(), "technology", "model"))) %>%
+    dplyr::group_by(!!!rlang::syms(c(common_fs_groups(), "technology", "model"))) %>%
     dplyr::arrange(.data$year, .by_group = TRUE) %>%
     dplyr::mutate(tmsr = (.data$value - dplyr::first(.data$value)) / dplyr::first(.data$value)) %>%
     dplyr::ungroup()
@@ -124,10 +127,10 @@ add_technology_fair_share_ratio <- function(data) {
 add_market_fair_share_percentage <- function(data) {
   data %>%
     dplyr::ungroup() %>%
-    dplyr::group_by(!!!syms(c(common_fs_groups(), "year", "model"))) %>%
+    dplyr::group_by(!!!rlang::syms(c(common_fs_groups(), "year", "model"))) %>%
     dplyr::arrange(.data$year, .by_group = TRUE) %>%
     dplyr::mutate(sector_total_by_year = sum(.data$value)) %>%
-    dplyr::group_by(!!!syms(c(common_fs_groups(), "technology", "model"))) %>%
+    dplyr::group_by(!!!rlang::syms(c(common_fs_groups(), "technology", "model"))) %>%
     dplyr::mutate(
       smsp = (.data$value - dplyr::first(.data$value)) /
         dplyr::first(.data$sector_total_by_year),
@@ -209,5 +212,5 @@ check_crucial_names <- function(x, expected_names) {
 
 abort_missing_names <- function(missing_names) {
   nms <- glue::glue_collapse(missing_names, sep = ", ", last = ", and ")
-  abort(glue("Must have missing names:\n{nms}."), class = "missing_names")
+  abort(glue::glue("Must have missing names:\n{nms}."), class = "missing_names")
 }
