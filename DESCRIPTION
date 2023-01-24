@@ -21,7 +21,8 @@ Imports:
     rlang,
     stringi,
     stringr,
-    testthat,
     tibble,
     tidyr,
-    zoo
+    zoo 
+Suggests: 
+    testthat (>= 3.0.0)

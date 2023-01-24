@@ -1,7 +1,9 @@
 # technology and sector mapping between P4I and P4B
 # HDV and shipping not consistently defined across both versions at this time
 # styler: off
-p4i_p4b_sector_technology_lookup <- tibble::tribble(
+p4i_p4b_sector_technology_lookup <- function() {
+
+data <- tibble::tribble(
   ~sector_p4b,   ~technology_p4b,             ~sector_p4i,    ~technology_p4i,
   "automotive",  "electric",                 "Automotive",   "Electric",
   "automotive",  "hybrid",                   "Automotive",   "Hybrid",
@@ -24,3 +26,9 @@ p4i_p4b_sector_technology_lookup <- tibble::tribble(
   "steel",       "dc-electric arc furnace",  "Steel",        "Dc-Electric Arc Furnace",
   "steel",       "open hearth meltshop",     "Steel",        "Open Hearth Meltshop"
 )
+
+
+return(data)
+
+}
+

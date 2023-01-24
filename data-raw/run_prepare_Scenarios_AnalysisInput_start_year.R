@@ -57,7 +57,8 @@ if (start_year == 2021) {
         .data$scenario_geography == "Advanced economies",
         "AdvancedEconomies",
         .data$scenario_geography
-      ))
+      )
+    )
 }
 
 prepared_data %>% readr::write_csv(
