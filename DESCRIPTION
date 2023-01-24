@@ -23,6 +23,6 @@ Imports:
     stringr,
     tibble,
     tidyr,
-    zoo
+    zoo 
 Suggests: 
-  testthat (>= 3.0.0)
+    testthat (>= 3.0.0)
