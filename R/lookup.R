@@ -31,4 +31,3 @@ data <- tibble::tribble(
 return(data)
 
 }
-

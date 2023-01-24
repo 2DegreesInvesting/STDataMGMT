@@ -8,16 +8,15 @@
 #' @export
 
 preprepare_ngfs_scenario_data <- function(data) {
-  
   start_year <- 2021
-  
+
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(
       scenario = dplyr::case_when(
         .data$scenario == "Nationally Determined Contributions (NDCs)" ~ "NDC",
         .data$scenario == "Below 2 C" ~ "B2DS",
-        .data$scenario == "Delayed transition" ~ "DT", 
+        .data$scenario == "Delayed transition" ~ "DT",
         .data$scenario == "Current Policies" ~ "CP",
         .data$scenario == "Divergent Net Zero" ~ "DN0",
         .data$scenario == "Net Zero 2050" ~ "NZ2050",
