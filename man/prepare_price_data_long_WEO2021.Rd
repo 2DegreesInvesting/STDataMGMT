@@ -23,8 +23,6 @@ Other data preparation functions:
 \code{\link{prepare_prewrangled_capacity_factors_WEO2019}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2020}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2021}()},
-\code{\link{prepare_price_data_long_WEO2019}()},
-\code{\link{prepare_price_data_long_WEO2020}()},
 \code{\link{prepare_scenario_data}()},
 \code{\link{preprepare_ngfs_scenario_data}()}
 }

@@ -119,6 +119,8 @@ remove_incomplete_sectors <- function(data, p4_type = "P4I") {
       # right joining on lookup so that all missing sectors/sector x technology
       # combinations within a scenario geography are identifiable via NAs
       if (p4_type == "P4I") {
+        p4i_p4b_sector_technology_lookup <- p4i_p4b_sector_technology_lookup()
+
         joined <- x %>%
           dplyr::right_join(p4i_p4b_sector_technology_lookup %>%
             dplyr::select(.data$sector_p4i, .data$technology_p4i),
