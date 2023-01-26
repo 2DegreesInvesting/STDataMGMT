@@ -22,6 +22,7 @@ between years are interpolated.
 }
 \seealso{
 Other data preparation functions: 
+\code{\link{prepare_capacity_factors_NGFS2021}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2019}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2020}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2021}()},

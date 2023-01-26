@@ -21,6 +21,7 @@ expects to get data for up to year 2040.
 }
 \seealso{
 Other data preparation functions: 
+\code{\link{prepare_capacity_factors_NGFS2021}()},
 \code{\link{prepare_ngfs_carbon_price}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2019}()},
 \code{\link{prepare_prewrangled_capacity_factors_WEO2020}()},
