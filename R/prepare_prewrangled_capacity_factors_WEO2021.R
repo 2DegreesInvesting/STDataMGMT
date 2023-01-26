@@ -240,17 +240,16 @@ prepare_prewrangled_capacity_factors_WEO2021 <- function(data) {
 
 
 #' This function reads in raw ngfs capacity and secondary energy data, as found in the dropbox
-#' under "Raw Data" and creates capacity factors for the power sector. 
-#' and prepares these in the format required in the stress test. 
+#' under "Raw Data" and creates capacity factors for the power sector.
+#' and prepares these in the format required in the stress test.
 #'
 #' @param data Tibble that provides raw capacity and secondary energy ngfs data file that is to be
 #'   processed
-#'   
+#'
 #' @family data preparation functions
 #' @return NULL
 
 prepare_capacity_factors_NGFS2021 <- function(data) {
-  
   start_year <- 2021
 
   data <- data %>%
@@ -286,56 +285,61 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
       )
     ) %>%
     dplyr::rename(scenario_geography = .data$Region, units = .data$Unit) %>%
-    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$category_c)) 
-    
-    
+    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$category_c))
+
+
   combine_renewables <- data %>%
     dplyr::filter(.data$technology == "RenewablesCap") %>%
     dplyr::group_by(.data$year, .data$technology, .data$scenario_geography, .data$model, .data$scenario, .data$category_a) %>%
     dplyr::mutate(value = sum(.data$value)) %>%
     unique()
-  
+
   delete_renewables <- data %>% dplyr::filter(!.data$technology == "RenewablesCap")
-  
-  data <- dplyr::full_join(combine_renewables,delete_renewables)
-  
-  data <-  data %>%
+
+  data <- dplyr::full_join(combine_renewables, delete_renewables)
+
+  data <- data %>%
     dplyr::group_by(dplyr::across(-c(.data$year, .data$value))) %>%
     tidyr::complete(year = tidyr::full_seq(.data$year, 1)) %>%
     dplyr::mutate(
       value = zoo::na.approx(.data$value, .data$year, na.rm = FALSE)
     ) %>%
     dplyr::ungroup()
-  
+
   data <- data %>% dplyr::filter(.data$year >= start_year)
-  
+
   generation <- data %>%
     dplyr::filter(.data$category_a == "Secondary Energy") %>%
-    dplyr::mutate(value = .data$value *31.68808781,
-                  units = "GW"
-    ) %>% tidyr::pivot_wider(
+    dplyr::mutate(
+      value = .data$value * 31.68808781,
+      units = "GW"
+    ) %>%
+    tidyr::pivot_wider(
       names_from = .data$category_a,
       values_from = .data$value
-    ) %>% dplyr::rename(generation= .data$`Secondary Energy`)
-  
+    ) %>%
+    dplyr::rename(generation = .data$`Secondary Energy`)
+
   capacity <- data %>%
     dplyr::filter(.data$category_a == "Capacity") %>%
     tidyr::pivot_wider(
       names_from = .data$category_a,
       values_from = .data$value
-    )%>% dplyr::rename(capacity= .data$Capacity)
-  
-  data <- dplyr::full_join(capacity,generation )
-  
+    ) %>%
+    dplyr::rename(capacity = .data$Capacity)
+
+  data <- dplyr::full_join(capacity, generation)
+
   data <- data %>%
     dplyr::group_by(dplyr::across(-c(.data$generation, .data$capacity))) %>%
-    dplyr::mutate(capacity_factor = as.double(.data$generation)/as.double(.data$capacity))
-  
+    dplyr::mutate(capacity_factor = as.double(.data$generation) / as.double(.data$capacity))
+
   data <- data %>%
-    #if capacity factor is bigger than 1 make it 1
+    # if capacity factor is bigger than 1 make it 1
     dplyr::mutate(
-      capacity_factor = dplyr::if_else(.data$capacity_factor > 1, 1, .data$capacity_factor)) %>%
-    #if capacity is 0 and generation is bigger than 0, it  results in INF capacity factors, which we correct to a capacity factor of 1
+      capacity_factor = dplyr::if_else(.data$capacity_factor > 1, 1, .data$capacity_factor)
+    ) %>%
+    # if capacity is 0 and generation is bigger than 0, it  results in INF capacity factors, which we correct to a capacity factor of 1
     dplyr::mutate(
       capacity_factor = dplyr::if_else(.data$capacity == 0 & .data$generation > 0, 0, .data$capacity_factor)
     ) %>%
@@ -345,10 +349,9 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
     # if both capacity and generation are 0, we get capacity factor NaN. Until
     # we have clarity on how to best handle this, we assume capacity factor 0
     # in such a a case
-    dplyr::mutate(capacity_factor = dplyr::if_else(.data$capacity == 0 & .data$generation == 0 ,0, .data$capacity_factor)
-    )
-  
-  data <- data %>% dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>% 
-    tidyr::unite("scenario", c(.data$model,.data$scenario), sep = "_")
-  
+    dplyr::mutate(capacity_factor = dplyr::if_else(.data$capacity == 0 & .data$generation == 0, 0, .data$capacity_factor))
+
+  data <- data %>%
+    dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_")
 }
