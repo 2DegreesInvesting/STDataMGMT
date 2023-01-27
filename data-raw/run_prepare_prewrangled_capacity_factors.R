@@ -35,9 +35,33 @@ data <- readr::read_csv(
 ## prepare data
 prepared_data_WEO2021 <- prepare_prewrangled_capacity_factors_WEO2021(data)
 
+## read data
+input_path <- file.path("data-raw", "raw_capacity_factors_NGFS2021.csv")
+
+data <- readr::read_csv(
+  input_path,
+  col_types = readr::cols(
+    Model = "c",
+    Scenario = "c",
+    Region = "c",
+    Variable = "c",
+    category_a = "c",
+    category_b = "c",
+    category_c = "c",
+    Unit = "c",
+    year = "d",
+    value = "d",
+    .default = readr::col_number()
+  )
+)
+
+## prepare data
+prepared_data_NGFS2021 <- prepare_capacity_factors_NGFS2021(data)
 
 ## combine and write data
-prepared_data <- prepared_data_WEO2021
+prepared_data <- prepared_data_WEO2021 %>%
+  dplyr::bind_rows(prepared_data_NGFS2021)
+
 
 prepared_data %>% readr::write_csv(
   file.path("data-raw", "prewrangled_capacity_factors.csv")
