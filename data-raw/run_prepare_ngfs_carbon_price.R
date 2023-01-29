@@ -23,4 +23,4 @@ ngfs_carbon_price <- data %>%
   prepare_ngfs_carbon_price(start_year = start_year_ngfs)
 
 ngfs_carbon_price %>%
-  readr::write_csv(file.path("data-raw", "ngfs_carbon_tax.csv"))
+  readr::write_csv(file.path("data-raw", "ngfs_carbon_price.csv"))

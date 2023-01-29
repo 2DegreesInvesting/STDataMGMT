@@ -71,6 +71,42 @@ year,model,scenario,scenario_geography,variable,unit,carbon_tax
 2048,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,9.233067312400003
 2049,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,9.354418924200003
 2050,MESSAGEix-GLOBIOM 1.0,"Current policies (Hot house world, Rep)",Global,Price|Carbon,US$2010/t CO2,9.475770536000002
+2015,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2016,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2017,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2018,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2019,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2020,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2021,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2022,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2023,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2024,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2025,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2026,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2027,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2028,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2029,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2030,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2031,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2032,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2033,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2034,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2035,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2036,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2037,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2038,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2039,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2040,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2041,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2042,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2043,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2044,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2045,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2046,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2047,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2048,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2049,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
+2050,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
 2015,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
 2016,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
 2017,REMIND-MAgPIE 1.7-3.0,"Delayed 2C with limited CDR (Disorderly, Rep)",Global,Price|Carbon,US$2010/t CO2,0
