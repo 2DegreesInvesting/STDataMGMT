@@ -1,4 +1,4 @@
-#' This function reads in multiple price data files from WEO2020 and wrangles
+#' This function reads in multiple price data files from WEO2021 and wrangles
 #' it to fit the format to be used in the transition risk stress test work flow.
 #'
 #' @param input_data_fossil_fuel Tibble containing the raw price data for fossil
@@ -241,4 +241,69 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
   stopifnot(min_price_greater_equal_zero)
 
   return(data)
+}
+
+#' This function reads raw NGFS price data files from 2021 in and wrangles
+#' it to fit the format to be used in the transition risk stress test work flow.
+#'
+#' @param input_data_fossil_fuels_ngfs A dataset containing prices for the fossil 
+#' fuels 
+#'
+#' @family data preparation functions
+#'
+#' @export
+
+
+prepare_price_data_long_NGFS2021  <- function(input_data_fossil_fuels_ngfs) {
+  start_year <- 2021
+  
+  data <- input_data_fossil_fuels_ngfs %>%
+    dplyr::mutate(scenario = .data$Scenario) %>%
+    dplyr::mutate(
+      scenario = dplyr::case_when(
+        .data$scenario == "Nationally Determined Contributions (NDCs)" ~ "NDC",
+        .data$scenario == "Below 2 C" ~ "B2DS",
+        .data$scenario == "Delayed transition" ~ "DT",
+        .data$scenario == "Current Policies" ~ "CP",
+        .data$scenario == "Divergent Net Zero" ~ "DN0",
+        .data$scenario == "Net Zero 2050" ~ "NZ2050",
+        TRUE ~ .data$scenario
+      ),
+      model = dplyr::case_when(
+        .data$Model == "GCAM 5.3+ NGFS" ~ "GCAM",
+        .data$Model == "REMIND-MAgPIE 3.0-4.4" ~ "REMIND",
+        .data$Model == "MESSAGEix-GLOBIOM 1.1-M-R12" ~ "MESSAGE",
+        TRUE ~ .data$Model
+      ),
+      sector = dplyr::case_when(
+        .data$category_c == "Oil" ~ "Oil&Gas",
+        .data$category_c == "Gas" ~ "Oil&Gas",
+        .data$category_c == "Coal" ~ "Coal",
+        TRUE ~ .data$category_c
+      )) %>%
+    dplyr::rename(scenario_geography = .data$Region, unit = .data$Unit, technology = .data$category_c, indicator = .data$category_a) %>%
+    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b))
+
+  data <- data %>%
+    dplyr::group_by(dplyr::across(-c(.data$year, .data$value))) %>%
+    tidyr::complete(year = tidyr::full_seq(.data$year, 1)) %>%
+    dplyr::mutate(
+      value = zoo::na.approx(.data$value, .data$year, na.rm = FALSE)
+    ) %>%
+    dplyr::ungroup()
+  
+  data <- data %>% dplyr::filter(.data$year >= start_year)
+
+  data_oil_gas <- data %>% dplyr::filter(.data$sector == "Oil&Gas") %>%
+    dplyr::mutate(unit = "$/GJ")
+  
+  data_coal <- data %>% dplyr::filter(.data$sector == "Coal") %>% 
+    dplyr::group_by(.data$year, .data$scenario_geography, .data$model, .data$scenario) %>% 
+    dplyr::mutate(value = .data$value/ 0.03414368, unit = "$/tonnes")
+  
+  data <- dplyr::full_join(data_oil_gas, data_coal)
+
+  data <- data %>% dplyr::rename(price = .data$value) %>%
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_")
+  
 }
