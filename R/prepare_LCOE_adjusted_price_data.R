@@ -168,15 +168,15 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
   dplyr::mutate(NZ2050 ="NZ2050",DN0 = "DNO",B2DS = "B2DS",DT  = "DT") %>%
   tidyr::pivot_longer(.data$NZ2050:.data$DT, names_to = "scenario") %>% dplyr::select(-c(.data$value)) 
 
-  oxford_slow_transition <- prices_adjusted %>% dplyr::filter(.data$scenario == "slow_transition_oxford") %>%
-    dplyr::mutate(NDC ="NDC",CP = "CP") %>%
+  oxford_slow_transition <- prices_adjusted %>% dplyr::filter(.data$scenario == "no_transition_oxford") %>%
     dplyr::select(-c(.data$scenario)) %>%
+    dplyr::mutate(NDC ="NDC",CP = "CP") %>%
     tidyr::pivot_longer(.data$NDC:.data$CP, names_to = "scenario") %>% dplyr::select(-c(.data$value))
 
   prices_adjusted_final <- dplyr::full_join(oxford_fast_transition, oxford_slow_transition) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_")
 
-  
+
   return(prices_adjusted_final)
   
 }
