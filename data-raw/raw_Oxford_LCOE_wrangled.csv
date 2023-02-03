@@ -1,0 +1,1693 @@
+"Scenario","Sector","Region","Technology","Sub_Technology","Year","LCOE"
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2018,71.70483338
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2019,71.40715057
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2020,71.10724771
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2021,70.80540548
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2022,70.50188893
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2023,70.19701204
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2024,69.89107281
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2025,69.584422
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2026,69.27753098
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2027,68.97111377
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2028,68.66631211
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2029,68.36487553
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2030,68.06910677
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2031,67.78134123
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2032,67.50322625
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2033,67.23541491
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2034,66.97777217
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2035,66.72973192
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2036,66.49056259
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2037,66.25951117
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2038,66.03591766
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2039,65.81910422
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2040,65.60847877
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2041,65.40352124
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2042,65.20377239
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2043,65.0088248
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2044,64.81831539
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2045,64.63191929
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2046,64.44934471
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2047,64.27032865
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2048,64.0946333
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2049,63.92204294
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2050,63.75236134
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2051,63.58540953
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2052,63.42102386
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2053,63.25905434
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2054,63.09936318
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2055,62.94182357
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2056,62.78631851
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2057,62.63273993
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2058,62.48098775
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2059,62.3309692
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2060,62.18259812
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2061,62.03579435
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2062,61.89048326
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2063,61.74659521
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2064,61.6040652
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2065,61.46372578
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2066,61.32571588
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2067,61.18997311
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2068,61.05643808
+"Oxford - slow_transition","Power","World","Renewables","Bioenergy",2069,60.92506474
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2018,40.53833845
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2019,39.24743823
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2020,38.1880787
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2021,37.31470715
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2022,36.59185453
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2023,35.99160266
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2024,35.49176512
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2025,35.07456102
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2026,34.72563424
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2027,34.43331845
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2028,34.18807957
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2029,33.98208782
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2030,33.80888583
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2031,33.66312859
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2032,33.54037795
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2033,33.43693882
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2034,33.34972764
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2035,33.27616613
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2036,33.21409482
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2037,33.16170248
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2038,33.11746806
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2039,33.08011291
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2040,33.04856116
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2041,33.02190693
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2042,32.99938695
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2043,32.98035778
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2044,32.96427675
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2045,32.950686
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2046,32.93919908
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2047,32.92948976
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2048,32.92128255
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2049,32.91434476
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2050,32.90847984
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2051,32.90352174
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2052,32.89933013
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2053,32.89578645
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2054,32.89279049
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2055,32.89025755
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2056,32.88811604
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2057,32.88630546
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2058,32.88477464
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2059,32.88348036
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2060,32.88238606
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2061,32.88146083
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2062,32.88067855
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2063,32.88001713
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2064,32.87945789
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2065,32.87898505
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2066,32.87858526
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2067,32.87824723
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2068,32.87796142
+"Oxford - slow_transition","Fossil Fuels","World","Oil",NA,2069,32.87771977
+"Oxford - slow_transition","Power","World","Coal","Coal",2018,60.04294901
+"Oxford - slow_transition","Power","World","Coal","Coal",2019,59.97164921
+"Oxford - slow_transition","Power","World","Coal","Coal",2020,59.90566549
+"Oxford - slow_transition","Power","World","Coal","Coal",2021,59.84459633
+"Oxford - slow_transition","Power","World","Coal","Coal",2022,59.78807129
+"Oxford - slow_transition","Power","World","Coal","Coal",2023,59.73574847
+"Oxford - slow_transition","Power","World","Coal","Coal",2024,59.68731222
+"Oxford - slow_transition","Power","World","Coal","Coal",2025,59.64247107
+"Oxford - slow_transition","Power","World","Coal","Coal",2026,59.60095579
+"Oxford - slow_transition","Power","World","Coal","Coal",2027,59.56251766
+"Oxford - slow_transition","Power","World","Coal","Coal",2028,59.52692683
+"Oxford - slow_transition","Power","World","Coal","Coal",2029,59.4939709
+"Oxford - slow_transition","Power","World","Coal","Coal",2030,59.4634535
+"Oxford - slow_transition","Power","World","Coal","Coal",2031,59.43519309
+"Oxford - slow_transition","Power","World","Coal","Coal",2032,59.40902179
+"Oxford - slow_transition","Power","World","Coal","Coal",2033,59.38478436
+"Oxford - slow_transition","Power","World","Coal","Coal",2034,59.36233719
+"Oxford - slow_transition","Power","World","Coal","Coal",2035,59.34154746
+"Oxford - slow_transition","Power","World","Coal","Coal",2036,59.32229226
+"Oxford - slow_transition","Power","World","Coal","Coal",2037,59.30445788
+"Oxford - slow_transition","Power","World","Coal","Coal",2038,59.28793911
+"Oxford - slow_transition","Power","World","Coal","Coal",2039,59.27263857
+"Oxford - slow_transition","Power","World","Coal","Coal",2040,59.25846614
+"Oxford - slow_transition","Power","World","Coal","Coal",2041,59.24533839
+"Oxford - slow_transition","Power","World","Coal","Coal",2042,59.23317813
+"Oxford - slow_transition","Power","World","Coal","Coal",2043,59.22191387
+"Oxford - slow_transition","Power","World","Coal","Coal",2044,59.21147944
+"Oxford - slow_transition","Power","World","Coal","Coal",2045,59.20181358
+"Oxford - slow_transition","Power","World","Coal","Coal",2046,59.19285956
+"Oxford - slow_transition","Power","World","Coal","Coal",2047,59.18456487
+"Oxford - slow_transition","Power","World","Coal","Coal",2048,59.17688087
+"Oxford - slow_transition","Power","World","Coal","Coal",2049,59.16976254
+"Oxford - slow_transition","Power","World","Coal","Coal",2050,59.16316816
+"Oxford - slow_transition","Power","World","Coal","Coal",2051,59.15705912
+"Oxford - slow_transition","Power","World","Coal","Coal",2052,59.15139966
+"Oxford - slow_transition","Power","World","Coal","Coal",2053,59.14615665
+"Oxford - slow_transition","Power","World","Coal","Coal",2054,59.14129941
+"Oxford - slow_transition","Power","World","Coal","Coal",2055,59.13679953
+"Oxford - slow_transition","Power","World","Coal","Coal",2056,59.1326307
+"Oxford - slow_transition","Power","World","Coal","Coal",2057,59.12876854
+"Oxford - slow_transition","Power","World","Coal","Coal",2058,59.12519047
+"Oxford - slow_transition","Power","World","Coal","Coal",2059,59.12187558
+"Oxford - slow_transition","Power","World","Coal","Coal",2060,59.1188045
+"Oxford - slow_transition","Power","World","Coal","Coal",2061,59.11595928
+"Oxford - slow_transition","Power","World","Coal","Coal",2062,59.11332331
+"Oxford - slow_transition","Power","World","Coal","Coal",2063,59.11088119
+"Oxford - slow_transition","Power","World","Coal","Coal",2064,59.10861865
+"Oxford - slow_transition","Power","World","Coal","Coal",2065,59.10652248
+"Oxford - slow_transition","Power","World","Coal","Coal",2066,59.10458045
+"Oxford - slow_transition","Power","World","Coal","Coal",2067,59.10278122
+"Oxford - slow_transition","Power","World","Coal","Coal",2068,59.10111427
+"Oxford - slow_transition","Power","World","Coal","Coal",2069,59.09956989
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2018,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2019,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2020,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2021,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2022,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2023,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2024,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2025,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2026,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2027,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2028,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2029,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2030,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2031,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2032,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2033,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2034,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2035,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2036,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2037,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2038,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2039,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2040,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2041,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2042,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2043,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2044,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2045,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2046,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2047,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2048,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2049,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2050,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2051,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2052,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2053,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2054,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2055,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2056,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2057,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2058,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2059,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2060,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2061,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2062,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2063,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2064,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2065,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2066,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2067,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2068,90.00000025
+"Oxford - slow_transition","Power","World","Nuclear","Nuclear",2069,90.00000025
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2018,10.95843872
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2019,11.09080203
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2020,11.20112379
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2021,11.29289783
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2022,11.36912154
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2023,11.43234712
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2024,11.48473462
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2025,11.52810335
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2026,11.56397967
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2027,11.59364005
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2028,11.61814927
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2029,11.63839363
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2030,11.6551096
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2031,11.66890831
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2032,11.68029624
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2033,11.68969282
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2034,11.69744503
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2035,11.70383983
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2036,11.70911433
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2037,11.71346441
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2038,11.71705183
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2039,11.72001013
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2040,11.72244952
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2041,11.72446092
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2042,11.72611939
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2043,11.72748681
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2044,11.72861422
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2045,11.72954375
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2046,11.7303101
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2047,11.73094192
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2048,11.73146282
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2049,11.73189227
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2050,11.73224631
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2051,11.7325382
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2052,11.73277883
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2053,11.73297722
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2054,11.73314077
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2055,11.7332756
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2056,11.73338676
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2057,11.73347839
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2058,11.73355394
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2059,11.73361622
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2060,11.73366757
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2061,11.7337099
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2062,11.73374479
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2063,11.73377356
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2064,11.73379728
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2065,11.73381683
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2066,11.73383295
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2067,11.73384624
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2068,11.73385719
+"Oxford - slow_transition","Fossil Fuels","World","Gas",NA,2069,11.73386622
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2018,51.55640538
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2019,52.84519445
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2020,53.93538268
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2021,54.85398601
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2022,55.6255183
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2023,56.2718
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2024,56.81197137
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2025,57.26263119
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2026,57.63804544
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2027,57.95038759
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2028,58.20998605
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2029,58.42556326
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2030,58.60445773
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2031,58.75282474
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2032,58.87581423
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2033,58.9777262
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2034,59.06214494
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2035,59.13205407
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2036,59.18993437
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2037,59.23784662
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2038,59.27750135
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2039,59.31031754
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2040,59.33747163
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2041,59.3599386
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2042,59.37852615
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2043,59.39390323
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2044,59.40662373
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2045,59.41714618
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2046,59.42585009
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2047,59.43304956
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2048,59.43900448
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2049,59.4439299
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2050,59.44800373
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2051,59.45137318
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2052,59.45416
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2053,59.45646491
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2054,59.45837124
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2055,59.4599479
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2056,59.46125189
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2057,59.46233037
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2058,59.46322234
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2059,59.46396004
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2060,59.46457015
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2061,59.46507475
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2062,59.46549208
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2063,59.46583723
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2064,59.46612268
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2065,59.46635876
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2066,59.46655401
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2067,59.4667155
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2068,59.46684905
+"Oxford - slow_transition","Power","World","Natural gas","Gas CCGT",2069,59.4669595
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2018,7.837004729
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2019,7.826534955
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2020,7.816564948
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2021,7.807070276
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2022,7.798027752
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2023,7.789415369
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2024,7.781212235
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2025,7.773398511
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2026,7.765955355
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2027,7.758864868
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2028,7.752110048
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2029,7.745674736
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2030,7.739543578
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2031,7.733701977
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2032,7.728136059
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2033,7.722832631
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2034,7.717779148
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2035,7.712963683
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2036,7.708374886
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2037,7.704001965
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2038,7.699834652
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2039,7.695863177
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2040,7.692078243
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2041,7.688471005
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2042,7.685033042
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2043,7.681756343
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2044,7.678633278
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2045,7.675656587
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2046,7.672819357
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2047,7.670115007
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2048,7.66753727
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2049,7.665080178
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2050,7.66273805
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2051,7.660505474
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2052,7.658377297
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2053,7.656348609
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2054,7.654414735
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2055,7.652571222
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2056,7.650813827
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2057,7.64913851
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2058,7.64754142
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2059,7.646018889
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2060,7.644567422
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2061,7.643183692
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2062,7.641864524
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2063,7.640606896
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2064,7.639407928
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2065,7.638264875
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2066,7.637175122
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2067,7.636136177
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2068,7.635145663
+"Oxford - slow_transition","Fossil Fuels","World","Coal","Coal",2069,7.634201319
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2018,64.72100658
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2019,60.42078025
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2020,56.78416425
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2021,53.63126136
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2022,50.84603851
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2023,48.3495947
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2024,46.08601501
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2025,44.01433475
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2026,42.10370966
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2027,40.33037657
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2028,38.67566607
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2029,37.12466045
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2030,35.66526186
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2031,34.28752969
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2032,32.98359203
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2033,31.74651965
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2034,30.57045698
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2035,29.45041931
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2036,28.38213764
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2037,27.36193912
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2038,26.38665468
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2039,25.45354757
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2040,24.56025833
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2041,23.70476253
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2042,22.88533844
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2043,22.10054174
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2044,21.3491845
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2045,20.63031531
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2046,19.94319662
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2047,19.28727559
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2048,18.66214436
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2049,18.06748739
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2050,17.5030161
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2051,16.96839511
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2052,16.46316899
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2053,15.98670096
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2054,15.53813473
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2055,15.11638599
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2056,14.72016345
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2057,14.34801281
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2058,13.99837335
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2059,13.66963663
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2060,13.36019935
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2061,13.06850563
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2062,12.79307733
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2063,12.53253316
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2064,12.28559847
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2065,12.05110799
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2066,11.82800363
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2067,11.61532912
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2068,11.41222283
+"Oxford - slow_transition","Power","World","Renewables","Solar PV",2069,11.21790981
+"Oxford - slow_transition","Power","World","Renewables","Wind",2018,53.70492813
+"Oxford - slow_transition","Power","World","Renewables","Wind",2019,52.44101992
+"Oxford - slow_transition","Power","World","Renewables","Wind",2020,51.26795857
+"Oxford - slow_transition","Power","World","Renewables","Wind",2021,50.17052288
+"Oxford - slow_transition","Power","World","Renewables","Wind",2022,49.13703266
+"Oxford - slow_transition","Power","World","Renewables","Wind",2023,48.1585448
+"Oxford - slow_transition","Power","World","Renewables","Wind",2024,47.22780044
+"Oxford - slow_transition","Power","World","Renewables","Wind",2025,46.33895477
+"Oxford - slow_transition","Power","World","Renewables","Wind",2026,45.48725123
+"Oxford - slow_transition","Power","World","Renewables","Wind",2027,44.66878854
+"Oxford - slow_transition","Power","World","Renewables","Wind",2028,43.88035196
+"Oxford - slow_transition","Power","World","Renewables","Wind",2029,43.11929055
+"Oxford - slow_transition","Power","World","Renewables","Wind",2030,42.38342825
+"Oxford - slow_transition","Power","World","Renewables","Wind",2031,41.67100019
+"Oxford - slow_transition","Power","World","Renewables","Wind",2032,40.98060818
+"Oxford - slow_transition","Power","World","Renewables","Wind",2033,40.3111898
+"Oxford - slow_transition","Power","World","Renewables","Wind",2034,39.66199604
+"Oxford - slow_transition","Power","World","Renewables","Wind",2035,39.03257107
+"Oxford - slow_transition","Power","World","Renewables","Wind",2036,38.42272678
+"Oxford - slow_transition","Power","World","Renewables","Wind",2037,37.83250384
+"Oxford - slow_transition","Power","World","Renewables","Wind",2038,37.26211236
+"Oxford - slow_transition","Power","World","Renewables","Wind",2039,36.71184977
+"Oxford - slow_transition","Power","World","Renewables","Wind",2040,36.18200171
+"Oxford - slow_transition","Power","World","Renewables","Wind",2041,35.67274085
+"Oxford - slow_transition","Power","World","Renewables","Wind",2042,35.18404344
+"Oxford - slow_transition","Power","World","Renewables","Wind",2043,34.71564055
+"Oxford - slow_transition","Power","World","Renewables","Wind",2044,34.26701076
+"Oxford - slow_transition","Power","World","Renewables","Wind",2045,33.83740913
+"Oxford - slow_transition","Power","World","Renewables","Wind",2046,33.42591907
+"Oxford - slow_transition","Power","World","Renewables","Wind",2047,33.03151252
+"Oxford - slow_transition","Power","World","Renewables","Wind",2048,32.65310649
+"Oxford - slow_transition","Power","World","Renewables","Wind",2049,32.28960985
+"Oxford - slow_transition","Power","World","Renewables","Wind",2050,31.93995782
+"Oxford - slow_transition","Power","World","Renewables","Wind",2051,31.60313505
+"Oxford - slow_transition","Power","World","Renewables","Wind",2052,31.27818924
+"Oxford - slow_transition","Power","World","Renewables","Wind",2053,30.96423768
+"Oxford - slow_transition","Power","World","Renewables","Wind",2054,30.66046885
+"Oxford - slow_transition","Power","World","Renewables","Wind",2055,30.36614074
+"Oxford - slow_transition","Power","World","Renewables","Wind",2056,30.0805773
+"Oxford - slow_transition","Power","World","Renewables","Wind",2057,29.8031638
+"Oxford - slow_transition","Power","World","Renewables","Wind",2058,29.53340307
+"Oxford - slow_transition","Power","World","Renewables","Wind",2059,29.27076471
+"Oxford - slow_transition","Power","World","Renewables","Wind",2060,29.01477187
+"Oxford - slow_transition","Power","World","Renewables","Wind",2061,28.76499439
+"Oxford - slow_transition","Power","World","Renewables","Wind",2062,28.52104301
+"Oxford - slow_transition","Power","World","Renewables","Wind",2063,28.28256442
+"Oxford - slow_transition","Power","World","Renewables","Wind",2064,28.04923703
+"Oxford - slow_transition","Power","World","Renewables","Wind",2065,27.82106475
+"Oxford - slow_transition","Power","World","Renewables","Wind",2066,27.59927791
+"Oxford - slow_transition","Power","World","Renewables","Wind",2067,27.38355344
+"Oxford - slow_transition","Power","World","Renewables","Wind",2068,27.17359435
+"Oxford - slow_transition","Power","World","Renewables","Wind",2069,26.96914324
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2018,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2019,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2020,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2021,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2022,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2023,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2024,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2025,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2026,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2027,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2028,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2029,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2030,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2031,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2032,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2033,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2034,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2035,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2036,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2037,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2038,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2039,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2040,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2041,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2042,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2043,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2044,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2045,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2046,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2047,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2048,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2049,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2050,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2051,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2052,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2053,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2054,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2055,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2056,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2057,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2058,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2059,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2060,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2061,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2062,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2063,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2064,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2065,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2066,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2067,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2068,46.80000013
+"Oxford - slow_transition","Power","World","Renewables","Hydro",2069,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2018,71.70483338
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2019,71.40721385
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2020,71.10748267
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2021,70.80600062
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2022,70.5031737
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2023,70.19949558
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2024,69.89561347
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2025,69.59241794
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2026,69.29977738
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2027,69.01880251
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2028,68.74770236
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2029,68.4851935
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2030,68.23053482
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2031,67.98324076
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2032,67.7430998
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2033,67.51008889
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2034,67.2839393
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2035,67.06426105
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2036,66.85062077
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2037,66.64258482
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2038,66.43978663
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2039,66.24181885
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2040,66.04831817
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2041,65.85895935
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2042,65.67345005
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2043,65.49152666
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2044,65.31295067
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2045,65.13750563
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2046,64.96499456
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2047,64.79523772
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2048,64.6280707
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2049,64.46334274
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2050,64.30091532
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2051,64.14066089
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2052,63.98246174
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2053,63.82620911
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2054,63.67180225
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2055,63.51914776
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2056,63.36815885
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2057,63.21875477
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2058,63.07086031
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2059,62.925549
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2060,62.78367774
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2061,62.64543568
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2062,62.51073359
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2063,62.37934269
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2064,62.25105526
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2065,62.12568212
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2066,62.00305053
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2067,61.88300229
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2068,61.76539223
+"Oxford - fast_transition","Power","World","Renewables","Bioenergy",2069,61.65008676
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2018,40.53833845
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2019,39.24743823
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2020,38.1880787
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2021,37.31470715
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2022,36.59185453
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2023,35.99160266
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2024,35.49176512
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2025,35.07456102
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2026,34.72563424
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2027,34.43331845
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2028,34.18807957
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2029,33.98208782
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2030,33.80888583
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2031,33.66312859
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2032,33.54037795
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2033,33.43693882
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2034,33.34972764
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2035,33.27616613
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2036,33.21409482
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2037,33.16170248
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2038,33.11746806
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2039,33.08011291
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2040,33.04856116
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2041,33.02190693
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2042,32.99938695
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2043,32.98035778
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2044,32.96427675
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2045,32.950686
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2046,32.93919908
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2047,32.92948976
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2048,32.92128255
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2049,32.91434476
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2050,32.90847984
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2051,32.90352174
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2052,32.89933013
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2053,32.89578645
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2054,32.89279049
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2055,32.89025755
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2056,32.88811604
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2057,32.88630546
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2058,32.88477464
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2059,32.88348036
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2060,32.88238606
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2061,32.88146083
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2062,32.88067855
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2063,32.88001713
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2064,32.87945789
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2065,32.87898505
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2066,32.87858526
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2067,32.87824723
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2068,32.87796142
+"Oxford - fast_transition","Fossil Fuels","World","Oil",NA,2069,32.87771977
+"Oxford - fast_transition","Power","World","Coal","Coal",2018,60.04294901
+"Oxford - fast_transition","Power","World","Coal","Coal",2019,59.97164921
+"Oxford - fast_transition","Power","World","Coal","Coal",2020,59.90566549
+"Oxford - fast_transition","Power","World","Coal","Coal",2021,59.84459633
+"Oxford - fast_transition","Power","World","Coal","Coal",2022,59.78807129
+"Oxford - fast_transition","Power","World","Coal","Coal",2023,59.73574847
+"Oxford - fast_transition","Power","World","Coal","Coal",2024,59.68731222
+"Oxford - fast_transition","Power","World","Coal","Coal",2025,59.64247107
+"Oxford - fast_transition","Power","World","Coal","Coal",2026,59.60095579
+"Oxford - fast_transition","Power","World","Coal","Coal",2027,59.56251766
+"Oxford - fast_transition","Power","World","Coal","Coal",2028,59.52692683
+"Oxford - fast_transition","Power","World","Coal","Coal",2029,59.4939709
+"Oxford - fast_transition","Power","World","Coal","Coal",2030,59.4634535
+"Oxford - fast_transition","Power","World","Coal","Coal",2031,59.43519309
+"Oxford - fast_transition","Power","World","Coal","Coal",2032,59.40902179
+"Oxford - fast_transition","Power","World","Coal","Coal",2033,59.38478436
+"Oxford - fast_transition","Power","World","Coal","Coal",2034,59.36233719
+"Oxford - fast_transition","Power","World","Coal","Coal",2035,59.34154746
+"Oxford - fast_transition","Power","World","Coal","Coal",2036,59.32229226
+"Oxford - fast_transition","Power","World","Coal","Coal",2037,59.30445788
+"Oxford - fast_transition","Power","World","Coal","Coal",2038,59.28793911
+"Oxford - fast_transition","Power","World","Coal","Coal",2039,59.27263857
+"Oxford - fast_transition","Power","World","Coal","Coal",2040,59.25846614
+"Oxford - fast_transition","Power","World","Coal","Coal",2041,59.24533839
+"Oxford - fast_transition","Power","World","Coal","Coal",2042,59.23317813
+"Oxford - fast_transition","Power","World","Coal","Coal",2043,59.22191387
+"Oxford - fast_transition","Power","World","Coal","Coal",2044,59.21147944
+"Oxford - fast_transition","Power","World","Coal","Coal",2045,59.20181358
+"Oxford - fast_transition","Power","World","Coal","Coal",2046,59.19285956
+"Oxford - fast_transition","Power","World","Coal","Coal",2047,59.18456487
+"Oxford - fast_transition","Power","World","Coal","Coal",2048,59.17688087
+"Oxford - fast_transition","Power","World","Coal","Coal",2049,59.16976254
+"Oxford - fast_transition","Power","World","Coal","Coal",2050,59.16316816
+"Oxford - fast_transition","Power","World","Coal","Coal",2051,59.15705912
+"Oxford - fast_transition","Power","World","Coal","Coal",2052,59.15139966
+"Oxford - fast_transition","Power","World","Coal","Coal",2053,59.14615665
+"Oxford - fast_transition","Power","World","Coal","Coal",2054,59.14129941
+"Oxford - fast_transition","Power","World","Coal","Coal",2055,59.13679953
+"Oxford - fast_transition","Power","World","Coal","Coal",2056,59.1326307
+"Oxford - fast_transition","Power","World","Coal","Coal",2057,59.12876854
+"Oxford - fast_transition","Power","World","Coal","Coal",2058,59.12519047
+"Oxford - fast_transition","Power","World","Coal","Coal",2059,59.12187558
+"Oxford - fast_transition","Power","World","Coal","Coal",2060,59.1188045
+"Oxford - fast_transition","Power","World","Coal","Coal",2061,59.11595928
+"Oxford - fast_transition","Power","World","Coal","Coal",2062,59.11332331
+"Oxford - fast_transition","Power","World","Coal","Coal",2063,59.11088119
+"Oxford - fast_transition","Power","World","Coal","Coal",2064,59.10861865
+"Oxford - fast_transition","Power","World","Coal","Coal",2065,59.10652248
+"Oxford - fast_transition","Power","World","Coal","Coal",2066,59.10458045
+"Oxford - fast_transition","Power","World","Coal","Coal",2067,59.10278122
+"Oxford - fast_transition","Power","World","Coal","Coal",2068,59.10111427
+"Oxford - fast_transition","Power","World","Coal","Coal",2069,59.09956989
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2018,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2019,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2020,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2021,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2022,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2023,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2024,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2025,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2026,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2027,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2028,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2029,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2030,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2031,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2032,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2033,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2034,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2035,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2036,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2037,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2038,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2039,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2040,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2041,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2042,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2043,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2044,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2045,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2046,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2047,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2048,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2049,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2050,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2051,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2052,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2053,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2054,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2055,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2056,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2057,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2058,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2059,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2060,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2061,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2062,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2063,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2064,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2065,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2066,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2067,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2068,90.00000025
+"Oxford - fast_transition","Power","World","Nuclear","Nuclear",2069,90.00000025
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2018,10.95843872
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2019,11.09080203
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2020,11.20112379
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2021,11.29289783
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2022,11.36912154
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2023,11.43234712
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2024,11.48473462
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2025,11.52810335
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2026,11.56397967
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2027,11.59364005
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2028,11.61814927
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2029,11.63839363
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2030,11.6551096
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2031,11.66890831
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2032,11.68029624
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2033,11.68969282
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2034,11.69744503
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2035,11.70383983
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2036,11.70911433
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2037,11.71346441
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2038,11.71705183
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2039,11.72001013
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2040,11.72244952
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2041,11.72446092
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2042,11.72611939
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2043,11.72748681
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2044,11.72861422
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2045,11.72954375
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2046,11.7303101
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2047,11.73094192
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2048,11.73146282
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2049,11.73189227
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2050,11.73224631
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2051,11.7325382
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2052,11.73277883
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2053,11.73297722
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2054,11.73314077
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2055,11.7332756
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2056,11.73338676
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2057,11.73347839
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2058,11.73355394
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2059,11.73361622
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2060,11.73366757
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2061,11.7337099
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2062,11.73374479
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2063,11.73377356
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2064,11.73379728
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2065,11.73381683
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2066,11.73383295
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2067,11.73384624
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2068,11.73385719
+"Oxford - fast_transition","Fossil Fuels","World","Gas",NA,2069,11.73386622
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2018,51.55640538
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2019,52.84519445
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2020,53.93538268
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2021,54.85398601
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2022,55.6255183
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2023,56.2718
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2024,56.81197137
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2025,57.26263119
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2026,57.63804544
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2027,57.95038759
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2028,58.20998605
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2029,58.42556326
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2030,58.60445773
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2031,58.75282474
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2032,58.87581423
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2033,58.9777262
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2034,59.06214494
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2035,59.13205407
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2036,59.18993437
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2037,59.23784662
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2038,59.27750135
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2039,59.31031754
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2040,59.33747163
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2041,59.3599386
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2042,59.37852615
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2043,59.39390323
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2044,59.40662373
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2045,59.41714618
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2046,59.42585009
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2047,59.43304956
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2048,59.43900448
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2049,59.4439299
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2050,59.44800373
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2051,59.45137318
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2052,59.45416
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2053,59.45646491
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2054,59.45837124
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2055,59.4599479
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2056,59.46125189
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2057,59.46233037
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2058,59.46322234
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2059,59.46396004
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2060,59.46457015
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2061,59.46507475
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2062,59.46549208
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2063,59.46583723
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2064,59.46612268
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2065,59.46635876
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2066,59.46655401
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2067,59.4667155
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2068,59.46684905
+"Oxford - fast_transition","Power","World","Natural gas","Gas CCGT",2069,59.4669595
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2018,7.837004729
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2019,7.826534955
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2020,7.816564948
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2021,7.807070276
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2022,7.798027752
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2023,7.789415369
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2024,7.781212235
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2025,7.773398511
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2026,7.765955355
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2027,7.758864868
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2028,7.752110048
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2029,7.745674736
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2030,7.739543578
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2031,7.733701977
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2032,7.728136059
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2033,7.722832631
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2034,7.717779148
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2035,7.712963683
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2036,7.708374886
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2037,7.704001965
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2038,7.699834652
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2039,7.695863177
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2040,7.692078243
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2041,7.688471005
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2042,7.685033042
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2043,7.681756343
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2044,7.678633278
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2045,7.675656587
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2046,7.672819357
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2047,7.670115007
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2048,7.66753727
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2049,7.665080178
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2050,7.66273805
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2051,7.660505474
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2052,7.658377297
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2053,7.656348609
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2054,7.654414735
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2055,7.652571222
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2056,7.650813827
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2057,7.64913851
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2058,7.64754142
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2059,7.646018889
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2060,7.644567422
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2061,7.643183692
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2062,7.641864524
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2063,7.640606896
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2064,7.639407928
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2065,7.638264875
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2066,7.637175122
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2067,7.636136177
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2068,7.635145663
+"Oxford - fast_transition","Fossil Fuels","World","Coal","Coal",2069,7.634201319
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2018,64.09704262
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2019,58.89896644
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2020,54.25413481
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2021,50.06751081
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2022,46.26990513
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2023,42.80933356
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2024,39.64572051
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2025,36.74753791
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2026,34.08961135
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2027,31.65164846
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2028,29.41721048
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2029,27.37293506
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2030,25.50786306
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2031,23.81275507
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2032,22.27932864
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2033,20.89942583
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2034,19.66422505
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2035,18.56369052
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2036,17.5864331
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2037,16.72001845
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2038,15.95158385
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2039,15.26853281
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2040,14.65910931
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2041,14.11275743
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2042,13.62026888
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2043,13.17377206
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2044,12.76662605
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2045,12.39327073
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2046,12.05065816
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2047,11.73497444
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2048,11.44306363
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2049,11.17236764
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2050,10.92043247
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2051,10.68520732
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2052,10.46482148
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2053,10.25765564
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2054,10.06230615
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2055,9.877555185
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2056,9.702562021
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2057,9.536375679
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2058,9.378107135
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2059,9.227108776
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2060,9.082732808
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2061,8.94483009
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2062,8.812997272
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2063,8.686731668
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2064,8.565588929
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2065,8.449174506
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2066,8.337136602
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2067,8.22916031
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2068,8.124962721
+"Oxford - fast_transition","Power","World","Renewables","Solar PV",2069,8.024288799
+"Oxford - fast_transition","Power","World","Renewables","Wind",2018,53.64811123
+"Oxford - fast_transition","Power","World","Renewables","Wind",2019,52.28750462
+"Oxford - fast_transition","Power","World","Renewables","Wind",2020,50.98916178
+"Oxford - fast_transition","Power","World","Renewables","Wind",2021,49.74592422
+"Oxford - fast_transition","Power","World","Renewables","Wind",2022,48.55205458
+"Oxford - fast_transition","Power","World","Renewables","Wind",2023,47.40292661
+"Oxford - fast_transition","Power","World","Renewables","Wind",2024,46.29480398
+"Oxford - fast_transition","Power","World","Renewables","Wind",2025,45.22468228
+"Oxford - fast_transition","Power","World","Renewables","Wind",2026,44.19017715
+"Oxford - fast_transition","Power","World","Renewables","Wind",2027,43.18944699
+"Oxford - fast_transition","Power","World","Renewables","Wind",2028,42.22114148
+"Oxford - fast_transition","Power","World","Renewables","Wind",2029,41.2843685
+"Oxford - fast_transition","Power","World","Renewables","Wind",2030,40.37867175
+"Oxford - fast_transition","Power","World","Renewables","Wind",2031,39.50401019
+"Oxford - fast_transition","Power","World","Renewables","Wind",2032,38.66072809
+"Oxford - fast_transition","Power","World","Renewables","Wind",2033,37.84950287
+"Oxford - fast_transition","Power","World","Renewables","Wind",2034,37.0712583
+"Oxford - fast_transition","Power","World","Renewables","Wind",2035,36.32703571
+"Oxford - fast_transition","Power","World","Renewables","Wind",2036,35.61782692
+"Oxford - fast_transition","Power","World","Renewables","Wind",2037,34.94438817
+"Oxford - fast_transition","Power","World","Renewables","Wind",2038,34.30706806
+"Oxford - fast_transition","Power","World","Renewables","Wind",2039,33.70568633
+"Oxford - fast_transition","Power","World","Renewables","Wind",2040,33.13948938
+"Oxford - fast_transition","Power","World","Renewables","Wind",2041,32.60718658
+"Oxford - fast_transition","Power","World","Renewables","Wind",2042,32.10704992
+"Oxford - fast_transition","Power","World","Renewables","Wind",2043,31.63704706
+"Oxford - fast_transition","Power","World","Renewables","Wind",2044,31.19497822
+"Oxford - fast_transition","Power","World","Renewables","Wind",2045,30.77859588
+"Oxford - fast_transition","Power","World","Renewables","Wind",2046,30.38569695
+"Oxford - fast_transition","Power","World","Renewables","Wind",2047,30.0141859
+"Oxford - fast_transition","Power","World","Renewables","Wind",2048,29.66211252
+"Oxford - fast_transition","Power","World","Renewables","Wind",2049,29.32768999
+"Oxford - fast_transition","Power","World","Renewables","Wind",2050,29.00929911
+"Oxford - fast_transition","Power","World","Renewables","Wind",2051,28.70548349
+"Oxford - fast_transition","Power","World","Renewables","Wind",2052,28.41493949
+"Oxford - fast_transition","Power","World","Renewables","Wind",2053,28.1365035
+"Oxford - fast_transition","Power","World","Renewables","Wind",2054,27.86913825
+"Oxford - fast_transition","Power","World","Renewables","Wind",2055,27.61191933
+"Oxford - fast_transition","Power","World","Renewables","Wind",2056,27.36413601
+"Oxford - fast_transition","Power","World","Renewables","Wind",2057,27.12500922
+"Oxford - fast_transition","Power","World","Renewables","Wind",2058,26.89385131
+"Oxford - fast_transition","Power","World","Renewables","Wind",2059,26.67005246
+"Oxford - fast_transition","Power","World","Renewables","Wind",2060,26.45306946
+"Oxford - fast_transition","Power","World","Renewables","Wind",2061,26.24241646
+"Oxford - fast_transition","Power","World","Renewables","Wind",2062,26.03765727
+"Oxford - fast_transition","Power","World","Renewables","Wind",2063,25.83839888
+"Oxford - fast_transition","Power","World","Renewables","Wind",2064,25.644286
+"Oxford - fast_transition","Power","World","Renewables","Wind",2065,25.45499646
+"Oxford - fast_transition","Power","World","Renewables","Wind",2066,25.27023728
+"Oxford - fast_transition","Power","World","Renewables","Wind",2067,25.08974125
+"Oxford - fast_transition","Power","World","Renewables","Wind",2068,24.91326408
+"Oxford - fast_transition","Power","World","Renewables","Wind",2069,24.74058186
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2018,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2019,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2020,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2021,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2022,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2023,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2024,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2025,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2026,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2027,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2028,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2029,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2030,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2031,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2032,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2033,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2034,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2035,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2036,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2037,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2038,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2039,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2040,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2041,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2042,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2043,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2044,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2045,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2046,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2047,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2048,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2049,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2050,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2051,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2052,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2053,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2054,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2055,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2056,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2057,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2058,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2059,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2060,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2061,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2062,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2063,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2064,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2065,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2066,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2067,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2068,46.80000013
+"Oxford - fast_transition","Power","World","Renewables","Hydro",2069,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2018,71.72790903
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2019,71.47351505
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2020,71.23447696
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2021,71.00867168
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2022,70.7939483
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2023,70.58805166
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2024,70.38900858
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2025,70.19545324
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2026,70.00647621
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2027,69.82139059
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2028,69.63950437
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2029,69.46907236
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2030,69.3176084
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2031,69.183396
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2032,69.06375098
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2033,68.95459855
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2034,68.85174275
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2035,68.75231566
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2036,68.6545625
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2037,68.55717518
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2038,68.45893882
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2039,68.35890148
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2040,68.25633861
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2041,68.15081762
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2042,68.04217479
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2043,67.93044872
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2044,67.81581035
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2045,67.69850786
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2046,67.57882867
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2047,67.45707527
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2048,67.33352365
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2049,67.20848155
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2050,67.08223714
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2051,66.95505891
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2052,66.8271958
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2053,66.69887759
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2054,66.5703155
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2055,66.44170292
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2056,66.31321632
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2057,66.18501608
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2058,66.05724756
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2059,65.93004203
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2060,65.8035177
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2061,65.67778067
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2062,65.55292593
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2063,65.42903821
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2064,65.30619292
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2065,65.18445695
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2066,65.06388944
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2067,64.94454255
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2068,64.82646212
+"Oxford - no_transition","Power","World","Renewables","Bioenergy",2069,64.70968829
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2018,40.53833845
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2019,39.24743823
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2020,38.1880787
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2021,37.31470715
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2022,36.59185453
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2023,35.99160266
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2024,35.49176512
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2025,35.07456102
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2026,34.72563424
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2027,34.43331845
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2028,34.18807957
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2029,33.98208782
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2030,33.80888583
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2031,33.66312859
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2032,33.54037795
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2033,33.43693882
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2034,33.34972764
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2035,33.27616613
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2036,33.21409482
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2037,33.16170248
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2038,33.11746806
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2039,33.08011291
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2040,33.04856116
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2041,33.02190693
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2042,32.99938695
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2043,32.98035778
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2044,32.96427675
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2045,32.950686
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2046,32.93919908
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2047,32.92948976
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2048,32.92128255
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2049,32.91434476
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2050,32.90847984
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2051,32.90352174
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2052,32.89933013
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2053,32.89578645
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2054,32.89279049
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2055,32.89025755
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2056,32.88811604
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2057,32.88630546
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2058,32.88477464
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2059,32.88348036
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2060,32.88238606
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2061,32.88146083
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2062,32.88067855
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2063,32.88001713
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2064,32.87945789
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2065,32.87898505
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2066,32.87858526
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2067,32.87824723
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2068,32.87796142
+"Oxford - no_transition","Fossil Fuels","World","Oil",NA,2069,32.87771977
+"Oxford - no_transition","Power","World","Coal","Coal",2018,60.04294901
+"Oxford - no_transition","Power","World","Coal","Coal",2019,59.97164921
+"Oxford - no_transition","Power","World","Coal","Coal",2020,59.90566549
+"Oxford - no_transition","Power","World","Coal","Coal",2021,59.84459633
+"Oxford - no_transition","Power","World","Coal","Coal",2022,59.78807129
+"Oxford - no_transition","Power","World","Coal","Coal",2023,59.73574847
+"Oxford - no_transition","Power","World","Coal","Coal",2024,59.68731222
+"Oxford - no_transition","Power","World","Coal","Coal",2025,59.64247107
+"Oxford - no_transition","Power","World","Coal","Coal",2026,59.60095579
+"Oxford - no_transition","Power","World","Coal","Coal",2027,59.56251766
+"Oxford - no_transition","Power","World","Coal","Coal",2028,59.52692683
+"Oxford - no_transition","Power","World","Coal","Coal",2029,59.4939709
+"Oxford - no_transition","Power","World","Coal","Coal",2030,59.4634535
+"Oxford - no_transition","Power","World","Coal","Coal",2031,59.43519309
+"Oxford - no_transition","Power","World","Coal","Coal",2032,59.40902179
+"Oxford - no_transition","Power","World","Coal","Coal",2033,59.38478436
+"Oxford - no_transition","Power","World","Coal","Coal",2034,59.36233719
+"Oxford - no_transition","Power","World","Coal","Coal",2035,59.34154746
+"Oxford - no_transition","Power","World","Coal","Coal",2036,59.32229226
+"Oxford - no_transition","Power","World","Coal","Coal",2037,59.30445788
+"Oxford - no_transition","Power","World","Coal","Coal",2038,59.28793911
+"Oxford - no_transition","Power","World","Coal","Coal",2039,59.27263857
+"Oxford - no_transition","Power","World","Coal","Coal",2040,59.25846614
+"Oxford - no_transition","Power","World","Coal","Coal",2041,59.24533839
+"Oxford - no_transition","Power","World","Coal","Coal",2042,59.23317813
+"Oxford - no_transition","Power","World","Coal","Coal",2043,59.22191387
+"Oxford - no_transition","Power","World","Coal","Coal",2044,59.21147944
+"Oxford - no_transition","Power","World","Coal","Coal",2045,59.20181358
+"Oxford - no_transition","Power","World","Coal","Coal",2046,59.19285956
+"Oxford - no_transition","Power","World","Coal","Coal",2047,59.18456487
+"Oxford - no_transition","Power","World","Coal","Coal",2048,59.17688087
+"Oxford - no_transition","Power","World","Coal","Coal",2049,59.16976254
+"Oxford - no_transition","Power","World","Coal","Coal",2050,59.16316816
+"Oxford - no_transition","Power","World","Coal","Coal",2051,59.15705912
+"Oxford - no_transition","Power","World","Coal","Coal",2052,59.15139966
+"Oxford - no_transition","Power","World","Coal","Coal",2053,59.14615665
+"Oxford - no_transition","Power","World","Coal","Coal",2054,59.14129941
+"Oxford - no_transition","Power","World","Coal","Coal",2055,59.13679953
+"Oxford - no_transition","Power","World","Coal","Coal",2056,59.1326307
+"Oxford - no_transition","Power","World","Coal","Coal",2057,59.12876854
+"Oxford - no_transition","Power","World","Coal","Coal",2058,59.12519047
+"Oxford - no_transition","Power","World","Coal","Coal",2059,59.12187558
+"Oxford - no_transition","Power","World","Coal","Coal",2060,59.1188045
+"Oxford - no_transition","Power","World","Coal","Coal",2061,59.11595928
+"Oxford - no_transition","Power","World","Coal","Coal",2062,59.11332331
+"Oxford - no_transition","Power","World","Coal","Coal",2063,59.11088119
+"Oxford - no_transition","Power","World","Coal","Coal",2064,59.10861865
+"Oxford - no_transition","Power","World","Coal","Coal",2065,59.10652248
+"Oxford - no_transition","Power","World","Coal","Coal",2066,59.10458045
+"Oxford - no_transition","Power","World","Coal","Coal",2067,59.10278122
+"Oxford - no_transition","Power","World","Coal","Coal",2068,59.10111427
+"Oxford - no_transition","Power","World","Coal","Coal",2069,59.09956989
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2018,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2019,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2020,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2021,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2022,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2023,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2024,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2025,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2026,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2027,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2028,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2029,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2030,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2031,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2032,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2033,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2034,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2035,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2036,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2037,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2038,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2039,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2040,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2041,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2042,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2043,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2044,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2045,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2046,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2047,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2048,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2049,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2050,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2051,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2052,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2053,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2054,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2055,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2056,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2057,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2058,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2059,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2060,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2061,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2062,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2063,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2064,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2065,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2066,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2067,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2068,90.00000025
+"Oxford - no_transition","Power","World","Nuclear","Nuclear",2069,90.00000025
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2018,10.95843872
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2019,11.09080203
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2020,11.20112379
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2021,11.29289783
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2022,11.36912154
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2023,11.43234712
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2024,11.48473462
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2025,11.52810335
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2026,11.56397967
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2027,11.59364005
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2028,11.61814927
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2029,11.63839363
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2030,11.6551096
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2031,11.66890831
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2032,11.68029624
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2033,11.68969282
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2034,11.69744503
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2035,11.70383983
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2036,11.70911433
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2037,11.71346441
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2038,11.71705183
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2039,11.72001013
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2040,11.72244952
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2041,11.72446092
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2042,11.72611939
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2043,11.72748681
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2044,11.72861422
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2045,11.72954375
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2046,11.7303101
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2047,11.73094192
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2048,11.73146282
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2049,11.73189227
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2050,11.73224631
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2051,11.7325382
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2052,11.73277883
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2053,11.73297722
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2054,11.73314077
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2055,11.7332756
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2056,11.73338676
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2057,11.73347839
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2058,11.73355394
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2059,11.73361622
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2060,11.73366757
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2061,11.7337099
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2062,11.73374479
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2063,11.73377356
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2064,11.73379728
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2065,11.73381683
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2066,11.73383295
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2067,11.73384624
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2068,11.73385719
+"Oxford - no_transition","Fossil Fuels","World","Gas",NA,2069,11.73386622
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2018,51.55640538
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2019,52.84519445
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2020,53.93538268
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2021,54.85398601
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2022,55.6255183
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2023,56.2718
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2024,56.81197137
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2025,57.26263119
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2026,57.63804544
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2027,57.95038759
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2028,58.20998605
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2029,58.42556326
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2030,58.60445773
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2031,58.75282474
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2032,58.87581423
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2033,58.9777262
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2034,59.06214494
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2035,59.13205407
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2036,59.18993437
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2037,59.23784662
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2038,59.27750135
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2039,59.31031754
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2040,59.33747163
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2041,59.3599386
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2042,59.37852615
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2043,59.39390323
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2044,59.40662373
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2045,59.41714618
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2046,59.42585009
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2047,59.43304956
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2048,59.43900448
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2049,59.4439299
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2050,59.44800373
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2051,59.45137318
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2052,59.45416
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2053,59.45646491
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2054,59.45837124
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2055,59.4599479
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2056,59.46125189
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2057,59.46233037
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2058,59.46322234
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2059,59.46396004
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2060,59.46457015
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2061,59.46507475
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2062,59.46549208
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2063,59.46583723
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2064,59.46612268
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2065,59.46635876
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2066,59.46655401
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2067,59.4667155
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2068,59.46684905
+"Oxford - no_transition","Power","World","Natural gas","Gas CCGT",2069,59.4669595
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2018,7.837004729
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2019,7.826534955
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2020,7.816564948
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2021,7.807070276
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2022,7.798027752
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2023,7.789415369
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2024,7.781212235
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2025,7.773398511
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2026,7.765955355
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2027,7.758864868
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2028,7.752110048
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2029,7.745674736
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2030,7.739543578
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2031,7.733701977
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2032,7.728136059
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2033,7.722832631
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2034,7.717779148
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2035,7.712963683
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2036,7.708374886
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2037,7.704001965
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2038,7.699834652
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2039,7.695863177
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2040,7.692078243
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2041,7.688471005
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2042,7.685033042
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2043,7.681756343
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2044,7.678633278
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2045,7.675656587
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2046,7.672819357
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2047,7.670115007
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2048,7.66753727
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2049,7.665080178
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2050,7.66273805
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2051,7.660505474
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2052,7.658377297
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2053,7.656348609
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2054,7.654414735
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2055,7.652571222
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2056,7.650813827
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2057,7.64913851
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2058,7.64754142
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2059,7.646018889
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2060,7.644567422
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2061,7.643183692
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2062,7.641864524
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2063,7.640606896
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2064,7.639407928
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2065,7.638264875
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2066,7.637175122
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2067,7.636136177
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2068,7.635145663
+"Oxford - no_transition","Fossil Fuels","World","Coal","Coal",2069,7.634201319
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2018,64.88113524
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2019,60.80521692
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2020,57.41895635
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2021,54.52523176
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2022,51.99954262
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2023,49.75858357
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2024,47.74406665
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2025,45.91372824
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2026,44.23601822
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2027,42.68680624
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2028,41.24750651
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2029,39.903554
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2030,38.64398891
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2031,37.46181336
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2032,36.35506001
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2033,35.32586856
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2034,34.37466119
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2035,33.49650973
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2036,32.68356722
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2037,31.9278239
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2038,31.2223057
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2039,30.56086385
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2040,29.93838656
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2041,29.3505818
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2042,28.79381354
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2043,28.26497663
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2044,27.76139985
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2045,27.28076991
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2046,26.82107128
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2047,26.38053799
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2048,25.95761473
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2049,25.55092515
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2050,25.15924592
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2051,24.78148517
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2052,24.41666466
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2053,24.06390477
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2054,23.72241196
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2055,23.39146799
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2056,23.07042094
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2057,22.75867736
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2058,22.45569564
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2059,22.16098023
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2060,21.87407667
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2061,21.59456721
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2062,21.32206707
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2063,21.0562211
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2064,20.79670087
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2065,20.54320211
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2066,20.29544241
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2067,20.05315926
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2068,19.8161082
+"Oxford - no_transition","Power","World","Renewables","Solar PV",2069,19.58406128
+"Oxford - no_transition","Power","World","Renewables","Wind",2018,53.77374128
+"Oxford - no_transition","Power","World","Renewables","Wind",2019,52.62406684
+"Oxford - no_transition","Power","World","Renewables","Wind",2020,51.59650517
+"Oxford - no_transition","Power","World","Renewables","Wind",2021,50.66707226
+"Oxford - no_transition","Power","World","Renewables","Wind",2022,49.81886508
+"Oxford - no_transition","Power","World","Renewables","Wind",2023,49.03980305
+"Oxford - no_transition","Power","World","Renewables","Wind",2024,48.32046466
+"Oxford - no_transition","Power","World","Renewables","Wind",2025,47.65274401
+"Oxford - no_transition","Power","World","Renewables","Wind",2026,47.02965409
+"Oxford - no_transition","Power","World","Renewables","Wind",2027,46.44533363
+"Oxford - no_transition","Power","World","Renewables","Wind",2028,45.89494306
+"Oxford - no_transition","Power","World","Renewables","Wind",2029,45.37442965
+"Oxford - no_transition","Power","World","Renewables","Wind",2030,44.88041503
+"Oxford - no_transition","Power","World","Renewables","Wind",2031,44.41005464
+"Oxford - no_transition","Power","World","Renewables","Wind",2032,43.96093188
+"Oxford - no_transition","Power","World","Renewables","Wind",2033,43.53097706
+"Oxford - no_transition","Power","World","Renewables","Wind",2034,43.11840469
+"Oxford - no_transition","Power","World","Renewables","Wind",2035,42.72166413
+"Oxford - no_transition","Power","World","Renewables","Wind",2036,42.33940057
+"Oxford - no_transition","Power","World","Renewables","Wind",2037,41.97042367
+"Oxford - no_transition","Power","World","Renewables","Wind",2038,41.61368224
+"Oxford - no_transition","Power","World","Renewables","Wind",2039,41.2682436
+"Oxford - no_transition","Power","World","Renewables","Wind",2040,40.93327659
+"Oxford - no_transition","Power","World","Renewables","Wind",2041,40.60803748
+"Oxford - no_transition","Power","World","Renewables","Wind",2042,40.29185833
+"Oxford - no_transition","Power","World","Renewables","Wind",2043,39.98413706
+"Oxford - no_transition","Power","World","Renewables","Wind",2044,39.68432923
+"Oxford - no_transition","Power","World","Renewables","Wind",2045,39.391941
+"Oxford - no_transition","Power","World","Renewables","Wind",2046,39.10652308
+"Oxford - no_transition","Power","World","Renewables","Wind",2047,38.82766564
+"Oxford - no_transition","Power","World","Renewables","Wind",2048,38.55499388
+"Oxford - no_transition","Power","World","Renewables","Wind",2049,38.28816419
+"Oxford - no_transition","Power","World","Renewables","Wind",2050,38.02686083
+"Oxford - no_transition","Power","World","Renewables","Wind",2051,37.77079306
+"Oxford - no_transition","Power","World","Renewables","Wind",2052,37.5196926
+"Oxford - no_transition","Power","World","Renewables","Wind",2053,37.27331141
+"Oxford - no_transition","Power","World","Renewables","Wind",2054,37.03141973
+"Oxford - no_transition","Power","World","Renewables","Wind",2055,36.79380439
+"Oxford - no_transition","Power","World","Renewables","Wind",2056,36.56026724
+"Oxford - no_transition","Power","World","Renewables","Wind",2057,36.33062382
+"Oxford - no_transition","Power","World","Renewables","Wind",2058,36.10470216
+"Oxford - no_transition","Power","World","Renewables","Wind",2059,35.88234167
+"Oxford - no_transition","Power","World","Renewables","Wind",2060,35.66339221
+"Oxford - no_transition","Power","World","Renewables","Wind",2061,35.44771319
+"Oxford - no_transition","Power","World","Renewables","Wind",2062,35.23517285
+"Oxford - no_transition","Power","World","Renewables","Wind",2063,35.02564747
+"Oxford - no_transition","Power","World","Renewables","Wind",2064,34.81902083
+"Oxford - no_transition","Power","World","Renewables","Wind",2065,34.61518356
+"Oxford - no_transition","Power","World","Renewables","Wind",2066,34.41403269
+"Oxford - no_transition","Power","World","Renewables","Wind",2067,34.21547111
+"Oxford - no_transition","Power","World","Renewables","Wind",2068,34.01940718
+"Oxford - no_transition","Power","World","Renewables","Wind",2069,33.82575436
+"Oxford - no_transition","Power","World","Renewables","Hydro",2018,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2019,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2020,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2021,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2022,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2023,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2024,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2025,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2026,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2027,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2028,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2029,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2030,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2031,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2032,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2033,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2034,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2035,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2036,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2037,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2038,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2039,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2040,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2041,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2042,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2043,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2044,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2045,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2046,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2047,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2048,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2049,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2050,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2051,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2052,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2053,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2054,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2055,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2056,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2057,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2058,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2059,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2060,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2061,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2062,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2063,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2064,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2065,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2066,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2067,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2068,46.80000013
+"Oxford - no_transition","Power","World","Renewables","Hydro",2069,46.80000013
+"IEA - SPS","Power","United States","Nuclear","Nuclear",2018,90.00000025
+"IEA - SPS","Power","United States","Coal","Coal",2018,60.04294901
+"IEA - SPS","Power","United States","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SPS","Power","United States","Renewables","Solar PV",2018,64.88113524
+"IEA - SPS","Power","United States","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","United States","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","European Union","Nuclear","Nuclear",2018,90.00000025
+"IEA - SPS","Power","European Union","Coal","Coal",2018,60.04294901
+"IEA - SPS","Power","European Union","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SPS","Power","European Union","Renewables","Solar PV",2018,64.88113524
+"IEA - SPS","Power","European Union","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","European Union","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","China","Nuclear","Nuclear",2018,90.00000025
+"IEA - SPS","Power","China","Coal","Coal",2018,60.04294901
+"IEA - SPS","Power","China","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SPS","Power","China","Renewables","Solar PV",2018,64.88113524
+"IEA - SPS","Power","China","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","China","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","India","Nuclear","Nuclear",2018,90.00000025
+"IEA - SPS","Power","India","Coal","Coal",2018,60.04294901
+"IEA - SPS","Power","India","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SPS","Power","India","Renewables","Solar PV",2018,64.88113524
+"IEA - SPS","Power","India","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","India","Renewables","Wind",2018,53.77374128
+"IEA - SPS","Power","United States","Nuclear","Nuclear",2040,90.00000025
+"IEA - SPS","Power","United States","Coal","Coal",2040,59.25846614
+"IEA - SPS","Power","United States","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SPS","Power","United States","Renewables","Solar PV",2040,29.93838656
+"IEA - SPS","Power","United States","Renewables","Wind",2040,40.93327659
+"IEA - SPS","Power","United States","Renewables","Wind",2040,40.93327659
+"IEA - SPS","Power","European Union","Nuclear","Nuclear",2040,90.00000025
+"IEA - SPS","Power","European Union","Coal","Coal",2040,59.25846614
+"IEA - SPS","Power","European Union","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SPS","Power","European Union","Renewables","Solar PV",2040,29.93838656
+"IEA - SPS","Power","European Union","Renewables","Wind",2040,40.93327659
+"IEA - SPS","Power","European Union","Renewables","Wind",2040,40.93327659
+"IEA - SPS","Power","China","Nuclear","Nuclear",2040,90.00000025
+"IEA - SPS","Power","China","Coal","Coal",2040,59.25846614
+"IEA - SPS","Power","China","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SPS","Power","China","Renewables","Solar PV",2040,29.93838656
+"IEA - SPS","Power","China","Renewables","Wind",2040,40.93327659
+"IEA - SPS","Power","China","Renewables","Wind",2040,40.93327659
+"IEA - SPS","Power","India","Nuclear","Nuclear",2040,90.00000025
+"IEA - SPS","Power","India","Coal","Coal",2040,59.25846614
+"IEA - SPS","Power","India","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SPS","Power","India","Renewables","Solar PV",2040,29.93838656
+"IEA - SPS","Power","India","Renewables","Wind",2040,40.93327659
+"IEA - SPS","Power","India","Renewables","Wind",2040,40.93327659
+"IEA - SDS","Power","United States","Nuclear","Nuclear",2018,90.00000025
+"IEA - SDS","Power","United States","Coal","Coal",2018,60.04294901
+"IEA - SDS","Power","United States","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SDS","Power","United States","Renewables","Solar PV",2018,64.09704262
+"IEA - SDS","Power","United States","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","United States","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","European Union","Nuclear","Nuclear",2018,90.00000025
+"IEA - SDS","Power","European Union","Coal","Coal",2018,60.04294901
+"IEA - SDS","Power","European Union","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SDS","Power","European Union","Renewables","Solar PV",2018,64.09704262
+"IEA - SDS","Power","European Union","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","European Union","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","China","Nuclear","Nuclear",2018,90.00000025
+"IEA - SDS","Power","China","Coal","Coal",2018,60.04294901
+"IEA - SDS","Power","China","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SDS","Power","China","Renewables","Solar PV",2018,64.09704262
+"IEA - SDS","Power","China","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","China","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","India","Nuclear","Nuclear",2018,90.00000025
+"IEA - SDS","Power","India","Coal","Coal",2018,60.04294901
+"IEA - SDS","Power","India","Natural gas","Gas CCGT",2018,51.55640538
+"IEA - SDS","Power","India","Renewables","Solar PV",2018,64.09704262
+"IEA - SDS","Power","India","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","India","Renewables","Wind",2018,53.64811123
+"IEA - SDS","Power","United States","Nuclear","Nuclear",2040,90.00000025
+"IEA - SDS","Power","United States","Coal","Coal",2040,59.25846614
+"IEA - SDS","Power","United States","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SDS","Power","United States","Renewables","Solar PV",2040,14.65910931
+"IEA - SDS","Power","United States","Renewables","Wind",2040,33.13948938
+"IEA - SDS","Power","United States","Renewables","Wind",2040,33.13948938
+"IEA - SDS","Power","European Union","Nuclear","Nuclear",2040,90.00000025
+"IEA - SDS","Power","European Union","Coal","Coal",2040,59.25846614
+"IEA - SDS","Power","European Union","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SDS","Power","European Union","Renewables","Solar PV",2040,14.65910931
+"IEA - SDS","Power","European Union","Renewables","Wind",2040,33.13948938
+"IEA - SDS","Power","European Union","Renewables","Wind",2040,33.13948938
+"IEA - SDS","Power","China","Nuclear","Nuclear",2040,90.00000025
+"IEA - SDS","Power","China","Coal","Coal",2040,59.25846614
+"IEA - SDS","Power","China","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SDS","Power","China","Renewables","Solar PV",2040,14.65910931
+"IEA - SDS","Power","China","Renewables","Wind",2040,33.13948938
+"IEA - SDS","Power","China","Renewables","Wind",2040,33.13948938
+"IEA - SDS","Power","India","Nuclear","Nuclear",2040,90.00000025
+"IEA - SDS","Power","India","Coal","Coal",2040,59.25846614
+"IEA - SDS","Power","India","Natural gas","Gas CCGT",2040,59.33747163
+"IEA - SDS","Power","India","Renewables","Solar PV",2040,14.65910931
+"IEA - SDS","Power","India","Renewables","Wind",2040,33.13948938
+"IEA - SDS","Power","India","Renewables","Wind",2040,33.13948938
+"IEA - SPS","Power","Global","Nuclear","Nuclear",2018,NA
+"IEA - SPS","Power","Global","Coal","Coal",2018,NA
+"IEA - SPS","Power","Global","Natural gas","Gas CCGT",2018,NA
+"IEA - SPS","Power","Global","Renewables","Solar PV",2018,NA
+"IEA - SPS","Power","Global","Renewables","Wind",2018,NA
+"IEA - SPS","Power","Global","Renewables","Wind",2018,NA
+"IEA - SPS","Power","Global","Nuclear","Nuclear",2040,NA
+"IEA - SPS","Power","Global","Coal","Coal",2040,NA
+"IEA - SPS","Power","Global","Natural gas","Gas CCGT",2040,NA
+"IEA - SPS","Power","Global","Renewables","Solar PV",2040,NA
+"IEA - SPS","Power","Global","Renewables","Wind",2040,NA
+"IEA - SPS","Power","Global","Renewables","Wind",2040,NA
+"IEA - SDS","Power","Global","Nuclear","Nuclear",2018,NA
+"IEA - SDS","Power","Global","Coal","Coal",2018,NA
+"IEA - SDS","Power","Global","Natural gas","Gas CCGT",2018,NA
+"IEA - SDS","Power","Global","Renewables","Solar PV",2018,NA
+"IEA - SDS","Power","Global","Renewables","Wind",2018,NA
+"IEA - SDS","Power","Global","Renewables","Wind",2018,NA
+"IEA - SDS","Power","Global","Nuclear","Nuclear",2040,NA
+"IEA - SDS","Power","Global","Coal","Coal",2040,NA
+"IEA - SDS","Power","Global","Natural gas","Gas CCGT",2040,NA
+"IEA - SDS","Power","Global","Renewables","Solar PV",2040,NA
+"IEA - SDS","Power","Global","Renewables","Wind",2040,NA
+"IEA - SDS","Power","Global","Renewables","Wind",2040,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA

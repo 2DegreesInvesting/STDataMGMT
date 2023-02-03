@@ -34,6 +34,8 @@ Scenario_AnalysisInput_2021 %>%
   View()
 
 #remove sector if not complete 
+p4i_p4b_sector_technology_lookup <- p4i_p4b_sector_technology_lookup()
+
 Scenario_AnalysisInput_2021 <- Scenario_AnalysisInput_2021 %>%
   dplyr::filter(Scenario_AnalysisInput_2021$ald_sector %in% unique(p4i_p4b_sector_technology_lookup$sector_p4i))
 
