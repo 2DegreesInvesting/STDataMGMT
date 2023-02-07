@@ -165,7 +165,8 @@ preprepare_ngfs_scenario_data <- function(data) {
   delete_renewables <- data %>% dplyr::filter(!.data$technology == "RenewablesCap")
   
   data <- dplyr::full_join(combine_renewables_cap, delete_renewables) %>%
-    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_")
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>% 
+    dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 }
 
 #' Interpolate values in a dataset, by year.
