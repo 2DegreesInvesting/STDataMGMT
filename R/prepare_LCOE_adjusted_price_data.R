@@ -177,7 +177,8 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
     tidyr::pivot_longer(.data$NDC:.data$CP, names_to = "scenario") %>% dplyr::select(-c(.data$value))
 
   prices_adjusted_final <- dplyr::full_join(oxford_fast_transition, oxford_slow_transition) %>%
-    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_")
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>% 
+    dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 
 
   return(prices_adjusted_final)
