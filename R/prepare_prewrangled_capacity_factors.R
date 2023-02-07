@@ -357,5 +357,6 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
 
   data <- data %>%
     dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
-    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_")
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>% 
+    dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 }
