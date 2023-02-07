@@ -101,8 +101,10 @@ interpolation_groups <- c(
   "units"
 )
 
-preprepared_ngfs_data <- preprepared_ngfs_data %>% interpolate_yearly(!!!rlang::syms(interpolation_groups))%>% 
-  dplyr::filter(year >= start_year) %>% add_market_share_columns(start_year = start_year) 
+preprepared_ngfs_data <- preprepared_ngfs_data %>%
+  interpolate_yearly(!!!rlang::syms(interpolation_groups)) %>%
+  dplyr::filter(year >= start_year) %>%
+  add_market_share_columns(start_year = start_year)
 
 # vector of green technolgies
 green_techs <- c(
@@ -117,10 +119,10 @@ green_techs <- c(
   "Hybrid_HDV"
 )
 
-preprepared_ngfs_data <- preprepared_ngfs_data %>% format_p4i(green_techs) 
+preprepared_ngfs_data <- preprepared_ngfs_data %>% format_p4i(green_techs)
 
-prepared_data_combined <- dplyr::full_join(prepared_data, preprepared_ngfs_data) 
+prepared_data_combined <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
 
 prepared_data_combined %>% readr::write_csv(
- file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
- )
+  file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
+)
