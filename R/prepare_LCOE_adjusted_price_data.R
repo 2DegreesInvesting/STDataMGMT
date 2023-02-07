@@ -95,6 +95,9 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
         .data$Technology == "Nuclear"  ~ "NuclearCap",
         .data$Technology == "Renewables" & .data$Sub_Technology != "HydroCap" ~ "RenewablesCap",
         TRUE ~ .data$Technology),
+      scenario_geography = dplyr::case_when(
+        .data$Region == "World" ~ "Global",
+        TRUE ~ .data$Region),
       unit = "$/MWh",
       scenario = dplyr::case_when(
         .data$Scenario == "Oxford - fast_transition" ~ "fast_transition_oxford",
@@ -103,8 +106,8 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
         TRUE ~ .data$Scenario
       )) %>%
     dplyr::filter(.data$scenario != "slow_transition_oxford") %>% 
-    dplyr::select(-c(.data$Sub_Technology, .data$Technology, .data$Scenario)) %>%
-    dplyr::rename(scenario_geography = .data$Region,
+    dplyr::select(-c(.data$Sub_Technology, .data$Technology, .data$Scenario, .data$Region)) %>%
+    dplyr::rename(
                   sector = .data$Sector,
                   year = .data$Year,
                   price = .data$LCOE)
