@@ -116,6 +116,10 @@ preprepare_ngfs_scenario_data <- function(data) {
         .data$scenario == "Net Zero 2050" ~ "NZ2050",
         TRUE ~ .data$scenario
       ),
+      scenario_geography = dplyr::case_when(
+        .data$Region == "World" ~ "Global",
+        TRUE ~ .data$Region
+        ),
       sector = dplyr::case_when(
         .data$category_b == "Oil" ~ "Oil&Gas",
         .data$category_b == "Gas" ~ "Oil&Gas",
@@ -148,8 +152,8 @@ preprepare_ngfs_scenario_data <- function(data) {
         TRUE ~ .data$Model
       )
     ) %>%
-    dplyr::rename(scenario_geography = .data$Region, units = .data$Unit) %>%
-    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_c, .data$category_a, .data$category_b))
+    dplyr::rename(units = .data$Unit) %>%
+    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_c, .data$category_a, .data$category_b, .data$Region))
   
   
   combine_renewables_cap <- data %>%
