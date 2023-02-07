@@ -79,7 +79,7 @@ prepare_scenario_data <- function(data, start_year) {
 
   # removing sectors that are not supported by stress testing
   p4i_p4b_sector_technology_lookup <- p4i_p4b_sector_technology_lookup()
-  
+
   data <- data %>%
     dplyr::filter(.data$ald_sector %in% unique(p4i_p4b_sector_technology_lookup$sector_p4i))
 
@@ -103,7 +103,7 @@ prepare_scenario_data <- function(data, start_year) {
 
 preprepare_ngfs_scenario_data <- function(data) {
   start_year <- 2021
-  
+
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(
@@ -119,7 +119,7 @@ preprepare_ngfs_scenario_data <- function(data) {
       scenario_geography = dplyr::case_when(
         .data$Region == "World" ~ "Global",
         TRUE ~ .data$Region
-        ),
+      ),
       sector = dplyr::case_when(
         .data$category_b == "Oil" ~ "Oil&Gas",
         .data$category_b == "Gas" ~ "Oil&Gas",
@@ -154,18 +154,18 @@ preprepare_ngfs_scenario_data <- function(data) {
     ) %>%
     dplyr::rename(units = .data$Unit) %>%
     dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_c, .data$category_a, .data$category_b, .data$Region))
-  
-  
+
+
   combine_renewables_cap <- data %>%
     dplyr::filter(.data$technology == "RenewablesCap") %>%
     dplyr::group_by(.data$year, .data$technology, .data$scenario_geography, .data$model, .data$scenario) %>%
     dplyr::mutate(value = sum(.data$value)) %>%
     unique()
-  
+
   delete_renewables <- data %>% dplyr::filter(!.data$technology == "RenewablesCap")
-  
+
   data <- dplyr::full_join(combine_renewables_cap, delete_renewables) %>%
-    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>% 
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
     dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 }
 
@@ -207,7 +207,7 @@ interpolate_yearly <- function(data, ...) {
 add_market_share_columns <- function(data, start_year) {
   old_groups <- dplyr::groups(data)
   data <- dplyr::ungroup(data)
-  
+
   data %>%
     add_technology_fair_share_ratio() %>%
     add_market_fair_share_percentage() %>%
@@ -255,25 +255,25 @@ format_p4i <- function(data, green_techs) {
     "tmsr",
     "smsp"
   )
-  
+
   check_crucial_names(data, crucial_names)
-  
+
   data %>%
     dplyr::mutate(Sub_Technology = NA) %>% # this column should be dropped from PACTA
     dplyr::mutate(
       direction = dplyr::if_else(.data$technology %in% .env$green_techs, "increasing", "declining"),
       fair_share_perc = dplyr::if_else(.data$direction == "declining", .data$tmsr, .data$smsp)
     ) %>%
-     dplyr::select(
-    .data$scenario_geography,
-    .data$scenario,
-     ald_sector = .data$sector,
-    .data$technology,
-    .data$units,
-    .data$year,
-    .data$direction,
-    .data$fair_share_perc
-     )
+    dplyr::select(
+      .data$scenario_geography,
+      .data$scenario,
+      ald_sector = .data$sector,
+      .data$technology,
+      .data$units,
+      .data$year,
+      .data$direction,
+      .data$fair_share_perc
+    )
 }
 
 #' Check if a named object contains expected names
@@ -293,12 +293,12 @@ format_p4i <- function(data, green_techs) {
 check_crucial_names <- function(x, expected_names) {
   stopifnot(rlang::is_named(x))
   stopifnot(is.character(expected_names))
-  
+
   ok <- all(unique(expected_names) %in% names(x))
   if (!ok) {
     abort_missing_names(sort(setdiff(expected_names, names(x))))
   }
-  
+
   invisible(x)
 }
 
