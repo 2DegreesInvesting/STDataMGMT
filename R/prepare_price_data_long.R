@@ -246,17 +246,17 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
 #' This function reads raw NGFS price data files from 2021 in and wrangles
 #' it to fit the format to be used in the transition risk stress test work flow.
 #'
-#' @param input_data_fossil_fuels_ngfs A dataset containing prices for the fossil 
-#' fuels 
+#' @param input_data_fossil_fuels_ngfs A dataset containing prices for the fossil
+#' fuels
 #'
 #' @family data preparation functions
 #'
 #' @export
 
 
-prepare_price_data_long_NGFS2021  <- function(input_data_fossil_fuels_ngfs) {
+prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs) {
   start_year <- 2021
-  
+
   data <- input_data_fossil_fuels_ngfs %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(
@@ -270,8 +270,9 @@ prepare_price_data_long_NGFS2021  <- function(input_data_fossil_fuels_ngfs) {
         TRUE ~ .data$scenario
       ),
       scenario_geography = dplyr::case_when(
-       .data$Region == "World" ~ "Global",
-       TRUE ~ .data$Region),
+        .data$Region == "World" ~ "Global",
+        TRUE ~ .data$Region
+      ),
       model = dplyr::case_when(
         .data$Model == "GCAM 5.3+ NGFS" ~ "GCAM",
         .data$Model == "REMIND-MAgPIE 3.0-4.4" ~ "REMIND",
@@ -283,7 +284,8 @@ prepare_price_data_long_NGFS2021  <- function(input_data_fossil_fuels_ngfs) {
         .data$category_c == "Gas" ~ "Oil&Gas",
         .data$category_c == "Coal" ~ "Coal",
         TRUE ~ .data$category_c
-      )) %>%
+      )
+    ) %>%
     dplyr::rename(unit = .data$Unit, technology = .data$category_c, indicator = .data$category_a) %>%
     dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$Region))
 
@@ -294,20 +296,22 @@ prepare_price_data_long_NGFS2021  <- function(input_data_fossil_fuels_ngfs) {
       value = zoo::na.approx(.data$value, .data$year, na.rm = FALSE)
     ) %>%
     dplyr::ungroup()
-  
+
   data <- data %>% dplyr::filter(.data$year >= start_year)
 
-  data_oil_gas <- data %>% dplyr::filter(.data$sector == "Oil&Gas") %>%
+  data_oil_gas <- data %>%
+    dplyr::filter(.data$sector == "Oil&Gas") %>%
     dplyr::mutate(unit = "$/GJ")
-  
-  data_coal <- data %>% dplyr::filter(.data$sector == "Coal") %>% 
-    dplyr::group_by(.data$year, .data$scenario_geography, .data$model, .data$scenario) %>% 
-    dplyr::mutate(value = .data$value/ 0.03414368, unit = "$/tonnes")
-  
+
+  data_coal <- data %>%
+    dplyr::filter(.data$sector == "Coal") %>%
+    dplyr::group_by(.data$year, .data$scenario_geography, .data$model, .data$scenario) %>%
+    dplyr::mutate(value = .data$value / 0.03414368, unit = "$/tonnes")
+
   data <- dplyr::full_join(data_oil_gas, data_coal)
 
-  data <- data %>% dplyr::rename(price = .data$value) %>%
-    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>% 
+  data <- data %>%
+    dplyr::rename(price = .data$value) %>%
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
     dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
-
 }
