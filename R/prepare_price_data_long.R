@@ -269,6 +269,9 @@ prepare_price_data_long_NGFS2021  <- function(input_data_fossil_fuels_ngfs) {
         .data$scenario == "Net Zero 2050" ~ "NZ2050",
         TRUE ~ .data$scenario
       ),
+      scenario_geography = dplyr::case_when(
+       .data$Region == "World" ~ "Global",
+       TRUE ~ .data$Region),
       model = dplyr::case_when(
         .data$Model == "GCAM 5.3+ NGFS" ~ "GCAM",
         .data$Model == "REMIND-MAgPIE 3.0-4.4" ~ "REMIND",
@@ -281,8 +284,8 @@ prepare_price_data_long_NGFS2021  <- function(input_data_fossil_fuels_ngfs) {
         .data$category_c == "Coal" ~ "Coal",
         TRUE ~ .data$category_c
       )) %>%
-    dplyr::rename(scenario_geography = .data$Region, unit = .data$Unit, technology = .data$category_c, indicator = .data$category_a) %>%
-    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b))
+    dplyr::rename(unit = .data$Unit, technology = .data$category_c, indicator = .data$category_a) %>%
+    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$Region))
 
   data <- data %>%
     dplyr::group_by(dplyr::across(-c(.data$year, .data$value))) %>%
