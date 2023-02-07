@@ -265,7 +265,7 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
         TRUE ~ .data$scenario
       ),
       scenario_geography = dplyr::case_when(
-        .data$Region == "World" ~  "Global",
+        .data$Region == "World" ~ "Global",
         TRUE ~ .data$Region
       ),
       technology = dplyr::case_when(
@@ -357,6 +357,6 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
 
   data <- data %>%
     dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
-    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>% 
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
     dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 }
