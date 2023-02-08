@@ -88,7 +88,9 @@ global_aggregate <- FALSE
 # read scenario data
 scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv")))
 
-scenario_geographies_list <- scenario_data  %>% dplyr::filter(stringr::str_detect(scenario, "WEO2021")) %>% dplyr::distinct(scenario_geography)
+scenario_geographies_list <- scenario_data %>%
+  dplyr::filter(stringr::str_detect(scenario, "WEO2021")) %>%
+  dplyr::distinct(scenario_geography)
 
 not_available <- c(
   "AdvancedEconomies",

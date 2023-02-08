@@ -264,7 +264,7 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
         .data$scenario == "Net Zero 2050" ~ "NZ2050",
         TRUE ~ .data$scenario
       ),
-  #NOTE: rename World to Global to fit the ST scenario geography names 
+      # NOTE: rename World to Global to fit the ST scenario geography names
       scenario_geography = dplyr::case_when(
         .data$Region == "World" ~ "Global",
         TRUE ~ .data$Region
