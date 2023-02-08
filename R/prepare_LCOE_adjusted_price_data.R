@@ -94,6 +94,7 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
         .data$Technology == "Renewables" & .data$Sub_Technology != "HydroCap" ~ "RenewablesCap",
         TRUE ~ .data$Technology
       ),
+  #NOTE: rename World to Global to fit the ST scenario geography names 
       scenario_geography = dplyr::case_when(
         .data$Region == "World" ~ "Global",
         TRUE ~ .data$Region
