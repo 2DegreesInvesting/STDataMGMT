@@ -71,9 +71,9 @@ price_data_long_adjusted_WEO2021 <- prepare_lcoe_adjusted_price_data_weo(
 
 
 
-# prepare price data NGFS 2021 
+# prepare price data NGFS 2021
 
-##read input data 
+## read input data
 input_path_fossil_fuels_ngfs <- file.path("data-raw", "raw_price_data_long_NGFS2021.csv")
 input_data_fossil_fuels_ngfs <- readr::read_csv(
   input_path_fossil_fuels_ngfs,
@@ -92,7 +92,7 @@ input_data_fossil_fuels_ngfs <- readr::read_csv(
   )
 )
 
-##read LCOE price data Oxford2021 
+## read LCOE price data Oxford2021
 input_path_lcoe_oxford <- file.path("data-raw", "raw_Oxford_LCOE_wrangled.csv")
 
 input_data_lcoe_oxford <- readr::read_delim(
@@ -110,14 +110,15 @@ input_data_lcoe_oxford <- readr::read_delim(
 )
 
 price_data_long_NGFS2021 <- prepare_price_data_long_NGFS2021(
-  input_data_fossil_fuels_ngfs = input_data_fossil_fuels_ngfs)
+  input_data_fossil_fuels_ngfs = input_data_fossil_fuels_ngfs
+)
 
 lcoe_adjusted_price_data_oxford2021 <- prepare_lcoe_adjusted_price_data_oxford2021(
   input_data_lcoe_oxford = input_data_lcoe_oxford,
   average_npm_power = average_npm_power
 )
 
-price_data_long_adjusted_NGFS2021 <- price_data_long_NGFS2021 %>% 
+price_data_long_adjusted_NGFS2021 <- price_data_long_NGFS2021 %>%
   dplyr::bind_rows(lcoe_adjusted_price_data_oxford2021)
 
 ## combine and write all price data----

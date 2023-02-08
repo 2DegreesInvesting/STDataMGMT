@@ -264,6 +264,11 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
         .data$scenario == "Net Zero 2050" ~ "NZ2050",
         TRUE ~ .data$scenario
       ),
+  #NOTE: rename World to Global to fit the ST scenario geography names 
+      scenario_geography = dplyr::case_when(
+        .data$Region == "World" ~ "Global",
+        TRUE ~ .data$Region
+      ),
       technology = dplyr::case_when(
         .data$category_c == "Oil" ~ "OilCap",
         .data$category_c == "Gas" ~ "GasCap",
@@ -284,8 +289,8 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
         TRUE ~ .data$Model
       )
     ) %>%
-    dplyr::rename(scenario_geography = .data$Region, units = .data$Unit) %>%
-    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$category_c))
+    dplyr::rename(units = .data$Unit) %>%
+    dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$category_c, .data$Region))
 
 
   combine_renewables <- data %>%
@@ -353,5 +358,6 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
 
   data <- data %>%
     dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
-    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_")
+    tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
+    dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 }
