@@ -356,8 +356,12 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
     # in such a a case
     dplyr::mutate(capacity_factor = dplyr::if_else(.data$capacity == 0 & .data$generation == 0, 0, .data$capacity_factor))
 
-  data <- data %>%
-    dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
+  data <- data %>% dplyr::ungroup() %>%
+    dplyr::select(-c(.data$capacity, .data$generation, .data$units)) 
+
+ data <- data %>%  
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
-    dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
+    dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_")) 
+    
+    
 }
