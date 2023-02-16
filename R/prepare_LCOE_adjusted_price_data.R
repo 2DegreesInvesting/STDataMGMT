@@ -94,7 +94,7 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
         .data$Technology == "Renewables" & .data$Sub_Technology != "HydroCap" ~ "RenewablesCap",
         TRUE ~ .data$Technology
       ),
-  #NOTE: rename World to Global to fit the ST scenario geography names
+      # NOTE: rename World to Global to fit the ST scenario geography names
       scenario_geography = dplyr::case_when(
         .data$Region == "World" ~ "Global",
         TRUE ~ .data$Region
@@ -191,19 +191,16 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
   tech <- unique(prices_adjusted$technology)
   scen <- unique(prices_adjusted$scenario)
 
-  data <- add_years(prices_adjusted,2070,2100)
+  data <- add_years(prices_adjusted, 2070, 2100)
 
   ## Linear extrapolation using the last 20 years of observation
 
   for (i in tech) {
     for (j in scen) {
-
-
-      model <- stats::lm(price ~ year, data = data[data$year>=2049&data$year<=2069&data$technology==i&data$scenario==j,])
-      data$price[data$technology==i&data$scenario==j] <- ifelse(is.na(data$price[data$technology==i&data$scenario==j]), model$coefficients[2] * data$year[data$technology==i&data$scenario==j] + model$coefficients[1], data$price[data$technology==i&data$scenario==j])
-
-
-    }}
+      model <- stats::lm(price ~ year, data = data[data$year >= 2049 & data$year <= 2069 & data$technology == i & data$scenario == j, ])
+      data$price[data$technology == i & data$scenario == j] <- ifelse(is.na(data$price[data$technology == i & data$scenario == j]), model$coefficients[2] * data$year[data$technology == i & data$scenario == j] + model$coefficients[1], data$price[data$technology == i & data$scenario == j])
+    }
+  }
   prices_adjusted <- data
 
   # NOTE: we use Oxford LCOE data but match and label them as NGFS data
@@ -235,3 +232,4 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
 
   return(prices_adjusted_final)
 }
+
