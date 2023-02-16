@@ -128,7 +128,5 @@ price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
 
 price_data_long_adjusted %>%
   readr::write_csv(file.path("data-raw", "price_data_long.csv"))
-library(ggplot2)
-devtools::check()
 
 
