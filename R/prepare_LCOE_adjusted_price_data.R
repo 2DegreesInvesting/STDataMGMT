@@ -199,7 +199,7 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
     for (j in scen) {
 
 
-      model <- lm(price ~ year, data = data[data$year>=2049&data$year<=2069&data$technology==i&data$scenario==j,])
+      model <- stats::lm(price ~ year, data = data[data$year>=2049&data$year<=2069&data$technology==i&data$scenario==j,])
       data$price[data$technology==i&data$scenario==j] <- ifelse(is.na(data$price[data$technology==i&data$scenario==j]), model$coefficients[2] * data$year[data$technology==i&data$scenario==j] + model$coefficients[1], data$price[data$technology==i&data$scenario==j])
 
 
