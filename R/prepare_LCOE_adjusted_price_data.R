@@ -167,7 +167,7 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
     ) %>%
     dplyr::select(-c(.data$cost_factor, .data$implied_price, .data$absolute_npm))
 
-  # functio to add 2070 to 2100 years. NAs will be linearly extrapolated at the step below
+  # Function to add the years from 2070 to 2100. NAs will be linearly extrapolated at the step below
 
   add_years <- function(data, start, end) {
     technologies <- c("OilCap", "CoalCap", "GasCap", "RenewablesCap", "HydroCap", "NuclearCap")
