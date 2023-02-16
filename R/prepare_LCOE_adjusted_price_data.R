@@ -94,7 +94,7 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
         .data$Technology == "Renewables" & .data$Sub_Technology != "HydroCap" ~ "RenewablesCap",
         TRUE ~ .data$Technology
       ),
-  #NOTE: rename World to Global to fit the ST scenario geography names 
+      # NOTE: rename World to Global to fit the ST scenario geography names
       scenario_geography = dplyr::case_when(
         .data$Region == "World" ~ "Global",
         TRUE ~ .data$Region
@@ -167,6 +167,42 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
     ) %>%
     dplyr::select(-c(.data$cost_factor, .data$implied_price, .data$absolute_npm))
 
+  # Function to add the years from 2070 to 2100. NAs will be linearly extrapolated at the step below
+
+  add_years <- function(data, start, end) {
+    technologies <- c("OilCap", "CoalCap", "GasCap", "RenewablesCap", "HydroCap", "NuclearCap")
+    scenarios <- c("fast_transition_oxford", "no_transition_oxford", "slow_transition_oxford")
+    sector <- unique(data$sector)
+    scenario_geography <- unique(data$scenario_geography)
+    unit <- unique(data$unit)
+    indicator <- unique(data$indicator)
+    new_data <- data
+    for (year in start:end) {
+      for (technology in technologies) {
+        for (scenario in scenarios) {
+          new_row <- data.frame(sector = sector, scenario_geography = scenario_geography, year = year, price = NA, technology = technology, unit = unit, scenario = scenario, indicator = indicator, stringsAsFactors = FALSE)
+          new_data <- rbind(new_data, new_row)
+        }
+      }
+    }
+    return(new_data)
+  }
+
+  tech <- unique(prices_adjusted$technology)
+  scen <- unique(prices_adjusted$scenario)
+
+  data <- add_years(prices_adjusted, 2070, 2100)
+
+  ## Linear extrapolation using the last 20 years of observation
+
+  for (i in tech) {
+    for (j in scen) {
+      model <- stats::lm(price ~ year, data = data[data$year >= 2049 & data$year <= 2069 & data$technology == i & data$scenario == j, ])
+      data$price[data$technology == i & data$scenario == j] <- ifelse(is.na(data$price[data$technology == i & data$scenario == j]), model$coefficients[2] * data$year[data$technology == i & data$scenario == j] + model$coefficients[1], data$price[data$technology == i & data$scenario == j])
+    }
+  }
+  prices_adjusted <- data
+
   # NOTE: we use Oxford LCOE data but match and label them as NGFS data
   # In detail: NZ2050 -fast DN0 - fast B2DS - fast DT - fast NDC - low CP -low
 
@@ -196,3 +232,4 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
 
   return(prices_adjusted_final)
 }
+
