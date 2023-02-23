@@ -127,7 +127,7 @@ prepared_data_combined %>% readr::write_csv(
   file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
 )
 
-### IPR
+### IPR Scenario
 ### Read IPR
 
 
