@@ -131,7 +131,7 @@ prepared_data_combined %>% readr::write_csv(
 ### Read IPR
 
 
-start_year = 2021
+start_year <- 2021
 input_path <- r2dii.utils::path_dropbox_2dii(
   "PortCheck",
   "00_Data",
@@ -153,4 +153,3 @@ prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_IPR_
 prepared_data_combined %>% readr::write_csv(
   file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
 )
-

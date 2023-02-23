@@ -232,4 +232,3 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
 
   return(prices_adjusted_final)
 }
-

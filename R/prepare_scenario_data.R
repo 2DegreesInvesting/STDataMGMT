@@ -310,11 +310,9 @@ abort_missing_names <- function(missing_names) {
 #### IPR Scenario Analysis Function
 #### Prepares Scenario Analysis Input for IPR using the usual routine
 prepare_IPR_scenario_data <- function(data) {
-
-
   ### Creating a technology column
 
-  data$technology =ifelse(data$Sector=="Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
+  data$technology <- ifelse(data$Sector == "Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
 
   ### renaming sector
 
@@ -334,7 +332,7 @@ prepare_IPR_scenario_data <- function(data) {
         .data$technology == "Oil_Power" ~ "OilCap",
         .data$technology == "Nuclear_Power" ~ "NuclearCap",
         .data$technology == "Hydro_Power" ~ "HydroCap",
-        .data$technology == "Biomass_Power" ~ "BiomassCap",  ### Is this the same as Biomass?
+        .data$technology == "Biomass_Power" ~ "BiomassCap", ### Is this the same as Biomass?
         .data$technology == "Offshore wind_Power" ~ "OffWindCap",
         .data$technology == "Onshore wind_Power" ~ "OnWindCap",
         .data$technology == "Solar_Power" ~ "SolarCap"
@@ -354,7 +352,6 @@ prepare_IPR_scenario_data <- function(data) {
         .data$technology == "SolarCap" ~ "Power"
       ),
       Scenario = dplyr::case_when(
-
         .data$Scenario == "RPS" ~ "IPR2021_RPS",
         .data$Scenario == "FPS" ~ "IPR2021_FPS"
       )
@@ -366,11 +363,11 @@ prepare_IPR_scenario_data <- function(data) {
 
   ### Deleting all NAs, NAs exist because the current data still has data that we are currently not using, like hydrogen and Coal with CCS
 
-  data <- data[!(is.na(data$ald_sector)),]
+  data <- data[!(is.na(data$ald_sector)), ]
 
   ### further deleting unnecessary columns
 
-  data <- select(data, -c("Variable_class", "Sub_variable_class_1","Sub_variable_class_2"))
+  data <- select(data, -c("Variable_class", "Sub_variable_class_1", "Sub_variable_class_2"))
 
   ### renaming column names
 
@@ -380,10 +377,10 @@ prepare_IPR_scenario_data <- function(data) {
 
   ### creating Renewablescap
 
-  combine_Renewablecap <- data[data$technology== "OffWindCap" |data$technology== "OnWindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap" ,]
+  combine_Renewablecap <- data[data$technology == "OffWindCap" | data$technology == "OnWindCap" | data$technology == "SolarCap" | data$technology == "BiomassCap", ]
 
   combine_Renewablecap <- combine_Renewablecap %>%
-    group_by(scenario_geography,scenario,ald_sector, units, year)%>%
+    group_by(scenario_geography, scenario, ald_sector, units, year) %>%
     summarize(value = sum(value))
 
   combine_Renewablecap$technology <- "RenewablesCap"
@@ -393,17 +390,17 @@ prepare_IPR_scenario_data <- function(data) {
   data <- rbind(data, combine_Renewablecap)
 
   ### Deleting Offwind, Onwind, Solar and Biomass, to avoid double counting
-  data <- data[!(data$technology== "OffWindCap" |data$technology== "OnWindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap"),]
+  data <- data[!(data$technology == "OffWindCap" | data$technology == "OnWindCap" | data$technology == "SolarCap" | data$technology == "BiomassCap"), ]
 
   ### Calculating TMSR
 
   start_year <- 2021
-  data$year=as.numeric(as.character(data$year))
-  data <- data[!(data$year<start_year),]
+  data$year <- as.numeric(as.character(data$year))
+  data <- data[!(data$year < start_year), ]
 
   data <- data %>%
-    dplyr::group_by(scenario_geography,scenario, ald_sector, units, technology) %>%
-    dplyr::arrange(data$year, .by_group = TRUE)%>%
+    dplyr::group_by(scenario_geography, scenario, ald_sector, units, technology) %>%
+    dplyr::arrange(data$year, .by_group = TRUE) %>%
     dplyr::mutate(tmsr = (.data$value - dplyr::first(.data$value)) / dplyr::first(.data$value))
 
 
@@ -411,10 +408,10 @@ prepare_IPR_scenario_data <- function(data) {
 
   data <- data %>%
     dplyr::ungroup() %>%
-    dplyr::group_by(scenario_geography,scenario, ald_sector, units,year) %>%
+    dplyr::group_by(scenario_geography, scenario, ald_sector, units, year) %>%
     dplyr::arrange(.data$year, .by_group = TRUE) %>%
-    dplyr::mutate(sector_total_by_year = sum(.data$value))%>%
-    dplyr::group_by(scenario_geography,scenario, ald_sector, units, technology) %>%
+    dplyr::mutate(sector_total_by_year = sum(.data$value)) %>%
+    dplyr::group_by(scenario_geography, scenario, ald_sector, units, technology) %>%
     dplyr::mutate(
       smsp = (.data$value - dplyr::first(.data$value)) /
         dplyr::first(.data$sector_total_by_year),
@@ -426,17 +423,19 @@ prepare_IPR_scenario_data <- function(data) {
   ### Green Techs, Direction and FairSharePerc
   ### Defines direction of technology based on whether its considered a green technology
 
-  green_techs <- c( "RenewablesCap", "HydroCap", "NuclearCap", "SolarCap", "OffWindCap", "OnWindCap", "BiomassCap")
+  green_techs <- c("RenewablesCap", "HydroCap", "NuclearCap", "SolarCap", "OffWindCap", "OnWindCap", "BiomassCap")
 
   data <- data %>%
-    dplyr::mutate(direction = dplyr::if_else(.data$technology %in% green_techs, "increasing", "declining"),
-                  fair_share_perc = dplyr::if_else(.data$direction == "declining", .data$tmsr, .data$smsp),
-                  tmsr = NULL,
-                  smsp = NULL,
-                  value = NULL)
+    dplyr::mutate(
+      direction = dplyr::if_else(.data$technology %in% green_techs, "increasing", "declining"),
+      fair_share_perc = dplyr::if_else(.data$direction == "declining", .data$tmsr, .data$smsp),
+      tmsr = NULL,
+      smsp = NULL,
+      value = NULL
+    )
 
-  data <- data[,c("scenario_geography", "scenario", "ald_sector", "technology", "units", "year",
-                  "direction", "fair_share_perc")]
+  data <- data[, c(
+    "scenario_geography", "scenario", "ald_sector", "technology", "units", "year",
+    "direction", "fair_share_perc"
+  )]
 }
-
-
