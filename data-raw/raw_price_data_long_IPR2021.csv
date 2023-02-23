@@ -1,0 +1,745 @@
+"Scenario","Region","Variable_class","Sub_variable_class_1","Units","year","value"
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2020",70
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2020",2.2
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2020",3.5
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2020",4.1
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2020",70
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2020",2.2
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2020",3.5
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2020",4.1
+"FPS","USA","Price","Coal","USD / tonne","2020",42.8
+"FPS","Europe","Price","Coal","USD / tonne","2020",50.3
+"FPS","CHN","Price","Coal","USD / tonne","2020",83.1
+"FPS","JPN","Price","Coal","USD / tonne","2020",69.8
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2020",70
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2020",2.2
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2020",3.5
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2020",4.1
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2020",70
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2020",2.2
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2020",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2020",4.1
+"RPS","USA","Price","Coal","USD / tonne","2020",42.8
+"RPS","Europe","Price","Coal","USD / tonne","2020",50.3
+"RPS","CHN","Price","Coal","USD / tonne","2020",83.1
+"RPS","JPN","Price","Coal","USD / tonne","2020",69.8
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2021",68
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2021",2.28
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2021",3.6
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2021",4.24
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2021",67
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2021",2.23
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2021",3.55
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2021",4.19
+"FPS","USA","Price","Coal","USD / tonne","2021",41.88
+"FPS","Europe","Price","Coal","USD / tonne","2021",51.36
+"FPS","CHN","Price","Coal","USD / tonne","2021",82.48
+"FPS","JPN","Price","Coal","USD / tonne","2021",70.04
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2021",66.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2021",2.28
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2021",3.55
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2021",4.19
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2021",65.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2021",2.23
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2021",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2021",4.14
+"RPS","USA","Price","Coal","USD / tonne","2021",41.01
+"RPS","Europe","Price","Coal","USD / tonne","2021",51.31
+"RPS","CHN","Price","Coal","USD / tonne","2021",81.82
+"RPS","JPN","Price","Coal","USD / tonne","2021",69.23
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2022",66
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2022",2.36
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2022",3.7
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2022",4.38
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2022",64
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2022",2.26
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2022",3.6
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2022",4.28
+"FPS","USA","Price","Coal","USD / tonne","2022",40.96
+"FPS","Europe","Price","Coal","USD / tonne","2022",52.42
+"FPS","CHN","Price","Coal","USD / tonne","2022",81.86
+"FPS","JPN","Price","Coal","USD / tonne","2022",70.28
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2022",63
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2022",2.36
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2022",3.6
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2022",4.28
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2022",61
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2022",2.26
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2022",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2022",4.18
+"RPS","USA","Price","Coal","USD / tonne","2022",39.22
+"RPS","Europe","Price","Coal","USD / tonne","2022",52.32
+"RPS","CHN","Price","Coal","USD / tonne","2022",80.54
+"RPS","JPN","Price","Coal","USD / tonne","2022",68.66
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2023",64
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2023",2.44
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2023",3.8
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2023",4.52
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2023",61
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2023",2.29
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2023",3.65
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2023",4.37
+"FPS","USA","Price","Coal","USD / tonne","2023",40.04
+"FPS","Europe","Price","Coal","USD / tonne","2023",53.48
+"FPS","CHN","Price","Coal","USD / tonne","2023",81.24
+"FPS","JPN","Price","Coal","USD / tonne","2023",70.52
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2023",59.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2023",2.44
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2023",3.65
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2023",4.37
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2023",56.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2023",2.29
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2023",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2023",4.22
+"RPS","USA","Price","Coal","USD / tonne","2023",37.43
+"RPS","Europe","Price","Coal","USD / tonne","2023",53.33
+"RPS","CHN","Price","Coal","USD / tonne","2023",79.26
+"RPS","JPN","Price","Coal","USD / tonne","2023",68.09
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2024",62
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2024",2.52
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2024",3.9
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2024",4.66
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2024",58
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2024",2.32
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2024",3.7
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2024",4.46
+"FPS","USA","Price","Coal","USD / tonne","2024",39.12
+"FPS","Europe","Price","Coal","USD / tonne","2024",54.54
+"FPS","CHN","Price","Coal","USD / tonne","2024",80.62
+"FPS","JPN","Price","Coal","USD / tonne","2024",70.76
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2024",56
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2024",2.52
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2024",3.7
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2024",4.46
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2024",52
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2024",2.32
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2024",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2024",4.26
+"RPS","USA","Price","Coal","USD / tonne","2024",35.64
+"RPS","Europe","Price","Coal","USD / tonne","2024",54.34
+"RPS","CHN","Price","Coal","USD / tonne","2024",77.98
+"RPS","JPN","Price","Coal","USD / tonne","2024",67.52
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2025",60
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2025",2.6
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2025",4
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2025",4.8
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2025",55
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2025",2.35
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2025",3.75
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2025",4.55
+"FPS","USA","Price","Coal","USD / tonne","2025",38.2
+"FPS","Europe","Price","Coal","USD / tonne","2025",55.6
+"FPS","CHN","Price","Coal","USD / tonne","2025",80
+"FPS","JPN","Price","Coal","USD / tonne","2025",71
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2025",52.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2025",2.6
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2025",3.75
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2025",4.55
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2025",47.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2025",2.35
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2025",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2025",4.3
+"RPS","USA","Price","Coal","USD / tonne","2025",33.85
+"RPS","Europe","Price","Coal","USD / tonne","2025",55.35
+"RPS","CHN","Price","Coal","USD / tonne","2025",76.7
+"RPS","JPN","Price","Coal","USD / tonne","2025",66.95
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2026",58
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2026",2.68
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2026",4.1
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2026",4.94
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2026",52
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2026",2.38
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2026",3.8
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2026",4.64
+"FPS","USA","Price","Coal","USD / tonne","2026",37.28
+"FPS","Europe","Price","Coal","USD / tonne","2026",56.66
+"FPS","CHN","Price","Coal","USD / tonne","2026",79.38
+"FPS","JPN","Price","Coal","USD / tonne","2026",71.24
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2026",49
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2026",2.68
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2026",3.8
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2026",4.64
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2026",43
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2026",2.38
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2026",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2026",4.34
+"RPS","USA","Price","Coal","USD / tonne","2026",32.06
+"RPS","Europe","Price","Coal","USD / tonne","2026",56.36
+"RPS","CHN","Price","Coal","USD / tonne","2026",75.42
+"RPS","JPN","Price","Coal","USD / tonne","2026",66.38
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2027",56
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2027",2.76
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2027",4.2
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2027",5.08
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2027",49
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2027",2.41
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2027",3.85
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2027",4.73
+"FPS","USA","Price","Coal","USD / tonne","2027",36.36
+"FPS","Europe","Price","Coal","USD / tonne","2027",57.72
+"FPS","CHN","Price","Coal","USD / tonne","2027",78.76
+"FPS","JPN","Price","Coal","USD / tonne","2027",71.48
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2027",45.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2027",2.76
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2027",3.85
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2027",4.73
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2027",38.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2027",2.41
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2027",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2027",4.38
+"RPS","USA","Price","Coal","USD / tonne","2027",30.27
+"RPS","Europe","Price","Coal","USD / tonne","2027",57.37
+"RPS","CHN","Price","Coal","USD / tonne","2027",74.14
+"RPS","JPN","Price","Coal","USD / tonne","2027",65.81
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2028",54
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2028",2.84
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2028",4.3
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2028",5.22
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2028",46
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2028",2.44
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2028",3.9
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2028",4.82
+"FPS","USA","Price","Coal","USD / tonne","2028",35.44
+"FPS","Europe","Price","Coal","USD / tonne","2028",58.78
+"FPS","CHN","Price","Coal","USD / tonne","2028",78.14
+"FPS","JPN","Price","Coal","USD / tonne","2028",71.72
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2028",42
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2028",2.84
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2028",3.9
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2028",4.82
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2028",34
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2028",2.44
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2028",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2028",4.42
+"RPS","USA","Price","Coal","USD / tonne","2028",28.48
+"RPS","Europe","Price","Coal","USD / tonne","2028",58.38
+"RPS","CHN","Price","Coal","USD / tonne","2028",72.86
+"RPS","JPN","Price","Coal","USD / tonne","2028",65.24
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2029",52
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2029",2.92
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2029",4.4
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2029",5.36
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2029",43
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2029",2.47
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2029",3.95
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2029",4.91
+"FPS","USA","Price","Coal","USD / tonne","2029",34.52
+"FPS","Europe","Price","Coal","USD / tonne","2029",59.84
+"FPS","CHN","Price","Coal","USD / tonne","2029",77.52
+"FPS","JPN","Price","Coal","USD / tonne","2029",71.96
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2029",38.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2029",2.92
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2029",3.95
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2029",4.91
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2029",29.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2029",2.47
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2029",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2029",4.46
+"RPS","USA","Price","Coal","USD / tonne","2029",26.69
+"RPS","Europe","Price","Coal","USD / tonne","2029",59.39
+"RPS","CHN","Price","Coal","USD / tonne","2029",71.58
+"RPS","JPN","Price","Coal","USD / tonne","2029",64.67
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2030",50
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2030",3
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2030",4.5
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2030",5.5
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2030",40
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2030",2.5
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2030",4
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2030",5
+"FPS","USA","Price","Coal","USD / tonne","2030",33.6
+"FPS","Europe","Price","Coal","USD / tonne","2030",60.9
+"FPS","CHN","Price","Coal","USD / tonne","2030",76.9
+"FPS","JPN","Price","Coal","USD / tonne","2030",72.2
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2030",35
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2030",3
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2030",4
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2030",5
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2030",25
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2030",2.5
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2030",3.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2030",4.5
+"RPS","USA","Price","Coal","USD / tonne","2030",24.9
+"RPS","Europe","Price","Coal","USD / tonne","2030",60.4
+"RPS","CHN","Price","Coal","USD / tonne","2030",70.3
+"RPS","JPN","Price","Coal","USD / tonne","2030",64.1
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2031",48.5
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2031",2.95
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2031",4.4
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2031",5.4
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2031",38.5
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2031",2.45
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2031",3.9
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2031",4.9
+"FPS","USA","Price","Coal","USD / tonne","2031",32.72
+"FPS","Europe","Price","Coal","USD / tonne","2031",60.75
+"FPS","CHN","Price","Coal","USD / tonne","2031",76.11
+"FPS","JPN","Price","Coal","USD / tonne","2031",71.16
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2031",34
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2031",2.95
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2031",3.9
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2031",4.85
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2031",24
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2031",2.45
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2031",3.4
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2031",4.35
+"RPS","USA","Price","Coal","USD / tonne","2031",24.82
+"RPS","Europe","Price","Coal","USD / tonne","2031",59.98
+"RPS","CHN","Price","Coal","USD / tonne","2031",69.83
+"RPS","JPN","Price","Coal","USD / tonne","2031",63.55
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2032",47
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2032",2.9
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2032",4.3
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2032",5.3
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2032",37
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2032",2.4
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2032",3.8
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2032",4.8
+"FPS","USA","Price","Coal","USD / tonne","2032",31.84
+"FPS","Europe","Price","Coal","USD / tonne","2032",60.6
+"FPS","CHN","Price","Coal","USD / tonne","2032",75.32
+"FPS","JPN","Price","Coal","USD / tonne","2032",70.12
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2032",33
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2032",2.9
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2032",3.8
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2032",4.7
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2032",23
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2032",2.4
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2032",3.3
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2032",4.2
+"RPS","USA","Price","Coal","USD / tonne","2032",24.74
+"RPS","Europe","Price","Coal","USD / tonne","2032",59.56
+"RPS","CHN","Price","Coal","USD / tonne","2032",69.36
+"RPS","JPN","Price","Coal","USD / tonne","2032",63
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2033",45.5
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2033",2.85
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2033",4.2
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2033",5.2
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2033",35.5
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2033",2.35
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2033",3.7
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2033",4.7
+"FPS","USA","Price","Coal","USD / tonne","2033",30.96
+"FPS","Europe","Price","Coal","USD / tonne","2033",60.45
+"FPS","CHN","Price","Coal","USD / tonne","2033",74.53
+"FPS","JPN","Price","Coal","USD / tonne","2033",69.08
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2033",32
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2033",2.85
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2033",3.7
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2033",4.55
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2033",22
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2033",2.35
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2033",3.2
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2033",4.05
+"RPS","USA","Price","Coal","USD / tonne","2033",24.66
+"RPS","Europe","Price","Coal","USD / tonne","2033",59.14
+"RPS","CHN","Price","Coal","USD / tonne","2033",68.89
+"RPS","JPN","Price","Coal","USD / tonne","2033",62.45
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2034",44
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2034",2.8
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2034",4.1
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2034",5.1
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2034",34
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2034",2.3
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2034",3.6
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2034",4.6
+"FPS","USA","Price","Coal","USD / tonne","2034",30.08
+"FPS","Europe","Price","Coal","USD / tonne","2034",60.3
+"FPS","CHN","Price","Coal","USD / tonne","2034",73.74
+"FPS","JPN","Price","Coal","USD / tonne","2034",68.04
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2034",31
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2034",2.8
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2034",3.6
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2034",4.4
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2034",21
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2034",2.3
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2034",3.1
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2034",3.9
+"RPS","USA","Price","Coal","USD / tonne","2034",24.58
+"RPS","Europe","Price","Coal","USD / tonne","2034",58.72
+"RPS","CHN","Price","Coal","USD / tonne","2034",68.42
+"RPS","JPN","Price","Coal","USD / tonne","2034",61.9
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2035",42.5
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2035",2.75
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2035",4
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2035",5
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2035",32.5
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2035",2.25
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2035",3.5
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2035",4.5
+"FPS","USA","Price","Coal","USD / tonne","2035",29.2
+"FPS","Europe","Price","Coal","USD / tonne","2035",60.15
+"FPS","CHN","Price","Coal","USD / tonne","2035",72.95
+"FPS","JPN","Price","Coal","USD / tonne","2035",67
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2035",30
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2035",2.75
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2035",3.5
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2035",4.25
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2035",20
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2035",2.25
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2035",3
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2035",3.75
+"RPS","USA","Price","Coal","USD / tonne","2035",24.5
+"RPS","Europe","Price","Coal","USD / tonne","2035",58.3
+"RPS","CHN","Price","Coal","USD / tonne","2035",67.95
+"RPS","JPN","Price","Coal","USD / tonne","2035",61.35
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2036",41
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2036",2.7
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2036",3.9
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2036",4.9
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2036",31
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2036",2.2
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2036",3.4
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2036",4.4
+"FPS","USA","Price","Coal","USD / tonne","2036",28.32
+"FPS","Europe","Price","Coal","USD / tonne","2036",60
+"FPS","CHN","Price","Coal","USD / tonne","2036",72.16
+"FPS","JPN","Price","Coal","USD / tonne","2036",65.96
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2036",29
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2036",2.7
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2036",3.4
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2036",4.1
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2036",19
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2036",2.2
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2036",2.9
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2036",3.6
+"RPS","USA","Price","Coal","USD / tonne","2036",24.42
+"RPS","Europe","Price","Coal","USD / tonne","2036",57.88
+"RPS","CHN","Price","Coal","USD / tonne","2036",67.48
+"RPS","JPN","Price","Coal","USD / tonne","2036",60.8
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2037",39.5
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2037",2.65
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2037",3.8
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2037",4.8
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2037",29.5
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2037",2.15
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2037",3.3
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2037",4.3
+"FPS","USA","Price","Coal","USD / tonne","2037",27.44
+"FPS","Europe","Price","Coal","USD / tonne","2037",59.85
+"FPS","CHN","Price","Coal","USD / tonne","2037",71.37
+"FPS","JPN","Price","Coal","USD / tonne","2037",64.92
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2037",28
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2037",2.65
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2037",3.3
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2037",3.95
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2037",18
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2037",2.15
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2037",2.8
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2037",3.45
+"RPS","USA","Price","Coal","USD / tonne","2037",24.34
+"RPS","Europe","Price","Coal","USD / tonne","2037",57.46
+"RPS","CHN","Price","Coal","USD / tonne","2037",67.01
+"RPS","JPN","Price","Coal","USD / tonne","2037",60.25
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2038",38
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2038",2.6
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2038",3.7
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2038",4.7
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2038",28
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2038",2.1
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2038",3.2
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2038",4.2
+"FPS","USA","Price","Coal","USD / tonne","2038",26.56
+"FPS","Europe","Price","Coal","USD / tonne","2038",59.7
+"FPS","CHN","Price","Coal","USD / tonne","2038",70.58
+"FPS","JPN","Price","Coal","USD / tonne","2038",63.88
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2038",27
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2038",2.6
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2038",3.2
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2038",3.8
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2038",17
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2038",2.1
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2038",2.7
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2038",3.3
+"RPS","USA","Price","Coal","USD / tonne","2038",24.26
+"RPS","Europe","Price","Coal","USD / tonne","2038",57.04
+"RPS","CHN","Price","Coal","USD / tonne","2038",66.54
+"RPS","JPN","Price","Coal","USD / tonne","2038",59.7
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2039",36.5
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2039",2.55
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2039",3.6
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2039",4.6
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2039",26.5
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2039",2.05
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2039",3.1
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2039",4.1
+"FPS","USA","Price","Coal","USD / tonne","2039",25.68
+"FPS","Europe","Price","Coal","USD / tonne","2039",59.55
+"FPS","CHN","Price","Coal","USD / tonne","2039",69.79
+"FPS","JPN","Price","Coal","USD / tonne","2039",62.84
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2039",26
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2039",2.55
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2039",3.1
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2039",3.65
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2039",16
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2039",2.05
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2039",2.6
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2039",3.15
+"RPS","USA","Price","Coal","USD / tonne","2039",24.18
+"RPS","Europe","Price","Coal","USD / tonne","2039",56.62
+"RPS","CHN","Price","Coal","USD / tonne","2039",66.07
+"RPS","JPN","Price","Coal","USD / tonne","2039",59.15
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2040",35
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2040",2.5
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2040",3.5
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2040",4.5
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2040",25
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2040",2
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2040",3
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2040",4
+"FPS","USA","Price","Coal","USD / tonne","2040",24.8
+"FPS","Europe","Price","Coal","USD / tonne","2040",59.4
+"FPS","CHN","Price","Coal","USD / tonne","2040",69
+"FPS","JPN","Price","Coal","USD / tonne","2040",61.8
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2040",25
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2040",2.5
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2040",3
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2040",3.5
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2040",15
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2040",2
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2040",2.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2040",3
+"RPS","USA","Price","Coal","USD / tonne","2040",24.1
+"RPS","Europe","Price","Coal","USD / tonne","2040",56.2
+"RPS","CHN","Price","Coal","USD / tonne","2040",65.6
+"RPS","JPN","Price","Coal","USD / tonne","2040",58.6
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2041",34
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2041",2.45
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2041",3.4
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2041",4.4
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2041",24
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2041",1.95
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2041",2.9
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2041",3.9
+"FPS","USA","Price","Coal","USD / tonne","2041",24.73
+"FPS","Europe","Price","Coal","USD / tonne","2041",59.15
+"FPS","CHN","Price","Coal","USD / tonne","2041",68.58
+"FPS","JPN","Price","Coal","USD / tonne","2041",61.54
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2041",24.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2041",2.45
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2041",2.9
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2041",3.4
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2041",14.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2041",1.95
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2041",2.4
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2041",2.9
+"RPS","USA","Price","Coal","USD / tonne","2041",24.03
+"RPS","Europe","Price","Coal","USD / tonne","2041",55.94
+"RPS","CHN","Price","Coal","USD / tonne","2041",65.36
+"RPS","JPN","Price","Coal","USD / tonne","2041",58.47
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2042",33
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2042",2.4
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2042",3.3
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2042",4.3
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2042",23
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2042",1.9
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2042",2.8
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2042",3.8
+"FPS","USA","Price","Coal","USD / tonne","2042",24.66
+"FPS","Europe","Price","Coal","USD / tonne","2042",58.9
+"FPS","CHN","Price","Coal","USD / tonne","2042",68.16
+"FPS","JPN","Price","Coal","USD / tonne","2042",61.28
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2042",24
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2042",2.4
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2042",2.8
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2042",3.3
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2042",14
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2042",1.9
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2042",2.3
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2042",2.8
+"RPS","USA","Price","Coal","USD / tonne","2042",23.96
+"RPS","Europe","Price","Coal","USD / tonne","2042",55.68
+"RPS","CHN","Price","Coal","USD / tonne","2042",65.12
+"RPS","JPN","Price","Coal","USD / tonne","2042",58.34
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2043",32
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2043",2.35
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2043",3.2
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2043",4.2
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2043",22
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2043",1.85
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2043",2.7
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2043",3.7
+"FPS","USA","Price","Coal","USD / tonne","2043",24.59
+"FPS","Europe","Price","Coal","USD / tonne","2043",58.65
+"FPS","CHN","Price","Coal","USD / tonne","2043",67.74
+"FPS","JPN","Price","Coal","USD / tonne","2043",61.02
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2043",23.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2043",2.35
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2043",2.7
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2043",3.2
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2043",13.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2043",1.85
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2043",2.2
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2043",2.7
+"RPS","USA","Price","Coal","USD / tonne","2043",23.89
+"RPS","Europe","Price","Coal","USD / tonne","2043",55.42
+"RPS","CHN","Price","Coal","USD / tonne","2043",64.88
+"RPS","JPN","Price","Coal","USD / tonne","2043",58.21
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2044",31
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2044",2.3
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2044",3.1
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2044",4.1
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2044",21
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2044",1.8
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2044",2.6
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2044",3.6
+"FPS","USA","Price","Coal","USD / tonne","2044",24.52
+"FPS","Europe","Price","Coal","USD / tonne","2044",58.4
+"FPS","CHN","Price","Coal","USD / tonne","2044",67.32
+"FPS","JPN","Price","Coal","USD / tonne","2044",60.76
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2044",23
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2044",2.3
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2044",2.6
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2044",3.1
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2044",13
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2044",1.8
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2044",2.1
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2044",2.6
+"RPS","USA","Price","Coal","USD / tonne","2044",23.82
+"RPS","Europe","Price","Coal","USD / tonne","2044",55.16
+"RPS","CHN","Price","Coal","USD / tonne","2044",64.64
+"RPS","JPN","Price","Coal","USD / tonne","2044",58.08
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2045",30
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2045",2.25
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2045",3
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2045",4
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2045",20
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2045",1.75
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2045",2.5
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2045",3.5
+"FPS","USA","Price","Coal","USD / tonne","2045",24.45
+"FPS","Europe","Price","Coal","USD / tonne","2045",58.15
+"FPS","CHN","Price","Coal","USD / tonne","2045",66.9
+"FPS","JPN","Price","Coal","USD / tonne","2045",60.5
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2045",22.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2045",2.25
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2045",2.5
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2045",3
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2045",12.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2045",1.75
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2045",2
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2045",2.5
+"RPS","USA","Price","Coal","USD / tonne","2045",23.75
+"RPS","Europe","Price","Coal","USD / tonne","2045",54.9
+"RPS","CHN","Price","Coal","USD / tonne","2045",64.4
+"RPS","JPN","Price","Coal","USD / tonne","2045",57.95
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2046",29
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2046",2.2
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2046",2.9
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2046",3.9
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2046",19
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2046",1.7
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2046",2.4
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2046",3.4
+"FPS","USA","Price","Coal","USD / tonne","2046",24.38
+"FPS","Europe","Price","Coal","USD / tonne","2046",57.9
+"FPS","CHN","Price","Coal","USD / tonne","2046",66.48
+"FPS","JPN","Price","Coal","USD / tonne","2046",60.24
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2046",22
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2046",2.2
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2046",2.4
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2046",2.9
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2046",12
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2046",1.7
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2046",1.9
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2046",2.4
+"RPS","USA","Price","Coal","USD / tonne","2046",23.68
+"RPS","Europe","Price","Coal","USD / tonne","2046",54.64
+"RPS","CHN","Price","Coal","USD / tonne","2046",64.16
+"RPS","JPN","Price","Coal","USD / tonne","2046",57.82
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2047",28
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2047",2.15
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2047",2.8
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2047",3.8
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2047",18
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2047",1.65
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2047",2.3
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2047",3.3
+"FPS","USA","Price","Coal","USD / tonne","2047",24.31
+"FPS","Europe","Price","Coal","USD / tonne","2047",57.65
+"FPS","CHN","Price","Coal","USD / tonne","2047",66.06
+"FPS","JPN","Price","Coal","USD / tonne","2047",59.98
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2047",21.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2047",2.15
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2047",2.3
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2047",2.8
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2047",11.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2047",1.65
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2047",1.8
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2047",2.3
+"RPS","USA","Price","Coal","USD / tonne","2047",23.61
+"RPS","Europe","Price","Coal","USD / tonne","2047",54.38
+"RPS","CHN","Price","Coal","USD / tonne","2047",63.92
+"RPS","JPN","Price","Coal","USD / tonne","2047",57.69
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2048",27
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2048",2.1
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2048",2.7
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2048",3.7
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2048",17
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2048",1.6
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2048",2.2
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2048",3.2
+"FPS","USA","Price","Coal","USD / tonne","2048",24.24
+"FPS","Europe","Price","Coal","USD / tonne","2048",57.4
+"FPS","CHN","Price","Coal","USD / tonne","2048",65.64
+"FPS","JPN","Price","Coal","USD / tonne","2048",59.72
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2048",21
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2048",2.1
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2048",2.2
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2048",2.7
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2048",11
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2048",1.6
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2048",1.7
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2048",2.2
+"RPS","USA","Price","Coal","USD / tonne","2048",23.54
+"RPS","Europe","Price","Coal","USD / tonne","2048",54.12
+"RPS","CHN","Price","Coal","USD / tonne","2048",63.68
+"RPS","JPN","Price","Coal","USD / tonne","2048",57.56
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2049",26
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2049",2.05
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2049",2.6
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2049",3.6
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2049",16
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2049",1.55
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2049",2.1
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2049",3.1
+"FPS","USA","Price","Coal","USD / tonne","2049",24.17
+"FPS","Europe","Price","Coal","USD / tonne","2049",57.15
+"FPS","CHN","Price","Coal","USD / tonne","2049",65.22
+"FPS","JPN","Price","Coal","USD / tonne","2049",59.46
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2049",20.5
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2049",2.05
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2049",2.1
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2049",2.6
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2049",10.5
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2049",1.55
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2049",1.6
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2049",2.1
+"RPS","USA","Price","Coal","USD / tonne","2049",23.47
+"RPS","Europe","Price","Coal","USD / tonne","2049",53.86
+"RPS","CHN","Price","Coal","USD / tonne","2049",63.44
+"RPS","JPN","Price","Coal","USD / tonne","2049",57.43
+"FPS","WORLD","Price (high)","Oil","USD / Barrel","2050",25
+"FPS","USA","Price (high)","Natural gas","USD / MMBtu","2050",2
+"FPS","Europe","Price (high)","Natural gas","USD / MMBtu","2050",2.5
+"FPS","Asia","Price (high)","Natural gas","USD / MMBtu","2050",3.5
+"FPS","WORLD","Price (low)","Oil","USD / Barrel","2050",15
+"FPS","USA","Price (low)","Natural gas","USD / MMBtu","2050",1.5
+"FPS","Europe","Price (low)","Natural gas","USD / MMBtu","2050",2
+"FPS","Asia","Price (low)","Natural gas","USD / MMBtu","2050",3
+"FPS","USA","Price","Coal","USD / tonne","2050",24.1
+"FPS","Europe","Price","Coal","USD / tonne","2050",56.9
+"FPS","CHN","Price","Coal","USD / tonne","2050",64.8
+"FPS","JPN","Price","Coal","USD / tonne","2050",59.2
+"RPS","WORLD","Price (high)","Oil","USD / Barrel","2050",20
+"RPS","USA","Price (high)","Natural gas","USD / MMBtu","2050",2
+"RPS","Europe","Price (high)","Natural gas","USD / MMBtu","2050",2
+"RPS","Asia","Price (high)","Natural gas","USD / MMBtu","2050",2.5
+"RPS","WORLD","Price (low)","Oil","USD / Barrel","2050",10
+"RPS","USA","Price (low)","Natural gas","USD / MMBtu","2050",1.5
+"RPS","Europe","Price (low)","Natural gas","USD / MMBtu","2050",1.5
+"RPS","Asia","Price (low)","Natural gas","USD / MMBtu","2050",2
+"RPS","USA","Price","Coal","USD / tonne","2050",23.4
+"RPS","Europe","Price","Coal","USD / tonne","2050",53.6
+"RPS","CHN","Price","Coal","USD / tonne","2050",63.2
+"RPS","JPN","Price","Coal","USD / tonne","2050",57.3
