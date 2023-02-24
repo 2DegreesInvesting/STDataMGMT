@@ -121,6 +121,27 @@ lcoe_adjusted_price_data_oxford2021 <- prepare_lcoe_adjusted_price_data_oxford20
 price_data_long_adjusted_NGFS2021 <- price_data_long_NGFS2021 %>%
   dplyr::bind_rows(lcoe_adjusted_price_data_oxford2021)
 
+
+### prepare price data IPR 2021
+
+## prepare IPR 2021 Fossil Fuel price data
+input_path_fossil_fuels_ipr <- file.path("data-raw", "raw_price_data_long_IPR2021.csv")
+
+input_data_fossil_fuels_ipr <- readr::read_delim(
+  file.path(input_path_fossil_fuels_ipr),
+  col_types = readr::cols(
+    Scenario = "c",
+    Region = "c",
+    Variable_class = "c",
+    Sub_variable_class_1 = "c",
+    Units = "c",
+    year = "d",
+    value = "d",
+    .default = readr::col_number()
+  ))
+
+price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr)
+
 ## combine and write all price data----
 
 price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%

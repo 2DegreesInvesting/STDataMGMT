@@ -315,3 +315,117 @@ prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs) {
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
     dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 }
+
+### IPR price data function
+
+prepare_price_data_long_IPR2021 <- function(data){
+
+  ### Objective: extract the prices for Oil coal and Gas
+  # Coal: only available for Europe, USA; CHN and JPN. We take the average to get a global variable
+  # Gas: only available for USA, Europe and Asia, Plus available as high price and low price. We create a global low and global high and take the average from that
+  # Oil: available only for World and as high and low price. We take the average
+  # Unit: We transform in the correct unit for the ST
+
+  ### Creating a technology column
+
+  data$technology = data$Sub_variable_class_1
+
+
+  ### creating a sector column
+  data$sector = NA
+
+  ### Renaming technologies and Sector
+
+  data <- data %>%
+    dplyr::mutate(technology = .data$technology) %>%
+    dplyr::mutate(
+      technology = dplyr::case_when(
+        .data$technology == "Oil" ~ "Oil",
+        .data$technology == "Coal" ~ "Coal",
+        .data$technology == "Natural gas" ~ "Gas",
+
+      ),
+      sector = dplyr::case_when(
+        .data$technology == "Oil" ~ "Oil&Gas",
+        .data$technology == "Gas" ~ "Oil&Gas",
+        .data$technology == "Coal" ~ "Coal",
+
+      ),
+      Scenario = dplyr::case_when(
+
+        .data$Scenario == "RPS" ~ "IPR2021_RPS",
+        .data$Scenario == "FPS" ~ "IPR2021_FPS"
+      ))
+
+
+
+  ### further deleting unnecessary columns
+
+  data <- dplyr::select(data, -c("Sub_variable_class_1"))
+
+  ### renaming column names
+
+  colnames(data)[colnames(data) == "Scenario"] <- "scenario"
+  colnames(data)[colnames(data) == "Region"] <- "scenario_geography"
+  colnames(data)[colnames(data) == "Units"] <- "unit"
+  colnames(data)[colnames(data) == "value"] <- "price"
+
+
+  ### Creating Coal Prices
+  coal_global <- data %>%
+    dplyr::filter(technology == "Coal") %>%
+    dplyr::group_by(scenario, Variable_class, year) %>%
+    dplyr::summarize(price = mean(price)) %>%
+    dplyr::mutate(Variable_class = "price",scenario_geography = "Global", sector = "Coal",technology = "Coal", unit = "USD / tonne")
+
+  ### Creating Global Gas prices for High and Low
+  gas_global <- data %>%
+    dplyr::filter(technology == "Gas") %>%
+    dplyr::group_by(scenario, Variable_class, year) %>%
+    dplyr::summarize(price = mean(price)) %>%
+    dplyr::mutate(scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
+
+  ### Creating Average of the high and low prices
+  gas_global <- gas_global %>%
+    dplyr::group_by(scenario, year) %>%
+    dplyr::summarize(price = mean(price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology ="Gas", unit = "USD / MMBtu")
+
+  ### Creating an average of the Oil technology high and low price per scenario and year
+  oil_avg <- data %>%
+    dplyr::filter(technology == "Oil") %>%
+    dplyr::group_by(scenario, year) %>%
+    dplyr::summarize(price = mean(price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Oil", unit = "USD / Barrel")
+
+  data <- rbind(coal_global, gas_global, oil_avg) ### For now we only take global prices from IPR
+
+  ### Unit Adjustment: We use $/GJ for Oil and Gas. For coal we use $/tonne
+
+  data <- data %>%
+    dplyr::mutate(
+      price = dplyr::case_when(
+        .data$unit == "USD / Barrel" ~ 0.16 * .data$price,
+        .data$unit == "USD / MMBtu" ~ 0.9478171203 * .data$price,
+        TRUE ~ .data$price
+      )
+    ) %>%
+    dplyr::mutate(
+      unit = dplyr::case_when(
+        .data$unit == "USD / Barrel" ~ "GJ",
+        .data$unit == "USD / MMBtu" ~ "GJ",
+        .data$unit == "USD / tonne" ~ "usd/tonne"
+
+      )
+    )
+
+  ### renaming Variable_Class to "indicator"
+
+  colnames(data)[which(colnames(data) == "Variable_class")] <- "indicator"
+
+  ### filtering for start year
+
+  start_year <- 2021
+  data$year <- as.numeric(as.character(data$year))
+  data <- data %>% dplyr::filter(.data$year >= start_year)
+
+  return(data)
+}
