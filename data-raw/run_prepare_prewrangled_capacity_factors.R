@@ -58,7 +58,7 @@ data <- readr::read_csv(
 ## prepare data
 prepared_data_NGFS2021 <- prepare_capacity_factors_NGFS2021(data)
 
-###IPR data
+### IPR data
 
 input_path <- file.path("data-raw", "raw_capacity_factors_IPR2021.csv")
 
@@ -74,7 +74,7 @@ data <- readr::read_csv(
     Units = "c",
     year = "d",
     value = "d",
-        .default = readr::col_number()
+    .default = readr::col_number()
   )
 )
 

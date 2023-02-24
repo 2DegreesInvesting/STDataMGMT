@@ -364,12 +364,11 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
 }
 
 ### IPR Capacity Factors
-prepare_capacity_factors_IPR2021 <- function(data){
-
+prepare_capacity_factors_IPR2021 <- function(data) {
   ### Creating a technology column
 
-  data$technology =ifelse(data$Sector=="Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
-  data$technology =ifelse(data$Variable_class == "Electricity generation", paste(data$Sub_variable_class_1,data$Sector, sep="_"), data$technology)
+  data$technology <- ifelse(data$Sector == "Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
+  data$technology <- ifelse(data$Variable_class == "Electricity generation", paste(data$Sub_variable_class_1, data$Sector, sep = "_"), data$technology)
 
   ### renaming sector and Variable Class
 
@@ -382,19 +381,17 @@ prepare_capacity_factors_IPR2021 <- function(data){
     dplyr::mutate(technology = .data$technology) %>%
     dplyr::mutate(
       technology = dplyr::case_when(
-
         .data$technology == "Coal_Power" ~ "CoalCap",
         .data$technology == "Natural gas_Power" ~ "GasCap",
         .data$technology == "Nuclear_Power" ~ "NuclearCap",
         .data$technology == "Hydro_Power" ~ "HydroCap",
         .data$technology == "Oil_Power" ~ "OilCap",
-        .data$technology == "Biomass_Power" ~ "BiomassCap",  ### Is this the same as Biomass?
+        .data$technology == "Biomass_Power" ~ "BiomassCap", ### Is this the same as Biomass?
         .data$technology == "Offshore wind_Power" ~ "OffWindCap",
         .data$technology == "Onshore wind_Power" ~ "OnWindCap",
         .data$technology == "Solar_Power" ~ "SolarCap"
       ),
       ald_sector = dplyr::case_when(
-
         .data$technology == "CoalCap" ~ "Power",
         .data$technology == "GasCap" ~ "Power",
         .data$technology == "OilCap" ~ "Power",
@@ -404,27 +401,25 @@ prepare_capacity_factors_IPR2021 <- function(data){
         .data$technology == "OffWindCap" ~ "Power",
         .data$technology == "OnWindCap" ~ "Power",
         .data$technology == "SolarCap" ~ "Power"
-
       ),
       Scenario = dplyr::case_when(
-
         .data$Scenario == "RPS" ~ "IPR2021_RPS",
         .data$Scenario == "FPS" ~ "IPR2021_FPS"
       )
     )
 
-  ##Renaming Region WORLD to Global
+  ## Renaming Region WORLD to Global
 
   data$Region[data$Region == "WORLD"] <- "Global"
 
   ### deleting all NAs, NAs exist because the current data still has data that we are currently
   ### not using, like hydrogen and Coal w/ CCS.
 
-  data <- data[!(is.na(data$ald_sector)),]
+  data <- data[!(is.na(data$ald_sector)), ]
 
   ### further deleting unnecessary columns
 
-  data <- dplyr::select(data, -c("Sub_variable_class_1","Sub_variable_class_2"))
+  data <- dplyr::select(data, -c("Sub_variable_class_1", "Sub_variable_class_2"))
 
   ### renaming column names
 
@@ -434,10 +429,10 @@ prepare_capacity_factors_IPR2021 <- function(data){
 
   ### creating Renewablescap
 
-  combine_RenewablesCap <- data[data$technology== "OffWindCap" |data$technology== "OnWindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap" ,]
+  combine_RenewablesCap <- data[data$technology == "OffWindCap" | data$technology == "OnWindCap" | data$technology == "SolarCap" | data$technology == "BiomassCap", ]
 
   combine_RenewablesCap <- combine_RenewablesCap %>%
-    dplyr::group_by(Category, scenario_geography,scenario,ald_sector, units, year)%>%
+    dplyr::group_by(Category, scenario_geography, scenario, ald_sector, units, year) %>%
     dplyr::summarize(value = sum(value))
 
   combine_RenewablesCap$technology <- "RenewablesCap"
@@ -448,14 +443,14 @@ prepare_capacity_factors_IPR2021 <- function(data){
 
   ### Creating data sets for Capacity and Generation. They will be merged again at a later stage
 
-  Capacity <- data[data$Category=="Capacity",]
-  Generation <- data[data$Category=="Electricity generation",]
+  Capacity <- data[data$Category == "Capacity", ]
+  Generation <- data[data$Category == "Electricity generation", ]
 
   ### Generation: Transforming TWH into GW
 
   Generation <- Generation %>%
     dplyr::mutate(
-      value = Generation$value * 1000 / (24*365.25),
+      value = Generation$value * 1000 / (24 * 365.25),
       units = "GW"
     )
 
