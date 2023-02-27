@@ -318,8 +318,7 @@ prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs) {
 
 ### IPR price data function
 
-prepare_price_data_long_IPR2021 <- function(data){
-
+prepare_price_data_long_IPR2021 <- function(data) {
   ### Objective: extract the prices for Oil coal and Gas
   # Coal: only available for Europe, USA; CHN and JPN. We take the average to get a global variable
   # Gas: only available for USA, Europe and Asia, Plus available as high price and low price. We create a global low and global high and take the average from that
@@ -328,11 +327,11 @@ prepare_price_data_long_IPR2021 <- function(data){
 
   ### Creating a technology column
 
-  data$technology = data$Sub_variable_class_1
+  data$technology <- data$Sub_variable_class_1
 
 
   ### creating a sector column
-  data$sector = NA
+  data$sector <- NA
 
   ### Renaming technologies and Sector
 
@@ -343,19 +342,17 @@ prepare_price_data_long_IPR2021 <- function(data){
         .data$technology == "Oil" ~ "Oil",
         .data$technology == "Coal" ~ "Coal",
         .data$technology == "Natural gas" ~ "Gas",
-
       ),
       sector = dplyr::case_when(
         .data$technology == "Oil" ~ "Oil&Gas",
         .data$technology == "Gas" ~ "Oil&Gas",
         .data$technology == "Coal" ~ "Coal",
-
       ),
       Scenario = dplyr::case_when(
-
         .data$Scenario == "RPS" ~ "IPR2021_RPS",
         .data$Scenario == "FPS" ~ "IPR2021_FPS"
-      ))
+      )
+    )
 
 
 
@@ -376,7 +373,7 @@ prepare_price_data_long_IPR2021 <- function(data){
     dplyr::filter(technology == "Coal") %>%
     dplyr::group_by(scenario, Variable_class, year) %>%
     dplyr::summarize(price = mean(price)) %>%
-    dplyr::mutate(Variable_class = "price",scenario_geography = "Global", sector = "Coal",technology = "Coal", unit = "USD / tonne")
+    dplyr::mutate(Variable_class = "price", scenario_geography = "Global", sector = "Coal", technology = "Coal", unit = "USD / tonne")
 
   ### Creating Global Gas prices for High and Low
   gas_global <- data %>%
@@ -388,7 +385,7 @@ prepare_price_data_long_IPR2021 <- function(data){
   ### Creating Average of the high and low prices
   gas_global <- gas_global %>%
     dplyr::group_by(scenario, year) %>%
-    dplyr::summarize(price = mean(price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology ="Gas", unit = "USD / MMBtu")
+    dplyr::summarize(price = mean(price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
 
   ### Creating an average of the Oil technology high and low price per scenario and year
   oil_avg <- data %>%
@@ -413,7 +410,6 @@ prepare_price_data_long_IPR2021 <- function(data){
         .data$unit == "USD / Barrel" ~ "GJ",
         .data$unit == "USD / MMBtu" ~ "GJ",
         .data$unit == "USD / tonne" ~ "usd/tonne"
-
       )
     )
 
@@ -436,8 +432,7 @@ prepare_price_data_long_IPR2021 <- function(data){
 ### Output of the function is then matched to IPR with a different function (prepare_lcoe_adjusted_price_data_IPR2021)which can be found
 ### in Prepare_LCOE_adjusted_price_data.R
 
-prepare_price_data_long_Power_IPR2021 <- function(input_data_power){
-
+prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
   first_year <- 2020
   power_data_has_expected_columns <- all(
     c(
@@ -582,5 +577,4 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power){
   stopifnot(min_price_greater_equal_zero)
 
   return(data)
-
 }

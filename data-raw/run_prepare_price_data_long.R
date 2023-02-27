@@ -138,7 +138,8 @@ input_data_fossil_fuels_ipr <- readr::read_delim(
     year = "d",
     value = "d",
     .default = readr::col_number()
-  ))
+  )
+)
 
 price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr)
 
@@ -174,7 +175,7 @@ lcoe_adjusted_price_data_IPR2021 <- prepare_lcoe_adjusted_price_data_IPR2021(
   input_data = price_data_power_IPR2021,
   average_npm_power = average_npm_power,
   start_year = start_year
-)%>%
+) %>%
   dplyr::select(-.data$source)
 
 

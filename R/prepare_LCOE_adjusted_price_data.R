@@ -294,14 +294,14 @@ prepare_lcoe_adjusted_price_data_IPR2021 <- function(input_data,
   ## IPR adjustment
 
   ## Only global region
-  prices_adjusted <- prices_adjusted[prices_adjusted$scenario_geography == "Global",]
+  prices_adjusted <- prices_adjusted[prices_adjusted$scenario_geography == "Global", ]
 
   ## Matching IEA scenarios to IPR scenarios
-  FPS <- prices_adjusted[prices_adjusted$scenario == "SDS",]
+  FPS <- prices_adjusted[prices_adjusted$scenario == "SDS", ]
 
   FPS$scenario[FPS$scenario == "SDS"] <- "IPR2021_FPS"
 
-  RPS <- prices_adjusted[prices_adjusted$scenario == "SDS",]
+  RPS <- prices_adjusted[prices_adjusted$scenario == "SDS", ]
 
   RPS$scenario[RPS$scenario == "SDS"] <- "IPR2021_RPS"
 
