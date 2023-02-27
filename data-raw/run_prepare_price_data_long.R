@@ -142,10 +142,53 @@ input_data_fossil_fuels_ipr <- readr::read_delim(
 
 price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr)
 
+## prepare IPR 2021 Power price data
+## IPR prices for the power sector uses LCOE data from WEO2021
+
+# raw data obtained from WEO2021 report, pages 333-336
+input_path_power <- path_dropbox_2dii(
+  "PortCheck",
+  "00_Data",
+  "01_ProcessedData",
+  "03_ScenarioData",
+  "RawData",
+  "WEO2021_power_generation_technology_costs.csv"
+)
+
+input_data_power <- readr::read_csv(
+  file.path(input_path_power),
+  col_types = readr::cols(
+    source = "c",
+    scenario = "c",
+    region = "c",
+    technology = "c",
+    indicator = "c",
+    unit = "c",
+    .default = readr::col_number()
+  )
+)
+
+price_data_power_IPR2021 <- prepare_price_data_long_Power_IPR2021(input_data_power)
+
+lcoe_adjusted_price_data_IPR2021 <- prepare_lcoe_adjusted_price_data_IPR2021(
+  input_data = price_data_power_IPR2021,
+  average_npm_power = average_npm_power,
+  start_year = start_year
+)%>%
+  dplyr::select(-.data$source)
+
+
+### Total combined IPR2021 price data
+
+price_data_long_adjusted_IPR2021 <- price_data_long_IPR2021 %>%
+  dplyr::bind_rows(lcoe_adjusted_price_data_IPR2021)
+
 ## combine and write all price data----
 
 price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
-  dplyr::bind_rows(price_data_long_adjusted_NGFS2021)
+  dplyr::bind_rows(price_data_long_adjusted_NGFS2021) %>%
+  dplyr::bind_rows(price_data_long_adjusted_IPR2021)
+
 
 price_data_long_adjusted %>%
   readr::write_csv(file.path("data-raw", "price_data_long.csv"))
