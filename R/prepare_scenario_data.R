@@ -314,13 +314,11 @@ prepare_IPR_scenario_data <- function(data) {
 
   data$technology <- ifelse(data$Sector == "Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
 
-  ### renaming sector
-
-  colnames(data)[colnames(data) == "Sector"] <- "ald_sector"
 
   ### Renaming technologies and Sector
 
   data <- data %>%
+    dplyr::rename(ald_sector = Sector) %>%
     dplyr::mutate(technology = .data$technology) %>%
     dplyr::mutate(
       technology = dplyr::case_when(
