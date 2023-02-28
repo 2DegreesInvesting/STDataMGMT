@@ -371,14 +371,10 @@ prepare_capacity_factors_IPR2021 <- function(data){
   data$technology =ifelse(data$Sector=="Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
   data$technology =ifelse(data$Variable_class == "Electricity generation", paste(data$Sub_variable_class_1,data$Sector, sep="_"), data$technology)
 
-  ### renaming sector and Variable Class
-
-  colnames(data)[colnames(data) == "Sector"] <- "ald_sector"
-  colnames(data)[colnames(data) == "Variable_class"] <- "Category"
-
-  ### Renaming sector and technology
+    ### Renaming sector and technology
 
   data <- data %>%
+    dplyr::rename(ald_sector = Sector, Category = Variable_class) %>%
     dplyr::mutate(technology = .data$technology) %>%
     dplyr::mutate(
       technology = dplyr::case_when(
@@ -415,7 +411,8 @@ prepare_capacity_factors_IPR2021 <- function(data){
 
   ##Renaming Region WORLD to Global
 
-  data$Region[data$Region == "WORLD"] <- "Global"
+  data <- data %>%
+    dplyr::mutate(Region = ifelse(Region == "WORLD", "Global", Region))
 
   ### deleting all NAs, NAs exist because the current data still has data that we are currently
   ### not using, like hydrogen and Coal w/ CCS.
@@ -428,17 +425,20 @@ prepare_capacity_factors_IPR2021 <- function(data){
 
   ### renaming column names
 
-  colnames(data)[colnames(data) == "Scenario"] <- "scenario"
-  colnames(data)[colnames(data) == "Region"] <- "scenario_geography"
-  colnames(data)[colnames(data) == "Units"] <- "units"
+  data <- data %>%
+    rename(
+      scenario = Scenario,
+      scenario_geography = Region,
+      units = Units
+    )
 
   ### creating Renewablescap
 
   combine_RenewablesCap <- data[data$technology== "OffWindCap" |data$technology== "OnWindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap" ,]
 
   combine_RenewablesCap <- combine_RenewablesCap %>%
-    dplyr::group_by(Category, scenario_geography,scenario,ald_sector, units, year)%>%
-    dplyr::summarize(value = sum(value))
+    dplyr::group_by(.data$Category, .data$scenario_geography, .data$scenario,ald_sector, .data$units, .data$year)%>%
+    dplyr::summarize(value = sum(.data$value))
 
   combine_RenewablesCap$technology <- "RenewablesCap"
 
@@ -464,7 +464,7 @@ prepare_capacity_factors_IPR2021 <- function(data){
   colnames(Generation)[colnames(Generation) == "value"] <- "Generation"
   colnames(Capacity)[colnames(Capacity) == "value"] <- "Capacity"
 
-  ### deleting unneccessary colum for the full_join
+  ### deleting unneccessary column for the full_join
 
   Generation <- dplyr::select(Generation, -c("Category"))
   Capacity <- dplyr::select(Capacity, -c("Category"))
