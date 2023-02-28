@@ -121,12 +121,6 @@ green_techs <- c(
 
 preprepared_ngfs_data <- preprepared_ngfs_data %>% format_p4i(green_techs)
 
-prepared_data_combined <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
-
-prepared_data_combined %>% readr::write_csv(
-  file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
-)
-
 ### IPR Scenario
 ### Read IPR
 
