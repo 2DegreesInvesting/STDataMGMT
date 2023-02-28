@@ -366,7 +366,7 @@ prepare_IPR_scenario_data <- function(data) {
 
   ### further deleting unnecessary columns
 
-  data <- select(data, -c("Variable_class", "Sub_variable_class_1", "Sub_variable_class_2"))
+  data <- dplyr::select(data, -c("Variable_class", "Sub_variable_class_1", "Sub_variable_class_2"))
 
   ### renaming column names
 
@@ -379,8 +379,9 @@ prepare_IPR_scenario_data <- function(data) {
   combine_Renewablecap <- data[data$technology == "OffWindCap" | data$technology == "OnWindCap" | data$technology == "SolarCap" | data$technology == "BiomassCap", ]
 
   combine_Renewablecap <- combine_Renewablecap %>%
-    group_by(scenario_geography, scenario, ald_sector, units, year) %>%
-    summarize(value = sum(value))
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$year) %>%
+    dplyr::summarize(value = sum(.data$value)) %>%
+    dplyr::ungroup()
 
   combine_Renewablecap$technology <- "RenewablesCap"
 
@@ -398,7 +399,7 @@ prepare_IPR_scenario_data <- function(data) {
   data <- data[!(data$year < start_year), ]
 
   data <- data %>%
-    dplyr::group_by(scenario_geography, scenario, ald_sector, units, technology) %>%
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$technology) %>%
     dplyr::arrange(data$year, .by_group = TRUE) %>%
     dplyr::mutate(tmsr = (.data$value - dplyr::first(.data$value)) / dplyr::first(.data$value))
 
@@ -407,10 +408,10 @@ prepare_IPR_scenario_data <- function(data) {
 
   data <- data %>%
     dplyr::ungroup() %>%
-    dplyr::group_by(scenario_geography, scenario, ald_sector, units, year) %>%
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$year) %>%
     dplyr::arrange(.data$year, .by_group = TRUE) %>%
     dplyr::mutate(sector_total_by_year = sum(.data$value)) %>%
-    dplyr::group_by(scenario_geography, scenario, ald_sector, units, technology) %>%
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$technology) %>%
     dplyr::mutate(
       smsp = (.data$value - dplyr::first(.data$value)) /
         dplyr::first(.data$sector_total_by_year),
