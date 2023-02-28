@@ -329,10 +329,6 @@ prepare_price_data_long_IPR2021 <- function(data) {
 
   data$technology <- data$Sub_variable_class_1
 
-
-  ### creating a sector column
-  data$sector <- NA
-
   ### Renaming technologies and Sector
 
   data <- data %>%
