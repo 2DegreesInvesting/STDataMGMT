@@ -144,30 +144,8 @@ input_data_fossil_fuels_ipr <- readr::read_delim(
 price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr)
 
 ## prepare IPR 2021 Power price data
-## IPR prices for the power sector uses LCOE data from WEO2021
+## IPR prices for the power sector uses LCOE data from WEO2021 (input_data_power, see above)
 
-# raw data obtained from WEO2021 report, pages 333-336
-input_path_power <- path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
-  "RawData",
-  "WEO2021_power_generation_technology_costs.csv"
-)
-
-input_data_power <- readr::read_csv(
-  file.path(input_path_power),
-  col_types = readr::cols(
-    source = "c",
-    scenario = "c",
-    region = "c",
-    technology = "c",
-    indicator = "c",
-    unit = "c",
-    .default = readr::col_number()
-  )
-)
 
 price_data_power_IPR2021 <- prepare_price_data_long_Power_IPR2021(input_data_power)
 
