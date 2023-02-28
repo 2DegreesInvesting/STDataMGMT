@@ -141,8 +141,20 @@ input_path <- r2dii.utils::path_dropbox_2dii(
 )
 
 IPR <- as.data.frame(readr::read_csv(
-  input_path
-))
+  input_path,
+  col_types = readr::cols_only(
+    Scenario = "c",
+    Region = "c",
+    Sector = "c",
+    Units = "c",
+    Variable_class = "c",
+    Sub_variable_class_1 = "c",
+    Sub_variable_class_2 = "c",
+    year = "d",
+    value = "d"
+  )
+)
+)
 
 prepared_IPR_data <- prepare_IPR_scenario_data(IPR)
 
