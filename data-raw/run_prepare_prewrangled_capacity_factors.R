@@ -58,10 +58,33 @@ data <- readr::read_csv(
 ## prepare data
 prepared_data_NGFS2021 <- prepare_capacity_factors_NGFS2021(data)
 
+###IPR data
+
+input_path <- file.path("data-raw", "raw_capacity_factors_IPR2021.csv")
+
+data <- readr::read_csv(
+  input_path,
+  col_types = readr::cols(
+    Variable_class = "c",
+    Sub_variable_class_1 = "c",
+    Sub_variable_class_2 = "c",
+    Scenario = "c",
+    Region = "c",
+    Sector = "c",
+    Units = "c",
+    year = "d",
+    value = "d",
+    .default = readr::col_number()
+  )
+)
+
+## prepare IPR data
+prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data)
+
 ## combine and write data
 prepared_data <- prepared_data_WEO2021 %>%
-  dplyr::bind_rows(prepared_data_NGFS2021)
-
+  dplyr::bind_rows(prepared_data_NGFS2021) %>%
+  dplyr::bind_rows(prepared_data_IPR2021)
 
 prepared_data %>% readr::write_csv(
   file.path("data-raw", "prewrangled_capacity_factors.csv")

@@ -337,7 +337,8 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
 
   data <- data %>%
     dplyr::group_by(dplyr::across(-c(.data$generation, .data$capacity))) %>%
-    dplyr::mutate(capacity_factor = as.double(.data$generation) / as.double(.data$capacity))
+    dplyr::mutate(capacity_factor = as.double(.data$generation) / as.double(.data$capacity))%>%
+    dplyr::ungroup()
 
   data <- data %>%
     # if capacity factor is bigger than 1 make it 1
@@ -360,4 +361,148 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
     dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
     dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
+}
+
+### IPR Capacity Factors
+prepare_capacity_factors_IPR2021 <- function(data){
+
+  ### Creating a technology column
+
+  data$technology =ifelse(data$Sector=="Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
+  data$technology =ifelse(data$Variable_class == "Electricity generation", paste(data$Sub_variable_class_1,data$Sector, sep="_"), data$technology)
+
+  ### renaming sector and Variable Class
+
+  colnames(data)[colnames(data) == "Sector"] <- "ald_sector"
+  colnames(data)[colnames(data) == "Variable_class"] <- "Category"
+
+  ### Renaming sector and technology
+
+  data <- data %>%
+    dplyr::mutate(technology = .data$technology) %>%
+    dplyr::mutate(
+      technology = dplyr::case_when(
+
+        .data$technology == "Coal_Power" ~ "CoalCap",
+        .data$technology == "Natural gas_Power" ~ "GasCap",
+        .data$technology == "Nuclear_Power" ~ "NuclearCap",
+        .data$technology == "Hydro_Power" ~ "HydroCap",
+        .data$technology == "Oil_Power" ~ "OilCap",
+        .data$technology == "Biomass_Power" ~ "BiomassCap",  ### Is this the same as Biomass?
+        .data$technology == "Offshore wind_Power" ~ "OffWindCap",
+        .data$technology == "Onshore wind_Power" ~ "OnWindCap",
+        .data$technology == "Solar_Power" ~ "SolarCap"
+      ),
+      ald_sector = dplyr::case_when(
+
+        .data$technology == "CoalCap" ~ "Power",
+        .data$technology == "GasCap" ~ "Power",
+        .data$technology == "OilCap" ~ "Power",
+        .data$technology == "NuclearCap" ~ "Power",
+        .data$technology == "HydroCap" ~ "Power",
+        .data$technology == "BiomassCap" ~ "Power",
+        .data$technology == "OffWindCap" ~ "Power",
+        .data$technology == "OnWindCap" ~ "Power",
+        .data$technology == "SolarCap" ~ "Power"
+
+      ),
+      Scenario = dplyr::case_when(
+
+        .data$Scenario == "RPS" ~ "IPR2021_RPS",
+        .data$Scenario == "FPS" ~ "IPR2021_FPS"
+      )
+    )
+
+  ##Renaming Region WORLD to Global
+
+  data$Region[data$Region == "WORLD"] <- "Global"
+
+  ### deleting all NAs, NAs exist because the current data still has data that we are currently
+  ### not using, like hydrogen and Coal w/ CCS.
+
+  data <- data[!(is.na(data$ald_sector)),]
+
+  ### further deleting unnecessary columns
+
+  data <- dplyr::select(data, -c("Sub_variable_class_1","Sub_variable_class_2"))
+
+  ### renaming column names
+
+  colnames(data)[colnames(data) == "Scenario"] <- "scenario"
+  colnames(data)[colnames(data) == "Region"] <- "scenario_geography"
+  colnames(data)[colnames(data) == "Units"] <- "units"
+
+  ### creating Renewablescap
+
+  combine_RenewablesCap <- data[data$technology== "OffWindCap" |data$technology== "OnWindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap" ,]
+
+  combine_RenewablesCap <- combine_RenewablesCap %>%
+    dplyr::group_by(Category, scenario_geography,scenario,ald_sector, units, year)%>%
+    dplyr::summarize(value = sum(value))
+
+  combine_RenewablesCap$technology <- "RenewablesCap"
+
+  ### binding RenewablesCap with data
+
+  data <- rbind(data, combine_RenewablesCap)
+
+  ### Creating data sets for Capacity and Generation. They will be merged again at a later stage
+
+  Capacity <- data[data$Category=="Capacity",]
+  Generation <- data[data$Category=="Electricity generation",]
+
+  ### Generation: Transforming TWH into GW
+
+  Generation <- Generation %>%
+    dplyr::mutate(
+      value = Generation$value * 1000 / (24*365.25),
+      units = "GW"
+    )
+
+  ### renaming colnames
+
+  colnames(Generation)[colnames(Generation) == "value"] <- "Generation"
+  colnames(Capacity)[colnames(Capacity) == "value"] <- "Capacity"
+
+  ### deleting unneccessary colum for the full_join
+
+  Generation <- dplyr::select(Generation, -c("Category"))
+  Capacity <- dplyr::select(Capacity, -c("Category"))
+
+  ### joining the data
+
+  data <- dplyr::full_join(Capacity, Generation)
+
+  ### Calculating Capacity Factors
+
+  data <- data %>%
+    dplyr::group_by(dplyr::across(-c(.data$Generation, .data$Capacity))) %>%
+    dplyr::mutate(capacity_factor = as.double(.data$Generation) / as.double(.data$Capacity)) %>%
+    dplyr::ungroup()
+
+  ### there are a couple Capacity factors above 1 and a couple that are NA. since
+  ### the capacity and generation are both 0. Here we adjust capacity factors similar to NGFS
+
+  data <- data %>%
+    # if capacity factor is bigger than 1 make it 1
+    dplyr::mutate(
+      capacity_factor = dplyr::if_else(.data$capacity_factor > 1, 1, .data$capacity_factor)
+    ) %>%
+    # if capacity is 0 and generation is bigger than 0, it  results in INF capacity factors, which we correct to a capacity factor of 1
+    dplyr::mutate(
+      capacity_factor = dplyr::if_else(.data$Capacity == 0 & .data$Generation > 0, 0, .data$capacity_factor)
+    ) %>%
+    # if both capacity and generation are 0, we get capacity factor NaN. Until
+    # we have clarity on how to best handle this, we assume capacity factor 0
+    # in such a a case
+    dplyr::mutate(capacity_factor = dplyr::if_else(.data$Capacity == 0 & .data$Generation == 0, 0, .data$capacity_factor))
+
+  data <- data %>%
+    dplyr::select(-c(.data$Capacity, .data$Generation, .data$units, .data$ald_sector))
+
+
+  ### filtering for start year
+  start_year <- 2021
+  data$year <- as.numeric(as.character(data$year))
+  data <- data %>% dplyr::filter(.data$year >= start_year)
 }
