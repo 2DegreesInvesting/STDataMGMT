@@ -367,28 +367,28 @@ prepare_price_data_long_IPR2021 <- function(data) {
 
   ### Creating Coal Prices
   coal_global <- data %>%
-    dplyr::filter(technology == "Coal") %>%
-    dplyr::group_by(scenario, Variable_class, year) %>%
-    dplyr::summarize(price = mean(price)) %>%
+    dplyr::filter(.data$technology == "Coal") %>%
+    dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
+    dplyr::summarize(price = mean(.data$price)) %>%
     dplyr::mutate(Variable_class = "price", scenario_geography = "Global", sector = "Coal", technology = "Coal", unit = "USD / tonne")
 
   ### Creating Global Gas prices for High and Low
   gas_global <- data %>%
-    dplyr::filter(technology == "Gas") %>%
-    dplyr::group_by(scenario, Variable_class, year) %>%
-    dplyr::summarize(price = mean(price)) %>%
+    dplyr::filter(.data$technology == "Gas") %>%
+    dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
+    dplyr::summarize(price = mean(.data$price)) %>%
     dplyr::mutate(scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
 
   ### Creating Average of the high and low prices
   gas_global <- gas_global %>%
-    dplyr::group_by(scenario, year) %>%
-    dplyr::summarize(price = mean(price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
+    dplyr::group_by(.data$scenario, .data$year) %>%
+    dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
 
   ### Creating an average of the Oil technology high and low price per scenario and year
   oil_avg <- data %>%
-    dplyr::filter(technology == "Oil") %>%
-    dplyr::group_by(scenario, year) %>%
-    dplyr::summarize(price = mean(price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Oil", unit = "USD / Barrel")
+    dplyr::filter(.data$technology == "Oil") %>%
+    dplyr::group_by(.data$scenario, .data$year) %>%
+    dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Oil", unit = "USD / Barrel")
 
   data <- rbind(coal_global, gas_global, oil_avg) ### For now we only take global prices from IPR
 
