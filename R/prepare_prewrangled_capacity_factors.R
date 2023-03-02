@@ -374,7 +374,7 @@ prepare_capacity_factors_IPR2021 <- function(data){
     ### Renaming sector and technology
 
   data <- data %>%
-    dplyr::rename(ald_sector = Sector, Category = Variable_class) %>%
+    dplyr::rename(ald_sector = .data$Sector, Category = .data$Variable_class) %>%
     dplyr::mutate(technology = .data$technology) %>%
     dplyr::mutate(
       technology = dplyr::case_when(
@@ -426,10 +426,10 @@ prepare_capacity_factors_IPR2021 <- function(data){
   ### renaming column names
 
   data <- data %>%
-    rename(
-      scenario = Scenario,
-      scenario_geography = Region,
-      units = Units
+    dplyr::rename(
+      scenario = .data$Scenario,
+      scenario_geography = .data$Region,
+      units = .data$Units
     )
 
   ### creating Renewablescap
