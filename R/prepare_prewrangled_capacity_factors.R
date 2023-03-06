@@ -437,7 +437,7 @@ prepare_capacity_factors_IPR2021 <- function(data){
   combine_RenewablesCap <- data[data$technology== "OffWindCap" |data$technology== "OnWindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap" ,]
 
   combine_RenewablesCap <- combine_RenewablesCap %>%
-    dplyr::group_by(.data$Category, .data$scenario_geography, .data$scenario,ald_sector, .data$units, .data$year)%>%
+    dplyr::group_by(.data$Category, .data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$year)%>%
     dplyr::summarize(value = sum(.data$value))
 
   combine_RenewablesCap$technology <- "RenewablesCap"
