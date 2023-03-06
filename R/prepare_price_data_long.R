@@ -359,10 +359,12 @@ prepare_price_data_long_IPR2021 <- function(data) {
   ### renaming column names
 
   data <- data %>%
-    dplyr::rename(scenario = .data$Scenario,
-                  scenario_geography = .data$Region,
-                  unit = .data$Units,
-                  price = .data$value)
+    dplyr::rename(
+      scenario = .data$Scenario,
+      scenario_geography = .data$Region,
+      unit = .data$Units,
+      price = .data$value
+    )
 
 
   ### Creating Coal Prices
