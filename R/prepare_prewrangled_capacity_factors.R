@@ -412,7 +412,7 @@ prepare_capacity_factors_IPR2021 <- function(data){
   ##Renaming Region WORLD to Global
 
   data <- data %>%
-    dplyr::mutate(Region = ifelse(Region == "WORLD", "Global", Region))
+    dplyr::mutate(Region = ifelse(.data$Region == "WORLD", "Global", .data$Region))
 
   ### deleting all NAs, NAs exist because the current data still has data that we are currently
   ### not using, like hydrogen and Coal w/ CCS.
