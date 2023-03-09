@@ -121,10 +121,53 @@ lcoe_adjusted_price_data_oxford2021 <- prepare_lcoe_adjusted_price_data_oxford20
 price_data_long_adjusted_NGFS2021 <- price_data_long_NGFS2021 %>%
   dplyr::bind_rows(lcoe_adjusted_price_data_oxford2021)
 
+
+### prepare price data IPR 2021
+
+## prepare IPR 2021 Fossil Fuel price data
+input_path_fossil_fuels_ipr <- file.path("data-raw", "raw_price_data_long_IPR2021.csv")
+
+input_data_fossil_fuels_ipr <- readr::read_delim(
+  file.path(input_path_fossil_fuels_ipr),
+  col_types = readr::cols(
+    Scenario = "c",
+    Region = "c",
+    Variable_class = "c",
+    Sub_variable_class_1 = "c",
+    Units = "c",
+    year = "d",
+    value = "d",
+    .default = readr::col_number()
+  )
+)
+
+price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr)
+
+## prepare IPR 2021 Power price data
+## IPR prices for the power sector uses LCOE data from WEO2021 (input_data_power, see above)
+
+
+price_data_power_IPR2021 <- prepare_price_data_long_Power_IPR2021(input_data_power)
+
+lcoe_adjusted_price_data_IPR2021 <- prepare_lcoe_adjusted_price_data_IPR2021(
+  input_data = price_data_power_IPR2021,
+  average_npm_power = average_npm_power,
+  start_year = start_year
+) %>%
+  dplyr::select(-.data$source)
+
+
+### Total combined IPR2021 price data
+
+price_data_long_adjusted_IPR2021 <- price_data_long_IPR2021 %>%
+  dplyr::bind_rows(lcoe_adjusted_price_data_IPR2021)
+
 ## combine and write all price data----
 
 price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
-  dplyr::bind_rows(price_data_long_adjusted_NGFS2021)
+  dplyr::bind_rows(price_data_long_adjusted_NGFS2021) %>%
+  dplyr::bind_rows(price_data_long_adjusted_IPR2021)
+
 
 price_data_long_adjusted %>%
   readr::write_csv(file.path("data-raw", "price_data_long.csv"))
