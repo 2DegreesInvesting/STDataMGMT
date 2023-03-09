@@ -121,7 +121,40 @@ green_techs <- c(
 
 preprepared_ngfs_data <- preprepared_ngfs_data %>% format_p4i(green_techs)
 
-prepared_data_combined <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
+### IPR Scenario
+### Read IPR
+
+
+start_year <- 2021
+input_path <- r2dii.utils::path_dropbox_2dii(
+  "PortCheck",
+  "00_Data",
+  "01_ProcessedData",
+  "03_ScenarioData",
+  glue::glue("ipr_Scenarios_AnalysisInput_2021.csv")
+)
+
+IPR <- as.data.frame(readr::read_csv(
+  input_path,
+  col_types = readr::cols_only(
+    Scenario = "c",
+    Region = "c",
+    Sector = "c",
+    Units = "c",
+    Variable_class = "c",
+    Sub_variable_class_1 = "c",
+    Sub_variable_class_2 = "c",
+    year = "d",
+    value = "d"
+  )
+)
+)
+
+prepared_IPR_data <- prepare_IPR_scenario_data(IPR)
+
+### Merge Data from Scenario Sources
+prepared_data_IEA_NGFS <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
+prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_IPR_data)
 
 prepared_data_combined %>% readr::write_csv(
   file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
