@@ -318,7 +318,7 @@ prepare_IPR_scenario_data <- function(data) {
   ### Renaming technologies and Sector
 
   data <- data %>%
-    dplyr::rename(ald_sector = Sector) %>%
+    dplyr::rename(ald_sector = .data$Sector) %>%
     dplyr::mutate(technology = .data$technology) %>%
     dplyr::mutate(
       technology = dplyr::case_when(
@@ -358,7 +358,7 @@ prepare_IPR_scenario_data <- function(data) {
   ### Renaming Region WORLD to Global
 
   data <- data %>%
-    dplyr::mutate(Region = ifelse(Region == "WORLD", "Global", Region))
+    dplyr::mutate(Region = ifelse(.data$Region == "WORLD", "Global", .data$Region))
 
   ### Deleting all NAs, NAs exist because the current data still has data that we are currently not using, like hydrogen and Coal with CCS
 
