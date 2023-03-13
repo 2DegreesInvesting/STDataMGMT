@@ -172,6 +172,25 @@ Scenario_AnalysisInput_2021_MESSAGE_NZ2050 <- Scenario_AnalysisInput_2021 %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
+### IPR
+Scenario_AnalysisInput_2021_IPR_FPS <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("IPR2021_FPS")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+Scenario_AnalysisInput_2021_IPR_RPS <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("IPR2021_RPS")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+##IPR Baseline (IEA SPS vs Shock IPR RPS/FPS)
+Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_IPR_FPS %>%
+  select(scenario_geography, ald_sector)%>%
+  inner_join(Scenario_AnalysisInput_2021_IPR_RPS %>%
+               select(scenario_geography, ald_sector) %>%
+               inner_join(Scenario_AnalysisInput_2021_STEPS)) %>%
+  select(scenario_geography, ald_sector)
+
 # NGFS basline(NDC,CP) vs shock
 Scenario_AnalysisInput_2021_ngfs <- Scenario_AnalysisInput_2021_GCAM_B2DS %>%
   select(scenario_geography, ald_sector) %>%
@@ -235,32 +254,6 @@ tibble::tribble(
    "Reforming Economies (R5)",     "Power"
   )
 
-### IPR
-Scenario_AnalysisInput_2021_IPR_FPS <- Scenario_AnalysisInput_2021 %>%
-  filter(scenario %in% c("IPR2021_FPS")) %>%
-  select(scenario, scenario_geography, ald_sector) %>%
-  distinct_all()
-
-Scenario_AnalysisInput_2021_IPR_RPS <- Scenario_AnalysisInput_2021 %>%
-  filter(scenario %in% c("IPR2021_RPS")) %>%
-  select(scenario, scenario_geography, ald_sector) %>%
-  distinct_all()
-
-##IPR Baseline (IEA SPS vs Shock IPR RPS/FPS)
-Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_IPR_FPS %>%
-  select(scenario_geography, ald_sector)%>%
-  inner_join(Scenario_AnalysisInput_2021_IPR_RPS %>%
-               select(scenario_geography, ald_sector) %>%
-               inner_join(Scenario_AnalysisInput_2021_STEPS)) %>%
-  select(scenario_geography, ald_sector)
-
-#Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
-tibble::tribble(
-  ~scenario_geography, ~ald_sector,
-  "Global",      "Coal",
-  "Global",   "Oil&Gas",
-  "Global",     "Power"
-)
 
 # binding GECO scenario together add later to overlap_all df
 Scenario_AnalysisInput_2021_Geco <- rbind(Scenario_AnalysisInput_2021_GECO2021_CurPol, Scenario_AnalysisInput_2021_GECO2021_NDC_LTS, Scenario_AnalysisInput_2021_GECO2021_1.5c)
@@ -339,6 +332,15 @@ tibble::tribble(
   "Global", "Coal",
   "Global", "Oil&Gas",
   "Global", "Power"
+)
+
+#Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
+
+tibble::tribble(
+  ~scenario_geography, ~ald_sector,
+  "Global",      "Coal",
+  "Global",   "Oil&Gas",
+  "Global",     "Power"
 )
 
 # prewrangled_capacity_factors --------------------------------------------
