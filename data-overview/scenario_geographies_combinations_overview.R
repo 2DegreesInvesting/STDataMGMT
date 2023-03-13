@@ -195,12 +195,11 @@ Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_IPR_FPS %>%
 #Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
 
 tibble::tribble(
-  ~scenario_geography, ~ald_sector,
-  "Global",      "Coal",
-  "Global",   "Oil&Gas",
-  "Global",     "Power"
-)
-
+                                 ~scenario_geography, ~ald_sector,
+                                            "Global",      "Coal",
+                                            "Global",   "Oil&Gas",
+                                            "Global",     "Power"
+                                 )
 # NGFS basline(NDC,CP) vs shock
 Scenario_AnalysisInput_2021_ngfs <- Scenario_AnalysisInput_2021_GCAM_B2DS %>%
   select(scenario_geography, ald_sector) %>%
@@ -554,6 +553,8 @@ tibble::tribble(
 )
 
 ### IPR
+# we can only include geographies that are present both in baseline (currently IEA STEPS)
+# and shock scenario (IPR FPS and IPR RPS)
 prewrangled_capacity_factors_IPR_FPS <- prewrangled_capacity_factors %>%
   filter(scenario %in% c("IPR2021_FPS")) %>%
   select(scenario, scenario_geography) %>%
@@ -574,12 +575,9 @@ prewrangled_capacity_factors_ipr_scenarios <- prewrangled_capacity_factors_IPR_F
 #prewrangled_capacity_factors_ipr_scenarios %>% tribble_paste()
 
 tibble::tribble(
-                  ~scenario_geography,
-                             "Global"
-                  )
-
-
-
+                                                                       ~scenario_geography,
+                                                                                  "Global"
+                                                                       )
 # prewrangled_capacity_factors_WEO_2021_scenarios %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography,
