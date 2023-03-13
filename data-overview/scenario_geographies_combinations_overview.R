@@ -538,6 +538,30 @@ prewrangled_capacity_factors_ngfs_scenarios <- prewrangled_capacity_factors_MESS
                select(scenario_geography)) %>%
   arrange(scenario_geography)
 
+### IPR
+prewrangled_capacity_factors_IPR_FPS <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("IPR2021_FPS")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_IPR_RPS <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("IPR2021_RPS")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_ipr_scenarios <- prewrangled_capacity_factors_IPR_FPS %>%
+  select(scenario_geography) %>%
+  inner_join(prewrangled_capacity_factors_IPR_RPS %>%
+               select(scenario_geography)) %>%
+  inner_join(prewrangled_capacity_factors_WEO2021_STEPS %>%
+               select(scenario_geography))
+
+#prewrangled_capacity_factors_ipr_scenarios %>% tribble_paste()
+
+tibble::tribble(
+  ~scenario_geography,
+  "Global"
+)
 #prewrangled_capacity_factors_ngfs_scenarios %>% tribble_paste()
 tibble::tribble(
           ~scenario_geography,
