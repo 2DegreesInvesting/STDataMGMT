@@ -191,6 +191,16 @@ Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_IPR_FPS %>%
                inner_join(Scenario_AnalysisInput_2021_STEPS)) %>%
   select(scenario_geography, ald_sector)
 
+
+#Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
+
+tibble::tribble(
+  ~scenario_geography, ~ald_sector,
+  "Global",      "Coal",
+  "Global",   "Oil&Gas",
+  "Global",     "Power"
+)
+
 # NGFS basline(NDC,CP) vs shock
 Scenario_AnalysisInput_2021_ngfs <- Scenario_AnalysisInput_2021_GCAM_B2DS %>%
   select(scenario_geography, ald_sector) %>%
@@ -334,14 +344,6 @@ tibble::tribble(
   "Global", "Power"
 )
 
-#Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
-
-tibble::tribble(
-  ~scenario_geography, ~ald_sector,
-  "Global",      "Coal",
-  "Global",   "Oil&Gas",
-  "Global",     "Power"
-)
 
 # prewrangled_capacity_factors --------------------------------------------
 # NOTE: Only relevant for power sector
@@ -540,6 +542,17 @@ prewrangled_capacity_factors_ngfs_scenarios <- prewrangled_capacity_factors_MESS
                select(scenario_geography)) %>%
   arrange(scenario_geography)
 
+#prewrangled_capacity_factors_ngfs_scenarios %>% tribble_paste()
+tibble::tribble(
+  ~scenario_geography,
+  "Asia (R5)",
+  "Global",
+  "Latin America (R5)",
+  "Middle East & Africa (R5)",
+  "OECD & EU (R5)",
+  "Reforming Economies (R5)"
+)
+
 ### IPR
 prewrangled_capacity_factors_IPR_FPS <- prewrangled_capacity_factors %>%
   filter(scenario %in% c("IPR2021_FPS")) %>%
@@ -561,19 +574,10 @@ prewrangled_capacity_factors_ipr_scenarios <- prewrangled_capacity_factors_IPR_F
 #prewrangled_capacity_factors_ipr_scenarios %>% tribble_paste()
 
 tibble::tribble(
-  ~scenario_geography,
-  "Global"
-)
-#prewrangled_capacity_factors_ngfs_scenarios %>% tribble_paste()
-tibble::tribble(
-          ~scenario_geography,
-                  "Asia (R5)",
-                     "Global",
-         "Latin America (R5)",
-  "Middle East & Africa (R5)",
-             "OECD & EU (R5)",
-   "Reforming Economies (R5)"
-  )
+                  ~scenario_geography,
+                             "Global"
+                  )
+
 
 
 # prewrangled_capacity_factors_WEO_2021_scenarios %>% tribble_paste()
