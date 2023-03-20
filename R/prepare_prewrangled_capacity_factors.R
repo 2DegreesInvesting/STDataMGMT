@@ -506,3 +506,50 @@ prepare_capacity_factors_IPR2021 <- function(data){
   data$year <- as.numeric(as.character(data$year))
   data <- data %>% dplyr::filter(.data$year >= start_year)
 }
+
+### Oxford Capacity Factors
+
+prepare_capacity_factors_OXF2021 <- function(data){
+  ### Oxford has no capacity factors. Hence we rely on IEA capacity facotors which we match to Oxford scenarios
+  ### Oxford Capacity Factors are then held constant from 2040 until 2100.
+
+  # IEA wrangling and matching to OXF
+
+  data <- data %>%
+    dplyr::filter(.data$scenario_geography == "Global",
+                  .data$scenario %in% c("WEO2021_SDS", "WEO2021_STEPS")) %>%
+    dplyr::mutate(scenario = ifelse(.data$scenario == "WEO2021_SDS", "Oxford2021_fast", ifelse(scenario == "WEO2021_STEPS", "Oxford2021_base", scenario)))
+
+
+  # Function to add the years from 2040 to 2100
+
+  add_years <- function(data, start, end) {
+    technologies <- unique(data$technology)
+    scenarios <- unique(data$scenario)
+    scenario_geography <- unique(data$scenario_geography)
+    new_data <- data
+    for (year in start:end) {
+      for (technology in technologies) {
+        for (scenario in scenarios) {
+          new_row <- data.frame(scenario_geography = scenario_geography, year = year, capacity_factor = NA, technology = technology, scenario = scenario, stringsAsFactors = FALSE)
+          new_data <- rbind(new_data, new_row)
+        }
+      }
+    }
+    return(new_data)
+  }
+
+
+  data <- add_years(data, 2041, 2100)
+
+
+  # replace NAs with values from 2040 for each scenario-geography-technology combination
+  for (scn in unique(data$scenario)) {
+    for (tech in unique(data$technology)) {
+      subset <- data[data$scenario == scn & data$scenario_geography == "Global" & data$technology == tech,]
+      subset$capacity_factor[is.na(subset$capacity_factor)] <- subset$capacity_factor[subset$year == 2040]
+      data[data$scenario == scn & data$scenario_geography == "Global" & data$technology == tech,] <- subset
+    }
+  }
+  return(data)
+}
