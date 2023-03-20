@@ -515,7 +515,7 @@ prepare_capacity_factors_OXF2021 <- function(data) {
       .data$scenario_geography == "Global",
       .data$scenario %in% c("WEO2021_SDS", "WEO2021_STEPS")
     ) %>%
-    dplyr::mutate(scenario = ifelse(.data$scenario == "WEO2021_SDS", "Oxford2021_fast", ifelse(scenario == "WEO2021_STEPS", "Oxford2021_base", scenario)))
+    dplyr::mutate(scenario = ifelse(.data$scenario == "WEO2021_SDS", "Oxford2021_fast", ifelse(.data$scenario == "WEO2021_STEPS", "Oxford2021_base", .data$scenario)))
 
 
   # Function to add the years from 2040 to 2100
