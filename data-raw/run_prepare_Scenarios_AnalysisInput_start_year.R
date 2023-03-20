@@ -147,8 +147,7 @@ IPR <- as.data.frame(readr::read_csv(
     year = "d",
     value = "d"
   )
-)
-)
+))
 
 prepared_IPR_data <- prepare_IPR_scenario_data(IPR)
 
