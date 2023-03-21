@@ -445,7 +445,6 @@ prepare_IPR_scenario_data <- function(data) {
 ### Prepare Oxford Scenario Data
 
 prepare_OXF_scenario_data <- function(data) {
-
   ### Removing technologies that are not relevant for the stress test
   data <- data %>%
     dplyr::filter(!.data$`Annual energy` %in% c("batteries_ST_transport", "batteries_ST_electricity", "batteries_LT_electricity", "hydrogen"))
@@ -457,29 +456,29 @@ prepare_OXF_scenario_data <- function(data) {
   data <- data %>%
     dplyr::mutate(
       ald_sector = dplyr::if_else(.data$ald_sector == "electricity", "Power", .data$ald_sector),
-      ald_sector = dplyr::if_else(.data$technology== "coal" & .data$ald_sector == "final","Coal", .data$ald_sector),
-      ald_sector = dplyr::if_else(.data$technology== "gas" & .data$ald_sector == "final", "Oil&Gas", .data$ald_sector),
-      ald_sector = dplyr::if_else(.data$technology== "oil" & .data$ald_sector == "final", "Oil&Gas", .data$ald_sector),
-
-      technology = dplyr::if_else(.data$technology== "coal" & .data$ald_sector == "Power", "CoalCap", .data$technology),
-      technology = dplyr::if_else(.data$technology== "gas" & .data$ald_sector == "Power", "GasCap", .data$technology),
-      technology = dplyr::if_else(.data$technology== "oil" & .data$ald_sector == "Power", "OilCap", .data$technology),
-      technology = dplyr::if_else(.data$technology== "coal" & .data$ald_sector == "Coal", "Coal", .data$technology),
-      technology = dplyr::if_else(.data$technology== "gas" & .data$ald_sector == "Oil&Gas", "Gas", .data$technology),
-      technology = dplyr::if_else(.data$technology== "oil" & .data$ald_sector == "Oil&Gas", "Oil", .data$technology),
-      technology = dplyr::if_else(.data$technology== "solar", "SolarCap", .data$technology),
-      technology = dplyr::if_else(.data$technology== "wind", "WindCap", .data$technology),
-      technology = dplyr::if_else(.data$technology== "nuclear", "NuclearCap", .data$technology),
-      technology = dplyr::if_else(.data$technology== "hydro", "HydroCap", .data$technology),
-      technology = dplyr::if_else(.data$technology== "bioenergy", "BiomassCap", .data$technology))
+      ald_sector = dplyr::if_else(.data$technology == "coal" & .data$ald_sector == "final", "Coal", .data$ald_sector),
+      ald_sector = dplyr::if_else(.data$technology == "gas" & .data$ald_sector == "final", "Oil&Gas", .data$ald_sector),
+      ald_sector = dplyr::if_else(.data$technology == "oil" & .data$ald_sector == "final", "Oil&Gas", .data$ald_sector),
+      technology = dplyr::if_else(.data$technology == "coal" & .data$ald_sector == "Power", "CoalCap", .data$technology),
+      technology = dplyr::if_else(.data$technology == "gas" & .data$ald_sector == "Power", "GasCap", .data$technology),
+      technology = dplyr::if_else(.data$technology == "oil" & .data$ald_sector == "Power", "OilCap", .data$technology),
+      technology = dplyr::if_else(.data$technology == "coal" & .data$ald_sector == "Coal", "Coal", .data$technology),
+      technology = dplyr::if_else(.data$technology == "gas" & .data$ald_sector == "Oil&Gas", "Gas", .data$technology),
+      technology = dplyr::if_else(.data$technology == "oil" & .data$ald_sector == "Oil&Gas", "Oil", .data$technology),
+      technology = dplyr::if_else(.data$technology == "solar", "SolarCap", .data$technology),
+      technology = dplyr::if_else(.data$technology == "wind", "WindCap", .data$technology),
+      technology = dplyr::if_else(.data$technology == "nuclear", "NuclearCap", .data$technology),
+      technology = dplyr::if_else(.data$technology == "hydro", "HydroCap", .data$technology),
+      technology = dplyr::if_else(.data$technology == "bioenergy", "BiomassCap", .data$technology)
+    )
 
 
   ### creating Renewablescap
 
-  combine_Renewablecap <- data[data$technology== "WindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap",]
+  combine_Renewablecap <- data[data$technology == "WindCap" | data$technology == "SolarCap" | data$technology == "BiomassCap", ]
 
   combine_Renewablecap <- combine_Renewablecap %>%
-    dplyr::group_by(.data$scenario_geography,.data$scenario,.data$ald_sector, .data$units, .data$year)%>%
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$year) %>%
     dplyr::summarize(value = sum(.data$value))
 
   combine_Renewablecap$technology <- "RenewablesCap"
@@ -489,17 +488,17 @@ prepare_OXF_scenario_data <- function(data) {
   data <- rbind(data, combine_Renewablecap)
 
   ### Deleting Wind, Solar and Biomass, to avoid double counting
-  data <- data[!(data$technology== "WindCap" |data$technology== "SolarCap" |data$technology== "BiomassCap"),]
+  data <- data[!(data$technology == "WindCap" | data$technology == "SolarCap" | data$technology == "BiomassCap"), ]
 
   ### Calculating TMSR
 
   start_year <- 2021
-  data$year=as.numeric(as.character(data$year))
-  data <- data[!(data$year<start_year),]
+  data$year <- as.numeric(as.character(data$year))
+  data <- data[!(data$year < start_year), ]
 
   data <- data %>%
-    dplyr::group_by(.data$scenario_geography,.data$scenario, .data$ald_sector, .data$units, .data$technology) %>%
-    dplyr::arrange(.data$year, .by_group = TRUE)%>%
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$technology) %>%
+    dplyr::arrange(.data$year, .by_group = TRUE) %>%
     dplyr::mutate(tmsr = (.data$value - dplyr::first(.data$value)) / dplyr::first(.data$value))
 
 
@@ -507,10 +506,10 @@ prepare_OXF_scenario_data <- function(data) {
 
   data <- data %>%
     dplyr::ungroup() %>%
-    dplyr::group_by(.data$scenario_geography,.data$scenario, .data$ald_sector, .data$units,.data$year) %>%
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$year) %>%
     dplyr::arrange(.data$year, .by_group = TRUE) %>%
-    dplyr::mutate(sector_total_by_year = sum(.data$value))%>%
-    dplyr::group_by(.data$scenario_geography,.data$scenario, .data$ald_sector, .data$units, .data$technology) %>%
+    dplyr::mutate(sector_total_by_year = sum(.data$value)) %>%
+    dplyr::group_by(.data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$technology) %>%
     dplyr::mutate(
       smsp = (.data$value - dplyr::first(.data$value)) /
         dplyr::first(.data$sector_total_by_year),
@@ -521,7 +520,7 @@ prepare_OXF_scenario_data <- function(data) {
   ### Creating OilCap as duplicate of GasCap, note that we only introduce OilCap after the calculation of TMSR/SMSP
 
   subset <- data %>%
-    dplyr::filter(.data$technology == "GasCap")%>%
+    dplyr::filter(.data$technology == "GasCap") %>%
     dplyr::mutate(technology = stringr::str_replace(.data$technology, "GasCap", "OilCap"))
 
   data <- dplyr::bind_rows(subset, data)
@@ -529,16 +528,19 @@ prepare_OXF_scenario_data <- function(data) {
   ### Green Techs, Direction and FairSharePerc
   ### Defines direction of technology based on whether its considered a green technology
 
-  green_techs <- c( "RenewablesCap", "HydroCap", "NuclearCap", "SolarCap", "WindCap", "BiomassCap")
+  green_techs <- c("RenewablesCap", "HydroCap", "NuclearCap", "SolarCap", "WindCap", "BiomassCap")
 
   data <- data %>%
-    dplyr::mutate(direction = dplyr::if_else(.data$technology %in% green_techs, "increasing", "declining"),
-                  fair_share_perc = dplyr::if_else(.data$direction == "declining", .data$tmsr, .data$smsp),
-                  tmsr = NULL,
-                  smsp = NULL,
-                  value = NULL)
+    dplyr::mutate(
+      direction = dplyr::if_else(.data$technology %in% green_techs, "increasing", "declining"),
+      fair_share_perc = dplyr::if_else(.data$direction == "declining", .data$tmsr, .data$smsp),
+      tmsr = NULL,
+      smsp = NULL,
+      value = NULL
+    )
 
-  data <- data[,c("scenario_geography", "scenario", "ald_sector", "technology", "units", "year",
-                  "direction", "fair_share_perc")]
-
+  data <- data[, c(
+    "scenario_geography", "scenario", "ald_sector", "technology", "units", "year",
+    "direction", "fair_share_perc"
+  )]
 }

@@ -147,8 +147,7 @@ IPR <- as.data.frame(readr::read_csv(
     year = "d",
     value = "d"
   )
-)
-)
+))
 
 prepared_IPR_data <- prepare_IPR_scenario_data(IPR)
 
@@ -164,7 +163,7 @@ input_path <- r2dii.utils::path_dropbox_2dii(
   glue::glue("oxford_Scenarios_AnalysisInput_2021.csv")
 )
 
-OXF<- as.data.frame(readr::read_csv(
+OXF <- as.data.frame(readr::read_csv(
   input_path,
   col_types = readr::cols_only(
     "Annual energy" = "c",
@@ -174,8 +173,7 @@ OXF<- as.data.frame(readr::read_csv(
     year = "d",
     value = "d"
   )
-)
-)
+))
 prepared_OXF_data <- prepare_OXF_scenario_data(OXF)
 
 ### Merge Data from Scenario Sources
