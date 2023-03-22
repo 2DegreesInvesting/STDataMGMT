@@ -86,7 +86,7 @@ relevant_years <- sort(unique(c(start_year:(start_year + time_horizon), addition
 global_aggregate <- FALSE
 
 # read scenario data
-scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("weo2021_manually_added_Scenarios_AnalysisInput_{start_year}.csv")))
+scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv")))
 
 
 scenario_geographies_list <- scenario_data %>% dplyr::distinct(scenario_geography)
