@@ -211,7 +211,7 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
     dplyr::mutate(
         scenario = dplyr::if_else(.data$scenario == "fast_transition_oxford", "Oxford2021_fast", .data$scenario),
         scenario = dplyr::if_else(.data$scenario == "no_transition_oxford", "Oxford2021_base", .data$scenario)) %>%
-    dplyr::filter(scenario != "slow_transition_oxford")
+    dplyr::filter(.data$scenario != "slow_transition_oxford")
 
   ## For NGFS scenarios
   # NOTE: we use Oxford LCOE data but match and label them as NGFS data
