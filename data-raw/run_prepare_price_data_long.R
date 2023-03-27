@@ -180,13 +180,17 @@ input_data_fossil_fuels_oxf <- readr::read_delim(
   )
 )
 
-price_data_long_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_fossil_fuels_oxf)
+price_data_long_adjusted_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_fossil_fuels_oxf)
+
+### Oxford Power prices
+### Oxford power prices are already in the data through lcoe_adjusted_price_data_oxford2021
 
 ## combine and write all price data----
 
 price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
   dplyr::bind_rows(price_data_long_adjusted_NGFS2021) %>%
-  dplyr::bind_rows(price_data_long_adjusted_IPR2021)
+  dplyr::bind_rows(price_data_long_adjusted_IPR2021) %>%
+  dplyr::bind_rows(price_data_long_adjusted_OXF2021)
 
 
 price_data_long_adjusted %>%
