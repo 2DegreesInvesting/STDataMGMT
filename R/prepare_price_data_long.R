@@ -583,7 +583,6 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
 
 prepare_price_data_long_Oxf2021 <- function(data){
 
-
   ### Objective: extract the prices for Oil coal and Gas
   # All technologies only available for "Global" region
   # Units in $/MWH, have to be transfered into $/GJ for Oil and Gas and $/tonnes for coal
@@ -644,6 +643,8 @@ prepare_price_data_long_Oxf2021 <- function(data){
   ##creating unit column
   data$unit <- "$/MWh"
 
+  ##creating indicator column
+  data$indicator <- "price"
 
   ##To convert Coal $/MWh into $/tonne, we need to divide the price/MWH by 0.122835 (1 MWh = 0.122835)
   ##To convert Oil and Gas $/MWH into GJ, we need to divide by 3.6 (1MWh = 3.6GJ)
@@ -658,6 +659,11 @@ prepare_price_data_long_Oxf2021 <- function(data){
       unit = dplyr::if_else(.data$technology== "Coal", "usd/tonne", .data$unit),
 
     )
+
+  # delete data for years below 2021 and the Oxford_slow scenario
+  data <- data %>%
+    dplyr::filter(.data$year >= 2021) %>%
+    dplyr::filter(.data$scenario != "Oxford2021_slow")
 
 
   # replace NAs with values from 2069 for each scenario-geography-technology combination
