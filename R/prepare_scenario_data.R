@@ -118,6 +118,11 @@ preprepare_ngfs_scenario_data <- function(data) {
       ),
       scenario_geography = dplyr::case_when(
         .data$Region == "World" ~ "Global",
+        .data$Region == "Asia (R5)" ~ "Asia_(R5)",
+        .data$Region == "Latin America (R5)" ~ "Latin_America_(R5)",
+        .data$Region == "Middle East & Africa (R5)" ~ "Middle_East_Africa_(R5)",
+        .data$Region == "OECD & EU (R5)" ~ "OECD_EU_(R5)",
+        .data$Region == "Reforming Economies (R5)" ~ "Reforming Economies_(R5)",
         TRUE ~ .data$Region
       ),
       sector = dplyr::case_when(
