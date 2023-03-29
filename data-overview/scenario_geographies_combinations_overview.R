@@ -955,6 +955,7 @@ overlap_all_ngfs <- overlap_all_ngfs %>%
   select(-c(name))
 
 overlap_all_ngfs <- overlap_all_ngfs %>% arrange(scenario_geography, scenario)
+
 ##
 
 overlap_all_ipr <- Scenario_AnalysisInput_2021_ipr %>% 
@@ -972,6 +973,7 @@ overlap_all_ngfs <- overlap_all_ipr %>%
 overlap_all_ipr <- overlap_all_ipr %>% arrange(scenario_geography, scenario)
 
 ##
+
 overlap_all_combined <- full_join(overlap_all, overlap_all_ngfs) %>% arrange(scenario_geography, scenario)
 
 #overlap_all_combined <- overlap_all_combined %>% tribble_paste()
