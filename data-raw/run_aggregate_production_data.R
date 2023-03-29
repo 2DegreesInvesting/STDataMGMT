@@ -88,7 +88,6 @@ global_aggregate <- FALSE
 # read scenario data
 scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv")))
 
-
 scenario_geographies_list <- scenario_data %>% dplyr::distinct(scenario_geography)
 
 not_available <- c(
@@ -290,13 +289,10 @@ if (global_aggregate == TRUE) {
     dplyr::mutate(current_plan_row = 1)
 }
 
-
-### ########################################################################## #
-### ADD THE EXTRA TECHNOLOGY LINES -----
-### ########################################################################## #
-
-# ald_full <- ald_sr_ir_agg
-ald_full <- expand_tech_rows(ald_sr_ir_agg, global_aggregate = global_aggregate)
+ald_full <- ald_sr_ir_agg
+# The following would add the extra technology lines
+# Not in use anymore as we do not want to create trajectories for made up technologies
+# ald_full <- expand_tech_rows(ald_sr_ir_agg, global_aggregate = global_aggregate)
 
 # if we get an NaN for the weighted mean of the EF, we set it to 0 in case
 # the production is also 0. Since we only use the EF in the product of
