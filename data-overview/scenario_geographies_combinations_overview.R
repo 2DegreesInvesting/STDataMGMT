@@ -172,6 +172,16 @@ Scenario_AnalysisInput_2021_MESSAGE_NZ2050 <- Scenario_AnalysisInput_2021 %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
+Scenario_AnalysisInput_2021_IPR2021_FPS <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("IPR2021_FPS")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+Scenario_AnalysisInput_2021_IPR2021_RPS <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("IPR2021_RPS")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
 # NGFS basline(NDC,CP) vs shock 
 Scenario_AnalysisInput_2021_ngfs <- Scenario_AnalysisInput_2021_GCAM_B2DS %>%
   select(scenario_geography, ald_sector) %>%
@@ -306,13 +316,89 @@ Scenario_AnalysisInput_2021_scenarios <- Scenario_AnalysisInput_2021_APS %>%
   select(scenario_geography, ald_sector) %>%
   arrange(scenario_geography)
 
-# Scenario_AnalysisInput_2021_scenarios <- Scenario_AnalysisInput_2021_scenarios %>% %>% tribble_paste()
+# Scenario_AnalysisInput_2021_scenarios <- Scenario_AnalysisInput_2021_scenarios %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography, ~ald_sector,
   "Global", "Coal",
   "Global", "Oil&Gas",
   "Global", "Power"
 )
+
+Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_IPR2021_FPS %>%
+  select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_IPR2021_RPS) %>%
+  select(scenario_geography, ald_sector) 
+  
+# Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
+tibble::tribble(
+  ~scenario_geography, ~ald_sector,
+                "AUS",      "Coal",
+                "AUS",   "Oil&Gas",
+                "AUS",     "Power",
+                "BRA",      "Coal",
+                "BRA",   "Oil&Gas",
+                "BRA",     "Power",
+                "CAN",      "Coal",
+                "CAN",   "Oil&Gas",
+                "CAN",     "Power",
+                "CHN",      "Coal",
+                "CHN",   "Oil&Gas",
+                "CHN",     "Power",
+                "CSA",      "Coal",
+                "CSA",   "Oil&Gas",
+                "CSA",     "Power",
+                "EEU",      "Coal",
+                "EEU",   "Oil&Gas",
+                "EEU",     "Power",
+               "EURA",      "Coal",
+               "EURA",   "Oil&Gas",
+               "EURA",     "Power",
+                "GBR",      "Coal",
+                "GBR",   "Oil&Gas",
+                "GBR",     "Power",
+                "GCC",      "Coal",
+                "GCC",   "Oil&Gas",
+                "GCC",     "Power",
+             "Global",      "Coal",
+             "Global",   "Oil&Gas",
+             "Global",     "Power",
+                "IDN",      "Coal",
+                "IDN",   "Oil&Gas",
+                "IDN",     "Power",
+                "IND",      "Coal",
+                "IND",   "Oil&Gas",
+                "IND",     "Power",
+                "JPN",      "Coal",
+                "JPN",   "Oil&Gas",
+                "JPN",     "Power",
+                "KOR",      "Coal",
+                "KOR",   "Oil&Gas",
+                "KOR",     "Power",
+               "MENA",      "Coal",
+               "MENA",   "Oil&Gas",
+               "MENA",     "Power",
+                "RUS",      "Coal",
+                "RUS",   "Oil&Gas",
+                "RUS",     "Power",
+                 "SA",      "Coal",
+                 "SA",   "Oil&Gas",
+                 "SA",     "Power",
+               "SEAO",      "Coal",
+               "SEAO",   "Oil&Gas",
+               "SEAO",     "Power",
+                "SSA",      "Coal",
+                "SSA",   "Oil&Gas",
+                "SSA",     "Power",
+                "USA",      "Coal",
+                "USA",   "Oil&Gas",
+                "USA",     "Power",
+                "WEU",      "Coal",
+                "WEU",   "Oil&Gas",
+                "WEU",     "Power",
+                "ZAF",      "Coal",
+                "ZAF",   "Oil&Gas",
+                "ZAF",     "Power"
+  )
 
 # prewrangled_capacity_factors --------------------------------------------
 # NOTE: Only relevant for power sector
@@ -522,35 +608,52 @@ tibble::tribble(
    "Reforming Economies (R5)"
   )
 
+prewrangled_capacity_factors_IPR2021_FPS <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("IPR2021_FPS")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
 
-# prewrangled_capacity_factors_WEO_2021_scenarios %>% tribble_paste()
+prewrangled_capacity_factors_IPR2021_RPS <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("IPR2021_RPS")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_IPR2021 <- prewrangled_capacity_factors_IPR2021_FPS %>%
+  select(scenario_geography) %>%
+  inner_join(prewrangled_capacity_factors_IPR2021_RPS %>%
+  select(scenario_geography))  %>%
+  arrange(scenario_geography)
+
+# prewrangled_capacity_factors_IPR2021 %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography,
-  "Advanced Economies",
-  "Africa",
-  "Asia Pacific",
-  "Brazil",
-  "Central and South America",
-  "China",
-  "Developing Economies",
-  "Eurasia",
-  "Europe",
-  "European Union",
-  "Global",
-  "India",
-  "Japan",
-  "Middle East",
-  "Non-OECD",
-  "North America",
-  "OECD",
-  "Russia",
-  "South Africa",
-  "Southeast Asia",
-  "United States"
-)
+                "AUS",
+                "BRA",
+                "CAN",
+                "CHN",
+                "CSA",
+                "EEU",
+               "EURA",
+                "GBR",
+                "GCC",
+             "Global",
+                "IDN",
+                "IND",
+                "JPN",
+                "KOR",
+               "MENA",
+                "RUS",
+                 "SA",
+               "SEAO",
+                "SSA",
+                "USA",
+                "WEU",
+                "ZAF"
+  )
 
 ##do, as i believe now, scenario geographies that are whitelisted need to be present in production data 
 abcd_stress_test_input <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_MASTER", "abcd_stress_test_input.csv")
+abcd_stress_test_input <- "/Users/jakub/Documents/ST_INPUTS_MASTER/abcd_stress_test_input.csv"
 
 abcd_stress_test_input <- readr::read_csv(
   abcd_stress_test_input)
@@ -559,28 +662,53 @@ abcd_stress_test_geographies <- abcd_stress_test_input %>%
   select(scenario_geography) %>%
   distinct_all() 
 
+# abcd_stress_test_geographies %>% tribble_paste()
 tibble::tribble(
-  ~scenario_geography,
-             "Africa",
-        "AsiaPacific",
-              "China",
-             "Global",
-            "NonOECD",
-             "Brazil",
-                 "EU",
-            "Eurasia",
-             "Europe",
-              "India",
-       "LatinAmerica",
-       "NorthAmerica",
-               "OECD",
-             "Russia",
-        "SouthAfrica",
-                 "US",
-              "Japan",
-         "MiddleEast"
+          ~scenario_geography,
+                  "Asia (R5)",
+                "AsiaPacific",
+                     "Global",
+                        "IND",
+                      "India",
+                    "NonOECD",
+                        "BRA",
+                     "Brazil",
+         "Latin America (R5)",
+               "LatinAmerica",
+                        "CSA",
+               "NorthAmerica",
+                       "OECD",
+             "OECD & EU (R5)",
+                         "US",
+                        "USA",
+                         "EU",
+                     "Europe",
+                        "WEU",
+                       "EURA",
+                    "Eurasia",
+                       "MENA",
+   "Reforming Economies (R5)",
+                        "EEU",
+                        "GCC",
+  "Middle East & Africa (R5)",
+                 "MiddleEast",
+                        "JPN",
+                      "Japan",
+                        "AUS",
+                        "CAN",
+                        "CHN",
+                      "China",
+                     "Africa",
+                        "SSA",
+                        "IDN",
+                       "SEAO",
+                        "GBR",
+                        "RUS",
+                     "Russia",
+                         "SA",
+                        "ZAF",
+                        "KOR"
   )
-
 
 # Supported overlap -------------------------------------------------------
 # We can only offer scenario_geography x region combinations for which baseline and
@@ -618,7 +746,7 @@ excluded <- setdiff(Scenario_AnalysisInput_2021_without_nze_harmonized, overlap_
 ## geographies overlap with 
 overlap_all <- overlap_all %>% inner_join(abcd_stress_test_geographies)
 
-
+# overlap_all %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography, ~ald_sector,
              "Africa",      "Coal",
@@ -659,7 +787,6 @@ tibble::tribble(
                  "US",     "Power"
   )
 
-
 overlap_all$scenario_STEPS <- "WEO2021_STEPS"
 overlap_all$scenario_SDS <- "WEO2021_SDS"
 overlap_all$scenario_APS <- "WEO2021_APS"
@@ -676,6 +803,7 @@ overlap_all <- overlap_all %>% full_join(Scenario_AnalysisInput_2021_NZE_2050)
 
 overlap_all <- overlap_all %>% arrange(scenario_geography, scenario)
 
+# overlap_all %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography,  ~ald_sector,            ~scenario,
              "Africa",       "Coal",        "WEO2021_APS",
@@ -827,7 +955,23 @@ overlap_all_ngfs <- overlap_all_ngfs %>%
   select(-c(name))
 
 overlap_all_ngfs <- overlap_all_ngfs %>% arrange(scenario_geography, scenario)
+##
 
+overlap_all_ipr <- Scenario_AnalysisInput_2021_ipr %>% 
+  filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_IPR2021$scenario_geography))
+
+overlap_all_ipr <- overlap_all_ipr %>% inner_join(abcd_stress_test_geographies)
+
+overlap_all_ipr$scenario_IPR2021_FPS  <-"IPR2021_FPS"
+overlap_all_ipr$scenario_IPR2021_RPS  <-"IPR2021_RPS"
+
+overlap_all_ngfs <- overlap_all_ipr %>%
+  pivot_longer(scenario_IPR2021_FPS:scenario_IPR2021_RPS, values_to = "scenario") %>%
+  select(-c(name))
+
+overlap_all_ipr <- overlap_all_ipr %>% arrange(scenario_geography, scenario)
+
+##
 overlap_all_combined <- full_join(overlap_all, overlap_all_ngfs) %>% arrange(scenario_geography, scenario)
 
 #overlap_all_combined <- overlap_all_combined %>% tribble_paste()
