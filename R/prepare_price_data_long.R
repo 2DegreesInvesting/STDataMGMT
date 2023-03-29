@@ -666,13 +666,13 @@ prepare_price_data_long_Oxf2021 <- function(data) {
     dplyr::filter(.data$scenario != "Oxford2021_slow")
 
 
-  # replace NAs with values from 2069 for each scenario-geography-technology combination
+  # replace NAs with linear extrapolated values from the last 20 years of observation
+  # for each scenario-geography-technology combination
 
-  for (scn in unique(data$scenario)) {
-    for (tech in unique(data$technology)) {
-      subset <- data[data$scenario == scn & data$scenario_geography == "Global" & data$technology == tech, ]
-      subset$price[is.na(subset$price)] <- subset$price[subset$year == 2069]
-      data[data$scenario == scn & data$scenario_geography == "Global" & data$technology == tech, ] <- subset
+  for (i in unique(data$technology)) {
+    for (j in unique(data$scenario)) {
+      model <- stats::lm(price ~ year, data = data[data$year >= 2049 & data$year <= 2069 & data$technology == i & data$scenario == j, ])
+      data$price[data$technology == i & data$scenario == j] <- ifelse(is.na(data$price[data$technology == i & data$scenario == j]), model$coefficients[2] * data$year[data$technology == i & data$scenario == j] + model$coefficients[1], data$price[data$technology == i & data$scenario == j])
     }
   }
   return(data)
