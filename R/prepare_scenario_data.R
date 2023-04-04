@@ -440,6 +440,19 @@ prepare_IPR_scenario_data <- function(data) {
   )]
 }
 
+## IPR Baseline Scenario
+## builts upon the WEO2021 STEPS scenario
+prepare_IPR_baseline_scenario <- function(data){
+
+  # takes WEO wrangled scenario data and outputs only baseline with the scenario renamed to IPR2021_baseline
+  data <- data %>%
+    dplyr::filter(.data$scenario=="WEO2021_STEPS")%>%
+    dplyr::mutate(scenario = dplyr::case_when(
+      .data$scenario == "WEO2021_STEPS" ~ "IPR2021_baseline"
+    ))
+
+  return(data)
+}
 
 
 ### Prepare Oxford Scenario Data

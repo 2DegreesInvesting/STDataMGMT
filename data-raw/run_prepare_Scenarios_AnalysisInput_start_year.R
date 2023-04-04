@@ -150,6 +150,14 @@ IPR <- as.data.frame(readr::read_csv(
 ))
 
 prepared_IPR_data <- prepare_IPR_scenario_data(IPR)
+# IPR baseline scenario
+# IPR baseline is a duplicate of the WEO2021 STEPs scenario
+
+IPR_baseline <- prepare_IPR_baseline_scenario(prepared_data)
+
+# joining IPR scenarios
+
+prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline)
 
 ### Oxford Scenario
 ### Read Oxford
