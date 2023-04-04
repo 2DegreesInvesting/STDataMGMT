@@ -5,9 +5,9 @@ devtools::load_all()
 # This document is a preparation for the whitelisting of the weo2021 and ngfs2021 data in the climate.stress.test.repo
 # It first checks if sectors are complete
 # It then filters distinct geography x sector combinations for each scenario
-# Only those combinations that are present for all scenarios can stay 
-# Repeat process for capacity 
-# Join 
+# Only those combinations that are present for all scenarios can stay
+# Repeat process for capacity
+# Join
 # Done.
 
 # Overview of supported scenarios x scenario-geographies x sectors --------
@@ -16,13 +16,13 @@ Scenario_AnalysisInput_2021 <- readr::read_csv(
   file.path("data-raw", glue::glue("Scenarios_AnalysisInput_2021.csv"))
 )
 
-# first look at whether the sectors are complete 
-# if active in power, oil&gas and coal -> 9 technologies 
-# if active in  oil&gas and coal -> 3 technologies 
-# if active in  oil&gas and power -> 8 technologies 
-# if active only in power -> 6 technologies 
-# if active only in coal -> 1 technology 
-# if active only in oil&gas -> 2 technologies 
+# first look at whether the sectors are complete
+# if active in power, oil&gas and coal -> 9 technologies
+# if active in  oil&gas and coal -> 3 technologies
+# if active in  oil&gas and power -> 8 technologies
+# if active only in power -> 6 technologies
+# if active only in coal -> 1 technology
+# if active only in oil&gas -> 2 technologies
 Scenario_AnalysisInput_2021 %>%
   group_by(scenario_geography, scenario) %>%
   summarise(nrow = n(),
@@ -30,10 +30,10 @@ Scenario_AnalysisInput_2021 %>%
             n_technologies = length(unique(technology)),
             sectors = list(unique(ald_sector)),
             technologies = list(unique(technology))) %>%
-  dplyr::arrange(scenario_geography) %>% 
+  dplyr::arrange(scenario_geography) %>%
   View()
 
-#remove sector if not complete 
+#remove sector if not complete
 p4i_p4b_sector_technology_lookup <- p4i_p4b_sector_technology_lookup()
 
 Scenario_AnalysisInput_2021 <- Scenario_AnalysisInput_2021 %>%
@@ -172,7 +172,35 @@ Scenario_AnalysisInput_2021_MESSAGE_NZ2050 <- Scenario_AnalysisInput_2021 %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-# NGFS basline(NDC,CP) vs shock 
+### IPR
+Scenario_AnalysisInput_2021_IPR_FPS <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("IPR2021_FPS")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+Scenario_AnalysisInput_2021_IPR_RPS <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("IPR2021_RPS")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+##IPR Baseline (IEA SPS vs Shock IPR RPS/FPS)
+Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_IPR_FPS %>%
+  select(scenario_geography, ald_sector)%>%
+  inner_join(Scenario_AnalysisInput_2021_IPR_RPS %>%
+               select(scenario_geography, ald_sector) %>%
+               inner_join(Scenario_AnalysisInput_2021_STEPS)) %>%
+  select(scenario_geography, ald_sector)
+
+
+#Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
+
+tibble::tribble(
+                                 ~scenario_geography, ~ald_sector,
+                                            "Global",      "Coal",
+                                            "Global",   "Oil&Gas",
+                                            "Global",     "Power"
+                                 )
+# NGFS basline(NDC,CP) vs shock
 Scenario_AnalysisInput_2021_ngfs <- Scenario_AnalysisInput_2021_GCAM_B2DS %>%
   select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_GCAM_CP %>%
@@ -183,33 +211,33 @@ Scenario_AnalysisInput_2021_ngfs <- Scenario_AnalysisInput_2021_GCAM_B2DS %>%
                select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_GCAM_NDC %>%
                select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_GCAM_NZ2050 %>% 
-               select(scenario_geography, ald_sector)  %>% 
+  inner_join(Scenario_AnalysisInput_2021_GCAM_NZ2050 %>%
+               select(scenario_geography, ald_sector)  %>%
   inner_join(Scenario_AnalysisInput_2021_REMIND_B2DS %>%
-               select(scenario_geography, ald_sector)  %>% 
+               select(scenario_geography, ald_sector)  %>%
   inner_join(Scenario_AnalysisInput_2021_REMIND_B2DS %>%
-               select(scenario_geography, ald_sector) %>% 
+               select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_REMIND_CP %>%
-               select(scenario_geography, ald_sector) %>% 
+               select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_REMIND_DN0 %>%
-             select(scenario_geography, ald_sector) %>% 
+             select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_REMIND_DT %>%
-             select(scenario_geography, ald_sector) %>% 
+             select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_REMIND_NDC %>%
-             select(scenario_geography, ald_sector) %>% 
-  inner_join(Scenario_AnalysisInput_2021_REMIND_NZ2050 %>% 
-             select(scenario_geography, ald_sector) %>% 
+             select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_REMIND_NZ2050 %>%
+             select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_MESSAGE_B2DS %>%
-             select(scenario_geography, ald_sector) %>% 
-  inner_join(Scenario_AnalysisInput_2021_MESSAGE_CP %>% 
-             select(scenario_geography, ald_sector) %>% 
-  inner_join(Scenario_AnalysisInput_2021_MESSAGE_DN0 %>% 
-             select(scenario_geography, ald_sector) %>% 
-  inner_join(Scenario_AnalysisInput_2021_MESSAGE_DT %>% 
-             select(scenario_geography, ald_sector) %>% 
+             select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_MESSAGE_CP %>%
+             select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_MESSAGE_DN0 %>%
+             select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_MESSAGE_DT %>%
+             select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_MESSAGE_NDC %>%
-             select(scenario_geography, ald_sector) %>% 
-  inner_join(Scenario_AnalysisInput_2021_MESSAGE_NZ2050)))))))))))))))))) %>% 
+             select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_MESSAGE_NZ2050)))))))))))))))))) %>%
               select(scenario_geography, ald_sector)
 
 #Scenario_AnalysisInput_2021_ngfs <- Scenario_AnalysisInput_2021_ngfs %>% tribble_paste()
@@ -235,10 +263,11 @@ tibble::tribble(
    "Reforming Economies (R5)",     "Power"
   )
 
+
 # binding GECO scenario together add later to overlap_all df
 Scenario_AnalysisInput_2021_Geco <- rbind(Scenario_AnalysisInput_2021_GECO2021_CurPol, Scenario_AnalysisInput_2021_GECO2021_NDC_LTS, Scenario_AnalysisInput_2021_GECO2021_1.5c)
 
-#binding WEO together 
+#binding WEO together
 Scenario_AnalysisInput_2021_without_nze <- Scenario_AnalysisInput_2021_APS %>%
   select(scenario_geography, ald_sector) %>%
   inner_join(Scenario_AnalysisInput_2021_SDS %>%
@@ -314,6 +343,7 @@ tibble::tribble(
   "Global", "Power"
 )
 
+
 # prewrangled_capacity_factors --------------------------------------------
 # NOTE: Only relevant for power sector
 
@@ -382,7 +412,7 @@ tibble::tribble(
   "United States"
 )
 
-#NGFS 
+#NGFS
 prewrangled_capacity_factors_GCAM_B2DS <- prewrangled_capacity_factors %>%
   filter(scenario %in% c("NGFS2021_GCAM_B2DS")) %>%
   select(scenario, scenario_geography) %>%
@@ -513,16 +543,41 @@ prewrangled_capacity_factors_ngfs_scenarios <- prewrangled_capacity_factors_MESS
 
 #prewrangled_capacity_factors_ngfs_scenarios %>% tribble_paste()
 tibble::tribble(
-          ~scenario_geography,
-                  "Asia (R5)",
-                     "Global",
-         "Latin America (R5)",
+  ~scenario_geography,
+  "Asia (R5)",
+  "Global",
+  "Latin America (R5)",
   "Middle East & Africa (R5)",
-             "OECD & EU (R5)",
-   "Reforming Economies (R5)"
-  )
+  "OECD & EU (R5)",
+  "Reforming Economies (R5)"
+)
 
+### IPR
+# we can only include geographies that are present both in baseline (currently IEA STEPS)
+# and shock scenario (IPR FPS and IPR RPS)
+prewrangled_capacity_factors_IPR_FPS <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("IPR2021_FPS")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
 
+prewrangled_capacity_factors_IPR_RPS <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("IPR2021_RPS")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_ipr_scenarios <- prewrangled_capacity_factors_IPR_FPS %>%
+  select(scenario_geography) %>%
+  inner_join(prewrangled_capacity_factors_IPR_RPS %>%
+               select(scenario_geography)) %>%
+  inner_join(prewrangled_capacity_factors_WEO2021_STEPS %>%
+               select(scenario_geography))
+
+#prewrangled_capacity_factors_ipr_scenarios %>% tribble_paste()
+
+tibble::tribble(
+                                                                       ~scenario_geography,
+                                                                                  "Global"
+                                                                       )
 # prewrangled_capacity_factors_WEO_2021_scenarios %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography,
@@ -549,15 +604,15 @@ tibble::tribble(
   "United States"
 )
 
-##do, as i believe now, scenario geographies that are whitelisted need to be present in production data 
+##do, as i believe now, scenario geographies that are whitelisted need to be present in production data
 abcd_stress_test_input <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_MASTER", "abcd_stress_test_input.csv")
 
 abcd_stress_test_input <- readr::read_csv(
   abcd_stress_test_input)
 
-abcd_stress_test_geographies <- abcd_stress_test_input %>% 
+abcd_stress_test_geographies <- abcd_stress_test_input %>%
   select(scenario_geography) %>%
-  distinct_all() 
+  distinct_all()
 
 tibble::tribble(
   ~scenario_geography,
@@ -615,7 +670,7 @@ overlap_all <- Scenario_AnalysisInput_2021_without_nze_harmonized %>%
 ## we also drop the power sector DevelopingEconomis as this category is not present in ScenarioAnalysisInput -> Question: we could rename to Emergingmarket&developingeconomies as this is present in the scenario analysis
 excluded <- setdiff(Scenario_AnalysisInput_2021_without_nze_harmonized, overlap_all)
 
-## geographies overlap with 
+## geographies overlap with
 overlap_all <- overlap_all %>% inner_join(abcd_stress_test_geographies)
 
 
@@ -796,11 +851,11 @@ tibble::tribble(
   )
 
 
-## overlap with capacity factors 
-overlap_all_ngfs <- Scenario_AnalysisInput_2021_ngfs %>% 
+## overlap with capacity factors
+overlap_all_ngfs <- Scenario_AnalysisInput_2021_ngfs %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_ngfs_scenarios$scenario_geography))
 
-## geographies overlap with production data ##this is problematic here 
+## geographies overlap with production data ##this is problematic here
 overlap_all_ngfs <- overlap_all_ngfs %>% inner_join(abcd_stress_test_geographies)
 
 overlap_all_ngfs$scenario_GCAM_B2DS <- "NGFS2021_GCAM_B2DS"
@@ -828,179 +883,209 @@ overlap_all_ngfs <- overlap_all_ngfs %>%
 
 overlap_all_ngfs <- overlap_all_ngfs %>% arrange(scenario_geography, scenario)
 
+####IPR
+## overlap with IPR capacity factors
+overlap_all_ipr <- Scenario_AnalysisInput_2021_ipr %>%
+  filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_ipr_scenarios$scenario_geography))
+
+
+## geographies overlap with production data
+overlap_all_ipr <- overlap_all_ipr %>% inner_join(abcd_stress_test_geographies)
+
+overlap_all_ipr$scenario_FPS <- "IPR2021_FPS"
+overlap_all_ipr$scenario_RPS <-"IPR2021_RPS"
+
+
+overlap_all_ipr <- overlap_all_ipr %>%
+  pivot_longer(scenario_FPS:scenario_RPS, values_to = "scenario") %>%
+  select(-c(name))
+
+overlap_all_ipr <- overlap_all_ipr %>% arrange(scenario_geography, scenario)
+
+## joining all scenarios
 overlap_all_combined <- full_join(overlap_all, overlap_all_ngfs) %>% arrange(scenario_geography, scenario)
+overlap_all_combined <- full_join(overlap_all_combined, overlap_all_ipr) %>% arrange(scenario_geography, scenario)
+
+
+
 
 #overlap_all_combined <- overlap_all_combined %>% tribble_paste()
 tibble::tribble(
-  ~scenario_geography,  ~ald_sector,                 ~scenario,
-             "Africa",       "Coal",             "WEO2021_APS",
-             "Africa",    "Oil&Gas",             "WEO2021_APS",
-             "Africa",      "Power",             "WEO2021_APS",
-             "Africa",       "Coal",             "WEO2021_SDS",
-             "Africa",    "Oil&Gas",             "WEO2021_SDS",
-             "Africa",      "Power",             "WEO2021_SDS",
-             "Africa",       "Coal",           "WEO2021_STEPS",
-             "Africa",    "Oil&Gas",           "WEO2021_STEPS",
-             "Africa",      "Power",           "WEO2021_STEPS",
-        "AsiaPacific",       "Coal",             "WEO2021_APS",
-        "AsiaPacific",    "Oil&Gas",             "WEO2021_APS",
-        "AsiaPacific",      "Power",             "WEO2021_APS",
-        "AsiaPacific",       "Coal",             "WEO2021_SDS",
-        "AsiaPacific",    "Oil&Gas",             "WEO2021_SDS",
-        "AsiaPacific",      "Power",             "WEO2021_SDS",
-        "AsiaPacific",       "Coal",           "WEO2021_STEPS",
-        "AsiaPacific",    "Oil&Gas",           "WEO2021_STEPS",
-        "AsiaPacific",      "Power",           "WEO2021_STEPS",
-             "Brazil",      "Power",             "WEO2021_APS",
-             "Brazil",      "Power",             "WEO2021_SDS",
-             "Brazil",      "Power",           "WEO2021_STEPS",
-              "China",      "Power",             "WEO2021_APS",
-              "China",      "Power",             "WEO2021_SDS",
-              "China",      "Power",           "WEO2021_STEPS",
-                 "EU",      "Power",             "WEO2021_APS",
-                 "EU",      "Power",             "WEO2021_SDS",
-                 "EU",      "Power",           "WEO2021_STEPS",
-            "Eurasia",       "Coal",             "WEO2021_APS",
-            "Eurasia",    "Oil&Gas",             "WEO2021_APS",
-            "Eurasia",      "Power",             "WEO2021_APS",
-            "Eurasia",       "Coal",             "WEO2021_SDS",
-            "Eurasia",    "Oil&Gas",             "WEO2021_SDS",
-            "Eurasia",      "Power",             "WEO2021_SDS",
-            "Eurasia",       "Coal",           "WEO2021_STEPS",
-            "Eurasia",    "Oil&Gas",           "WEO2021_STEPS",
-            "Eurasia",      "Power",           "WEO2021_STEPS",
-             "Europe",       "Coal",             "WEO2021_APS",
-             "Europe",    "Oil&Gas",             "WEO2021_APS",
-             "Europe",      "Power",             "WEO2021_APS",
-             "Europe",       "Coal",             "WEO2021_SDS",
-             "Europe",    "Oil&Gas",             "WEO2021_SDS",
-             "Europe",      "Power",             "WEO2021_SDS",
-             "Europe",       "Coal",           "WEO2021_STEPS",
-             "Europe",    "Oil&Gas",           "WEO2021_STEPS",
-             "Europe",      "Power",           "WEO2021_STEPS",
-             "Global", "Automotive",      "GECO2021_1.5C-Unif",
-             "Global", "Automotive",         "GECO2021_CurPol",
-             "Global", "Automotive",        "GECO2021_NDC-LTS",
-             "Global",       "Coal",      "NGFS2021_GCAM_B2DS",
-             "Global",    "Oil&Gas",      "NGFS2021_GCAM_B2DS",
-             "Global",      "Power",      "NGFS2021_GCAM_B2DS",
-             "Global",       "Coal",        "NGFS2021_GCAM_CP",
-             "Global",    "Oil&Gas",        "NGFS2021_GCAM_CP",
-             "Global",      "Power",        "NGFS2021_GCAM_CP",
-             "Global",       "Coal",       "NGFS2021_GCAM_DN0",
-             "Global",    "Oil&Gas",       "NGFS2021_GCAM_DN0",
-             "Global",      "Power",       "NGFS2021_GCAM_DN0",
-             "Global",       "Coal",        "NGFS2021_GCAM_DT",
-             "Global",    "Oil&Gas",        "NGFS2021_GCAM_DT",
-             "Global",      "Power",        "NGFS2021_GCAM_DT",
-             "Global",       "Coal",       "NGFS2021_GCAM_NDC",
-             "Global",    "Oil&Gas",       "NGFS2021_GCAM_NDC",
-             "Global",      "Power",       "NGFS2021_GCAM_NDC",
-             "Global",       "Coal",    "NGFS2021_GCAM_NZ2050",
-             "Global",    "Oil&Gas",    "NGFS2021_GCAM_NZ2050",
-             "Global",      "Power",    "NGFS2021_GCAM_NZ2050",
-             "Global",       "Coal",   "NGFS2021_MESSAGE_B2DS",
-             "Global",    "Oil&Gas",   "NGFS2021_MESSAGE_B2DS",
-             "Global",      "Power",   "NGFS2021_MESSAGE_B2DS",
-             "Global",       "Coal",     "NGFS2021_MESSAGE_CP",
-             "Global",    "Oil&Gas",     "NGFS2021_MESSAGE_CP",
-             "Global",      "Power",     "NGFS2021_MESSAGE_CP",
-             "Global",       "Coal",    "NGFS2021_MESSAGE_DN0",
-             "Global",    "Oil&Gas",    "NGFS2021_MESSAGE_DN0",
-             "Global",      "Power",    "NGFS2021_MESSAGE_DN0",
-             "Global",       "Coal",     "NGFS2021_MESSAGE_DT",
-             "Global",    "Oil&Gas",     "NGFS2021_MESSAGE_DT",
-             "Global",      "Power",     "NGFS2021_MESSAGE_DT",
-             "Global",       "Coal",    "NGFS2021_MESSAGE_NDC",
-             "Global",    "Oil&Gas",    "NGFS2021_MESSAGE_NDC",
-             "Global",      "Power",    "NGFS2021_MESSAGE_NDC",
-             "Global",       "Coal", "NGFS2021_MESSAGE_NZ2050",
-             "Global",    "Oil&Gas", "NGFS2021_MESSAGE_NZ2050",
-             "Global",      "Power", "NGFS2021_MESSAGE_NZ2050",
-             "Global",       "Coal",    "NGFS2021_REMIND_B2DS",
-             "Global",    "Oil&Gas",    "NGFS2021_REMIND_B2DS",
-             "Global",      "Power",    "NGFS2021_REMIND_B2DS",
-             "Global",       "Coal",      "NGFS2021_REMIND_CP",
-             "Global",    "Oil&Gas",      "NGFS2021_REMIND_CP",
-             "Global",      "Power",      "NGFS2021_REMIND_CP",
-             "Global",       "Coal",     "NGFS2021_REMIND_DN0",
-             "Global",    "Oil&Gas",     "NGFS2021_REMIND_DN0",
-             "Global",      "Power",     "NGFS2021_REMIND_DN0",
-             "Global",       "Coal",      "NGFS2021_REMIND_DT",
-             "Global",    "Oil&Gas",      "NGFS2021_REMIND_DT",
-             "Global",      "Power",      "NGFS2021_REMIND_DT",
-             "Global",       "Coal",     "NGFS2021_REMIND_NDC",
-             "Global",    "Oil&Gas",     "NGFS2021_REMIND_NDC",
-             "Global",      "Power",     "NGFS2021_REMIND_NDC",
-             "Global",       "Coal",  "NGFS2021_REMIND_NZ2050",
-             "Global",    "Oil&Gas",  "NGFS2021_REMIND_NZ2050",
-             "Global",      "Power",  "NGFS2021_REMIND_NZ2050",
-             "Global",       "Coal",             "WEO2021_APS",
-             "Global",    "Oil&Gas",             "WEO2021_APS",
-             "Global",      "Power",             "WEO2021_APS",
-             "Global", "Automotive",        "WEO2021_NZE_2050",
-             "Global",       "Coal",        "WEO2021_NZE_2050",
-             "Global",    "Oil&Gas",        "WEO2021_NZE_2050",
-             "Global",      "Power",        "WEO2021_NZE_2050",
-             "Global",       "Coal",             "WEO2021_SDS",
-             "Global",    "Oil&Gas",             "WEO2021_SDS",
-             "Global",      "Power",             "WEO2021_SDS",
-             "Global",       "Coal",           "WEO2021_STEPS",
-             "Global",    "Oil&Gas",           "WEO2021_STEPS",
-             "Global",      "Power",           "WEO2021_STEPS",
-              "India",      "Power",             "WEO2021_APS",
-              "India",      "Power",             "WEO2021_SDS",
-              "India",      "Power",           "WEO2021_STEPS",
-              "Japan",      "Power",             "WEO2021_APS",
-              "Japan",      "Power",             "WEO2021_SDS",
-              "Japan",      "Power",           "WEO2021_STEPS",
-       "LatinAmerica",       "Coal",             "WEO2021_APS",
-       "LatinAmerica",    "Oil&Gas",             "WEO2021_APS",
-       "LatinAmerica",       "Coal",             "WEO2021_SDS",
-       "LatinAmerica",    "Oil&Gas",             "WEO2021_SDS",
-       "LatinAmerica",       "Coal",           "WEO2021_STEPS",
-       "LatinAmerica",    "Oil&Gas",           "WEO2021_STEPS",
-         "MiddleEast",       "Coal",             "WEO2021_APS",
-         "MiddleEast",    "Oil&Gas",             "WEO2021_APS",
-         "MiddleEast",      "Power",             "WEO2021_APS",
-         "MiddleEast",       "Coal",             "WEO2021_SDS",
-         "MiddleEast",    "Oil&Gas",             "WEO2021_SDS",
-         "MiddleEast",      "Power",             "WEO2021_SDS",
-         "MiddleEast",       "Coal",           "WEO2021_STEPS",
-         "MiddleEast",    "Oil&Gas",           "WEO2021_STEPS",
-         "MiddleEast",      "Power",           "WEO2021_STEPS",
-            "NonOECD",       "Coal",             "WEO2021_APS",
-            "NonOECD",    "Oil&Gas",             "WEO2021_APS",
-            "NonOECD",      "Power",             "WEO2021_APS",
-            "NonOECD",       "Coal",             "WEO2021_SDS",
-            "NonOECD",    "Oil&Gas",             "WEO2021_SDS",
-            "NonOECD",      "Power",             "WEO2021_SDS",
-            "NonOECD",       "Coal",           "WEO2021_STEPS",
-            "NonOECD",    "Oil&Gas",           "WEO2021_STEPS",
-            "NonOECD",      "Power",           "WEO2021_STEPS",
-       "NorthAmerica",       "Coal",             "WEO2021_APS",
-       "NorthAmerica",    "Oil&Gas",             "WEO2021_APS",
-       "NorthAmerica",      "Power",             "WEO2021_APS",
-       "NorthAmerica",       "Coal",             "WEO2021_SDS",
-       "NorthAmerica",    "Oil&Gas",             "WEO2021_SDS",
-       "NorthAmerica",      "Power",             "WEO2021_SDS",
-       "NorthAmerica",       "Coal",           "WEO2021_STEPS",
-       "NorthAmerica",    "Oil&Gas",           "WEO2021_STEPS",
-       "NorthAmerica",      "Power",           "WEO2021_STEPS",
-               "OECD",       "Coal",             "WEO2021_APS",
-               "OECD",    "Oil&Gas",             "WEO2021_APS",
-               "OECD",      "Power",             "WEO2021_APS",
-               "OECD",       "Coal",             "WEO2021_SDS",
-               "OECD",    "Oil&Gas",             "WEO2021_SDS",
-               "OECD",      "Power",             "WEO2021_SDS",
-               "OECD",       "Coal",           "WEO2021_STEPS",
-               "OECD",    "Oil&Gas",           "WEO2021_STEPS",
-               "OECD",      "Power",           "WEO2021_STEPS",
-             "Russia",      "Power",             "WEO2021_APS",
-             "Russia",      "Power",             "WEO2021_SDS",
-             "Russia",      "Power",           "WEO2021_STEPS",
-                 "US",      "Power",             "WEO2021_APS",
-                 "US",      "Power",             "WEO2021_SDS",
-                 "US",      "Power",           "WEO2021_STEPS"
-  )
+                  ~scenario_geography,  ~ald_sector,                 ~scenario,
+                             "Africa",       "Coal",             "WEO2021_APS",
+                             "Africa",    "Oil&Gas",             "WEO2021_APS",
+                             "Africa",      "Power",             "WEO2021_APS",
+                             "Africa",       "Coal",             "WEO2021_SDS",
+                             "Africa",    "Oil&Gas",             "WEO2021_SDS",
+                             "Africa",      "Power",             "WEO2021_SDS",
+                             "Africa",       "Coal",           "WEO2021_STEPS",
+                             "Africa",    "Oil&Gas",           "WEO2021_STEPS",
+                             "Africa",      "Power",           "WEO2021_STEPS",
+                        "AsiaPacific",       "Coal",             "WEO2021_APS",
+                        "AsiaPacific",    "Oil&Gas",             "WEO2021_APS",
+                        "AsiaPacific",      "Power",             "WEO2021_APS",
+                        "AsiaPacific",       "Coal",             "WEO2021_SDS",
+                        "AsiaPacific",    "Oil&Gas",             "WEO2021_SDS",
+                        "AsiaPacific",      "Power",             "WEO2021_SDS",
+                        "AsiaPacific",       "Coal",           "WEO2021_STEPS",
+                        "AsiaPacific",    "Oil&Gas",           "WEO2021_STEPS",
+                        "AsiaPacific",      "Power",           "WEO2021_STEPS",
+                             "Brazil",      "Power",             "WEO2021_APS",
+                             "Brazil",      "Power",             "WEO2021_SDS",
+                             "Brazil",      "Power",           "WEO2021_STEPS",
+                              "China",      "Power",             "WEO2021_APS",
+                              "China",      "Power",             "WEO2021_SDS",
+                              "China",      "Power",           "WEO2021_STEPS",
+                                 "EU",      "Power",             "WEO2021_APS",
+                                 "EU",      "Power",             "WEO2021_SDS",
+                                 "EU",      "Power",           "WEO2021_STEPS",
+                            "Eurasia",       "Coal",             "WEO2021_APS",
+                            "Eurasia",    "Oil&Gas",             "WEO2021_APS",
+                            "Eurasia",      "Power",             "WEO2021_APS",
+                            "Eurasia",       "Coal",             "WEO2021_SDS",
+                            "Eurasia",    "Oil&Gas",             "WEO2021_SDS",
+                            "Eurasia",      "Power",             "WEO2021_SDS",
+                            "Eurasia",       "Coal",           "WEO2021_STEPS",
+                            "Eurasia",    "Oil&Gas",           "WEO2021_STEPS",
+                            "Eurasia",      "Power",           "WEO2021_STEPS",
+                             "Europe",       "Coal",             "WEO2021_APS",
+                             "Europe",    "Oil&Gas",             "WEO2021_APS",
+                             "Europe",      "Power",             "WEO2021_APS",
+                             "Europe",       "Coal",             "WEO2021_SDS",
+                             "Europe",    "Oil&Gas",             "WEO2021_SDS",
+                             "Europe",      "Power",             "WEO2021_SDS",
+                             "Europe",       "Coal",           "WEO2021_STEPS",
+                             "Europe",    "Oil&Gas",           "WEO2021_STEPS",
+                             "Europe",      "Power",           "WEO2021_STEPS",
+                             "Global", "Automotive",      "GECO2021_1.5C-Unif",
+                             "Global", "Automotive",         "GECO2021_CurPol",
+                             "Global", "Automotive",        "GECO2021_NDC-LTS",
+                             "Global",       "Coal",             "IPR2021_FPS",
+                             "Global",    "Oil&Gas",             "IPR2021_FPS",
+                             "Global",      "Power",             "IPR2021_FPS",
+                             "Global",       "Coal",             "IPR2021_RPS",
+                             "Global",    "Oil&Gas",             "IPR2021_RPS",
+                             "Global",      "Power",             "IPR2021_RPS",
+                             "Global",       "Coal",      "NGFS2021_GCAM_B2DS",
+                             "Global",    "Oil&Gas",      "NGFS2021_GCAM_B2DS",
+                             "Global",      "Power",      "NGFS2021_GCAM_B2DS",
+                             "Global",       "Coal",        "NGFS2021_GCAM_CP",
+                             "Global",    "Oil&Gas",        "NGFS2021_GCAM_CP",
+                             "Global",      "Power",        "NGFS2021_GCAM_CP",
+                             "Global",       "Coal",       "NGFS2021_GCAM_DN0",
+                             "Global",    "Oil&Gas",       "NGFS2021_GCAM_DN0",
+                             "Global",      "Power",       "NGFS2021_GCAM_DN0",
+                             "Global",       "Coal",        "NGFS2021_GCAM_DT",
+                             "Global",    "Oil&Gas",        "NGFS2021_GCAM_DT",
+                             "Global",      "Power",        "NGFS2021_GCAM_DT",
+                             "Global",       "Coal",       "NGFS2021_GCAM_NDC",
+                             "Global",    "Oil&Gas",       "NGFS2021_GCAM_NDC",
+                             "Global",      "Power",       "NGFS2021_GCAM_NDC",
+                             "Global",       "Coal",    "NGFS2021_GCAM_NZ2050",
+                             "Global",    "Oil&Gas",    "NGFS2021_GCAM_NZ2050",
+                             "Global",      "Power",    "NGFS2021_GCAM_NZ2050",
+                             "Global",       "Coal",   "NGFS2021_MESSAGE_B2DS",
+                             "Global",    "Oil&Gas",   "NGFS2021_MESSAGE_B2DS",
+                             "Global",      "Power",   "NGFS2021_MESSAGE_B2DS",
+                             "Global",       "Coal",     "NGFS2021_MESSAGE_CP",
+                             "Global",    "Oil&Gas",     "NGFS2021_MESSAGE_CP",
+                             "Global",      "Power",     "NGFS2021_MESSAGE_CP",
+                             "Global",       "Coal",    "NGFS2021_MESSAGE_DN0",
+                             "Global",    "Oil&Gas",    "NGFS2021_MESSAGE_DN0",
+                             "Global",      "Power",    "NGFS2021_MESSAGE_DN0",
+                             "Global",       "Coal",     "NGFS2021_MESSAGE_DT",
+                             "Global",    "Oil&Gas",     "NGFS2021_MESSAGE_DT",
+                             "Global",      "Power",     "NGFS2021_MESSAGE_DT",
+                             "Global",       "Coal",    "NGFS2021_MESSAGE_NDC",
+                             "Global",    "Oil&Gas",    "NGFS2021_MESSAGE_NDC",
+                             "Global",      "Power",    "NGFS2021_MESSAGE_NDC",
+                             "Global",       "Coal", "NGFS2021_MESSAGE_NZ2050",
+                             "Global",    "Oil&Gas", "NGFS2021_MESSAGE_NZ2050",
+                             "Global",      "Power", "NGFS2021_MESSAGE_NZ2050",
+                             "Global",       "Coal",    "NGFS2021_REMIND_B2DS",
+                             "Global",    "Oil&Gas",    "NGFS2021_REMIND_B2DS",
+                             "Global",      "Power",    "NGFS2021_REMIND_B2DS",
+                             "Global",       "Coal",      "NGFS2021_REMIND_CP",
+                             "Global",    "Oil&Gas",      "NGFS2021_REMIND_CP",
+                             "Global",      "Power",      "NGFS2021_REMIND_CP",
+                             "Global",       "Coal",     "NGFS2021_REMIND_DN0",
+                             "Global",    "Oil&Gas",     "NGFS2021_REMIND_DN0",
+                             "Global",      "Power",     "NGFS2021_REMIND_DN0",
+                             "Global",       "Coal",      "NGFS2021_REMIND_DT",
+                             "Global",    "Oil&Gas",      "NGFS2021_REMIND_DT",
+                             "Global",      "Power",      "NGFS2021_REMIND_DT",
+                             "Global",       "Coal",     "NGFS2021_REMIND_NDC",
+                             "Global",    "Oil&Gas",     "NGFS2021_REMIND_NDC",
+                             "Global",      "Power",     "NGFS2021_REMIND_NDC",
+                             "Global",       "Coal",  "NGFS2021_REMIND_NZ2050",
+                             "Global",    "Oil&Gas",  "NGFS2021_REMIND_NZ2050",
+                             "Global",      "Power",  "NGFS2021_REMIND_NZ2050",
+                             "Global",       "Coal",             "WEO2021_APS",
+                             "Global",    "Oil&Gas",             "WEO2021_APS",
+                             "Global",      "Power",             "WEO2021_APS",
+                             "Global", "Automotive",        "WEO2021_NZE_2050",
+                             "Global",       "Coal",        "WEO2021_NZE_2050",
+                             "Global",    "Oil&Gas",        "WEO2021_NZE_2050",
+                             "Global",      "Power",        "WEO2021_NZE_2050",
+                             "Global",       "Coal",             "WEO2021_SDS",
+                             "Global",    "Oil&Gas",             "WEO2021_SDS",
+                             "Global",      "Power",             "WEO2021_SDS",
+                             "Global",       "Coal",           "WEO2021_STEPS",
+                             "Global",    "Oil&Gas",           "WEO2021_STEPS",
+                             "Global",      "Power",           "WEO2021_STEPS",
+                              "India",      "Power",             "WEO2021_APS",
+                              "India",      "Power",             "WEO2021_SDS",
+                              "India",      "Power",           "WEO2021_STEPS",
+                              "Japan",      "Power",             "WEO2021_APS",
+                              "Japan",      "Power",             "WEO2021_SDS",
+                              "Japan",      "Power",           "WEO2021_STEPS",
+                       "LatinAmerica",       "Coal",             "WEO2021_APS",
+                       "LatinAmerica",    "Oil&Gas",             "WEO2021_APS",
+                       "LatinAmerica",       "Coal",             "WEO2021_SDS",
+                       "LatinAmerica",    "Oil&Gas",             "WEO2021_SDS",
+                       "LatinAmerica",       "Coal",           "WEO2021_STEPS",
+                       "LatinAmerica",    "Oil&Gas",           "WEO2021_STEPS",
+                         "MiddleEast",       "Coal",             "WEO2021_APS",
+                         "MiddleEast",    "Oil&Gas",             "WEO2021_APS",
+                         "MiddleEast",      "Power",             "WEO2021_APS",
+                         "MiddleEast",       "Coal",             "WEO2021_SDS",
+                         "MiddleEast",    "Oil&Gas",             "WEO2021_SDS",
+                         "MiddleEast",      "Power",             "WEO2021_SDS",
+                         "MiddleEast",       "Coal",           "WEO2021_STEPS",
+                         "MiddleEast",    "Oil&Gas",           "WEO2021_STEPS",
+                         "MiddleEast",      "Power",           "WEO2021_STEPS",
+                            "NonOECD",       "Coal",             "WEO2021_APS",
+                            "NonOECD",    "Oil&Gas",             "WEO2021_APS",
+                            "NonOECD",      "Power",             "WEO2021_APS",
+                            "NonOECD",       "Coal",             "WEO2021_SDS",
+                            "NonOECD",    "Oil&Gas",             "WEO2021_SDS",
+                            "NonOECD",      "Power",             "WEO2021_SDS",
+                            "NonOECD",       "Coal",           "WEO2021_STEPS",
+                            "NonOECD",    "Oil&Gas",           "WEO2021_STEPS",
+                            "NonOECD",      "Power",           "WEO2021_STEPS",
+                       "NorthAmerica",       "Coal",             "WEO2021_APS",
+                       "NorthAmerica",    "Oil&Gas",             "WEO2021_APS",
+                       "NorthAmerica",      "Power",             "WEO2021_APS",
+                       "NorthAmerica",       "Coal",             "WEO2021_SDS",
+                       "NorthAmerica",    "Oil&Gas",             "WEO2021_SDS",
+                       "NorthAmerica",      "Power",             "WEO2021_SDS",
+                       "NorthAmerica",       "Coal",           "WEO2021_STEPS",
+                       "NorthAmerica",    "Oil&Gas",           "WEO2021_STEPS",
+                       "NorthAmerica",      "Power",           "WEO2021_STEPS",
+                               "OECD",       "Coal",             "WEO2021_APS",
+                               "OECD",    "Oil&Gas",             "WEO2021_APS",
+                               "OECD",      "Power",             "WEO2021_APS",
+                               "OECD",       "Coal",             "WEO2021_SDS",
+                               "OECD",    "Oil&Gas",             "WEO2021_SDS",
+                               "OECD",      "Power",             "WEO2021_SDS",
+                               "OECD",       "Coal",           "WEO2021_STEPS",
+                               "OECD",    "Oil&Gas",           "WEO2021_STEPS",
+                               "OECD",      "Power",           "WEO2021_STEPS",
+                             "Russia",      "Power",             "WEO2021_APS",
+                             "Russia",      "Power",             "WEO2021_SDS",
+                             "Russia",      "Power",           "WEO2021_STEPS",
+                                 "US",      "Power",             "WEO2021_APS",
+                                 "US",      "Power",             "WEO2021_SDS",
+                                 "US",      "Power",           "WEO2021_STEPS"
+                  )
 
