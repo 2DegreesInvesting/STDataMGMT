@@ -58,7 +58,7 @@ data <- readr::read_csv(
 ## prepare data
 prepared_data_NGFS2021 <- prepare_capacity_factors_NGFS2021(data)
 
-###IPR data
+### IPR data
 
 input_path <- file.path("data-raw", "raw_capacity_factors_IPR2021.csv")
 
@@ -81,10 +81,19 @@ data <- readr::read_csv(
 ## prepare IPR data
 prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data)
 
+### Oxford data
+# Oxford uses Capacity Factors from WEO2021
+data <- prepared_data_WEO2021
+
+prepared_data_OXF2021 <- prepare_capacity_factors_OXF2021(data)
+
+
+
 ## combine and write data
 prepared_data <- prepared_data_WEO2021 %>%
   dplyr::bind_rows(prepared_data_NGFS2021) %>%
-  dplyr::bind_rows(prepared_data_IPR2021)
+  dplyr::bind_rows(prepared_data_IPR2021) %>%
+  dplyr::bind_rows(prepared_data_OXF2021)
 
 prepared_data %>% readr::write_csv(
   file.path("data-raw", "prewrangled_capacity_factors.csv")
