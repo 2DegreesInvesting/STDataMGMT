@@ -162,11 +162,35 @@ lcoe_adjusted_price_data_IPR2021 <- prepare_lcoe_adjusted_price_data_IPR2021(
 price_data_long_adjusted_IPR2021 <- price_data_long_IPR2021 %>%
   dplyr::bind_rows(lcoe_adjusted_price_data_IPR2021)
 
+## Oxford Price data
+
+## Fossil Fuel prices
+input_path_fossil_fuels_oxf <- file.path("data-raw", "raw_price_data_long_OXF2021.csv")
+
+input_data_fossil_fuels_oxf <- readr::read_delim(
+  file.path(input_path_fossil_fuels_oxf),
+  col_types = readr::cols(
+    Scenario = "c",
+    Sector = "c",
+    Region = "c",
+    Technology = "c",
+    Year = "d",
+    LCOE = "d",
+    .default = readr::col_number()
+  )
+)
+
+price_data_long_adjusted_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_fossil_fuels_oxf)
+
+### Oxford Power prices
+### Oxford power prices are already in the data through lcoe_adjusted_price_data_oxford2021
+
 ## combine and write all price data----
 
 price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
   dplyr::bind_rows(price_data_long_adjusted_NGFS2021) %>%
-  dplyr::bind_rows(price_data_long_adjusted_IPR2021)
+  dplyr::bind_rows(price_data_long_adjusted_IPR2021) %>%
+  dplyr::bind_rows(price_data_long_adjusted_OXF2021)
 
 
 price_data_long_adjusted %>%

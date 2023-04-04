@@ -577,3 +577,103 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
 
   return(data)
 }
+
+## Oxford Fossil Fuel Price data function
+
+
+prepare_price_data_long_Oxf2021 <- function(data) {
+  ### Objective: extract the prices for Oil coal and Gas
+  # All technologies only available for "Global" region
+  # Units in $/MWH, have to be transfered into $/GJ for Oil and Gas and $/tonnes for coal
+
+
+  ### Renaming technologies and Sector
+
+  data <- data %>%
+    dplyr::rename(
+      technology = .data$Technology,
+      sector = .data$Sector,
+      scenario = .data$Scenario,
+      scenario_geography = .data$Region,
+      year = .data$Year,
+      price = .data$LCOE
+    )
+
+  ### Time Horizon for Prices is limited until 2069, but Production data goes until 2100. We keep prices constant after 2069 until 2100
+
+  # Function to add the years from 2069 to 2100
+  add_years <- function(data, start, end) {
+    technologies <- unique(data$technology)
+    scenarios <- unique(data$scenario)
+    scenario_geography <- unique(data$scenario_geography)
+    new_data <- data
+    for (year in start:end) {
+      for (technology in technologies) {
+        for (scenario in scenarios) {
+          new_row <- data.frame(scenario_geography = scenario_geography, year = year, price = NA, technology = technology, scenario = scenario, sector = "Fossil Fuels", stringsAsFactors = FALSE)
+          new_data <- rbind(new_data, new_row)
+        }
+      }
+    }
+    return(new_data)
+  }
+
+  data <- add_years(data, 2070, 2100)
+
+
+
+  ## mutating data
+  data <- data %>%
+    dplyr::mutate(
+      scenario = dplyr::case_when(
+        .data$scenario == "Oxford - fast_transition" ~ "Oxford2021_fast",
+        .data$scenario == "Oxford - no_transition" ~ "Oxford2021_base",
+        .data$scenario == "Oxford - slow_transition" ~ "Oxford2021_slow"
+      ),
+      sector = dplyr::case_when(
+        .data$technology == "Coal" ~ "Coal",
+        .data$technology %in% c("Gas", "Oil") ~ "Oil&Gas",
+      ),
+      scenario_geography = dplyr::case_when(
+        .data$scenario_geography == "World" ~ "Global"
+      )
+    )
+
+
+
+  ## creating unit column
+  data$unit <- "$/MWh"
+
+  ## creating indicator column
+  data$indicator <- "price"
+
+  ## To convert Coal $/MWh into $/tonne, we need to divide the price/MWH by 0.122835 (1 MWh = 0.122835)
+  ## To convert Oil and Gas $/MWH into GJ, we need to divide by 3.6 (1MWh = 3.6GJ)
+
+  data <- data %>%
+    dplyr::mutate(
+      price = dplyr::if_else(.data$technology == "Oil", .data$price / 3.6, .data$price),
+      price = dplyr::if_else(.data$technology == "Gas", .data$price / 3.6, .data$price),
+      price = dplyr::if_else(.data$technology == "Coal", .data$price / 0.122835, .data$price),
+      unit = dplyr::if_else(.data$technology == "Oil", "GJ", .data$unit),
+      unit = dplyr::if_else(.data$technology == "Gas", "GJ", .data$unit),
+      unit = dplyr::if_else(.data$technology == "Coal", "usd/tonne", .data$unit),
+    )
+
+  # delete data for years below 2021 and the Oxford_slow scenario
+  data <- data %>%
+    dplyr::filter(.data$year >= 2021) %>%
+    dplyr::filter(.data$scenario != "Oxford2021_slow")
+
+
+  # replace NAs with linear extrapolated values from the last 20 years of observation
+  # for each scenario-geography-technology combination
+
+  for (i in unique(data$technology)) {
+    for (j in unique(data$scenario)) {
+      model <- stats::lm(price ~ year, data = data[data$year >= 2049 & data$year <= 2069 & data$technology == i & data$scenario == j, ])
+      data$price[data$technology == i & data$scenario == j] <- ifelse(is.na(data$price[data$technology == i & data$scenario == j]), model$coefficients[2] * data$year[data$technology == i & data$scenario == j] + model$coefficients[1], data$price[data$technology == i & data$scenario == j])
+    }
+  }
+  return(data)
+}

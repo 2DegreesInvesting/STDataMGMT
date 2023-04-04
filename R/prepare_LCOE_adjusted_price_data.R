@@ -203,6 +203,18 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
   }
   prices_adjusted <- data
 
+  ## We use Oxford LCOEs for NGFS and Oxford scenarios. Here we rename the Oxford scenarios and then in a second step we match Oxford data with NGFS scenarios
+  ## Both datasets are then merged together.
+
+  ## Oxford scenarios
+  prices_oxford <- prices_adjusted %>%
+    dplyr::mutate(
+      scenario = dplyr::if_else(.data$scenario == "fast_transition_oxford", "Oxford2021_fast", .data$scenario),
+      scenario = dplyr::if_else(.data$scenario == "no_transition_oxford", "Oxford2021_base", .data$scenario)
+    ) %>%
+    dplyr::filter(.data$scenario != "slow_transition_oxford")
+
+  ## For NGFS scenarios
   # NOTE: we use Oxford LCOE data but match and label them as NGFS data
   # In detail: NZ2050 -fast DN0 - fast B2DS - fast DT - fast NDC - low CP -low
 
@@ -229,6 +241,8 @@ prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
     dplyr::mutate(scenario = paste("NGFS2021", .data$scenario, sep = "_"))
 
+  # merging NGFS and Oxford prices
+  prices_adjusted_final <- dplyr::full_join(prices_adjusted_final, prices_oxford)
 
   return(prices_adjusted_final)
 }
