@@ -85,7 +85,7 @@ prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data)
 
 IPR_baseline <- prepare_capacity_factors_IPR2021_baseline(prepared_data_WEO2021)
 
-#merging IPR CF data
+# merging IPR CF data
 prepared_data_IPR2021 <- dplyr::full_join(prepared_data_IPR2021, IPR_baseline)
 
 ### Oxford data

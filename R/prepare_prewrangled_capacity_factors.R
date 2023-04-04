@@ -507,14 +507,13 @@ prepare_capacity_factors_IPR2021 <- function(data) {
 # WEO2021 STEPS capacity factors are available until 2040
 # we keep the 2040 constant until 2050 for IPR
 
-prepare_capacity_factors_IPR2021_baseline <- function(data){
-
+prepare_capacity_factors_IPR2021_baseline <- function(data) {
   data <- data %>%
-    dplyr::filter(.data$scenario=="WEO2021_STEPS")%>%
+    dplyr::filter(.data$scenario == "WEO2021_STEPS") %>%
     dplyr::mutate(scenario = dplyr::case_when(
       .data$scenario == "WEO2021_STEPS" ~ "IPR2021_baseline"
     ))
- # adding rows for the years 2041 till 2050
+  # adding rows for the years 2041 till 2050
   add_years <- function(data, start, end) {
     technologies <- unique(data$technology)
     scenarios <- unique(data$scenario)
@@ -537,12 +536,13 @@ prepare_capacity_factors_IPR2021_baseline <- function(data){
 
   # replace NAs with values from 2040 for each scenario-geography-technology combination
   for (scn in unique(data$scenario)) {
-    for (tech in unique(data$technology))
-      for (geo in unique(data$scenario_geography)){
-        subset <- data[data$scenario == scn & data$scenario_geography == geo & data$technology == tech,]
+    for (tech in unique(data$technology)) {
+      for (geo in unique(data$scenario_geography)) {
+        subset <- data[data$scenario == scn & data$scenario_geography == geo & data$technology == tech, ]
         subset$capacity_factor[is.na(subset$capacity_factor)] <- subset$capacity_factor[subset$year == 2040]
-        data[data$scenario == scn & data$scenario_geography == geo & data$technology == tech,] <- subset
+        data[data$scenario == scn & data$scenario_geography == geo & data$technology == tech, ] <- subset
       }
+    }
   }
   return(data)
 }
