@@ -935,6 +935,7 @@ overlap_all_ngfs <- overlap_all_ngfs %>% arrange(scenario_geography, scenario)
 overlap_all_oxford <- Scenario_AnalysisInput_2021_oxford %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_oxford_scenarios$scenario_geography))
 
+## geographies overlap with production data
 overlap_all_oxford <- overlap_all_oxford %>% inner_join(abcd_stress_test_geographies)
 
 overlap_all_oxford$scenario_fast <- "Oxford2021_fast"
@@ -946,6 +947,7 @@ overlap_all_oxford <- overlap_all_oxford %>%
   select(-c(name))
 
 overlap_all_oxford <- overlap_all_oxford %>% arrange(scenario_geography, scenario)
+
 ####IPR
 ## overlap with IPR capacity factors
 overlap_all_ipr <- Scenario_AnalysisInput_2021_ipr %>%
