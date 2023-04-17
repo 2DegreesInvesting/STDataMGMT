@@ -2,7 +2,7 @@ devtools::load_all()
 
 # make sure to set the relevant start year when running the data preparation
 # example:
-# start_year_ngfs <- 2020
+start_year_ngfs <- 2020
 
 input_path <- file.path("data-raw", "raw_ngfs_carbon_price.csv")
 data <- readr::read_csv(
