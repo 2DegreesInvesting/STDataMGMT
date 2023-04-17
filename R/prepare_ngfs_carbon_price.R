@@ -47,7 +47,7 @@ prepare_ngfs_carbon_price <- function(data,
   ## I add here a no carbon tax model that serves as the default in the stress test
   no_carbon_tax <- tibble::tribble(
     ~model, ~scenario, ~scenario_geography, ~variable, ~unit, ~`2015`, ~`2020`, ~`2025`, ~`2030`, ~`2035`, ~`2040`, ~`2045`, ~`2050`,
-    ~`2055`, ~`2060`, ~`2065`, ~`2070`, ~`2075`, ~`2080`, ~`2085`, ~`2090`,~`2095`, ~`2100`, 
+    ~`2055`, ~`2060`, ~`2065`, ~`2070`, ~`2075`, ~`2080`, ~`2085`, ~`2090`, ~`2095`, ~`2100`,
     "no_carbon_tax", "no_carbon_tax", "Global", "Price|Carbon", "US$2010/t CO2", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
   )
 
@@ -55,7 +55,7 @@ prepare_ngfs_carbon_price <- function(data,
 
   data <- data %>%
     tidyr::pivot_longer(
-      cols = tidyr::starts_with(c("20","21")),
+      cols = tidyr::starts_with(c("20", "21")),
       names_to = "year",
       values_to = "carbon_tax"
     ) %>%
