@@ -11,8 +11,8 @@
 
 prepare_ngfs_carbon_price <- function(data,
                                       start_year) {
-  # for now end year is set to 2050. Think about surfacing this if necessary
-  end_year <- 2050
+  # for now end year is set to 2100. Think about surfacing this if necessary
+  end_year <- 2100
 
   data_has_expected_columns <- all(
     c(
@@ -47,14 +47,15 @@ prepare_ngfs_carbon_price <- function(data,
   ## I add here a no carbon tax model that serves as the default in the stress test
   no_carbon_tax <- tibble::tribble(
     ~model, ~scenario, ~scenario_geography, ~variable, ~unit, ~`2015`, ~`2020`, ~`2025`, ~`2030`, ~`2035`, ~`2040`, ~`2045`, ~`2050`,
-    "no_carbon_tax", "no_carbon_tax", "Global", "Price|Carbon", "US$2010/t CO2", 0, 0, 0, 0, 0, 0, 0, 0
+    ~`2055`, ~`2060`, ~`2065`, ~`2070`, ~`2075`, ~`2080`, ~`2085`, ~`2090`, ~`2095`, ~`2100`,
+    "no_carbon_tax", "no_carbon_tax", "Global", "Price|Carbon", "US$2010/t CO2", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
   )
 
   data <- data %>% rbind(no_carbon_tax)
 
   data <- data %>%
     tidyr::pivot_longer(
-      cols = tidyr::starts_with("20"),
+      cols = tidyr::starts_with(c("20", "21")),
       names_to = "year",
       values_to = "carbon_tax"
     ) %>%
@@ -79,14 +80,17 @@ prepare_ngfs_carbon_price <- function(data,
     ) %>%
     dplyr::mutate(
       carbon_tax = dplyr::case_when(
-        .data$scenario == "Immediate 2C with CDR (Orderly, Rep)" &
+        .data$scenario == "DN0" &
           .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
-        .data$scenario == "Delayed 2C with limited CDR (Disorderly, Rep)" &
+        .data$scenario == "NDC" &
           .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
-        .data$scenario == "Current policies (Hot house world, Rep)" &
-          .data$year >= 2030 ~
+        .data$scenario == "NZ2050" &
+          .data$year >= 2025 ~
+          zoo::na.approx(object = .data$carbon_tax),
+        .data$scenario == "B2DS" &
+          .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
         TRUE ~ 0
       )
