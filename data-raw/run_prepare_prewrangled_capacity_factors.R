@@ -81,13 +81,17 @@ data <- readr::read_csv(
 ## prepare IPR data
 prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data)
 
+## IPR baseline is a duplicate of WEO2021 STEPS
+
+IPR_baseline <- prepare_capacity_factors_IPR2021_baseline(prepared_data_WEO2021)
+
+# merging IPR CF data
+prepared_data_IPR2021 <- dplyr::full_join(prepared_data_IPR2021, IPR_baseline)
+
 ### Oxford data
 # Oxford uses Capacity Factors from WEO2021
-data <- prepared_data_WEO2021
 
-prepared_data_OXF2021 <- prepare_capacity_factors_OXF2021(data)
-
-
+prepared_data_OXF2021 <- prepare_capacity_factors_OXF2021(prepared_data_WEO2021)
 
 ## combine and write data
 prepared_data <- prepared_data_WEO2021 %>%

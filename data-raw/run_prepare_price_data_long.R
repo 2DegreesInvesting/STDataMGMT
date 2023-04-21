@@ -156,11 +156,16 @@ lcoe_adjusted_price_data_IPR2021 <- prepare_lcoe_adjusted_price_data_IPR2021(
 ) %>%
   dplyr::select(-.data$source)
 
+## IPR baseline
+
+price_data_IPR2021_baseline <- prepare_price_data_long_IPR2021_baseline(price_data_long_adjusted_WEO2021)
 
 ### Total combined IPR2021 price data
 
 price_data_long_adjusted_IPR2021 <- price_data_long_IPR2021 %>%
-  dplyr::bind_rows(lcoe_adjusted_price_data_IPR2021)
+  dplyr::bind_rows(lcoe_adjusted_price_data_IPR2021) %>%
+  dplyr::bind_rows(price_data_IPR2021_baseline)
+
 
 ## Oxford Price data
 

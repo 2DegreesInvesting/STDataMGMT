@@ -578,6 +578,17 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
   return(data)
 }
 
+## IPR baseline price data
+## IPR baseline data is a duplicate of WEO2021 STEPS data
+
+prepare_price_data_long_IPR2021_baseline <- function(data) {
+  data <- data %>%
+    dplyr::filter(.data$scenario == "WEO2021_STEPS") %>%
+    dplyr::mutate(scenario = dplyr::case_when(
+      .data$scenario == "WEO2021_STEPS" ~ "IPR2021_baseline"
+    ))
+}
+
 ## Oxford Fossil Fuel Price data function
 
 
