@@ -172,6 +172,31 @@ Scenario_AnalysisInput_2021_MESSAGE_NZ2050 <- Scenario_AnalysisInput_2021 %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
+### Oxford
+Scenario_AnalysisInput_2021_Oxford_base <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("Oxford2021_base")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+Scenario_AnalysisInput_2021_Oxford_fast <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("Oxford2021_fast")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+Scenario_AnalysisInput_2021_oxford <- Scenario_AnalysisInput_2021_Oxford_base %>%
+  select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_Oxford_fast %>%
+               select(scenario_geography, ald_sector))
+
+#Scenario_AnalysisInput_2021_oxford <- Scenario_AnalysisInput_2021_oxford %>% tribble_paste()
+
+tibble::tribble(
+                                  ~scenario_geography, ~ald_sector,
+                                             "Global",     "Power",
+                                             "Global",      "Coal",
+                                             "Global",   "Oil&Gas"
+                                  )
+
 ### IPR (baselin vd FPS and RPS)
 Scenario_AnalysisInput_2021_IPR_FPS <- Scenario_AnalysisInput_2021 %>%
   filter(scenario %in% c("IPR2021_FPS")) %>%
@@ -558,6 +583,29 @@ tibble::tribble(
   "Reforming Economies (R5)"
 )
 
+### Oxford
+prewrangled_capacity_factors_Oxford_base <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("Oxford2021_base")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_Oxford_fast <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("Oxford2021_fast")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_oxford_scenarios <- prewrangled_capacity_factors_Oxford_base %>%
+  select(scenario_geography) %>%
+  inner_join(prewrangled_capacity_factors_Oxford_fast %>%
+               select(scenario_geography))
+
+#prewrangled_capacity_factors_oxford_scenarios %>% tribble_paste()
+
+tibble::tribble(
+         ~scenario_geography,
+                    "Global"
+         )
+
 ### IPR
 # we can only include geographies that are present both in baseline
 # and shock scenario (IPR FPS and IPR RPS)
@@ -894,6 +942,24 @@ overlap_all_ngfs <- overlap_all_ngfs %>%
 
 overlap_all_ngfs <- overlap_all_ngfs %>% arrange(scenario_geography, scenario)
 
+#### Oxford
+## overlap with IPR capacity factors
+overlap_all_oxford <- Scenario_AnalysisInput_2021_oxford %>%
+  filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_oxford_scenarios$scenario_geography))
+
+## geographies overlap with production data
+overlap_all_oxford <- overlap_all_oxford %>% inner_join(abcd_stress_test_geographies)
+
+overlap_all_oxford$scenario_fast <- "Oxford2021_fast"
+overlap_all_oxford$scenario_base <-"Oxford2021_base"
+
+
+overlap_all_oxford <- overlap_all_oxford %>%
+  pivot_longer(scenario_fast:scenario_base, values_to = "scenario") %>%
+  select(-c(name))
+
+overlap_all_oxford <- overlap_all_oxford %>% arrange(scenario_geography, scenario)
+
 ####IPR
 ## overlap with IPR capacity factors
 overlap_all_ipr <- Scenario_AnalysisInput_2021_ipr %>%
@@ -918,8 +984,9 @@ overlap_all_ipr <- overlap_all_ipr %>% arrange(scenario_geography, scenario)
 ## joining all scenarios
 overlap_all_combined <- full_join(overlap_all, overlap_all_ngfs) %>% arrange(scenario_geography, scenario)
 overlap_all_combined <- full_join(overlap_all_combined, overlap_all_ipr) %>% arrange(scenario_geography, scenario)
+overlap_all_combined <- full_join(overlap_all_combined, overlap_all_oxford) %>% arrange(scenario_geography, scenario)
 
-
+#overlap_all_combined <- overlap_all_combined %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography,  ~ald_sector,                 ~scenario,
              "Africa",       "Coal",             "WEO2021_APS",
@@ -970,15 +1037,15 @@ tibble::tribble(
              "Global", "Automotive",      "GECO2021_1.5C-Unif",
              "Global", "Automotive",         "GECO2021_CurPol",
              "Global", "Automotive",        "GECO2021_NDC-LTS",
+             "Global",       "Coal",        "IPR2021_baseline",
+             "Global",    "Oil&Gas",        "IPR2021_baseline",
+             "Global",      "Power",        "IPR2021_baseline",
              "Global",       "Coal",             "IPR2021_FPS",
              "Global",    "Oil&Gas",             "IPR2021_FPS",
              "Global",      "Power",             "IPR2021_FPS",
              "Global",       "Coal",             "IPR2021_RPS",
              "Global",    "Oil&Gas",             "IPR2021_RPS",
              "Global",      "Power",             "IPR2021_RPS",
-             "Global",       "Coal",        "IPR2021_baseline",
-             "Global",    "Oil&Gas",        "IPR2021_baseline",
-             "Global",      "Power",        "IPR2021_baseline",
              "Global",       "Coal",      "NGFS2021_GCAM_B2DS",
              "Global",    "Oil&Gas",      "NGFS2021_GCAM_B2DS",
              "Global",      "Power",      "NGFS2021_GCAM_B2DS",
@@ -1033,6 +1100,12 @@ tibble::tribble(
              "Global",       "Coal",  "NGFS2021_REMIND_NZ2050",
              "Global",    "Oil&Gas",  "NGFS2021_REMIND_NZ2050",
              "Global",      "Power",  "NGFS2021_REMIND_NZ2050",
+             "Global",      "Power",         "Oxford2021_base",
+             "Global",       "Coal",         "Oxford2021_base",
+             "Global",    "Oil&Gas",         "Oxford2021_base",
+             "Global",      "Power",         "Oxford2021_fast",
+             "Global",       "Coal",         "Oxford2021_fast",
+             "Global",    "Oil&Gas",         "Oxford2021_fast",
              "Global",       "Coal",             "WEO2021_APS",
              "Global",    "Oil&Gas",             "WEO2021_APS",
              "Global",      "Power",             "WEO2021_APS",
@@ -1101,5 +1174,3 @@ tibble::tribble(
                  "US",      "Power",             "WEO2021_SDS",
                  "US",      "Power",           "WEO2021_STEPS"
   )
-
-
