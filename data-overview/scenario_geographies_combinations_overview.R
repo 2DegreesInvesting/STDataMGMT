@@ -172,6 +172,31 @@ Scenario_AnalysisInput_2021_MESSAGE_NZ2050 <- Scenario_AnalysisInput_2021 %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
+### Oxford
+Scenario_AnalysisInput_2021_Oxford_base <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("Oxford2021_base")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+Scenario_AnalysisInput_2021_Oxford_fast <- Scenario_AnalysisInput_2021 %>%
+  filter(scenario %in% c("Oxford2021_fast")) %>%
+  select(scenario, scenario_geography, ald_sector) %>%
+  distinct_all()
+
+Scenario_AnalysisInput_2021_oxford <- Scenario_AnalysisInput_2021_Oxford_base %>%
+  select(scenario_geography, ald_sector) %>%
+  inner_join(Scenario_AnalysisInput_2021_Oxford_fast %>%
+               select(scenario_geography, ald_sector))
+
+#Scenario_AnalysisInput_2021_oxford <- Scenario_AnalysisInput_2021_oxford %>% tribble_paste()
+
+tibble::tribble(
+                                  ~scenario_geography, ~ald_sector,
+                                             "Global",     "Power",
+                                             "Global",      "Coal",
+                                             "Global",   "Oil&Gas"
+                                  )
+
 ### IPR (baselin vd FPS and RPS)
 Scenario_AnalysisInput_2021_IPR_FPS <- Scenario_AnalysisInput_2021 %>%
   filter(scenario %in% c("IPR2021_FPS")) %>%
