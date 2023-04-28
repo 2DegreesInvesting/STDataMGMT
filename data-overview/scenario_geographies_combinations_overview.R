@@ -583,6 +583,29 @@ tibble::tribble(
   "Reforming Economies (R5)"
 )
 
+### Oxford
+prewrangled_capacity_factors_Oxford_base <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("Oxford2021_base")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_Oxford_fast <- prewrangled_capacity_factors %>%
+  filter(scenario %in% c("Oxford2021_fast")) %>%
+  select(scenario, scenario_geography) %>%
+  distinct_all()
+
+prewrangled_capacity_factors_oxford_scenarios <- prewrangled_capacity_factors_Oxford_base %>%
+  select(scenario_geography) %>%
+  inner_join(prewrangled_capacity_factors_Oxford_fast %>%
+               select(scenario_geography))
+
+#prewrangled_capacity_factors_oxford_scenarios %>% tribble_paste()
+
+tibble::tribble(
+         ~scenario_geography,
+                    "Global"
+         )
+
 ### IPR
 # we can only include geographies that are present both in baseline
 # and shock scenario (IPR FPS and IPR RPS)
