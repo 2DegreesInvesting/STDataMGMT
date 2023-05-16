@@ -102,3 +102,4 @@ prepared_data <- prepared_data_WEO2021 %>%
 prepared_data %>% readr::write_csv(
   file.path("data-raw", "prewrangled_capacity_factors.csv")
 )
+
