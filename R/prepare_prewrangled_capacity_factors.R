@@ -509,7 +509,8 @@ prepare_capacity_factors_IPR2021_baseline <- function(data) {
   data <- data %>%
     dplyr::filter(.data$scenario == "IPR2021_FPS") %>%
     dplyr::mutate(scenario = dplyr::case_when(
-      .data$scenario == "IPR2021_FPS" ~ "IPR2021_baseline"))
+      .data$scenario == "IPR2021_FPS" ~ "IPR2021_baseline"
+    ))
 }
 ### Oxford Capacity Factors
 
