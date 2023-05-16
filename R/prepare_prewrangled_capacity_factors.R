@@ -503,9 +503,7 @@ prepare_capacity_factors_IPR2021 <- function(data) {
 }
 
 # IPR Baseline Scenario Capacity Factors
-# IPR Baseline is a duplicate of WEO2021 STEPS capacity factors
-# WEO2021 STEPS capacity factors are available until 2040
-# we keep the 2040 constant until 2050 for IPR
+# IPR Baseline is a duplicate of IPR2021_FPS capacity factors
 
 prepare_capacity_factors_IPR2021_baseline <- function(data) {
   data <- data %>%
