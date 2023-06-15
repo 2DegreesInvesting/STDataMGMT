@@ -1,16 +1,21 @@
 devtools::load_all()
 
-path_pams_raw <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "2022-02-17_AR_2021Q4_2DII-PAMS-Data.xlsx")
-pams_raw <- readxl::read_xlsx(
+path_pams_raw <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "2023-02-15_AI_2DII Germany-Company-Indicators_2022Q4 (1).xlsx")
+company_activities <- readxl::read_xlsx(
   path_pams_raw,
-  sheet = "Company Indicators"
+  sheet = "Company Activities"
+)
+company_emissions <- readxl::read_xlsx(
+  path_pams_raw,
+  sheet = "Company Emissions"
 )
 
 output_path_stress_test_inputs <- fs::path(
   r2dii.utils::path_dropbox_2dii(), "ST_INPUTS", "ST_INPUTS_MASTER"
 )
 
-pams_raw <- pams_raw %>% dplyr::filter(`Company Name` != "Unknown Owner")
+company_activities <- company_activities %>% dplyr::filter(`Company Name` != "Unknown Owner")
+company_emissions <- company_emissions %>% dplyr::filter(`Company Name` != "Unknown Owner")
 
 # functions
 
@@ -43,7 +48,7 @@ expand_by_scenario_geography <- function(data, scen_geos, bench_regions, .defaul
     dplyr::distinct()
 
   data %>%
-    dplyr::left_join(dict, by = setNames("country_iso", .iso2c)) %>%
+    dplyr::left_join(dict, by = setNames("country_iso", .iso2c )) %>%
     dplyr::mutate(scenario_geography = dplyr::case_when(
       is.na(scenario_geography) ~ .default,
       scenario_geography == "" ~ .default,
@@ -67,9 +72,43 @@ expand_by_country_of_domicile <- function(data, index_regions, .default = "Globa
     ))
 }
 
+append_emissions_factor <- function(company_activities, company_emissions){
+  units_prod <- c("MW", "dwt km", "pkm",  "tkm", "GJ",
+                  "t coal", "t cement", "t steel",  "# vehicles")
+  units_emission <- c("tCO2e/MWh",  "tCO2/dwt km","tCO2e/t coal", "tCO2e/t cement",
+                      "tCO2/pkm", "tCO2e/GJ",   "tCO2/tkm",  "tCO2e/t steel" , "tCO2/km")
+
+  emission_factors <- company_emissions %>%
+    dplyr::filter(`Activity Unit` %in% units_emission) %>%
+    dplyr::select("Company ID", "Company Name", "Asset Sector",
+                  "Asset Technology", "Asset Technology Type",
+                  "Asset Region", "Asset Country",
+                  "Activity Unit", "Equity Ownership 2027") %>%
+    dplyr::mutate(`Emissions Factor` = `Equity Ownership 2027`,
+                  `Emissions Factor Unit` = `Activity Unit`) %>%
+    dplyr::select("Company ID", "Company Name", "Asset Sector",
+                  "Asset Technology", "Asset Technology Type",
+                  "Asset Region", "Asset Country",
+                  "Emissions Factor", "Emissions Factor Unit")
+
+  filtered_company_activities <- company_activities %>% dplyr::filter(`Activity Unit` %in% units_prod)
+  company_activities_with_emission_factors <-  dplyr::left_join(filtered_company_activities, emission_factors,
+                                                                by = c(
+                                                                  "Company ID",
+                                                                  "Company Name",
+                                                                  "Asset Sector",
+                                                                  "Asset Technology",
+                                                                  "Asset Technology Type",
+                                                                  "Asset Region",
+                                                                  "Asset Country"))
+  company_activities_with_emission_factors
+}
+
 # prep
 
-abcd_data <- pams_raw
+company_activities_with_emission_factors <- append_emissions_factor(company_activities, company_emissions)
+
+abcd_data <- company_activities_with_emission_factors
 
 # from data_prep_v2022:
 # scenario prep options
@@ -86,21 +125,19 @@ relevant_years <- sort(unique(c(start_year:(start_year + time_horizon), addition
 global_aggregate <- FALSE
 
 # read scenario data
-scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("weo2021_manually_added_Scenarios_AnalysisInput_{start_year}.csv")))
+scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv")))
+scenario_data <- scenario_data[!(grepl("Cap", scenario_data$technology) & scenario_data$ald_sector == "Demand"), ]
 
+# this should be based on the scenario.preparation repo as a single source of
+# truth
+bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
+index_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
 
 scenario_geographies_list <- scenario_data %>% dplyr::distinct(scenario_geography)
 
-not_available <- c(
-  "AdvancedEconomies",
-  "Central&SouthAmerica",
-  "DevelopingEconomies",
-  "Emergingmarket&developingeconomies",
-  "SoutheastAsia",
-  "CentralandSouthAmerica"
-)
+# filtering the available geographies from bench_regions
 scenario_geographies_list <- scenario_geographies_list %>%
-  dplyr::filter(!scenario_geography %in% not_available) %>%
+  dplyr::filter(scenario_geography %in% bench_regions$scenario_geography) %>%
   dplyr::pull()
 
 
@@ -122,22 +159,15 @@ tech_exclude <-
 global_aggregate_scenario_sources_list <- c("WEO2021", "GECO2019")
 global_aggregate_sector_list <- c("Power")
 
-# this should be based on the scenario.preparation repo as a single source of
-# truth
-bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
-index_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
-
-scenario_data <- scenario_data[!(grepl("Cap", scenario_data$technology) & scenario_data$ald_sector == "Demand"), ]
-
 abcd_data <- abcd_data %>%
-  dplyr::select(-dplyr::starts_with("Direct")) %>%
+  dplyr::select(-dplyr::starts_with("Direct Ownership")) %>%
   tidyr::pivot_longer(
-    cols = dplyr::starts_with("Total"),
+    cols = dplyr::starts_with("Equity Ownership "),
     names_to = "year",
     names_prefix = "Total ",
     values_to = "ald_production"
   ) %>%
-  dplyr::mutate(year = as.numeric(year)) %>%
+  dplyr::mutate(year = stringr::str_extract(year, stringr::regex("\\d+"))) %>%
   dplyr::rename(
     id = .data$`Company ID`,
     company_name = .data$`Company Name`,
@@ -311,7 +341,7 @@ ald_full <- ald_full %>%
     )
   )
 
-pams_names <- pams_raw %>%
+pams_names <- company_activities %>%
   dplyr::distinct(`Company ID`, `Company Name`) %>%
   dplyr::rename(
     id = `Company ID`,
