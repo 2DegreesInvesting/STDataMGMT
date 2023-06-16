@@ -48,7 +48,7 @@ expand_by_scenario_geography <- function(data, scen_geos, bench_regions, .defaul
     dplyr::distinct()
 
   data %>%
-    dplyr::left_join(dict, by = setNames("country_iso", .iso2c )) %>%
+    dplyr::left_join(dict, by = setNames("country_iso", .iso2c)) %>%
     dplyr::mutate(scenario_geography = dplyr::case_when(
       is.na(scenario_geography) ~ .default,
       scenario_geography == "" ~ .default,
@@ -72,35 +72,47 @@ expand_by_country_of_domicile <- function(data, index_regions, .default = "Globa
     ))
 }
 
-append_emissions_factor <- function(company_activities, company_emissions){
-  units_prod <- c("MW", "dwt km", "pkm",  "tkm", "GJ",
-                  "t coal", "t cement", "t steel",  "# vehicles")
-  units_emission <- c("tCO2e/MWh",  "tCO2/dwt km","tCO2e/t coal", "tCO2e/t cement",
-                      "tCO2/pkm", "tCO2e/GJ",   "tCO2/tkm",  "tCO2e/t steel" , "tCO2/km")
+append_emissions_factor <- function(company_activities, company_emissions) {
+  units_prod <- c(
+    "MW", "dwt km", "pkm", "tkm", "GJ",
+    "t coal", "t cement", "t steel", "# vehicles"
+  )
+  units_emission <- c(
+    "tCO2e/MWh", "tCO2/dwt km", "tCO2e/t coal", "tCO2e/t cement",
+    "tCO2/pkm", "tCO2e/GJ", "tCO2/tkm", "tCO2e/t steel", "tCO2/km"
+  )
 
   emission_factors <- company_emissions %>%
     dplyr::filter(`Activity Unit` %in% units_emission) %>%
-    dplyr::select("Company ID", "Company Name", "Asset Sector",
-                  "Asset Technology", "Asset Technology Type",
-                  "Asset Region", "Asset Country",
-                  "Activity Unit", "Equity Ownership 2027") %>%
-    dplyr::mutate(`Emissions Factor` = `Equity Ownership 2027`,
-                  `Emissions Factor Unit` = `Activity Unit`) %>%
-    dplyr::select("Company ID", "Company Name", "Asset Sector",
-                  "Asset Technology", "Asset Technology Type",
-                  "Asset Region", "Asset Country",
-                  "Emissions Factor", "Emissions Factor Unit")
+    dplyr::select(
+      "Company ID", "Company Name", "Asset Sector",
+      "Asset Technology", "Asset Technology Type",
+      "Asset Region", "Asset Country",
+      "Activity Unit", "Equity Ownership 2027"
+    ) %>%
+    dplyr::mutate(
+      `Emissions Factor` = `Equity Ownership 2027`,
+      `Emissions Factor Unit` = `Activity Unit`
+    ) %>%
+    dplyr::select(
+      "Company ID", "Company Name", "Asset Sector",
+      "Asset Technology", "Asset Technology Type",
+      "Asset Region", "Asset Country",
+      "Emissions Factor", "Emissions Factor Unit"
+    )
 
   filtered_company_activities <- company_activities %>% dplyr::filter(`Activity Unit` %in% units_prod)
-  company_activities_with_emission_factors <-  dplyr::left_join(filtered_company_activities, emission_factors,
-                                                                by = c(
-                                                                  "Company ID",
-                                                                  "Company Name",
-                                                                  "Asset Sector",
-                                                                  "Asset Technology",
-                                                                  "Asset Technology Type",
-                                                                  "Asset Region",
-                                                                  "Asset Country"))
+  company_activities_with_emission_factors <- dplyr::left_join(filtered_company_activities, emission_factors,
+    by = c(
+      "Company ID",
+      "Company Name",
+      "Asset Sector",
+      "Asset Technology",
+      "Asset Technology Type",
+      "Asset Region",
+      "Asset Country"
+    )
+  )
   company_activities_with_emission_factors
 }
 
