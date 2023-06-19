@@ -131,7 +131,7 @@ Asia (R5),Cambodia,KH,27
 Asia (R5),China,CN,27
 Asia (R5),Hong Kong Special Administrative Region of China,HK,27
 Asia (R5),Macau Special Administrative Region of China,MO,27
-Asia (R5),Democratic People's Republic of Korea,KR,27
+Asia (R5),Democratic People's Republic of Korea,KP,27
 Asia (R5),TimorLeste,TL,27
 Asia (R5),India,IN,27
 Asia (R5),Indonesia,ID,27
@@ -144,7 +144,7 @@ Asia (R5),Nepal,NP,27
 Asia (R5),Pakistan,PK,27
 Asia (R5),Papua New Guinea,PG,27
 Asia (R5),Philippines,PH,27
-Asia (R5),Republic of Korea,KP,27
+Asia (R5),Republic of Korea,KR,27
 Asia (R5),Singapore,SG,27
 Asia (R5),Sri Lanka,LK,27
 Asia (R5),Taiwan,TW,27
@@ -207,7 +207,7 @@ EEurope_Eurasia,Cyprus,CY,26
 EEurope_Eurasia,Georgia,GE,26
 EEurope_Eurasia,Gibraltar,GI,26
 EEurope_Eurasia,Kazakhstan,KZ,26
-EEurope_Eurasia,Kosovo,RS,26
+EEurope_Eurasia,Kosovo,XK,26
 EEurope_Eurasia,Kyrgyzstan,KG,26
 EEurope_Eurasia,Latvia,LV,26
 EEurope_Eurasia,Lithuania,LT,26
@@ -233,7 +233,7 @@ EEurope_EurasiaWoRU,Cyprus,CY,25
 EEurope_EurasiaWoRU,Georgia,GE,25
 EEurope_EurasiaWoRU,Gibraltar,GI,25
 EEurope_EurasiaWoRU,Kazakhstan,KZ,25
-EEurope_EurasiaWoRU,Kosovo,RS,25
+EEurope_EurasiaWoRU,Kosovo,XK,25
 EEurope_EurasiaWoRU,Kyrgyzstan,KG,25
 EEurope_EurasiaWoRU,Latvia,LV,25
 EEurope_EurasiaWoRU,Lithuania,LT,25
@@ -342,7 +342,7 @@ Europe,Iceland,IS,43
 Europe,Ireland,IE,43
 Europe,Israel,IL,43
 Europe,Italy,IT,43
-Europe,Kosovo,RS,43
+Europe,Kosovo,XK,43
 Europe,Latvia,LV,43
 Europe,Lithuania,LT,43
 Europe,Luxembourg,LU,43
@@ -415,7 +415,7 @@ Global,Cuba,CU,281
 Global,Curacao,CW,281
 Global,Cyprus,CY,281
 Global,Czech Republic,CZ,281
-Global,Democratic People's Republic of Korea,KR,281
+Global,Democratic People's Republic of Korea,KP,281
 Global,Democratic Republic of the Congo,CD,281
 Global,Denmark,DK,281
 Global,Djibouti,DJ,281
@@ -472,7 +472,7 @@ Global,Jordan,JO,281
 Global,Kazakhstan,KZ,281
 Global,Kenya,KE,281
 Global,Kiribati,KI,281
-Global,Kosovo,RS,281
+Global,Kosovo,XK,281
 Global,Kuwait,KW,281
 Global,Kyrgyzstan,KG,281
 Global,Lao People's Democratic Republic,LA,281
@@ -522,7 +522,7 @@ Global,Portugal,PT,281
 Global,Puerto Rico,PR,281
 Global,Qatar,QA,281
 Global,Republic of Congo,CG,281
-Global,Republic of Korea,KP,281
+Global,Republic of Korea,KR,281
 Global,Republic of Macedonia,MK,281
 Global,Republic of Moldova,MD,281
 Global,Reunion,RE,281
@@ -946,7 +946,7 @@ NonOECD,Jordan,JO,245
 NonOECD,Kazakhstan,KZ,245
 NonOECD,Kenya,KE,245
 NonOECD,Kiribati,KI,245
-NonOECD,Kosovo,RS,245
+NonOECD,Kosovo,XK,245
 NonOECD,Kuwait,KW,245
 NonOECD,Kyrgyzstan,KG,245
 NonOECD,Lao People's Democratic Republic,LA,245
@@ -989,7 +989,7 @@ NonOECD,Philippines,PH,245
 NonOECD,Puerto Rico,PR,245
 NonOECD,Qatar,QA,245
 NonOECD,Republic of Congo,CG,245
-NonOECD,Republic of Korea,KP,245
+NonOECD,Republic of Korea,KR,245
 NonOECD,Republic of Macedonia,MK,245
 NonOECD,Republic of Moldova,MD,245
 NonOECD,Reunion,RE,245
@@ -1356,7 +1356,7 @@ OtherCIS,Turkmenistan,TM,9
 OtherCIS,Uzbekistan,UZ,9
 OthersBalkans,Albania,AL,7
 OthersBalkans,Bosnia Herzegovina,BA,7
-OthersBalkans,Kosovo,RS,7
+OthersBalkans,Kosovo,XK,7
 OthersBalkans,Macedonia,MK,7
 OthersBalkans,Moldova,MD,7
 OthersBalkans,Montenegro,ME,7
@@ -1491,3 +1491,339 @@ US,United States,US,1
 US,United States,US,1
 USA,United States,US,1
 Vietnam,Vietnam,VN,1
+AdvancedEconomies,Singapore,SG,41
+AdvancedEconomies,Australia,AU,41
+AdvancedEconomies,Japan,JP,41
+AdvancedEconomies,New Zealand,NZ,41
+AdvancedEconomies,Canada,CA,41
+AdvancedEconomies,Croatia,HR,41
+AdvancedEconomies,Cyprus,CY,41
+AdvancedEconomies,Latvia,LV,41
+AdvancedEconomies,Lithuania,LT,41
+AdvancedEconomies,Malta,MT,41
+AdvancedEconomies,Switzerland,CH,41
+AdvancedEconomies,Norway,NO,41
+AdvancedEconomies,Iceland,IS,41
+AdvancedEconomies,United Kingdom,GB,41
+AdvancedEconomies,Austria,AT,41
+AdvancedEconomies,Belgium,BE,41
+AdvancedEconomies,Czech Republic,CZ,41
+AdvancedEconomies,Denmark,DK,41
+AdvancedEconomies,Estonia,EE,41
+AdvancedEconomies,Finland,FI,41
+AdvancedEconomies,France,FR,41
+AdvancedEconomies,Germany,DE,41
+AdvancedEconomies,Greece,GR,41
+AdvancedEconomies,Ireland,IE,41
+AdvancedEconomies,Italy,IT,41
+AdvancedEconomies,Luxembourg,LU,41
+AdvancedEconomies,Portugal,PT,41
+AdvancedEconomies,Slovenia,SI,41
+AdvancedEconomies,Spain,ES,41
+AdvancedEconomies,Sweden,SE,41
+AdvancedEconomies,Israel,IL,41
+AdvancedEconomies,Andorra,AD,41
+AdvancedEconomies,Puerto Rico,PR,41
+AdvancedEconomies,United States,US,41
+AdvancedEconomies,San Marino,SM,41
+AdvancedEconomies,"Korea,  Republic of",KR,41
+AdvancedEconomies,Hong Kong,HK,41
+AdvancedEconomies,Macao,MO,41
+AdvancedEconomies,Netherlands,NL,41
+AdvancedEconomies,Slovakia,SK,41
+AdvancedEconomies,Taiwan,TW,41
+Emergingmarket&developingeconomies,Algeria,DZ,149
+Emergingmarket&developingeconomies,Angola,AO,149
+Emergingmarket&developingeconomies,Benin,BJ,149
+Emergingmarket&developingeconomies,Botswana,BW,149
+Emergingmarket&developingeconomies,Burkina Faso,BF,149
+Emergingmarket&developingeconomies,Burundi,BI,149
+Emergingmarket&developingeconomies,Cameroon,CM,149
+Emergingmarket&developingeconomies,Chad,TD,149
+Emergingmarket&developingeconomies,Comoros,KM,149
+Emergingmarket&developingeconomies,Djibouti,DJ,149
+Emergingmarket&developingeconomies,Egypt,EG,149
+Emergingmarket&developingeconomies,Equatorial Guinea,GQ,149
+Emergingmarket&developingeconomies,Eritrea,ER,149
+Emergingmarket&developingeconomies,Ethiopia,ET,149
+Emergingmarket&developingeconomies,Gabon,GA,149
+Emergingmarket&developingeconomies,Ghana,GH,149
+Emergingmarket&developingeconomies,Guinea,GN,149
+Emergingmarket&developingeconomies,Kenya,KE,149
+Emergingmarket&developingeconomies,Lesotho,LS,149
+Emergingmarket&developingeconomies,Liberia,LR,149
+Emergingmarket&developingeconomies,Libya,LY,149
+Emergingmarket&developingeconomies,Madagascar,MG,149
+Emergingmarket&developingeconomies,Malawi,MW,149
+Emergingmarket&developingeconomies,Mali,ML,149
+Emergingmarket&developingeconomies,Islamic Republic of Mauritania,MR,149
+Emergingmarket&developingeconomies,Mauritius,MU,149
+Emergingmarket&developingeconomies,Morocco,MA,149
+Emergingmarket&developingeconomies,Mozambique,MZ,149
+Emergingmarket&developingeconomies,NA,NA,149
+Emergingmarket&developingeconomies,Niger,NE,149
+Emergingmarket&developingeconomies,Nigeria,NG,149
+Emergingmarket&developingeconomies,Rwanda,RW,149
+Emergingmarket&developingeconomies,Senegal,SN,149
+Emergingmarket&developingeconomies,Seychelles,SC,149
+Emergingmarket&developingeconomies,Sierra Leone,SL,149
+Emergingmarket&developingeconomies,Somalia,SO,149
+Emergingmarket&developingeconomies,South Africa,ZA,149
+Emergingmarket&developingeconomies,South Sudan,SS,149
+Emergingmarket&developingeconomies,Sudan,SD,149
+Emergingmarket&developingeconomies,Togo,TG,149
+Emergingmarket&developingeconomies,Tunisia,TN,149
+Emergingmarket&developingeconomies,Uganda,UG,149
+Emergingmarket&developingeconomies,Zambia,ZM,149
+Emergingmarket&developingeconomies,Zimbabwe,ZW,149
+Emergingmarket&developingeconomies,Argentina,AR,149
+Emergingmarket&developingeconomies,Indonesia,ID,149
+Emergingmarket&developingeconomies,Brunei,BN,149
+Emergingmarket&developingeconomies,Cambodia,KH,149
+Emergingmarket&developingeconomies,Malaysia,MY,149
+Emergingmarket&developingeconomies,Myanmar,MM,149
+Emergingmarket&developingeconomies,Philippines,PH,149
+Emergingmarket&developingeconomies,Thailand,TH,149
+Emergingmarket&developingeconomies,Viet Nam,VN,149
+Emergingmarket&developingeconomies,Afghanistan,AF,149
+Emergingmarket&developingeconomies,Bangladesh,BD,149
+Emergingmarket&developingeconomies,Bhutan,BT,149
+Emergingmarket&developingeconomies,China,CN,149
+Emergingmarket&developingeconomies,India,IN,149
+Emergingmarket&developingeconomies,Maldives,MV,149
+Emergingmarket&developingeconomies,Mongolia,MN,149
+Emergingmarket&developingeconomies,Nepal,NP,149
+Emergingmarket&developingeconomies,Pakistan,PK,149
+Emergingmarket&developingeconomies,Papua New Guinea,PG,149
+Emergingmarket&developingeconomies,Sri Lanka,LK,149
+Emergingmarket&developingeconomies,Fiji,FJ,149
+Emergingmarket&developingeconomies,Kiribati,KI,149
+Emergingmarket&developingeconomies,Palau,PW,149
+Emergingmarket&developingeconomies,Samoa,WS,149
+Emergingmarket&developingeconomies,Solomon Islands,SB,149
+Emergingmarket&developingeconomies,Tonga,TO,149
+Emergingmarket&developingeconomies,Vanuatu,VU,149
+Emergingmarket&developingeconomies,Brazil,BR,149
+Emergingmarket&developingeconomies,Chile,CL,149
+Emergingmarket&developingeconomies,Albania,AL,149
+Emergingmarket&developingeconomies,Armenia,AM,149
+Emergingmarket&developingeconomies,Azerbaijan,AZ,149
+Emergingmarket&developingeconomies,Belarus,BY,149
+Emergingmarket&developingeconomies,Bulgaria,BG,149
+Emergingmarket&developingeconomies,Georgia,GE,149
+Emergingmarket&developingeconomies,Kazakhstan,KZ,149
+Emergingmarket&developingeconomies,Serbia,RS,149
+Emergingmarket&developingeconomies,Montenegro,ME,149
+Emergingmarket&developingeconomies,Romania,RO,149
+Emergingmarket&developingeconomies,Tajikistan,TJ,149
+Emergingmarket&developingeconomies,Turkmenistan,TM,149
+Emergingmarket&developingeconomies,Ukraine,UA,149
+Emergingmarket&developingeconomies,Uzbekistan,UZ,149
+Emergingmarket&developingeconomies,Hungary,HU,149
+Emergingmarket&developingeconomies,Poland,PL,149
+Emergingmarket&developingeconomies,Russia,EU,149
+Emergingmarket&developingeconomies,Russia,RU,149
+Emergingmarket&developingeconomies,Aruba,AW,149
+Emergingmarket&developingeconomies,Bahrain,BH,149
+Emergingmarket&developingeconomies,Barbados,BB,149
+Emergingmarket&developingeconomies,Belize,BZ,149
+Emergingmarket&developingeconomies,Bolivia,BO,149
+Emergingmarket&developingeconomies,Colombia,CO,149
+Emergingmarket&developingeconomies,Costa Rica,CR,149
+Emergingmarket&developingeconomies,Dominica,DM,149
+Emergingmarket&developingeconomies,Dominican Republic,DO,149
+Emergingmarket&developingeconomies,Ecuador,EC,149
+Emergingmarket&developingeconomies,El Salvador,SV,149
+Emergingmarket&developingeconomies,Grenada,GD,149
+Emergingmarket&developingeconomies,Guatemala,GT,149
+Emergingmarket&developingeconomies,Guyana,GY,149
+Emergingmarket&developingeconomies,Haiti,HT,149
+Emergingmarket&developingeconomies,Honduras,HN,149
+Emergingmarket&developingeconomies,Iraq,IQ,149
+Emergingmarket&developingeconomies,Jamaica,JM,149
+Emergingmarket&developingeconomies,Jordan,JO,149
+Emergingmarket&developingeconomies,Kuwait,KW,149
+Emergingmarket&developingeconomies,Lebanon,LB,149
+Emergingmarket&developingeconomies,Marshall Islands,MH,149
+Emergingmarket&developingeconomies,Mexico,MX,149
+Emergingmarket&developingeconomies,Nicaragua,NI,149
+Emergingmarket&developingeconomies,Oman,OM,149
+Emergingmarket&developingeconomies,Panama,PA,149
+Emergingmarket&developingeconomies,Paraguay,PY,149
+Emergingmarket&developingeconomies,Peru,PE,149
+Emergingmarket&developingeconomies,Qatar,QA,149
+Emergingmarket&developingeconomies,Congo,CG,149
+Emergingmarket&developingeconomies,Saudi Arabia,SA,149
+Emergingmarket&developingeconomies,Suriname,SR,149
+Emergingmarket&developingeconomies,Trinidad and Tobago,TT,149
+Emergingmarket&developingeconomies,Tuvalu,TV,149
+Emergingmarket&developingeconomies,Uruguay,UY,149
+Emergingmarket&developingeconomies,Venezuela,VE,149
+Emergingmarket&developingeconomies,Yemen,YE,149
+Emergingmarket&developingeconomies,Iran,IR,149
+Emergingmarket&developingeconomies,Syria,SY,149
+Emergingmarket&developingeconomies,Tanzania,TZ,149
+Emergingmarket&developingeconomies,Nauru,NR,149
+Emergingmarket&developingeconomies,Moldova,MD,149
+Emergingmarket&developingeconomies,Guinea-Bissau,GW,149
+Emergingmarket&developingeconomies,Antigua And Barbuda,AG,149
+Emergingmarket&developingeconomies,Bahamas,BS,149
+Emergingmarket&developingeconomies,Bosnia Herzegovina,BA,149
+Emergingmarket&developingeconomies,Cape Verde,CV,149
+Emergingmarket&developingeconomies,Central African Republic,CF,149
+Emergingmarket&developingeconomies,Congo DR,CD,149
+Emergingmarket&developingeconomies,Cote d'Ivoire,CI,149
+Emergingmarket&developingeconomies,Kyrgyz Rep,KG,149
+Emergingmarket&developingeconomies,Gambia,GM,149
+Emergingmarket&developingeconomies,Lao PDR,LA,149
+Emergingmarket&developingeconomies,Macedonia,MK,149
+Emergingmarket&developingeconomies,Micronesia (Federated States of),FM,149
+Emergingmarket&developingeconomies,Sao Tome and Principe,ST,149
+Emergingmarket&developingeconomies,Turkey,TR,149
+Emergingmarket&developingeconomies,United Arab Emirates,AE,149
+AUS,Australia,AU,1
+BRA,Brazil,BR,1
+CAN,Canada,CA,1
+CSA,Argentina,AR,27
+CSA,Chile,CL,27
+CSA,Belize,BZ,27
+CSA,Colombia,CO,27
+CSA,Costa Rica,CR,27
+CSA,Cuba,CU,27
+CSA,Dominican Republic,DO,27
+CSA,Ecuador,EC,27
+CSA,El Salvador,SV,27
+CSA,French Guiana,GF,27
+CSA,Guatemala,GT,27
+CSA,Guyana,GY,27
+CSA,Haiti,HT,27
+CSA,Honduras,HN,27
+CSA,Jamaica,JM,27
+CSA,Mexico,MX,27
+CSA,Nicaragua,NI,27
+CSA,Panama,PA,27
+CSA,Paraguay,PY,27
+CSA,Peru,PE,27
+CSA,Suriname,SR,27
+CSA,Trinidad and Tobago,TT,27
+CSA,Uruguay,UY,27
+CSA,Bolivia,BO,27
+CSA,Venezuela,VE,27
+CSA,Aruba,AW,27
+CSA,Curacao,CW,27
+EEU,Bulgaria,BG,11
+EEU,Croatia,HR,11
+EEU,Latvia,LV,11
+EEU,Lithuania,LT,11
+EEU,Romania,RO,11
+EEU,Czech Republic,CZ,11
+EEU,Estonia,EE,11
+EEU,Hungary,HU,11
+EEU,Poland,PL,11
+EEU,Slovenia,SI,11
+EEU,Slovakia,SK,11
+EURA,Mongolia,MN,17
+EURA,Albania,AL,17
+EURA,Armenia,AM,17
+EURA,Azerbaijan,AZ,17
+EURA,Belarus,BY,17
+EURA,Bosnia Herzegovina,BA,17
+EURA,Georgia,GE,17
+EURA,Kazakhstan,KZ,17
+EURA,Serbia,RS,17
+EURA,Kyrgyz Rep,KG,17
+EURA,Montenegro,ME,17
+EURA,Tajikistan,TJ,17
+EURA,Moldova,MD,17
+EURA,Turkmenistan,TM,17
+EURA,Ukraine,UA,17
+EURA,Uzbekistan,UZ,17
+EURA,Macedonia,MK,17
+GBR,United Kingdom,GB,1
+GCC,Bahrain,BH,6
+GCC,Kuwait,KW,6
+GCC,Oman,OM,6
+GCC,Qatar,QA,6
+GCC,Saudi Arabia,SA,6
+GCC,United Arab Emirates,AE,6
+IDN,India,IN,1
+JPN,Japan,JP,1
+KOR,"Korea,  Republic of",KR,1
+MENA,Algeria,DZ,15
+MENA,Egypt,EG,15
+MENA,Eritrea,ER,15
+MENA,Libya,LY,15
+MENA,Morocco,MA,15
+MENA,Sudan,SD,15
+MENA,Tunisia,TN,15
+MENA,Israel,IL,15
+MENA,Turkey,TR,15
+MENA,Iraq,IQ,15
+MENA,Jordan,JO,15
+MENA,Lebanon,LB,15
+MENA,Syria,SY,15
+MENA,Yemen,YE,15
+MENA,Iran,IR,15
+RUS,Russia,RU,1
+SA,Bangladesh,BD,4
+SA,Nepal,NP,4
+SA,Pakistan,PK,4
+SA,Sri Lanka,LK,4
+SEAO,Brunei,BN,13
+SEAO,Cambodia,KH,13
+SEAO,Lao PDR,LA,13
+SEAO,Malaysia,MY,13
+SEAO,Myanmar,MM,13
+SEAO,Philippines,PH,13
+SEAO,Singapore,SG,13
+SEAO,Thailand,TH,13
+SEAO,"Korea,  Republic of",KR,13
+SEAO,Democratic People's Republic of Korea,KP,13
+SEAO,New Zealand,NZ,13
+SEAO,Viet Nam,VN,13
+SEAO,Taiwan,TW,13
+SSA,Angola,AO,23
+SSA,Benin,BJ,23
+SSA,Botswana,BW,23
+SSA,Cameroon,CM,23
+SSA,Equatorial Guinea,GQ,23
+SSA,Ethiopia,ET,23
+SSA,Gabon,GA,23
+SSA,Ghana,GH,23
+SSA,Kenya,KE,23
+SSA,Mauritius,MU,23
+SSA,Mozambique,MZ,23
+SSA,NA,NA,23
+SSA,Niger,NE,23
+SSA,Nigeria,NG,23
+SSA,Senegal,SN,23
+SSA,South Sudan,SS,23
+SSA,Congo DR,CD,23
+SSA,Tanzania,TZ,23
+SSA,Togo,TG,23
+SSA,Zambia,ZM,23
+SSA,Zimbabwe,ZW,23
+SSA,Congo DR,CD,23
+SSA,Cote d'Ivoire,CI,23
+WEU,Cyprus,CY,21
+WEU,Gibraltar,GI,21
+WEU,Malta,MT,21
+WEU,Switzerland,CH,21
+WEU,Norway,NO,21
+WEU,Iceland,IS,21
+WEU,Austria,AT,21
+WEU,Belgium,BE,21
+WEU,Denmark,DK,21
+WEU,Finland,FI,21
+WEU,France,FR,21
+WEU,Germany,DE,21
+WEU,Greece,GR,21
+WEU,Ireland,IE,21
+WEU,Italy,IT,21
+WEU,Luxembourg,LU,21
+WEU,Netherlands,NL,21
+WEU,Portugal,PT,21
+WEU,Spain,ES,21
+WEU,Sweden,SE,21
+WEU,Greenland,GL,21
+ZAF,South Africa,ZA,1
