@@ -1,6 +1,6 @@
 devtools::load_all()
 
-path_pams_raw <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "2023-02-15_AI_2DII Germany-Company-Indicators_2022Q4 (1).xlsx")
+path_pams_raw <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "2023-02-15_AI_2DII Germany-Company-Indicators_2022Q4.xlsx")
 company_activities <- readxl::read_xlsx(
   path_pams_raw,
   sheet = "Company Activities"
@@ -19,23 +19,23 @@ company_emissions <- company_emissions %>% dplyr::filter(`Company Name` != "Unkn
 
 # functions
 
-expand_tech_rows <- function(data, global_aggregate = FALSE) {
-  na_list <- list(plan_tech_prod = 0, current_plan_row = 0)
-
-  group_names <- c("id", "equity_market", "scenario_geography")
-  if (global_aggregate) group_names <- c("scenario_source", "scenario", group_names)
-
-  data <- dplyr::group_by(data, .data$ald_sector)
-  data <-
-    tidyr::complete(
-      data,
-      tidyr::nesting(!!!rlang::syms(group_names)),
-      tidyr::nesting(technology),
-      year,
-      fill = na_list
-    )
-  dplyr::ungroup(data)
-}
+# expand_tech_rows <- function(data, global_aggregate = FALSE) {
+#   na_list <- list(plan_tech_prod = 0, current_plan_row = 0)
+#
+#   group_names <- c("id", "equity_market", "scenario_geography")
+#   if (global_aggregate) group_names <- c("scenario_source", "scenario", group_names)
+#
+#   data <- dplyr::group_by(data, .data$ald_sector)
+#   data <-
+#     tidyr::complete(
+#       data,
+#       tidyr::nesting(!!!rlang::syms(group_names)),
+#       tidyr::nesting(technology),
+#       year,
+#       fill = na_list
+#     )
+#   dplyr::ungroup(data)
+# }
 
 expand_by_scenario_geography <- function(data, scen_geos, bench_regions, .default = "Global", .iso2c = "ald_location") {
   stopifnot(.iso2c %in% names(data))
@@ -116,6 +116,19 @@ append_emissions_factor <- function(company_activities, company_emissions) {
   company_activities_with_emission_factors
 }
 
+recode_namibia_country_iso <- function(bench_or_index_regions) {
+  bench_or_index_regions <- bench_or_index_regions %>%
+    dplyr::mutate(country_iso = dplyr::if_else(country == "Namibia", "NA", country_iso))
+  bench_or_index_regions
+}
+
+remove_duplicated_country_iso_rows <- function(bench_or_index_regions) {
+  bench_or_index_regions_unduplicated_country_iso <- bench_or_index_regions %>%
+    group_by(country_iso, scenario_geography) %>%
+    filter(row_number(country) == 1)
+  bench_or_index_regions_unduplicated_country_iso
+}
+
 # prep
 
 company_activities_with_emission_factors <- append_emissions_factor(company_activities, company_emissions)
@@ -136,7 +149,8 @@ relevant_years <- sort(unique(c(start_year:(start_year + time_horizon), addition
 # running this code with global_aggregate = TRUE does not currently produce global aggregate outcomes
 global_aggregate <- FALSE
 
-# read scenario data
+
+# # read scenario data
 scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv")))
 scenario_data <- scenario_data[!(grepl("Cap", scenario_data$technology) & scenario_data$ald_sector == "Demand"), ]
 
@@ -144,6 +158,12 @@ scenario_data <- scenario_data[!(grepl("Cap", scenario_data$technology) & scenar
 # truth
 bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
 index_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
+bench_regions <- bench_regions %>%
+  recode_namibia_country_iso() %>%
+  remove_duplicated_country_iso_rows()
+index_regions <- index_regions %>%
+  recode_namibia_country_iso() %>%
+  remove_duplicated_country_iso_rows()
 
 scenario_geographies_list <- scenario_data %>% dplyr::distinct(scenario_geography)
 
@@ -337,8 +357,8 @@ if (global_aggregate == TRUE) {
 ### ADD THE EXTRA TECHNOLOGY LINES -----
 ### ########################################################################## #
 
-# ald_full <- ald_sr_ir_agg
-ald_full <- expand_tech_rows(ald_sr_ir_agg, global_aggregate = global_aggregate)
+ald_full <- ald_sr_ir_agg
+# ald_full <- expand_tech_rows(ald_sr_ir_agg, global_aggregate = global_aggregate)
 
 # if we get an NaN for the weighted mean of the EF, we set it to 0 in case
 # the production is also 0. Since we only use the EF in the product of
