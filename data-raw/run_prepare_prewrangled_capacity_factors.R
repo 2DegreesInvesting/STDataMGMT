@@ -99,6 +99,31 @@ prepared_data <- prepared_data_WEO2021 %>%
   dplyr::bind_rows(prepared_data_IPR2021) %>%
   dplyr::bind_rows(prepared_data_OXF2021)
 
+## rename geographies to be ISO with bench_regions
+rename_scenario_geographies <- function(prepared_data, bench_regions, regions_name_mapping){
+  prepared_data$scenario_geography <- purrr::map_vec(prepared_data$scenario_geography,
+                 function(x) ifelse(x %in% names(regions_name_mapping), regions_name_mapping[[x]], x))
+
+  stopifnot(all(prepared_data$scenario_geography %in% bench_regions$scenario_geography))
+  return(prepared_data)
+}
+bench_regions <- readr::read_csv(file.path("data-raw", "bench_regions.csv"))
+regions_name_mapping <-
+  c(
+    "Advanced Economies" = "AdvancedEconomies",
+    "Asia Pacific" = "AsiaPacific",
+    "Central and South America" = "CSA",
+    "Developing Economies" = "Emergingmarket&developingeconomies",
+    "European Union" = "EU27",
+    "Middle East" = "MiddleEast",
+    "Non-OECD" = "NonOECD",
+    "North America" = "NorthAmerica",
+    "South Africa" = "SouthAfrica",
+    "Southeast Asia" = "SEAO",
+    "United States" = "USA"
+  )
+prepared_data <- rename_scenario_geographies(prepared_data, bench_regions, regions_name_mapping)
+
 prepared_data %>% readr::write_csv(
   file.path("data-raw", "prewrangled_capacity_factors.csv")
 )
