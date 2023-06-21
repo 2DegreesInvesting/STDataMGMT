@@ -124,13 +124,12 @@ recode_namibia_country_iso <- function(bench_or_index_regions) {
 
 remove_duplicated_country_iso_rows <- function(bench_or_index_regions) {
   bench_or_index_regions_unduplicated_country_iso <- bench_or_index_regions %>%
-    group_by(country_iso, scenario_geography) %>%
-    filter(row_number(country) == 1)
+    dplyr::group_by(country_iso, scenario_geography) %>%
+    dplyr::filter(dplyr::row_number(country) == 1)
   bench_or_index_regions_unduplicated_country_iso
 }
 
 # prep
-
 company_activities_with_emission_factors <- append_emissions_factor(company_activities, company_emissions)
 
 abcd_data <- company_activities_with_emission_factors
@@ -221,6 +220,10 @@ abcd_data <- abcd_data %>%
     ald_sector = dplyr::if_else(
       .data$ald_sector == "LDV", "Automotive", .data$ald_sector
     )
+  ) %>%
+  dplyr::mutate(
+    ald_production = ifelse(is.na(ald_production), 0, ald_production),
+    emissions_factor = ifelse(is.na(emissions_factor), 0, emissions_factor)
   )
 
 avg_emission_factors <- abcd_data %>%
