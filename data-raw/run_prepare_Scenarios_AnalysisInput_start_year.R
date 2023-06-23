@@ -121,6 +121,10 @@ green_techs <- c(
 
 preprepared_ngfs_data <- preprepared_ngfs_data %>% format_p4i(green_techs)
 
+# replace nan fair_share_perc by 0. Nans appear when dividing per 0 in the tmsr computation
+preprepared_ngfs_data <- preprepared_ngfs_data %>%
+  dplyr::mutate(fair_share_perc=dplyr::if_else(is.na(fair_share_perc), 0, fair_share_perc))
+
 ### IPR Scenario
 ### Read IPR
 
@@ -131,7 +135,7 @@ input_path <- r2dii.utils::path_dropbox_2dii(
   "00_Data",
   "01_ProcessedData",
   "03_ScenarioData",
-  glue::glue("ipr_Scenarios_AnalysisInput_2021.csv")
+  glue::glue("ipr_Scenarios_AnalysisInput_{start_year}.csv")
 )
 
 IPR <- as.data.frame(readr::read_csv(
@@ -158,6 +162,10 @@ IPR_baseline <- prepare_IPR_baseline_scenario(prepared_data)
 # joining IPR scenarios
 
 prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline)
+
+# replace nan fair_share_perc by 0. Nans appear when dividing per 0 in the tmsr computation
+prepared_IPR_data <- prepared_IPR_data %>%
+  dplyr::mutate(fair_share_perc=dplyr::if_else(is.na(fair_share_perc), 0, fair_share_perc))
 
 ### Oxford Scenario
 ### Read Oxford
