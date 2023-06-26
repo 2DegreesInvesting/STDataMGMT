@@ -197,15 +197,5 @@ price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
   dplyr::bind_rows(price_data_long_adjusted_IPR2021) %>%
   dplyr::bind_rows(price_data_long_adjusted_OXF2021)
 
-
-## rename geographies to be ISO with bench_regions
-bench_regions <- readr::read_csv(file.path("data-raw", "bench_regions.csv"))
-regions_name_mapping <- c(
-  "Coastal China" = "China",
-  "United States" = "USA"
-)
-price_data_long_adjusted <- rename_scenario_geographies(price_data_long_adjusted, bench_regions, regions_name_mapping)
-
-
 price_data_long_adjusted %>%
   readr::write_csv(file.path("data-raw", "price_data_long.csv"))

@@ -153,14 +153,3 @@ remove_incomplete_sectors <- function(data, p4_type = "P4I") {
   return(complete_combinations)
 }
 
-# Apply a rename mapping on scenario_ggeography column
-# TODO put mapping in config
-rename_scenario_geographies <- function(prepared_data, bench_regions, regions_name_mapping) {
-  prepared_data$scenario_geography <- purrr::map_vec(
-    prepared_data$scenario_geography,
-    function(x) ifelse(x %in% names(regions_name_mapping), regions_name_mapping[[x]], x)
-  )
-
-  stopifnot(all(prepared_data$scenario_geography %in% bench_regions$scenario_geography))
-  return(prepared_data)
-}
