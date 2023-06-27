@@ -97,7 +97,6 @@ mapper <- group_identical_geographies(bench_regions)
 trisk_input_dfs <- rename_df_list_geographies(trisk_input_dfs, mapper)
 
 ### GENERIC RENAMING
-
 ## replace "&" character by and
 to_and_fullword <- function(x) {
   stringr::str_replace_all(x, "&", " and ")
