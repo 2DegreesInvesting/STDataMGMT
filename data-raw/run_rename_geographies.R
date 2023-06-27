@@ -26,12 +26,10 @@ apply_geographies_renaming_fun <- function(df_list, renaming_fun) {
 }
 
 ## load required data
+bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
 prewrangled_capacity_factors <- readr::read_csv(here::here("data-raw", "prewrangled_capacity_factors.csv"))
 price_data_long <- readr::read_csv(here::here("data-raw", "price_data_long.csv"))
 scenarios_analysis_input <- readr::read_csv(here::here("data-raw", "Scenarios_AnalysisInput_2021.csv"))
-bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
-
-# TODO use smallest common denominator to rename geographies ? i.e. all tables are joined in trisk anyway ?
 
 ## Check if all geographies exist in bench_regions
 trisk_input_dfs <- list(
@@ -47,9 +45,58 @@ stopifnot(all(all_geographies %in% bench_regions$scenario_geography))
 ## adds bench_regions to the list of dataframes to be renamed
 # dfs_to_rename <- c(trisk_input_dfs, list(bench_regions))
 
+### GROUP IDENTICAL GEOGRAPHIES
+#' @param matching_tol percentage of country matching allowed to gropu geographies
+group_identical_geographies <- function(bench_regions, matching_tol=1){
+  # group country iso names into lists
+  grouped_country_iso <- bench_regions %>%
+    dplyr::group_by(scenario_geography) %>%
+    dplyr::summarise(country_iso_list = list(country_iso))
+  # create a dataframe with all geographies pairs
+  match_country_iso <- dplyr::cross_join(grouped_country_iso, grouped_country_iso)
+  # count how many country_iso are identical between geographies
+  count_match_country_iso <- match_country_iso %>%
+    dplyr::group_by(scenario_geography.x, scenario_geography.y) %>%
+    dplyr::mutate(
+      n_country_match = length(country_iso_list.x[country_iso_list.x %in% country_iso_list.y]) / length(country_iso_list.x)
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(scenario_geography.x, scenario_geography.y, n_country_match)
+  # keep geographies pairs having perfect matching
+  identical_geographies <- count_match_country_iso %>%
+    dplyr::filter(n_country_match >= matching_tol &
+      scenario_geography.x != scenario_geography.y)
+  # remove geographies pairs permutation duplicates
+  identical_geographies <- identical_geographies[!duplicated(t(apply(identical_geographies, 1, sort))), ]
+
+  # map each geography to the identical one having the longest name
+  clean_identical <- identical_geographies %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(
+      longest_name = dplyr::if_else(
+        nchar(scenario_geography.x) >= nchar(scenario_geography.y),
+        scenario_geography.x,
+        scenario_geography.y
+      ),
+      shortest_name = dplyr::if_else(
+        nchar(scenario_geography.x) >= nchar(scenario_geography.y),
+        scenario_geography.y,
+        scenario_geography.x
+      )
+    )
+  clean_identical <- dplyr::anti_join(clean_identical, clean_identical,
+    by = c("longest_name" = "shortest_name")
+  )
+
+  # create renaming mapper. Use longest name as new geography name
+  mapper <- clean_identical$longest_name
+  names(mapper) <- clean_identical$shortest_name
+  return(mapper)
+}
+mapper <- group_identical_geographies(bench_regions)
+trisk_input_dfs <- rename_df_list_geographies(trisk_input_dfs, mapper)
 
 ### GENERIC RENAMING
-
 ## replace "&" character by and
 to_and_fullword <- function(x) {
   stringr::str_replace_all(x, "&", " and ")
