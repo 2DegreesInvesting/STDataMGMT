@@ -66,11 +66,6 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
         .data$technology == "Coal",
         "Coal",
         "Oil&Gas"
-      ),
-      scenario_geography = dplyr::if_else(
-        .data$scenario_geography == "European Union",
-        "EU",
-        .data$scenario_geography
       )
     ) %>%
     dplyr::mutate(
@@ -125,13 +120,6 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
         .data$technology == "Coal" ~ "CoalCap",
         .data$technology == "Gas CCGT" ~ "GasCap",
         TRUE ~ "RenewablesCap"
-      )
-    ) %>%
-    dplyr::mutate(
-      scenario_geography = dplyr::if_else(
-        .data$scenario_geography == "European Union",
-        "EU",
-        .data$scenario_geography
       )
     ) %>%
     dplyr::mutate(
@@ -463,13 +451,6 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
         .data$technology == "Coal" ~ "CoalCap",
         .data$technology == "Gas CCGT" ~ "GasCap",
         TRUE ~ "RenewablesCap"
-      )
-    ) %>%
-    dplyr::mutate(
-      scenario_geography = dplyr::if_else(
-        .data$scenario_geography == "European Union",
-        "EU",
-        .data$scenario_geography
       )
     ) %>%
     dplyr::mutate(
