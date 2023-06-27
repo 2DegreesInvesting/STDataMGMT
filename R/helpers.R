@@ -153,3 +153,17 @@ remove_incomplete_sectors <- function(data, p4_type = "P4I") {
   return(complete_combinations)
 }
 
+#' Apply a rename mapping on scenario_ggeography column
+#' @param data An output data frame from the run_* scripts. Must contain a column scenario_geography
+#' @param geo_names_mapping A named vector describing the mapping, old geographies as names,
+#'  new geographies as values.
+#'
+#' @return input dataframe `data` with scenario_geography column values renamed
+rename_scenario_geographies <- function(data, geo_names_mapping) {
+  data$scenario_geography <- purrr::map_vec(
+    data$scenario_geography,
+    function(x) ifelse(x %in% names(geo_names_mapping), geo_names_mapping[[x]], x)
+  )
+
+  return(data)
+}
