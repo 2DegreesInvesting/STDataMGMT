@@ -1,13 +1,19 @@
 devtools::load_all()
 
-rename_df_list_geographies <- function(df_list, geo_names_mapping) {
-  rename_func <- purrr::partial(rename_scenario_geographies,
-    geo_names_mapping = geo_names_mapping
-  )
-  df_list <- purrr::map(df_list, rename_func)
-  return(df_list)
-}
+## load required data
+bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = c(""))
+bench_regions <- bench_regions %>%
+  dplyr::mutate(scenario_geography_newname=scenario_geography)
 
+trisk_input_dfs_paths <- c(here::here("data-raw", "prewrangled_capacity_factors.csv"),
+                           here::here("data-raw", "price_data_long.csv"),
+                           here::here("data-raw", "Scenarios_AnalysisInput_2021.csv"),
+                           here::here("data-raw", "abcd_stress_test_input.csv"))
+trisk_input_dfs <- lapply(trisk_input_dfs_paths, readr::read_csv)
+names(trisk_input_dfs) <- trisk_input_dfs_paths
+
+
+### COHERENCE CHECK
 get_df_list_geographies <- function(df_list) {
   extracted_geographies <- purrr::map(df_list, function(df) {
     df$scenario_geography
@@ -16,34 +22,10 @@ get_df_list_geographies <- function(df_list) {
   all_geographies <- sort(all_geographies)
   return(all_geographies)
 }
-
-apply_geographies_renaming_fun <- function(df_list, renaming_fun) {
-  all_geographies <- get_df_list_geographies(df_list)
-  new_geographies_names <- renaming_fun(all_geographies)
-  names(new_geographies_names) <- all_geographies
-  df_list <- rename_df_list_geographies(df_list, new_geographies_names)
-  return(df_list)
-}
-
-## load required data
-bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
-prewrangled_capacity_factors <- readr::read_csv(here::here("data-raw", "prewrangled_capacity_factors.csv"))
-price_data_long <- readr::read_csv(here::here("data-raw", "price_data_long.csv"))
-scenarios_analysis_input <- readr::read_csv(here::here("data-raw", "Scenarios_AnalysisInput_2021.csv"))
-
 ## Check if all geographies exist in bench_regions
-trisk_input_dfs <- list(
-  prewrangled_capacity_factors,
-  price_data_long,
-  scenarios_analysis_input
-)
-
 all_geographies <- get_df_list_geographies(trisk_input_dfs)
-
 stopifnot(all(all_geographies %in% bench_regions$scenario_geography))
 
-## adds bench_regions to the list of dataframes to be renamed
-# dfs_to_rename <- c(trisk_input_dfs, list(bench_regions))
 
 ### GROUP IDENTICAL GEOGRAPHIES
 #' @param matching_tol percentage of country matching allowed to gropu geographies
@@ -89,31 +71,65 @@ group_identical_geographies <- function(bench_regions, matching_tol=1){
   )
 
   # create renaming mapper. Use longest name as new geography name
-  mapper <- clean_identical$longest_name
-  names(mapper) <- clean_identical$shortest_name
-  return(mapper)
+  geo_group_mapper <- clean_identical$longest_name
+  names(geo_group_mapper) <- clean_identical$shortest_name
+  return(geo_group_mapper)
 }
-mapper <- group_identical_geographies(bench_regions)
-trisk_input_dfs <- rename_df_list_geographies(trisk_input_dfs, mapper)
+geo_group_mapper <- group_identical_geographies(bench_regions)
+bench_regions <- rename_column_values(bench_regions, "scenario_geography_newname", geo_group_mapper)
 
 ### GENERIC RENAMING
+
+#' apply a function to rename a vector of characters, and apply the mapping on the original column
+rename_bench_region_geographies <- function(bench_regions, renaming_fun) {
+  old_names <- unique(bench_regions$scenario_geography_newname)
+  new_names <- renaming_fun(old_names)
+  rename_mapping <- setNames(new_names, old_names)
+  bench_regions <- rename_column_values(bench_regions,
+                                        "scenario_geography_newname",
+                                        rename_mapping)
+  return(bench_regions)
+}
 ## replace "&" character by and
 to_and_fullword <- function(x) {
   stringr::str_replace_all(x, "&", " and ")
 }
-trisk_input_dfs <- apply_geographies_renaming_fun(trisk_input_dfs, to_and_fullword)
+bench_regions <- rename_bench_region_geographies(bench_regions, to_and_fullword)
 ## capitalize first letter of each word, only where spaces exist
 geography_to_title <- function(x) {
   ifelse(grepl(" ", x), stringr::str_to_title(x), x)
 }
-trisk_input_dfs <- apply_geographies_renaming_fun(trisk_input_dfs, geography_to_title)
+bench_regions <- rename_bench_region_geographies(bench_regions, geography_to_title)
 ## Remove all whitespaces in geographies names
 no_whitespace_renaming <- function(x) {
   stringr::str_replace_all(x, " ", "")
 }
-trisk_input_dfs <- apply_geographies_renaming_fun(trisk_input_dfs, no_whitespace_renaming)
+bench_regions <- rename_bench_region_geographies(bench_regions, no_whitespace_renaming)
 ## Remove NGFS (R5) naming
 no_r5_renaming <- function(x) {
   stringr::str_replace_all(x, "\\(R5\\)", "")
 }
-trisk_input_dfs <- apply_geographies_renaming_fun(trisk_input_dfs, no_r5_renaming)
+bench_regions <- rename_bench_region_geographies(bench_regions, no_r5_renaming)
+
+bench_regions %>% readr::write_csv(here::here("data-raw", "bench_regions.csv"), na = c(""))
+
+### TRISK INPUTS RENAMING
+
+bench_regions_unique_geographies <- bench_regions %>%
+  dplyr::distinct(scenario_geography, scenario_geography_newname)
+geographies_old_names <- bench_regions_unique_geographies$scenario_geography
+geographies_new_names <- bench_regions_unique_geographies$scenario_geography_newname
+final_geo_renaming <- setNames(geographies_new_names, geographies_old_names)
+
+trisk_input_dfs <- purrr::map(
+  trisk_input_dfs,
+  purrr::partial(
+    rename_column_values,
+    colname = "scenario_geography",
+    key_value_mapping = final_geo_renaming
+  )
+)
+
+for (fp in names(trisk_input_dfs)){
+  readr::write_csv(trisk_input_dfs[[fp]], fp)
+}
