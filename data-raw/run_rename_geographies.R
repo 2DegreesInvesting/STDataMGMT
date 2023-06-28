@@ -3,12 +3,14 @@ devtools::load_all()
 ## load required data
 bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = c(""))
 bench_regions <- bench_regions %>%
-  dplyr::mutate(scenario_geography_newname=scenario_geography)
+  dplyr::mutate(scenario_geography_newname = scenario_geography)
 
-trisk_input_dfs_paths <- c(here::here("data-raw", "prewrangled_capacity_factors.csv"),
-                           here::here("data-raw", "price_data_long.csv"),
-                           here::here("data-raw", "Scenarios_AnalysisInput_2021.csv"),
-                           here::here("data-raw", "abcd_stress_test_input.csv"))
+trisk_input_dfs_paths <- c(
+  here::here("data-raw", "prewrangled_capacity_factors.csv"),
+  here::here("data-raw", "price_data_long.csv"),
+  here::here("data-raw", "Scenarios_AnalysisInput_2021.csv"),
+  here::here("data-raw", "abcd_stress_test_input.csv")
+)
 trisk_input_dfs <- lapply(trisk_input_dfs_paths, readr::read_csv)
 names(trisk_input_dfs) <- trisk_input_dfs_paths
 
@@ -29,7 +31,7 @@ stopifnot(all(all_geographies %in% bench_regions$scenario_geography))
 
 ### GROUP IDENTICAL GEOGRAPHIES
 #' @param matching_tol percentage of country matching allowed to gropu geographies
-group_identical_geographies <- function(bench_regions, matching_tol=1){
+group_identical_geographies <- function(bench_regions, matching_tol = 1) {
   # group country iso names into lists
   grouped_country_iso <- bench_regions %>%
     dplyr::group_by(scenario_geography) %>%
@@ -85,9 +87,11 @@ rename_bench_region_geographies <- function(bench_regions, renaming_fun) {
   old_names <- unique(bench_regions$scenario_geography_newname)
   new_names <- renaming_fun(old_names)
   rename_mapping <- setNames(new_names, old_names)
-  bench_regions <- rename_column_values(bench_regions,
-                                        "scenario_geography_newname",
-                                        rename_mapping)
+  bench_regions <- rename_column_values(
+    bench_regions,
+    "scenario_geography_newname",
+    rename_mapping
+  )
   return(bench_regions)
 }
 ## replace "&" character by and
@@ -130,6 +134,6 @@ trisk_input_dfs <- purrr::map(
   )
 )
 
-for (fp in names(trisk_input_dfs)){
+for (fp in names(trisk_input_dfs)) {
   readr::write_csv(trisk_input_dfs[[fp]], fp)
 }
