@@ -1,36 +1,41 @@
 devtools::load_all()
 
-path_pams_raw <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "2022-02-17_AR_2021Q4_2DII-PAMS-Data.xlsx")
-pams_raw <- readxl::read_xlsx(
+path_pams_raw <- r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "2023-02-15_AI_2DII Germany-Company-Indicators_2022Q4.xlsx")
+company_activities <- readxl::read_xlsx(
   path_pams_raw,
-  sheet = "Company Indicators"
+  sheet = "Company Activities"
+)
+company_emissions <- readxl::read_xlsx(
+  path_pams_raw,
+  sheet = "Company Emissions"
 )
 
 output_path_stress_test_inputs <- fs::path(
   r2dii.utils::path_dropbox_2dii(), "ST_INPUTS", "ST_INPUTS_MASTER"
 )
 
-pams_raw <- pams_raw %>% dplyr::filter(`Company Name` != "Unknown Owner")
+company_activities <- company_activities %>% dplyr::filter(`Company Name` != "Unknown Owner")
+company_emissions <- company_emissions %>% dplyr::filter(`Company Name` != "Unknown Owner")
 
 # functions
 
-expand_tech_rows <- function(data, global_aggregate = FALSE) {
-  na_list <- list(plan_tech_prod = 0, current_plan_row = 0)
-
-  group_names <- c("id", "equity_market", "scenario_geography")
-  if (global_aggregate) group_names <- c("scenario_source", "scenario", group_names)
-
-  data <- dplyr::group_by(data, .data$ald_sector)
-  data <-
-    tidyr::complete(
-      data,
-      tidyr::nesting(!!!rlang::syms(group_names)),
-      tidyr::nesting(technology),
-      year,
-      fill = na_list
-    )
-  dplyr::ungroup(data)
-}
+# expand_tech_rows <- function(data, global_aggregate = FALSE) {
+#   na_list <- list(plan_tech_prod = 0, current_plan_row = 0)
+#
+#   group_names <- c("id", "equity_market", "scenario_geography")
+#   if (global_aggregate) group_names <- c("scenario_source", "scenario", group_names)
+#
+#   data <- dplyr::group_by(data, .data$ald_sector)
+#   data <-
+#     tidyr::complete(
+#       data,
+#       tidyr::nesting(!!!rlang::syms(group_names)),
+#       tidyr::nesting(technology),
+#       year,
+#       fill = na_list
+#     )
+#   dplyr::ungroup(data)
+# }
 
 expand_by_scenario_geography <- function(data, scen_geos, bench_regions, .default = "Global", .iso2c = "ald_location") {
   stopifnot(.iso2c %in% names(data))
@@ -67,9 +72,67 @@ expand_by_country_of_domicile <- function(data, index_regions, .default = "Globa
     ))
 }
 
-# prep
+append_emissions_factor <- function(company_activities, company_emissions) {
+  units_prod <- c(
+    "MW", "dwt km", "pkm", "tkm", "GJ",
+    "t coal", "t cement", "t steel", "# vehicles"
+  )
+  units_emission <- c(
+    "tCO2e/MWh", "tCO2/dwt km", "tCO2e/t coal", "tCO2e/t cement",
+    "tCO2/pkm", "tCO2e/GJ", "tCO2/tkm", "tCO2e/t steel", "tCO2/km"
+  )
 
-abcd_data <- pams_raw
+  emission_factors <- company_emissions %>%
+    dplyr::filter(`Activity Unit` %in% units_emission) %>%
+    dplyr::select(
+      "Company ID", "Company Name", "Asset Sector",
+      "Asset Technology", "Asset Technology Type",
+      "Asset Region", "Asset Country",
+      "Activity Unit", "Equity Ownership 2027"
+    ) %>%
+    dplyr::mutate(
+      `Emissions Factor` = `Equity Ownership 2027`,
+      `Emissions Factor Unit` = `Activity Unit`
+    ) %>%
+    dplyr::select(
+      "Company ID", "Company Name", "Asset Sector",
+      "Asset Technology", "Asset Technology Type",
+      "Asset Region", "Asset Country",
+      "Emissions Factor", "Emissions Factor Unit"
+    )
+
+  filtered_company_activities <- company_activities %>% dplyr::filter(`Activity Unit` %in% units_prod)
+  company_activities_with_emission_factors <- dplyr::left_join(filtered_company_activities, emission_factors,
+    by = c(
+      "Company ID",
+      "Company Name",
+      "Asset Sector",
+      "Asset Technology",
+      "Asset Technology Type",
+      "Asset Region",
+      "Asset Country"
+    )
+  )
+  company_activities_with_emission_factors
+}
+
+recode_namibia_country_iso <- function(bench_or_index_regions) {
+  bench_or_index_regions <- bench_or_index_regions %>%
+    dplyr::mutate(country_iso = dplyr::if_else(country == "Namibia", "NA", country_iso))
+  bench_or_index_regions
+}
+
+remove_duplicated_country_iso_rows <- function(bench_or_index_regions) {
+  bench_or_index_regions_unduplicated_country_iso <- bench_or_index_regions %>%
+    dplyr::group_by(country_iso, scenario_geography) %>%
+    dplyr::filter(dplyr::row_number(country) == 1)
+  bench_or_index_regions_unduplicated_country_iso
+}
+
+# prep
+company_activities_with_emission_factors <- append_emissions_factor(company_activities, company_emissions)
+
+abcd_data <- company_activities_with_emission_factors
 
 # from data_prep_v2022:
 # scenario prep options
@@ -85,22 +148,27 @@ relevant_years <- sort(unique(c(start_year:(start_year + time_horizon), addition
 # running this code with global_aggregate = TRUE does not currently produce global aggregate outcomes
 global_aggregate <- FALSE
 
-# read scenario data
-scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("weo2021_manually_added_Scenarios_AnalysisInput_{start_year}.csv")))
 
+# # read scenario data
+scenario_data <- readr::read_csv(here::here("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv")))
+scenario_data <- scenario_data[!(grepl("Cap", scenario_data$technology) & scenario_data$ald_sector == "Demand"), ]
+
+# this should be based on the scenario.preparation repo as a single source of
+# truth
+bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
+index_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
+bench_regions <- bench_regions %>%
+  recode_namibia_country_iso() %>%
+  remove_duplicated_country_iso_rows()
+index_regions <- index_regions %>%
+  recode_namibia_country_iso() %>%
+  remove_duplicated_country_iso_rows()
 
 scenario_geographies_list <- scenario_data %>% dplyr::distinct(scenario_geography)
 
-not_available <- c(
-  "AdvancedEconomies",
-  "Central&SouthAmerica",
-  "DevelopingEconomies",
-  "Emergingmarket&developingeconomies",
-  "SoutheastAsia",
-  "CentralandSouthAmerica"
-)
+# filtering the available geographies from bench_regions
 scenario_geographies_list <- scenario_geographies_list %>%
-  dplyr::filter(!scenario_geography %in% not_available) %>%
+  dplyr::filter(scenario_geography %in% bench_regions$scenario_geography) %>%
   dplyr::pull()
 
 
@@ -122,22 +190,15 @@ tech_exclude <-
 global_aggregate_scenario_sources_list <- c("WEO2021", "GECO2019")
 global_aggregate_sector_list <- c("Power")
 
-# this should be based on the scenario.preparation repo as a single source of
-# truth
-bench_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
-index_regions <- readr::read_csv(here::here("data-raw", "bench_regions.csv"))
-
-scenario_data <- scenario_data[!(grepl("Cap", scenario_data$technology) & scenario_data$ald_sector == "Demand"), ]
-
 abcd_data <- abcd_data %>%
-  dplyr::select(-dplyr::starts_with("Direct")) %>%
+  dplyr::select(-dplyr::starts_with("Direct Ownership")) %>%
   tidyr::pivot_longer(
-    cols = dplyr::starts_with("Total"),
+    cols = dplyr::starts_with("Equity Ownership "),
     names_to = "year",
     names_prefix = "Total ",
     values_to = "ald_production"
   ) %>%
-  dplyr::mutate(year = as.numeric(year)) %>%
+  dplyr::mutate(year = stringr::str_extract(year, stringr::regex("\\d+"))) %>%
   dplyr::rename(
     id = .data$`Company ID`,
     company_name = .data$`Company Name`,
@@ -159,6 +220,10 @@ abcd_data <- abcd_data %>%
     ald_sector = dplyr::if_else(
       .data$ald_sector == "LDV", "Automotive", .data$ald_sector
     )
+  ) %>%
+  dplyr::mutate(
+    ald_production = ifelse(is.na(ald_production), 0, ald_production),
+    emissions_factor = ifelse(is.na(emissions_factor), 0, emissions_factor)
   )
 
 avg_emission_factors <- abcd_data %>%
@@ -295,8 +360,8 @@ if (global_aggregate == TRUE) {
 ### ADD THE EXTRA TECHNOLOGY LINES -----
 ### ########################################################################## #
 
-# ald_full <- ald_sr_ir_agg
-ald_full <- expand_tech_rows(ald_sr_ir_agg, global_aggregate = global_aggregate)
+ald_full <- ald_sr_ir_agg
+# ald_full <- expand_tech_rows(ald_sr_ir_agg, global_aggregate = global_aggregate)
 
 # if we get an NaN for the weighted mean of the EF, we set it to 0 in case
 # the production is also 0. Since we only use the EF in the product of
@@ -311,7 +376,7 @@ ald_full <- ald_full %>%
     )
   )
 
-pams_names <- pams_raw %>%
+pams_names <- company_activities %>%
   dplyr::distinct(`Company ID`, `Company Name`) %>%
   dplyr::rename(
     id = `Company ID`,

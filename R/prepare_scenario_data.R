@@ -78,10 +78,10 @@ prepare_scenario_data <- function(data, start_year) {
     dplyr::anti_join(NA_geos, by = c("scenario_source", "scenario_geography", "ald_sector"))
 
   # removing sectors that are not supported by stress testing
-  p4i_p4b_sector_technology_lookup <- p4i_p4b_sector_technology_lookup()
+  p4i_p4b_sector_technology_lookup_df <- p4i_p4b_sector_technology_lookup()
 
   data <- data %>%
-    dplyr::filter(.data$ald_sector %in% unique(p4i_p4b_sector_technology_lookup$sector_p4i))
+    dplyr::filter(.data$ald_sector %in% unique(p4i_p4b_sector_technology_lookup_df$sector_p4i))
 
   data <- remove_incomplete_sectors(data)
 
