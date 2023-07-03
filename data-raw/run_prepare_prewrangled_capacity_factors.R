@@ -81,9 +81,9 @@ data <- readr::read_csv(
 ## prepare IPR data
 prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data)
 
-## IPR baseline is a duplicate of WEO2021 STEPS
+## IPR baseline CF is a duplicate of IPR2021_FPS
 
-IPR_baseline <- prepare_capacity_factors_IPR2021_baseline(prepared_data_WEO2021)
+IPR_baseline <- prepare_capacity_factors_IPR2021_baseline(prepared_data_IPR2021)
 
 # merging IPR CF data
 prepared_data_IPR2021 <- dplyr::full_join(prepared_data_IPR2021, IPR_baseline)
