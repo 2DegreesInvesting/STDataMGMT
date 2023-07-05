@@ -8,7 +8,8 @@
 
 read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
   ar_data <- readxl::read_xlsx(path_ar_data_raw,
-                               sheet = sheet_name) %>%
+    sheet = sheet_name
+  ) %>%
     dplyr::select(-dplyr::starts_with("Direct Ownership")) %>%
     dplyr::rename(
       id = `Company ID`,
@@ -31,7 +32,7 @@ pivot_equity_ownership_columns <- function(ar_data) {
       cols = dplyr::starts_with("Equity Ownership "),
       names_to = "year",
       values_to = "equity_ownership"
-    )  %>%
+    ) %>%
     dplyr::mutate(year = stringr::str_extract(year, stringr::regex("\\d+")))
 
   return(ar_data)
@@ -79,6 +80,7 @@ rename_technology <- function(ar_data) {
     )
   return(ar_data)
 }
+
 rename_ald_sector <- function(ar_data) {
   ar_data <- ar_data %>%
     dplyr::mutate(ald_sector = dplyr::if_else(.data$ald_sector == "LDV", "Automotive", .data$ald_sector)) %>%
@@ -93,7 +95,6 @@ rename_ald_sector <- function(ar_data) {
 }
 
 #' aggregate volumes of equity_ownership over duplicated rows
-#' TODO /!\ nans are replaced by 0
 aggregate_equity_ownership_after_renaming <- function(ar_data) {
   ar_data <- ar_data %>%
     dplyr::group_by(
@@ -115,23 +116,24 @@ aggregate_equity_ownership_after_renaming <- function(ar_data) {
 
 #' Merge production and emissions data.
 #' Filter rows where the production unit and emission unit match as expected
-match_emissions_to_production <-
-  function(company_activities,
-           company_emissions) {
-    company_activities <- company_activities %>%
-      dplyr::rename(ald_production_unit = activity_unit,
-                    ald_production = equity_ownership)
-    company_emissions <- company_emissions %>%
-      dplyr::rename(emissions_factor_unit = activity_unit,
-                    emissions_factor = equity_ownership)
+match_emissions_to_production <- function(company_activities,
+                                          company_emissions) {
+  company_activities <- company_activities %>%
+    dplyr::rename(
+      ald_production_unit = activity_unit,
+      ald_production = equity_ownership
+    )
+  company_emissions <- company_emissions %>%
+    dplyr::rename(
+      emissions_factor_unit = activity_unit,
+      emissions_factor = equity_ownership
+    )
 
-    abcd_data <-
-      dplyr::left_join(company_activities, company_emissions)
+  abcd_data <-
+    dplyr::left_join(company_activities, company_emissions)
 
-    return(abcd_data)
-  }
-
-
+  return(abcd_data)
+}
 
 aggregate_production_after_renaming <- function(abcd_data) {
   abcd_data <- abcd_data %>%
@@ -139,153 +141,108 @@ aggregate_production_after_renaming <- function(abcd_data) {
       id,
       company_name,
       ald_sector,
-      technology ,
-      technology_type  ,
-      region ,
-      ald_location ,
-      ald_production_unit ,
+      technology,
+      technology_type,
+      region,
+      ald_location,
+      ald_production_unit,
       year
     ) %>%
     dplyr::summarise(ald_production = sum(ald_production, na.rm = T))
   return(abcd_data)
 }
 
-
-filter_years_abcd_data <-
-  function(abcd_data,
-           start_year,
-           time_horizon,
-           additional_year) {
-    abcd_data <- abcd_data %>%
-      dplyr::filter(year %in% c(start_year:(start_year + time_horizon), additional_year))
-    return(abcd_data)
-  }
-
-# filter_emissions_factor <-
-#   function(abcd_data,
-#            units_production_to_emissions) {
-#     abcd_data <- abcd_data %>%
-#       dplyr::rowwise() %>%
-#       dplyr::filter(units_production_to_emissions[`ald_production_unit`] == `emissions_factor_unit`)
-#
-#     # check that there are no duplicates per year
-#     stopifnot(nrow(
-#       abcd_data %>% dplyr::distinct(
-#         id,
-#         company_name,
-#         ald_sector,
-#         technology,
-#         technology_type,
-#         region,
-#         ald_location,
-#         year
-#       )
-#     ) == nrow(abcd_data))
-#     return(abcd_data)
-#   }
+filter_years_abcd_data <- function(abcd_data,
+                                   start_year,
+                                   time_horizon,
+                                   additional_year) {
+  abcd_data <- abcd_data %>%
+    dplyr::filter(year %in% c(start_year:(start_year + time_horizon), additional_year))
+  return(abcd_data)
+}
 
 #' use avg EFs per technology to fill missing values
-fill_missing_emission_factor <-
-  function(abcd_data) {
-    avg_emission_factors <- abcd_data %>%
-      dplyr::group_by(ald_sector,
-                      technology,
-                      emissions_factor_unit) %>%
-      dplyr::summarise(emissions_factor = mean(emissions_factor, na.rm = T)) %>%
-      dplyr::ungroup()
+fill_missing_emission_factor <- function(abcd_data) {
+  avg_emission_factors <- abcd_data %>%
+    dplyr::group_by(
+      ald_sector,
+      technology,
+      emissions_factor_unit
+    ) %>%
+    dplyr::summarise(emissions_factor = mean(emissions_factor, na.rm = T)) %>%
+    dplyr::ungroup()
 
-    abcd_missing_ef <- abcd_data %>%
-      dplyr::filter(is.na(emissions_factor))
+  abcd_missing_ef <- abcd_data %>%
+    dplyr::filter(is.na(emissions_factor))
 
-    abcd_missing_ef <- abcd_missing_ef %>%
-      dplyr::select(-emissions_factor,-emissions_factor_unit) %>%
-      dplyr::left_join(avg_emission_factors,
-                       by = c("ald_sector", "technology"))
+  abcd_missing_ef <- abcd_missing_ef %>%
+    dplyr::select(-emissions_factor, -emissions_factor_unit) %>%
+    dplyr::left_join(avg_emission_factors,
+      by = c("ald_sector", "technology")
+    )
 
-    # Fill nans when there is no avg emission factor for some technologies
-    # TODO why is there no emission factor on HDV ?
-    # abcd_missing_ef <-
-    #   abcd_missing_ef %>%
-    #   dplyr::mutate(emissions_factor = tidyr::replace_na(emissions_factor, 0))
+  # Fill nans when there is no avg emission factor for some technologies
+  # TODO why is there no emission factor on HDV ?
+  # abcd_missing_ef <-
+  #   abcd_missing_ef %>%
+  #   dplyr::mutate(emissions_factor = tidyr::replace_na(emissions_factor, 0))
 
-    abcd_data <- abcd_data %>%
-      dplyr::filter(!is.na(emissions_factor)) %>%
-      dplyr::bind_rows(abcd_missing_ef)
+  abcd_data <- abcd_data %>%
+    dplyr::filter(!is.na(emissions_factor)) %>%
+    dplyr::bind_rows(abcd_missing_ef)
 
-    return(abcd_data)
-
-  }
+  return(abcd_data)
+}
 
 #' convert EF from tCO2 (or tCO2e) to the ratio of tCO2 (or tCO2e) over production
 #'
-recreate_prop_emissions <-
-  function(abcd_data) {
-    # note : It appears that AR data assumes that vehicles will
-    # drive 15000 km to compute the CO2/km emission factor
-    # TODO check if this is true on every vehicle technology
-    abcd_data <- abcd_data %>% dplyr::mutate(
-      ald_production = dplyr::if_else(
-        ald_production_unit == "# vehicles",
-        ald_production * 15000,
-        ald_production
-      ),
-      ald_production_unit = dplyr::if_else(
-        ald_production_unit == "# vehicles",
-        "km",
-        ald_production_unit
+recreate_prop_emissions <- function(abcd_data) {
+  # note : It appears that AR data assumes that vehicles will
+  # drive 15000 km to compute the CO2/km emission factor
+  # TODO check if this is true on every vehicle technology
+  abcd_data <- abcd_data %>% dplyr::mutate(
+    ald_production = dplyr::if_else(
+      ald_production_unit == "# vehicles",
+      ald_production * 15000,
+      ald_production
+    ),
+    ald_production_unit = dplyr::if_else(
+      ald_production_unit == "# vehicles",
+      "km",
+      ald_production_unit
+    )
+  )
+
+  abcd_data <-
+    abcd_data %>% dplyr::mutate(
+      emissions_factor = emissions_factor / ald_production,
+      emissions_factor_unit = dplyr::if_else(
+        !is.na(emissions_factor_unit),
+        paste(emissions_factor_unit,
+          ald_production_unit,
+          sep = "/"
+        ),
+        NA
       )
     )
 
-    abcd_data <-
-      abcd_data %>% dplyr::mutate(
-        emissions_factor = emissions_factor / ald_production,
-        emissions_factor_unit = dplyr::if_else(
-          !is.na(emissions_factor_unit),
-          paste(emissions_factor_unit,
-                ald_production_unit,
-                sep = "/"),
-          NA
-        )
-      )
+  # match the MW production to tCO2/MWh emissions
+  abcd_MW_prod <- abcd_data %>%
+    dplyr::filter(ald_production_unit == "MW") %>%
+    dplyr::select(-emissions_factor_unit, -emissions_factor)
+  abcd_MWh_emissions <- abcd_data %>%
+    dplyr::filter(ald_production_unit == "MWh") %>%
+    dplyr::select(-ald_production_unit, -ald_production)
+  abcd_MW_prod_MWh_emissions <-
+    dplyr::inner_join(abcd_MW_prod, abcd_MWh_emissions)
+  abcd_data <- dplyr::bind_rows(
+    abcd_data %>%
+      dplyr::filter(!ald_production_unit %in% c("MW", "MWh")),
+    abcd_MW_prod_MWh_emissions
+  )
 
-    # match the MW production to tCO2/MWh emissions
-    abcd_MW_prod <- abcd_data %>%
-      dplyr::filter(ald_production_unit == "MW") %>%
-      dplyr::select(-emissions_factor_unit,-emissions_factor)
-    abcd_MWh_emissions <- abcd_data %>%
-      dplyr::filter(ald_production_unit == "MWh") %>%
-      dplyr::select(-ald_production_unit,-ald_production)
-    abcd_MW_prod_MWh_emissions <-
-      dplyr::inner_join(abcd_MW_prod, abcd_MWh_emissions)
-    abcd_data <- dplyr::bind_rows(
-      abcd_data %>%
-        dplyr::filter(!ald_production_unit %in% c("MW", "MWh")),
-      abcd_MW_prod_MWh_emissions
-    )
-
-    return(abcd_data)
-  }
-
-# # TODO remove this function and use all years instead of just 1?
-# reduce_emission_factor <-
-#   function(company_emissions) {
-#     company_emissions <- company_emissions %>%
-#       dplyr::group_by(
-#         id,
-#         company_name,
-#         ald_sector,
-#         technology,
-#         technology_type,
-#         region,
-#         ald_location,
-#         emissions_factor_unit
-#       ) %>%
-#       dplyr::filter(!is.na(emissions_factor)) %>% # filter nan EF to keep the EF at max year
-#       dplyr::filter(year == max(year)) %>%
-#       dplyr::ungroup()
-#     return(company_emissions)
-#   }
-
+  return(abcd_data)
+}
 
 aggregate_technology_types <- function(abcd_data) {
   abcd_data <- abcd_data %>%
@@ -307,7 +264,7 @@ aggregate_technology_types <- function(abcd_data) {
   return(abcd_data)
 }
 
-drop_empty_prod_and_ef <- function(abcd_data){
+drop_empty_prod_and_ef <- function(abcd_data) {
   abcd_data <- abcd_data %>%
     dplyr::filter(!is.na(ald_production) & !is.na(emissions_factor))
   return(abcd_data)
@@ -368,9 +325,9 @@ fill_empty_years_that_follows <- function(abcd_data) {
   return(abcd_data)
 }
 
-create_plan_prod_columns <- function(abcd_data){
+create_plan_prod_columns <- function(abcd_data) {
   abcd_data <- abcd_data %>%
-    dplyr::rename(plan_tech_prod=ald_production)
+    dplyr::rename(plan_tech_prod = ald_production)
 
   abcd_data <- abcd_data %>%
     dplyr::group_by(id, company_name, scenario_geography, year, ald_sector) %>%

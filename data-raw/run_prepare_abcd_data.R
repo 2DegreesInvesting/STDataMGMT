@@ -1,6 +1,4 @@
 devtools::load_all()
-options(r2dii_dropbox = "2° Investing Dropbox/Bertrand Gallice")
-
 
 ## PARAMETERS
 path_ar_data_raw <-
@@ -14,23 +12,8 @@ start_year <- 2021
 time_horizon <- 5
 additional_year <- NULL
 
-# units_production_to_emissions <- c(
-#   "MW" = "tCO2e/MWh",
-#   "dwt km" = "tCO2/dwt km",
-#   "pkm" = "tCO2/pkm",
-#   "tkm" = "tCO2/tkm",
-#   "GJ" = "tCO2e/GJ",
-#   "t coal" = "tCO2e/t coal",
-#   "t cement" = "tCO2e/t cement",
-#   "t steel" = "tCO2e/t steel",
-#   "# vehicles" = "tCO2/km"
-# )
-#
-# emissions_unit_renaming <- c("tCO2/# vehicles" = "tCO2/km")
-
 bench_regions <-
   readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = "")
-
 
 #### PREPROCESS ASSET RESOLUTION DATA
 
@@ -90,5 +73,3 @@ abcd_data <- create_plan_prod_columns(abcd_data)
 
 ## FILTERINGS
 abcd_data <- filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
-# abcd_data <-
-#   filter_emissions_factor(abcd_data, units_production_to_emissions)
