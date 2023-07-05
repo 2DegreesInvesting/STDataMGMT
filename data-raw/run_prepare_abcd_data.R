@@ -8,6 +8,11 @@ path_ar_data_raw <-
     "2023-02-15_AI_2DII Germany-Company-Indicators_2022Q4.xlsx"
   )
 
+output_path_stress_test_inputs <-
+  r2dii.utils::path_dropbox_2dii("ST_INPUTS",
+                                 "ST_INPUTS_MASTER",
+                                 "abcd_stress_test_input.csv")
+
 start_year <- 2021
 time_horizon <- 5
 additional_year <- NULL
@@ -30,8 +35,10 @@ company_emissions <-
   pivot_equity_ownership_columns(company_emissions)
 
 ## FILTERING
-company_emissions <- remove_unknown_owner_companies(company_emissions)
-company_activities <- remove_unknown_owner_companies(company_activities)
+company_activities <-
+  remove_unknown_owner_companies(company_activities)
+company_emissions <-
+  remove_unknown_owner_companies(company_emissions)
 
 company_emissions <- remove_prop_emissions(company_emissions)
 
@@ -50,8 +57,16 @@ company_emissions <-
 
 ###### ABCD
 
+## DATALOAD
 abcd_data <-
   match_emissions_to_production(company_activities, company_emissions)
+
+## FILTERINGS
+abcd_data <-
+  filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
+
+## AGGREGATIONS
+
 abcd_data <- aggregate_technology_types(abcd_data)
 abcd_data <- fill_empty_years_that_follows(abcd_data)
 
@@ -71,5 +86,15 @@ abcd_data <- expand_by_scenario_geography(abcd_data, bench_regions)
 
 abcd_data <- create_plan_prod_columns(abcd_data)
 
-## FILTERINGS
-abcd_data <- filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
+abcd_data %>% readr::write_csv(output_path_stress_test_inputs)
+
+
+# library(ggplot2)
+#
+# pp <- abcd_data %>% filter(scenario_geography=="Global") %>% ggplot(aes(x=year, y=log(plan_tech_prod+1), group=id, color=company_name))+
+#   geom_line(linewidth=0.05, alpha=1) +
+#   facet_wrap(vars(technology)) +
+#   theme(legend.position = "none")
+# ggsave(pp, filename="leplot.png", width=24, height=30)
+
+
