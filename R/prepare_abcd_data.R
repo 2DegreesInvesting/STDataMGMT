@@ -300,7 +300,7 @@ expand_by_scenario_geography <-
       dplyr::distinct()
 
     abcd_data <- abcd_data %>%
-      dplyr::left_join(dict, by = setNames("country_iso", .iso2c)) %>%
+      dplyr::left_join(dict, by = stats::setNames("country_iso", .iso2c)) %>%
       dplyr::mutate(
         scenario_geography = dplyr::case_when(
           is.na(.data$scenario_geography) ~ .default,

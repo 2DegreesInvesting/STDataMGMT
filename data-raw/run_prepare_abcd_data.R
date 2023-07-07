@@ -86,9 +86,6 @@ abcd_data <- expand_by_scenario_geography(abcd_data, bench_regions)
 
 abcd_data <- create_plan_prod_columns(abcd_data)
 
-abcd_data %>% readr::write_csv(output_path_stress_test_inputs)
-
-
 # library(ggplot2)
 #
 # pp <- abcd_data %>% filter(scenario_geography=="Global") %>% ggplot(aes(x=year, y=log(plan_tech_prod+1), group=id, color=company_name))+
@@ -98,3 +95,4 @@ abcd_data %>% readr::write_csv(output_path_stress_test_inputs)
 # ggsave(pp, filename="leplot.png", width=24, height=30)
 
 
+abcd_data %>% readr::write_csv(output_path_stress_test_inputs)
