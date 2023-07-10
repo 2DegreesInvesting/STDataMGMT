@@ -1,1825 +1,1825 @@
-scenario_geography,country,country_iso,reg_count,scenario_provider
-Africa,Algeria,DZ,56,WEO
-Africa,Angola,AO,56,WEO
-Africa,Benin,BJ,56,WEO
-Africa,Botswana,BW,56,WEO
-Africa,Burkina Faso,BF,56,WEO
-Africa,Burundi,BI,56,WEO
-Africa,Cape Verde,CV,56,WEO
-Africa,Cameroon,CM,56,WEO
-Africa,Central African Republic,CF,56,WEO
-Africa,Chad,TD,56,WEO
-Africa,Comoros,KM,56,WEO
-Africa,Cote d'Ivoire,CI,56,WEO
-Africa,Djibouti,DJ,56,WEO
-Africa,Egypt,EG,56,WEO
-Africa,Equatorial Guinea,GQ,56,WEO
-Africa,Eritrea,ER,56,WEO
-Africa,Ethiopia,ET,56,WEO
-Africa,Gabon,GA,56,WEO
-Africa,Gambia,GM,56,WEO
-Africa,Ghana,GH,56,WEO
-Africa,Guinea,GN,56,WEO
-Africa,GuineaBissau,GW,56,WEO
-Africa,Kenya,KE,56,WEO
-Africa,Lesotho,LS,56,WEO
-Africa,Liberia,LR,56,WEO
-Africa,Libya,LY,56,WEO
-Africa,Madagascar,MG,56,WEO
-Africa,Malawi,MW,56,WEO
-Africa,Mali,ML,56,WEO
-Africa,Mauritania,MR,56,WEO
-Africa,Mauritius,MU,56,WEO
-Africa,Morocco,MA,56,WEO
-Africa,Mozambique,MZ,56,WEO
-Africa,Namibia,NA,56,WEO
-Africa,Niger,NE,56,WEO
-Africa,Nigeria,NG,56,WEO
-Africa,Reunion,RE,56,WEO
-Africa,Rwanda,RW,56,WEO
-Africa,Sao Tome and Principe,ST,56,WEO
-Africa,Senegal,SN,56,WEO
-Africa,Seychelles,SC,56,WEO
-Africa,Sierra Leone,SL,56,WEO
-Africa,Somalia,SO,56,WEO
-Africa,South Africa,ZA,56,WEO
-Africa,South Sudan,SS,56,WEO
-Africa,Sudan,SD,56,WEO
-Africa,Swaziland,SZ,56,WEO
-Africa,Democratic Republic of the Congo,CD,56,WEO
-Africa,Congo Republic,CG,56,WEO
-Africa,United Republic of Tanzania,TZ,56,WEO
-Africa,Togo,TG,56,WEO
-Africa,Tunisia,TN,56,WEO
-Africa,Uganda,UG,56,WEO
-Africa,Western Sahara,EH,56,WEO
-Africa,Zambia,ZM,56,WEO
-Africa,Zimbabwe,ZW,56,WEO
-AfricaWoZA,Algeria,DZ,55,NA
-AfricaWoZA,Angola,AO,55,NA
-AfricaWoZA,Benin,BJ,55,NA
-AfricaWoZA,Botswana,BW,55,NA
-AfricaWoZA,Burkina Faso,BF,55,NA
-AfricaWoZA,Burundi,BI,55,NA
-AfricaWoZA,Cape Verde,CV,55,NA
-AfricaWoZA,Cameroon,CM,55,NA
-AfricaWoZA,Central African Republic,CF,55,NA
-AfricaWoZA,Chad,TD,55,NA
-AfricaWoZA,Comoros,KM,55,NA
-AfricaWoZA,Cote d'Ivoire,CI,55,NA
-AfricaWoZA,Djibouti,DJ,55,NA
-AfricaWoZA,Egypt,EG,55,NA
-AfricaWoZA,Equatorial Guinea,GQ,55,NA
-AfricaWoZA,Eritrea,ER,55,NA
-AfricaWoZA,Ethiopia,ET,55,NA
-AfricaWoZA,Gabon,GA,55,NA
-AfricaWoZA,Gambia,GM,55,NA
-AfricaWoZA,Ghana,GH,55,NA
-AfricaWoZA,Guinea,GN,55,NA
-AfricaWoZA,GuineaBissau,GW,55,NA
-AfricaWoZA,Kenya,KE,55,NA
-AfricaWoZA,Lesotho,LS,55,NA
-AfricaWoZA,Liberia,LR,55,NA
-AfricaWoZA,Libya,LY,55,NA
-AfricaWoZA,Madagascar,MG,55,NA
-AfricaWoZA,Malawi,MW,55,NA
-AfricaWoZA,Mali,ML,55,NA
-AfricaWoZA,Mauritania,MR,55,NA
-AfricaWoZA,Mauritius,MU,55,NA
-AfricaWoZA,Morocco,MA,55,NA
-AfricaWoZA,Mozambique,MZ,55,NA
-AfricaWoZA,Namibia,NA,55,NA
-AfricaWoZA,Niger,NE,55,NA
-AfricaWoZA,Nigeria,NG,55,NA
-AfricaWoZA,Reunion,RE,55,NA
-AfricaWoZA,Rwanda,RW,55,NA
-AfricaWoZA,Sao Tome and Principe,ST,55,NA
-AfricaWoZA,Senegal,SN,55,NA
-AfricaWoZA,Seychelles,SC,55,NA
-AfricaWoZA,Sierra Leone,SL,55,NA
-AfricaWoZA,Somalia,SO,55,NA
-AfricaWoZA,South Sudan,SS,55,NA
-AfricaWoZA,Sudan,SD,55,NA
-AfricaWoZA,Swaziland,SZ,55,NA
-AfricaWoZA,Democratic Republic of the Congo,CD,55,NA
-AfricaWoZA,Congo Republic,CG,55,NA
-AfricaWoZA,United Republic of Tanzania,TZ,55,NA
-AfricaWoZA,Togo,TG,55,NA
-AfricaWoZA,Tunisia,TN,55,NA
-AfricaWoZA,Uganda,UG,55,NA
-AfricaWoZA,Western Sahara,EH,55,NA
-AfricaWoZA,Zambia,ZM,55,NA
-AfricaWoZA,Zimbabwe,ZW,55,NA
-Algeria&Libya,Algeria,DZ,2,NA
-Algeria&Libya,Libya,LY,2,NA
-Argentina,Argentina,AR,1,NA
-ASEAN,Indonesia,ID,10,NA
-ASEAN,Brunei Darussalam,BN,10,NA
-ASEAN,Cambodia,KH,10,NA
-ASEAN,Lao People's Democratic Republic,LA,10,NA
-ASEAN,Malaysia,MY,10,NA
-ASEAN,Myanmar,MM,10,NA
-ASEAN,Philippines,PH,10,NA
-ASEAN,Singapore,SG,10,NA
-ASEAN,Thailand,TH,10,NA
-ASEAN,Vietnam,VN,10,NA
-Asia (R5),Afghanistan,AF,27,NGFS
-Asia (R5),Bangladesh,BD,27,NGFS
-Asia (R5),Bhutan,BT,27,NGFS
-Asia (R5),Brunei Darussalam,BN,27,NGFS
-Asia (R5),Cambodia,KH,27,NGFS
-Asia (R5),China,CN,27,NGFS
-Asia (R5),Hong Kong Special Administrative Region of China,HK,27,NGFS
-Asia (R5),Macau Special Administrative Region of China,MO,27,NGFS
-Asia (R5),Democratic People's Republic of Korea,KP,27,NGFS
-Asia (R5),TimorLeste,TL,27,NGFS
-Asia (R5),India,IN,27,NGFS
-Asia (R5),Indonesia,ID,27,NGFS
-Asia (R5),Lao People's Democratic Republic,LA,27,NGFS
-Asia (R5),Malaysia,MY,27,NGFS
-Asia (R5),Maldives,MV,27,NGFS
-Asia (R5),Mongolia,MN,27,NGFS
-Asia (R5),Myanmar,MM,27,NGFS
-Asia (R5),Nepal,NP,27,NGFS
-Asia (R5),Pakistan,PK,27,NGFS
-Asia (R5),Papua New Guinea,PG,27,NGFS
-Asia (R5),Philippines,PH,27,NGFS
-Asia (R5),Republic of Korea,KR,27,NGFS
-Asia (R5),Singapore,SG,27,NGFS
-Asia (R5),Sri Lanka,LK,27,NGFS
-Asia (R5),Taiwan,TW,27,NGFS
-Asia (R5),Thailand,TH,27,NGFS
-Asia (R5),VietNam,VN,27,NGFS
-AsiaPacific,Afghanistan,AF,39,WEO
-AsiaPacific,Australia,AU,39,WEO
-AsiaPacific,Bangladesh,BD,39,WEO
-AsiaPacific,Bhutan,BT,39,WEO
-AsiaPacific,Brunei Darussalam,BN,39,WEO
-AsiaPacific,Cambodia,KH,39,WEO
-AsiaPacific,China,CN,39,WEO
-AsiaPacific,Cook Islands,CK,39,WEO
-AsiaPacific,Democratic People's Republic of Korea,KP,39,WEO
-AsiaPacific,Fiji,FJ,39,WEO
-AsiaPacific,French Polynesia,PF,39,WEO
-AsiaPacific,India,IN,39,WEO
-AsiaPacific,Indonesia,ID,39,WEO
-AsiaPacific,Japan,JP,39,WEO
-AsiaPacific,Kiribati,KI,39,WEO
-AsiaPacific,Lao People's Democratic Republic,LA,39,WEO
-AsiaPacific,Macau Special Administrative Region of China,MO,39,WEO
-AsiaPacific,Malaysia,MY,39,WEO
-AsiaPacific,Maldives,MV,39,WEO
-AsiaPacific,Mongolia,MN,39,WEO
-AsiaPacific,Myanmar,MM,39,WEO
-AsiaPacific,Nepal,NP,39,WEO
-AsiaPacific,New Caledonia,NC,39,WEO
-AsiaPacific,New Zealand,NZ,39,WEO
-AsiaPacific,Pakistan,PK,39,WEO
-AsiaPacific,Palau,PW,39,WEO
-AsiaPacific,Papua New Guinea,PG,39,WEO
-AsiaPacific,Philippines,PH,39,WEO
-AsiaPacific,Samoa,WS,39,WEO
-AsiaPacific,Singapore,SG,39,WEO
-AsiaPacific,Solomon Islands,SB,39,WEO
-AsiaPacific,South Korea,KR,39,WEO
-AsiaPacific,Sri Lanka,LK,39,WEO
-AsiaPacific,Thailand,TH,39,WEO
-AsiaPacific,TimorLeste,TL,39,WEO
-AsiaPacific,Tonga,TO,39,WEO
-AsiaPacific,Vanuatu,VU,39,WEO
-AsiaPacific,Vietnam,VN,39,WEO
-AsiaPacific,Hong Kong,HK,39,WEO
-Australia,Australia,AU,1,NA
-Brazil,Brazil,BR,1,WEO
-Canada,Canada,CA,1,NA
-Chile,Chile,CL,1,NA
-China,China,CN,2,WEO
-China,Hong Kong Special Administrative Region of China,HK,2,WEO
-CHN,China,CN,1,IPR
-EEurope_Eurasia,Albania,AL,26,NA
-EEurope_Eurasia,Armenia,AM,26,NA
-EEurope_Eurasia,Azerbaijan,AZ,26,NA
-EEurope_Eurasia,Belarus,BY,26,NA
-EEurope_Eurasia,Bosnia and Herzegovina,BA,26,NA
-EEurope_Eurasia,Bulgaria,BG,26,NA
-EEurope_Eurasia,Croatia,HR,26,NA
-EEurope_Eurasia,Cyprus,CY,26,NA
-EEurope_Eurasia,Georgia,GE,26,NA
-EEurope_Eurasia,Gibraltar,GI,26,NA
-EEurope_Eurasia,Kazakhstan,KZ,26,NA
-EEurope_Eurasia,Kosovo,XK,26,NA
-EEurope_Eurasia,Kyrgyzstan,KG,26,NA
-EEurope_Eurasia,Latvia,LV,26,NA
-EEurope_Eurasia,Lithuania,LT,26,NA
-EEurope_Eurasia,Malta,MT,26,NA
-EEurope_Eurasia,Montenegro,ME,26,NA
-EEurope_Eurasia,Republic of Macedonia,MK,26,NA
-EEurope_Eurasia,Romania,RO,26,NA
-EEurope_Eurasia,Russian Federation,RU,26,NA
-EEurope_Eurasia,Serbia,RS,26,NA
-EEurope_Eurasia,Tajikistan,TJ,26,NA
-EEurope_Eurasia,Republic of Moldova,MD,26,NA
-EEurope_Eurasia,Turkmenistan,TM,26,NA
-EEurope_Eurasia,Ukraine,UA,26,NA
-EEurope_Eurasia,Uzbekistan,UZ,26,NA
-EEurope_EurasiaWoRU,Albania,AL,25,NA
-EEurope_EurasiaWoRU,Armenia,AM,25,NA
-EEurope_EurasiaWoRU,Azerbaijan,AZ,25,NA
-EEurope_EurasiaWoRU,Belarus,BY,25,NA
-EEurope_EurasiaWoRU,Bosnia and Herzegovina,BA,25,NA
-EEurope_EurasiaWoRU,Bulgaria,BG,25,NA
-EEurope_EurasiaWoRU,Croatia,HR,25,NA
-EEurope_EurasiaWoRU,Cyprus,CY,25,NA
-EEurope_EurasiaWoRU,Georgia,GE,25,NA
-EEurope_EurasiaWoRU,Gibraltar,GI,25,NA
-EEurope_EurasiaWoRU,Kazakhstan,KZ,25,NA
-EEurope_EurasiaWoRU,Kosovo,XK,25,NA
-EEurope_EurasiaWoRU,Kyrgyzstan,KG,25,NA
-EEurope_EurasiaWoRU,Latvia,LV,25,NA
-EEurope_EurasiaWoRU,Lithuania,LT,25,NA
-EEurope_EurasiaWoRU,Malta,MT,25,NA
-EEurope_EurasiaWoRU,Montenegro,ME,25,NA
-EEurope_EurasiaWoRU,Republic of Macedonia,MK,25,NA
-EEurope_EurasiaWoRU,Romania,RO,25,NA
-EEurope_EurasiaWoRU,Serbia,RS,25,NA
-EEurope_EurasiaWoRU,Tajikistan,TJ,25,NA
-EEurope_EurasiaWoRU,Republic of Moldova,MD,25,NA
-EEurope_EurasiaWoRU,Turkmenistan,TM,25,NA
-EEurope_EurasiaWoRU,Ukraine,UA,25,NA
-EEurope_EurasiaWoRU,Uzbekistan,UZ,25,NA
-EFTA,Switzerland,CH,4,NA
-EFTA,Norway,NO,4,NA
-EFTA,Iceland,IS,4,NA
-EFTA,Liechtenstein,LI,4,NA
-EFTA+UK,Switzerland,CH,5,NA
-EFTA+UK,Norway,NO,5,NA
-EFTA+UK,Iceland,IS,5,NA
-EFTA+UK,Liechtenstein,LI,5,NA
-EFTA+UK,United Kingdom,GB,5,NA
-Egypt,Egypt,EG,1,NA
-EU,Austria,AT,28,NA
-EU,Belgium,BE,28,NA
-EU,Bulgaria,BG,28,NA
-EU,Croatia,HR,28,NA
-EU,Cyprus,CY,28,NA
-EU,Czech Republic,CZ,28,NA
-EU,Denmark,DK,28,NA
-EU,Estonia,EE,28,NA
-EU,Finland,FI,28,NA
-EU,France,FR,28,NA
-EU,Germany,DE,28,NA
-EU,Greece,GR,28,NA
-EU,Hungary,HU,28,NA
-EU,Ireland,IE,28,NA
-EU,Italy,IT,28,NA
-EU,Latvia,LV,28,NA
-EU,Lithuania,LT,28,NA
-EU,Luxembourg,LU,28,NA
-EU,Malta,MT,28,NA
-EU,Netherlands,NL,28,NA
-EU,Poland,PL,28,NA
-EU,Portugal,PT,28,NA
-EU,Romania,RO,28,NA
-EU,Slovakia,SK,28,NA
-EU,Slovenia,SI,28,NA
-EU,Spain,ES,28,NA
-EU,Sweden,SE,28,NA
-EU,United Kingdom,GB,28,NA
-EU27,Austria,AT,27,WEO
-EU27,Belgium,BE,27,WEO
-EU27,Bulgaria,BG,27,WEO
-EU27,Croatia,HR,27,WEO
-EU27,Cyprus,CY,27,WEO
-EU27,Czech Republic,CZ,27,WEO
-EU27,Denmark,DK,27,WEO
-EU27,Estonia,EE,27,WEO
-EU27,Finland,FI,27,WEO
-EU27,France,FR,27,WEO
-EU27,Germany,DE,27,WEO
-EU27,Greece,GR,27,WEO
-EU27,Hungary,HU,27,WEO
-EU27,Ireland,IE,27,WEO
-EU27,Italy,IT,27,WEO
-EU27,Latvia,LV,27,WEO
-EU27,Lithuania,LT,27,WEO
-EU27,Luxembourg,LU,27,WEO
-EU27,Malta,MT,27,WEO
-EU27,Netherlands,NL,27,WEO
-EU27,Poland,PL,27,WEO
-EU27,Portugal,PT,27,WEO
-EU27,Romania,RO,27,WEO
-EU27,Slovakia,SK,27,WEO
-EU27,Slovenia,SI,27,WEO
-EU27,Spain,ES,27,WEO
-EU27,Sweden,SE,27,WEO
-Eurasia,Armenia,AM,9,WEO
-Eurasia,Azerbaijan,AZ,9,WEO
-Eurasia,Georgia,GE,9,WEO
-Eurasia,Kazakhstan,KZ,9,WEO
-Eurasia,Kyrgyzstan,KG,9,WEO
-Eurasia,Russian Federation,RU,9,WEO
-Eurasia,Tajikistan,TJ,9,WEO
-Eurasia,Turkmenistan,TM,9,WEO
-Eurasia,Uzbekistan,UZ,9,WEO
-Europe,Albania,AL,45,WEO
-Europe,Austria,AT,45,WEO
-Europe,Belarus,BY,45,WEO
-Europe,Belgium,BE,45,WEO
-Europe,Bosnia and Herzegovina,BA,45,WEO
-Europe,Bulgaria,BG,45,WEO
-Europe,Croatia,HR,45,WEO
-Europe,Cyprus,CY,45,WEO
-Europe,Czech Republic,CZ,45,WEO
-Europe,Denmark,DK,45,WEO
-Europe,Estonia,EE,45,WEO
-Europe,Finland,FI,45,WEO
-Europe,France,FR,45,WEO
-Europe,Germany,DE,45,WEO
-Europe,Gibraltar,GI,45,WEO
-Europe,Greece,GR,45,WEO
-Europe,Hungary,HU,45,WEO
-Europe,Iceland,IS,45,WEO
-Europe,Ireland,IE,45,WEO
-Europe,Israel,IL,45,WEO
-Europe,Italy,IT,45,WEO
-Europe,Kosovo,XK,45,WEO
-Europe,Latvia,LV,45,WEO
-Europe,Lithuania,LT,45,WEO
-Europe,Luxembourg,LU,45,WEO
-Europe,Malta,MT,45,WEO
-Europe,Montenegro,ME,45,WEO
-Europe,Netherlands,NL,45,WEO
-Europe,Norway,NO,45,WEO
-Europe,Poland,PL,45,WEO
-Europe,Portugal,PT,45,WEO
-Europe,Republic of Macedonia,MK,45,WEO
-Europe,Republic of Moldova,MD,45,WEO
-Europe,Romania,RO,45,WEO
-Europe,Serbia,RS,45,WEO
-Europe,Slovakia,SK,45,WEO
-Europe,Slovenia,SI,45,WEO
-Europe,Spain,ES,45,WEO
-Europe,Sweden,SE,45,WEO
-Europe,Switzerland,CH,45,WEO
-Europe,Turkey,TR,45,WEO
-Europe,Ukraine,UA,45,WEO
-Europe,United Kingdom,GB,45,WEO
-Europe,Russia,EU,45,WEO
-Europe,Russia,RU,45,WEO
-Global,Afghanistan,AF,281,NA
-Global,Albania,AL,281,NA
-Global,Algeria,DZ,281,NA
-Global,American Samoa,AS,281,NA
-Global,Andorra,AD,281,NA
-Global,Angola,AO,281,NA
-Global,Anguilla,AI,281,NA
-Global,Antigua And Barbuda,AG,281,NA
-Global,Argentina,AR,281,NA
-Global,Armenia,AM,281,NA
-Global,Aruba,AW,281,NA
-Global,Australia,AU,281,NA
-Global,Austria,AT,281,NA
-Global,Azerbaijan,AZ,281,NA
-Global,Bahamas,BS,281,NA
-Global,Bahrain,BH,281,NA
-Global,Bangladesh,BD,281,NA
-Global,Barbados,BB,281,NA
-Global,Belarus,BY,281,NA
-Global,Belgium,BE,281,NA
-Global,Belize,BZ,281,NA
-Global,Benin,BJ,281,NA
-Global,Bermuda,BM,281,NA
-Global,Bhutan,BT,281,NA
-Global,Bolivia,BO,281,NA
-Global,Bosnia and Herzegovina,BA,281,NA
-Global,Botswana,BW,281,NA
-Global,Brazil,BR,281,NA
-Global,British Virgin Islands,VG,281,NA
-Global,Brunei Darussalam,BN,281,NA
-Global,Bulgaria,BG,281,NA
-Global,Burkina Faso,BF,281,NA
-Global,Burundi,BI,281,NA
-Global,Cambodia,KH,281,NA
-Global,Cameroon,CM,281,NA
-Global,Canada,CA,281,NA
-Global,Cape Verde,CV,281,NA
-Global,Cayman Islands,KY,281,NA
-Global,Chad,TD,281,NA
-Global,Chile,CL,281,NA
-Global,China,CN,281,NA
-Global,Colombia,CO,281,NA
-Global,Cook Islands,CK,281,NA
-Global,Costa Rica,CR,281,NA
-Global,Croatia,HR,281,NA
-Global,Cuba,CU,281,NA
-Global,Curacao,CW,281,NA
-Global,Cyprus,CY,281,NA
-Global,Czech Republic,CZ,281,NA
-Global,Democratic People's Republic of Korea,KP,281,NA
-Global,Democratic Republic of the Congo,CD,281,NA
-Global,Denmark,DK,281,NA
-Global,Djibouti,DJ,281,NA
-Global,Dominica,DM,281,NA
-Global,Dominican Republic,DO,281,NA
-Global,Ecuador,EC,281,NA
-Global,Egypt,EG,281,NA
-Global,El Salvador,SV,281,NA
-Global,Equatorial Guinea,GQ,281,NA
-Global,Eritrea,ER,281,NA
-Global,Estonia,EE,281,NA
-Global,Ethiopia,ET,281,NA
-Global,Faroe Islands,FO,281,NA
-Global,Fiji,FJ,281,NA
-Global,Finland,FI,281,NA
-Global,France,FR,281,NA
-Global,French Guiana,GF,281,NA
-Global,French Polynesia,PF,281,NA
-Global,Gabon,GA,281,NA
-Global,Gambia,GM,281,NA
-Global,Georgia,GE,281,NA
-Global,Germany,DE,281,NA
-Global,Ghana,GH,281,NA
-Global,Gibraltar,GI,281,NA
-Global,Greece,GR,281,NA
-Global,Greenland,GL,281,NA
-Global,Grenada,GD,281,NA
-Global,Guadeloupe,GP,281,NA
-Global,Guam,GU,281,NA
-Global,Guatemala,GT,281,NA
-Global,Guernsey,GG,281,NA
-Global,Guinea,GN,281,NA
-Global,GuineaBissau,GW,281,NA
-Global,Guyana,GY,281,NA
-Global,Haiti,HT,281,NA
-Global,Honduras,HN,281,NA
-Global,Hong Kong Special Administrative Region of China,HK,281,NA
-Global,Hungary,HU,281,NA
-Global,Iceland,IS,281,NA
-Global,India,IN,281,NA
-Global,Indonesia,ID,281,NA
-Global,Iran (Islamic Republic of Iran),IR,281,NA
-Global,Iraq,IQ,281,NA
-Global,Ireland,IE,281,NA
-Global,Islamic Republic of Mauritania,MR,281,NA
-Global,Isle of Man,IM,281,NA
-Global,Israel,IL,281,NA
-Global,Italy,IT,281,NA
-Global,Ivory Coast,CI,281,NA
-Global,Jamaica,JM,281,NA
-Global,Japan,JP,281,NA
-Global,Jersey,JE,281,NA
-Global,Jordan,JO,281,NA
-Global,Kazakhstan,KZ,281,NA
-Global,Kenya,KE,281,NA
-Global,Kiribati,KI,281,NA
-Global,Kosovo,XK,281,NA
-Global,Kuwait,KW,281,NA
-Global,Kyrgyzstan,KG,281,NA
-Global,Lao People's Democratic Republic,LA,281,NA
-Global,Latvia,LV,281,NA
-Global,Lebanon,LB,281,NA
-Global,Lesotho,LS,281,NA
-Global,Liberia,LR,281,NA
-Global,Libyan Arab Jamahiriya,LY,281,NA
-Global,Lithuania,LT,281,NA
-Global,Luxembourg,LU,281,NA
-Global,Macau Special Administrative Region of China,MO,281,NA
-Global,Madagascar,MG,281,NA
-Global,Malawi,MW,281,NA
-Global,Malaysia,MY,281,NA
-Global,Maldives,MV,281,NA
-Global,Mali,ML,281,NA
-Global,Malta,MT,281,NA
-Global,Marshall Islands,MH,281,NA
-Global,Martinique,MQ,281,NA
-Global,Mauritius,MU,281,NA
-Global,Mayotte,YT,281,NA
-Global,Mexico,MX,281,NA
-Global,Micronesia (Federated States of),FM,281,NA
-Global,Mongolia,MN,281,NA
-Global,Montenegro,ME,281,NA
-Global,Morocco,MA,281,NA
-Global,Mozambique,MZ,281,NA
-Global,Myanmar,MM,281,NA
-Global,Nepal,NP,281,NA
-Global,Netherlands,NL,281,NA
-Global,New Caledonia,NC,281,NA
-Global,New Zealand,NZ,281,NA
-Global,Nicaragua,NI,281,NA
-Global,Niger,NE,281,NA
-Global,Nigeria,NG,281,NA
-Global,Norway,NO,281,NA
-Global,Oman,OM,281,NA
-Global,Pakistan,PK,281,NA
-Global,Palau,PW,281,NA
-Global,Panama,PA,281,NA
-Global,Papua New Guinea,PG,281,NA
-Global,Paraguay,PY,281,NA
-Global,Peru,PE,281,NA
-Global,Philippines,PH,281,NA
-Global,Poland,PL,281,NA
-Global,Portugal,PT,281,NA
-Global,Puerto Rico,PR,281,NA
-Global,Qatar,QA,281,NA
-Global,Republic of Congo,CG,281,NA
-Global,Republic of Korea,KR,281,NA
-Global,Republic of Macedonia,MK,281,NA
-Global,Republic of Moldova,MD,281,NA
-Global,Reunion,RE,281,NA
-Global,Romania,RO,281,NA
-Global,Russian Federation,RU,281,NA
-Global,Rwanda,RW,281,NA
-Global,Samoa,WS,281,NA
-Global,Saudi Arabia,SA,281,NA
-Global,Senegal,SN,281,NA
-Global,Serbia,RS,281,NA
-Global,Seychelles,SC,281,NA
-Global,Sierra Leone,SL,281,NA
-Global,Singapore,SG,281,NA
-Global,Slovakia,SK,281,NA
-Global,Slovenia,SI,281,NA
-Global,Solomon Islands,SB,281,NA
-Global,Somalia,SO,281,NA
-Global,Somaliland,SO,281,NA
-Global,South Africa,ZA,281,NA
-Global,Spain,ES,281,NA
-Global,Sri Lanka,LK,281,NA
-Global,Sudan,SD,281,NA
-Global,Suriname,SR,281,NA
-Global,Swaziland,SZ,281,NA
-Global,Sweden,SE,281,NA
-Global,Switzerland,CH,281,NA
-Global,Syrian Arab Republic,SY,281,NA
-Global,Taiwan,TW,281,NA
-Global,Tajikistan,TJ,281,NA
-Global,Thailand,TH,281,NA
-Global,TimorLeste,TL,281,NA
-Global,Togo,TG,281,NA
-Global,Tokelau,TK,281,NA
-Global,Tonga,TO,281,NA
-Global,Trinidad and Tobago,TT,281,NA
-Global,Tunisia,TN,281,NA
-Global,Turkey,TR,281,NA
-Global,Turkmenistan,TM,281,NA
-Global,Tuvalu,TV,281,NA
-Global,Uganda,UG,281,NA
-Global,Ukraine,UA,281,NA
-Global,United Arab Emirates,AE,281,NA
-Global,United Kingdom,GB,281,NA
-Global,United Republic Of Tanzania,TZ,281,NA
-Global,United States,US,281,NA
-Global,Uruguay,UY,281,NA
-Global,Uzbekistan,UZ,281,NA
-Global,Vanuatu,VU,281,NA
-Global,Venezuela,VE,281,NA
-Global,Vietnam,VN,281,NA
-Global,Virgin Islands (US),VI,281,NA
-Global,Yemen,YE,281,NA
-Global,Zambia,ZM,281,NA
-Global,Zimbabwe,ZW,281,NA
-Global,AngolaCongo Republic Joint Development Area,AO,281,NA
-Global,Brunei,BN,281,NA
-Global,Comoros,KM,281,NA
-Global,Congo Republic,CG,281,NA
-Global,Cote d'Ivoire,CI,281,NA
-Global,Falkland Islands,FK,281,NA
-Global,Iran,IR,281,NA
-Global,KuwaitSaudi Arabia Partitioned Neutral Zone,KW,281,NA
-Global,Libya,LY,281,NA
-Global,Malaysia  Thailand Joint Development Area,MY,281,NA
-Global,Malaysia  Vietnam PM3 Commercial Arrangement Area,MY,281,NA
-Global,Mauritania,MR,281,NA
-Global,Russia,RU,281,NA
-Global,South Korea,KR,281,NA
-Global,South Sudan,SS,281,NA
-Global,Syria,SY,281,NA
-Global,Tanzania,TZ,281,NA
-Global,Timor Sea Joint Petroleum Development Area,TL,281,NA
-Global,Saint Barthelemy,BL,281,NA
-Global,"Saint Helena,  Ascension and Tristan da Cunha",SH,281,NA
-Global,Saint Kitts and Nevis,KN,281,NA
-Global,Saint Lucia,LC,281,NA
-Global,Saint Pierre and Miquelon,PM,281,NA
-Global,Saint Vincent and the Grenadines,VC,281,NA
-Global,Sint Maarten,MF,281,NA
-Global,Antarctica,AQ,281,NA
-Global,Bonaire,BQ,281,NA
-Global,Bouvet Island,BV,281,NA
-Global,British Indian Ocean Territory,IO,281,NA
-Global,Central African Republic,CF,281,NA
-Global,Christmas Island,CX,281,NA
-Global,Cocos (Keeling) Islands,CC,281,NA
-Global,Congo,CG,281,NA
-Global,Falkland Islands (Malvinas),FK,281,NA
-Global,French Southern Territories,TF,281,NA
-Global,Heard Island and McDonald Mcdonald Islands,HM,281,NA
-Global,Holy See (Vatican City State),VA,281,NA
-Global,Hong Kong,HK,281,NA
-Global,"Iran,  Islamic Republic of",IR,281,NA
-Global,"Korea,  Democratic People's Republic of",KP,281,NA
-Global,"Korea,  Republic of",KR,281,NA
-Global,Liechtenstein,LI,281,NA
-Global,Macao,MO,281,NA
-Global,"Macedonia, the Former Yugoslav Republic of",MK,281,NA
-Global,"Micronesia, Federated States of",FM,281,NA
-Global,"Moldova, Republic of",MD,281,NA
-Global,Monaco,MC,281,NA
-Global,Montserrat,MS,281,NA
-Global,Namibia,NA,281,NA
-Global,Nauru,NR,281,NA
-Global,Niue,NU,281,NA
-Global,Norfolk Island,NF,281,NA
-Global,Northern Mariana Islands,MP,281,NA
-Global,"Palestine, State of",PS,281,NA
-Global,Pitcairn,PN,281,NA
-Global,Saint Helena,SH,281,NA
-Global,Saint Martin (French part),MF,281,NA
-Global,San Marino,SM,281,NA
-Global,Sao Tome and Principe,ST,281,NA
-Global,Sint Maarten (Dutch part),SX,281,NA
-Global,South Georgia and the South Sandwich Islands,GS,281,NA
-Global,Svalbard and Jan Mayen,SJ,281,NA
-Global,"Taiwan, Province of China",TW,281,NA
-Global,Turks and Caicos Islands,TC,281,NA
-Global,United States Minor Outlying Islands,UM,281,NA
-Global,Viet Nam,VN,281,NA
-Global,US Virgin Islands,VI,281,NA
-Global,Wallis and Futuna,WF,281,NA
-Global,Western Sahara,EH,281,NA
-Global,Aland Islands,AX,281,NA
-IND,India,IN,1,IPR
-India,India,IN,1,WEO
-Indonesia,Indonesia,ID,1,NA
-Iran,Iran,IR,1,NA
-Japan,Japan,JP,1,WEO
-Latin America (R5),Argentina,AR,30,NGFS
-Latin America (R5),Bahamas,BS,30,NGFS
-Latin America (R5),Barbados,BB,30,NGFS
-Latin America (R5),Belize,BZ,30,NGFS
-Latin America (R5),Bolivia,BO,30,NGFS
-Latin America (R5),Brazil,BR,30,NGFS
-Latin America (R5),Chile,CL,30,NGFS
-Latin America (R5),Colombia,CO,30,NGFS
-Latin America (R5),Costa Rica,CR,30,NGFS
-Latin America (R5),Cuba,CU,30,NGFS
-Latin America (R5),Dominican Republic,DO,30,NGFS
-Latin America (R5),Ecuador,EC,30,NGFS
-Latin America (R5),El Salvador,SV,30,NGFS
-Latin America (R5),Guadeloupe,GP,30,NGFS
-Latin America (R5),Guatemala,GT,30,NGFS
-Latin America (R5),Guyana,GY,30,NGFS
-Latin America (R5),Haiti,HT,30,NGFS
-Latin America (R5),Honduras,HN,30,NGFS
-Latin America (R5),Jamaica,JM,30,NGFS
-Latin America (R5),Martinique,MQ,30,NGFS
-Latin America (R5),Mexico,MX,30,NGFS
-Latin America (R5),Nicaragua,NI,30,NGFS
-Latin America (R5),Panama,PA,30,NGFS
-Latin America (R5),Paraguay,PY,30,NGFS
-Latin America (R5),Peru,PE,30,NGFS
-Latin America (R5),Puerto Rico,PR,30,NGFS
-Latin America (R5),Suriname,SR,30,NGFS
-Latin America (R5),Trinidad and Tobago,TT,30,NGFS
-Latin America (R5),Uruguay,UY,30,NGFS
-Latin America (R5),Venezuela,VE,30,NGFS
-LatinAmerica,Antigua and Barbuda,AG,46,WEO
-LatinAmerica,Argentina,AR,46,WEO
-LatinAmerica,Aruba,AW,46,WEO
-LatinAmerica,Bahamas,BS,46,WEO
-LatinAmerica,Barbados,BB,46,WEO
-LatinAmerica,Belize,BZ,46,WEO
-LatinAmerica,Bermuda,BM,46,WEO
-LatinAmerica,Bolivia,BO,46,WEO
-LatinAmerica,Bonaire,BQ,46,WEO
-LatinAmerica,Brazil,BR,46,WEO
-LatinAmerica,British Virgin Islands,VG,46,WEO
-LatinAmerica,Caicos Islands,TC,46,WEO
-LatinAmerica,Cayman Islands,KY,46,WEO
-LatinAmerica,Colombia,CO,46,WEO
-LatinAmerica,Costa Rica,CR,46,WEO
-LatinAmerica,Cuba,CU,46,WEO
-LatinAmerica,Curacao,CW,46,WEO
-LatinAmerica,Dominica,DM,46,WEO
-LatinAmerica,Dominican Republic,DO,46,WEO
-LatinAmerica,Ecuador,EC,46,WEO
-LatinAmerica,El Salvador,SV,46,WEO
-LatinAmerica,Falkland Islands,FK,46,WEO
-LatinAmerica,French Guiana,GF,46,WEO
-LatinAmerica,Grenada,GD,46,WEO
-LatinAmerica,Guadeloupe,GP,46,WEO
-LatinAmerica,Guatemala,GT,46,WEO
-LatinAmerica,Guyana,GY,46,WEO
-LatinAmerica,Haiti,HT,46,WEO
-LatinAmerica,Honduras,HN,46,WEO
-LatinAmerica,Jamaica,JM,46,WEO
-LatinAmerica,Martinique,MQ,46,WEO
-LatinAmerica,Montserrat,MS,46,WEO
-LatinAmerica,Nicaragua,NI,46,WEO
-LatinAmerica,Panama,PA,46,WEO
-LatinAmerica,Paraguay,PY,46,WEO
-LatinAmerica,Peru,PE,46,WEO
-LatinAmerica,Saint Kitts and Nevis,KN,46,WEO
-LatinAmerica,Saint Lucia,LC,46,WEO
-LatinAmerica,Sint Maarten,MF,46,WEO
-LatinAmerica,Saint Vincent and the Grenadines,VC,46,WEO
-LatinAmerica,Suriname,SR,46,WEO
-LatinAmerica,Trinidad and Tobago,TT,46,WEO
-LatinAmerica,Turks,TC,46,WEO
-LatinAmerica,Uruguay,UY,46,WEO
-LatinAmerica,Venezuela,VE,46,WEO
-LatinAmerica,Chile,CL,46,WEO
-LatinAmericaExBrazil,Antigua and Barbuda,AG,44,NA
-LatinAmericaExBrazil,Argentina,AR,44,NA
-LatinAmericaExBrazil,Aruba,AW,44,NA
-LatinAmericaExBrazil,Bahamas,BS,44,NA
-LatinAmericaExBrazil,Barbados,BB,44,NA
-LatinAmericaExBrazil,Belize,BZ,44,NA
-LatinAmericaExBrazil,Bermuda,BM,44,NA
-LatinAmericaExBrazil,Bolivia,BO,44,NA
-LatinAmericaExBrazil,Bonaire,BQ,44,NA
-LatinAmericaExBrazil,British Virgin Islands,VG,44,NA
-LatinAmericaExBrazil,Caicos Islands,TC,44,NA
-LatinAmericaExBrazil,Cayman Islands,KY,44,NA
-LatinAmericaExBrazil,Colombia,CO,44,NA
-LatinAmericaExBrazil,Costa Rica,CR,44,NA
-LatinAmericaExBrazil,Cuba,CU,44,NA
-LatinAmericaExBrazil,Curacao,CW,44,NA
-LatinAmericaExBrazil,Dominica,DM,44,NA
-LatinAmericaExBrazil,Dominican Republic,DO,44,NA
-LatinAmericaExBrazil,Ecuador,EC,44,NA
-LatinAmericaExBrazil,El Salvador,SV,44,NA
-LatinAmericaExBrazil,Falkland Islands,FK,44,NA
-LatinAmericaExBrazil,French Guiana,GF,44,NA
-LatinAmericaExBrazil,Grenada,GD,44,NA
-LatinAmericaExBrazil,Guadeloupe,GP,44,NA
-LatinAmericaExBrazil,Guatemala,GT,44,NA
-LatinAmericaExBrazil,Guyana,GY,44,NA
-LatinAmericaExBrazil,Haiti,HT,44,NA
-LatinAmericaExBrazil,Honduras,HN,44,NA
-LatinAmericaExBrazil,Jamaica,JM,44,NA
-LatinAmericaExBrazil,Martinique,MQ,44,NA
-LatinAmericaExBrazil,Montserrat,MS,44,NA
-LatinAmericaExBrazil,Nicaragua,NI,44,NA
-LatinAmericaExBrazil,Panama,PA,44,NA
-LatinAmericaExBrazil,Paraguay,PY,44,NA
-LatinAmericaExBrazil,Peru,PE,44,NA
-LatinAmericaExBrazil,Saint Kitts and Nevis,KN,44,NA
-LatinAmericaExBrazil,Saint Lucia,LC,44,NA
-LatinAmericaExBrazil,Sint Maarten,MF,44,NA
-LatinAmericaExBrazil,Saint Vincent and the Grenadines,VC,44,NA
-LatinAmericaExBrazil,Suriname,SR,44,NA
-LatinAmericaExBrazil,Trinidad and Tobago,TT,44,NA
-LatinAmericaExBrazil,Turks,TC,44,NA
-LatinAmericaExBrazil,Uruguay,UY,44,NA
-LatinAmericaExBrazil,Venezuela,VE,44,NA
-Malaysia,Malaysia,MY,1,NA
-MediteraneanMiddleEast,Israel,IL,4,NA
-MediteraneanMiddleEast,Jordan,JO,4,NA
-MediteraneanMiddleEast,Lebanon,LB,4,NA
-MediteraneanMiddleEast,Syria,SY,4,NA
-Mexico,Mexico,MX,1,NA
-Middle East & Africa (R5),Algeria,DZ,66,NGFS
-Middle East & Africa (R5),Angola,AO,66,NGFS
-Middle East & Africa (R5),Bahrain,BH,66,NGFS
-Middle East & Africa (R5),Benin,BJ,66,NGFS
-Middle East & Africa (R5),Botswana,BW,66,NGFS
-Middle East & Africa (R5),Burkina Faso,BF,66,NGFS
-Middle East & Africa (R5),Burundi,BI,66,NGFS
-Middle East & Africa (R5),Cameroon,CM,66,NGFS
-Middle East & Africa (R5),Cape Verde,CV,66,NGFS
-Middle East & Africa (R5),Central African Republic,CF,66,NGFS
-Middle East & Africa (R5),Chad,TD,66,NGFS
-Middle East & Africa (R5),Comoros,KM,66,NGFS
-Middle East & Africa (R5),Congo,CG,66,NGFS
-Middle East & Africa (R5),Cote d'Ivoire,CI,66,NGFS
-Middle East & Africa (R5),Democratic Republic of the Congo,CD,66,NGFS
-Middle East & Africa (R5),Djibouti,DJ,66,NGFS
-Middle East & Africa (R5),Egypt,EG,66,NGFS
-Middle East & Africa (R5),Equatorial Guinea,GQ,66,NGFS
-Middle East & Africa (R5),Eritrea,ER,66,NGFS
-Middle East & Africa (R5),Ethiopia,ET,66,NGFS
-Middle East & Africa (R5),Gabon,GA,66,NGFS
-Middle East & Africa (R5),Gambia,GM,66,NGFS
-Middle East & Africa (R5),Ghana,GH,66,NGFS
-Middle East & Africa (R5),Guinea,GN,66,NGFS
-Middle East & Africa (R5),GuineaBissau,GW,66,NGFS
-Middle East & Africa (R5),Iran,IR,66,NGFS
-Middle East & Africa (R5),Iraq,IQ,66,NGFS
-Middle East & Africa (R5),Israel,IL,66,NGFS
-Middle East & Africa (R5),Jordan,JO,66,NGFS
-Middle East & Africa (R5),Kenya,KE,66,NGFS
-Middle East & Africa (R5),Kuwait,KW,66,NGFS
-Middle East & Africa (R5),Lebanon,LB,66,NGFS
-Middle East & Africa (R5),Lesotho,LS,66,NGFS
-Middle East & Africa (R5),Liberia,LR,66,NGFS
-Middle East & Africa (R5),Libyan Arab Jamahiriya,LY,66,NGFS
-Middle East & Africa (R5),Madagascar,MG,66,NGFS
-Middle East & Africa (R5),Malawi,MW,66,NGFS
-Middle East & Africa (R5),Mali,ML,66,NGFS
-Middle East & Africa (R5),Mauritania,MR,66,NGFS
-Middle East & Africa (R5),Mauritius,MU,66,NGFS
-Middle East & Africa (R5),Morocco,MA,66,NGFS
-Middle East & Africa (R5),Mozambique,MZ,66,NGFS
-Middle East & Africa (R5),Namibia,NA,66,NGFS
-Middle East & Africa (R5),Niger,NE,66,NGFS
-Middle East & Africa (R5),Nigeria,NG,66,NGFS
-Middle East & Africa (R5),Oman,OM,66,NGFS
-Middle East & Africa (R5),Qatar,QA,66,NGFS
-Middle East & Africa (R5),Reunion,RE,66,NGFS
-Middle East & Africa (R5),Rwanda,RW,66,NGFS
-Middle East & Africa (R5),Saudi Arabia,SA,66,NGFS
-Middle East & Africa (R5),Senegal,SN,66,NGFS
-Middle East & Africa (R5),Sierra Leone,SL,66,NGFS
-Middle East & Africa (R5),Somalia,SO,66,NGFS
-Middle East & Africa (R5),South Africa,ZA,66,NGFS
-Middle East & Africa (R5),Sudan,SD,66,NGFS
-Middle East & Africa (R5),Swaziland,SZ,66,NGFS
-Middle East & Africa (R5),Syrian Arab Republic,SY,66,NGFS
-Middle East & Africa (R5),Togo,TG,66,NGFS
-Middle East & Africa (R5),Tunisia,TN,66,NGFS
-Middle East & Africa (R5),Uganda,UG,66,NGFS
-Middle East & Africa (R5),United Arab Emirates,AE,66,NGFS
-Middle East & Africa (R5),United Republic of Tanzania,TZ,66,NGFS
-Middle East & Africa (R5),Western Sahara,EH,66,NGFS
-Middle East & Africa (R5),Yemen,YE,66,NGFS
-Middle East & Africa (R5),Zambia,ZM,66,NGFS
-Middle East & Africa (R5),Zimbabwe,ZW,66,NGFS
-MiddleEast,Bahrain,BH,12,WEO
-MiddleEast,Iran,IR,12,WEO
-MiddleEast,Iraq,IQ,12,WEO
-MiddleEast,Jordan,JO,12,WEO
-MiddleEast,Kuwait,KW,12,WEO
-MiddleEast,Lebanon,LB,12,WEO
-MiddleEast,Oman,OM,12,WEO
-MiddleEast,Qatar,QA,12,WEO
-MiddleEast,Saudi Arabia,SA,12,WEO
-MiddleEast,Syria,SY,12,WEO
-MiddleEast,United Arab Emirates,AE,12,WEO
-MiddleEast,Yemen,YE,12,WEO
-Morocco&Tunisia,Morocco,MA,2,NA
-Morocco&Tunisia,Tunisia,TN,2,NA
-NewZealand,New Zealand,NZ,1,NA
-NonOECD,Afghanistan,AF,245,WEO
-NonOECD,Albania,AL,245,WEO
-NonOECD,Algeria,DZ,245,WEO
-NonOECD,American Samoa,AS,245,WEO
-NonOECD,Andorra,AD,245,WEO
-NonOECD,Angola,AO,245,WEO
-NonOECD,Anguilla,AI,245,WEO
-NonOECD,Antigua And Barbuda,AG,245,WEO
-NonOECD,Argentina,AR,245,WEO
-NonOECD,Armenia,AM,245,WEO
-NonOECD,Aruba,AW,245,WEO
-NonOECD,Azerbaijan,AZ,245,WEO
-NonOECD,Bahamas,BS,245,WEO
-NonOECD,Bahrain,BH,245,WEO
-NonOECD,Bangladesh,BD,245,WEO
-NonOECD,Barbados,BB,245,WEO
-NonOECD,Belarus,BY,245,WEO
-NonOECD,Belize,BZ,245,WEO
-NonOECD,Benin,BJ,245,WEO
-NonOECD,Bermuda,BM,245,WEO
-NonOECD,Bhutan,BT,245,WEO
-NonOECD,Bolivia,BO,245,WEO
-NonOECD,Bosnia and Herzegovina,BA,245,WEO
-NonOECD,Botswana,BW,245,WEO
-NonOECD,Brazil,BR,245,WEO
-NonOECD,British Virgin Islands,VG,245,WEO
-NonOECD,Brunei Darussalam,BN,245,WEO
-NonOECD,Bulgaria,BG,245,WEO
-NonOECD,Burkina Faso,BF,245,WEO
-NonOECD,Burundi,BI,245,WEO
-NonOECD,Cambodia,KH,245,WEO
-NonOECD,Cameroon,CM,245,WEO
-NonOECD,Cape Verde,CV,245,WEO
-NonOECD,Cayman Islands,KY,245,WEO
-NonOECD,Chad,TD,245,WEO
-NonOECD,China,CN,245,WEO
-NonOECD,Colombia,CO,245,WEO
-NonOECD,Cook Islands,CK,245,WEO
-NonOECD,Costa Rica,CR,245,WEO
-NonOECD,Croatia,HR,245,WEO
-NonOECD,Cuba,CU,245,WEO
-NonOECD,Curacao,CW,245,WEO
-NonOECD,Cyprus,CY,245,WEO
-NonOECD,Democratic Republic of the Congo,CD,245,WEO
-NonOECD,Djibouti,DJ,245,WEO
-NonOECD,Dominica,DM,245,WEO
-NonOECD,Dominican Republic,DO,245,WEO
-NonOECD,Ecuador,EC,245,WEO
-NonOECD,Egypt,EG,245,WEO
-NonOECD,El Salvador,SV,245,WEO
-NonOECD,Equatorial Guinea,GQ,245,WEO
-NonOECD,Eritrea,ER,245,WEO
-NonOECD,Ethiopia,ET,245,WEO
-NonOECD,Faroe Islands,FO,245,WEO
-NonOECD,Fiji,FJ,245,WEO
-NonOECD,French Guiana,GF,245,WEO
-NonOECD,French Polynesia,PF,245,WEO
-NonOECD,Gabon,GA,245,WEO
-NonOECD,Gambia,GM,245,WEO
-NonOECD,Georgia,GE,245,WEO
-NonOECD,Ghana,GH,245,WEO
-NonOECD,Gibraltar,GI,245,WEO
-NonOECD,Greenland,GL,245,WEO
-NonOECD,Grenada,GD,245,WEO
-NonOECD,Guadeloupe,GP,245,WEO
-NonOECD,Guam,GU,245,WEO
-NonOECD,Guatemala,GT,245,WEO
-NonOECD,Guernsey,GG,245,WEO
-NonOECD,Guinea,GN,245,WEO
-NonOECD,GuineaBissau,GW,245,WEO
-NonOECD,Guyana,GY,245,WEO
-NonOECD,Haiti,HT,245,WEO
-NonOECD,Honduras,HN,245,WEO
-NonOECD,Hong Kong Special Administrative Region of China,HK,245,WEO
-NonOECD,India,IN,245,WEO
-NonOECD,Indonesia,ID,245,WEO
-NonOECD,Iran (Islamic Republic of Iran),IR,245,WEO
-NonOECD,Iraq,IQ,245,WEO
-NonOECD,Islamic Republic of Mauritania,MR,245,WEO
-NonOECD,Isle of Man,IM,245,WEO
-NonOECD,Ivory Coast,CI,245,WEO
-NonOECD,Jamaica,JM,245,WEO
-NonOECD,Jersey,JE,245,WEO
-NonOECD,Jordan,JO,245,WEO
-NonOECD,Kazakhstan,KZ,245,WEO
-NonOECD,Kenya,KE,245,WEO
-NonOECD,Kiribati,KI,245,WEO
-NonOECD,Kosovo,XK,245,WEO
-NonOECD,Kuwait,KW,245,WEO
-NonOECD,Kyrgyzstan,KG,245,WEO
-NonOECD,Lao People's Democratic Republic,LA,245,WEO
-NonOECD,Latvia,LV,245,WEO
-NonOECD,Lebanon,LB,245,WEO
-NonOECD,Lesotho,LS,245,WEO
-NonOECD,Liberia,LR,245,WEO
-NonOECD,Libyan Arab Jamahiriya,LY,245,WEO
-NonOECD,Lithuania,LT,245,WEO
-NonOECD,Macau Special Administrative Region of China,MO,245,WEO
-NonOECD,Madagascar,MG,245,WEO
-NonOECD,Malawi,MW,245,WEO
-NonOECD,Malaysia,MY,245,WEO
-NonOECD,Maldives,MV,245,WEO
-NonOECD,Mali,ML,245,WEO
-NonOECD,Malta,MT,245,WEO
-NonOECD,Marshall Islands,MH,245,WEO
-NonOECD,Martinique,MQ,245,WEO
-NonOECD,Mauritius,MU,245,WEO
-NonOECD,Mayotte,YT,245,WEO
-NonOECD,Micronesia (Federated States of),FM,245,WEO
-NonOECD,Mongolia,MN,245,WEO
-NonOECD,Montenegro,ME,245,WEO
-NonOECD,Morocco,MA,245,WEO
-NonOECD,Mozambique,MZ,245,WEO
-NonOECD,Myanmar,MM,245,WEO
-NonOECD,Nepal,NP,245,WEO
-NonOECD,New Caledonia,NC,245,WEO
-NonOECD,Nicaragua,NI,245,WEO
-NonOECD,Niger,NE,245,WEO
-NonOECD,Nigeria,NG,245,WEO
-NonOECD,Oman,OM,245,WEO
-NonOECD,Pakistan,PK,245,WEO
-NonOECD,Palau,PW,245,WEO
-NonOECD,Panama,PA,245,WEO
-NonOECD,Papua New Guinea,PG,245,WEO
-NonOECD,Paraguay,PY,245,WEO
-NonOECD,Peru,PE,245,WEO
-NonOECD,Philippines,PH,245,WEO
-NonOECD,Puerto Rico,PR,245,WEO
-NonOECD,Qatar,QA,245,WEO
-NonOECD,Republic of Congo,CG,245,WEO
-NonOECD,Republic of Korea,KR,245,WEO
-NonOECD,Republic of Macedonia,MK,245,WEO
-NonOECD,Republic of Moldova,MD,245,WEO
-NonOECD,Reunion,RE,245,WEO
-NonOECD,Romania,RO,245,WEO
-NonOECD,Russian Federation,RU,245,WEO
-NonOECD,Rwanda,RW,245,WEO
-NonOECD,Samoa,WS,245,WEO
-NonOECD,Saudi Arabia,SA,245,WEO
-NonOECD,Senegal,SN,245,WEO
-NonOECD,Serbia,RS,245,WEO
-NonOECD,Seychelles,SC,245,WEO
-NonOECD,Sierra Leone,SL,245,WEO
-NonOECD,Singapore,SG,245,WEO
-NonOECD,Solomon Islands,SB,245,WEO
-NonOECD,Somalia,SO,245,WEO
-NonOECD,Somaliland,SO,245,WEO
-NonOECD,South Africa,ZA,245,WEO
-NonOECD,Sri Lanka,LK,245,WEO
-NonOECD,Sudan,SD,245,WEO
-NonOECD,Suriname,SR,245,WEO
-NonOECD,Swaziland,SZ,245,WEO
-NonOECD,Syrian Arab Republic,SY,245,WEO
-NonOECD,Taiwan,TW,245,WEO
-NonOECD,Tajikistan,TJ,245,WEO
-NonOECD,Thailand,TH,245,WEO
-NonOECD,TimorLeste,TL,245,WEO
-NonOECD,Togo,TG,245,WEO
-NonOECD,Tokelau,TK,245,WEO
-NonOECD,Tonga,TO,245,WEO
-NonOECD,Trinidad and Tobago,TT,245,WEO
-NonOECD,Tunisia,TN,245,WEO
-NonOECD,Turkmenistan,TM,245,WEO
-NonOECD,Tuvalu,TV,245,WEO
-NonOECD,Uganda,UG,245,WEO
-NonOECD,Ukraine,UA,245,WEO
-NonOECD,United Arab Emirates,AE,245,WEO
-NonOECD,United Republic Of Tanzania,TZ,245,WEO
-NonOECD,Uruguay,UY,245,WEO
-NonOECD,Uzbekistan,UZ,245,WEO
-NonOECD,Vanuatu,VU,245,WEO
-NonOECD,Venezuela,VE,245,WEO
-NonOECD,Vietnam,VN,245,WEO
-NonOECD,Virgin Islands (US),VI,245,WEO
-NonOECD,Yemen,YE,245,WEO
-NonOECD,Zambia,ZM,245,WEO
-NonOECD,Zimbabwe,ZW,245,WEO
-NonOECD,AngolaCongo Republic Joint Development Area,AO,245,WEO
-NonOECD,Brunei,BN,245,WEO
-NonOECD,Comoros,KM,245,WEO
-NonOECD,Congo Republic,CG,245,WEO
-NonOECD,Cote d'Ivoire,CI,245,WEO
-NonOECD,Falkland Islands,FK,245,WEO
-NonOECD,Iran,IR,245,WEO
-NonOECD,KuwaitSaudi Arabia Partitioned Neutral Zone,KW,245,WEO
-NonOECD,Libya,LY,245,WEO
-NonOECD,Malaysia  Thailand Joint Development Area,MY,245,WEO
-NonOECD,Malaysia  Vietnam PM3 Commercial Arrangement Area,MY,245,WEO
-NonOECD,Mauritania,MR,245,WEO
-NonOECD,Russia,RU,245,WEO
-NonOECD,South Sudan,SS,245,WEO
-NonOECD,Syria,SY,245,WEO
-NonOECD,Tanzania,TZ,245,WEO
-NonOECD,Timor Sea Joint Petroleum Development Area,TL,245,WEO
-NonOECD,Saint Barthelemy,BL,245,WEO
-NonOECD,"Saint Helena,  Ascension and Tristan da Cunha",SH,245,WEO
-NonOECD,Saint Kitts and Nevis,KN,245,WEO
-NonOECD,Saint Lucia,LC,245,WEO
-NonOECD,Saint Pierre and Miquelon,PM,245,WEO
-NonOECD,Saint Vincent and the Grenadines,VC,245,WEO
-NonOECD,Sint Maarten,MF,245,WEO
-NonOECD,Antarctica,AQ,245,WEO
-NonOECD,Bonaire,BQ,245,WEO
-NonOECD,Bouvet Island,BV,245,WEO
-NonOECD,British Indian Ocean Territory,IO,245,WEO
-NonOECD,Central African Republic,CF,245,WEO
-NonOECD,Christmas Island,CX,245,WEO
-NonOECD,Cocos (Keeling) Islands,CC,245,WEO
-NonOECD,Congo,CG,245,WEO
-NonOECD,Falkland Islands (Malvinas),FK,245,WEO
-NonOECD,French Southern Territories,TF,245,WEO
-NonOECD,Heard Island and McDonald Mcdonald Islands,HM,245,WEO
-NonOECD,Holy See (Vatican City State),VA,245,WEO
-NonOECD,Hong Kong,HK,245,WEO
-NonOECD,"Iran, Islamic Republic of",IR,245,WEO
-NonOECD,"Korea, Democratic People's Republic of",KP,245,WEO
-NonOECD,Liechtenstein,LI,245,WEO
-NonOECD,Macao,MO,245,WEO
-NonOECD,"Macedonia, the Former Yugoslav Republic of",MK,245,WEO
-NonOECD,"Micronesia, Federated States of",FM,245,WEO
-NonOECD,"Moldova, Republic of",MD,245,WEO
-NonOECD,Monaco,MC,245,WEO
-NonOECD,Montserrat,MS,245,WEO
-NonOECD,Namibia,NA,245,WEO
-NonOECD,Nauru,NR,245,WEO
-NonOECD,Niue,NU,245,WEO
-NonOECD,Norfolk Island,NF,245,WEO
-NonOECD,Northern Mariana Islands,MP,245,WEO
-NonOECD,"Palestine, State of",PS,245,WEO
-NonOECD,Pitcairn,PN,245,WEO
-NonOECD,Saint Helena,SH,245,WEO
-NonOECD,Saint Martin (French part),MF,245,WEO
-NonOECD,San Marino,SM,245,WEO
-NonOECD,Sao Tome and Principe,ST,245,WEO
-NonOECD,Sint Maarten (Dutch part),SX,245,WEO
-NonOECD,South Georgia and the South Sandwich Islands,GS,245,WEO
-NonOECD,Svalbard and Jan Mayen,SJ,245,WEO
-NonOECD,"Taiwan, Province of China",TW,245,WEO
-NonOECD,Turks and Caicos Islands,TC,245,WEO
-NonOECD,United States Minor Outlying Islands,UM,245,WEO
-NonOECD,Viet Nam,VN,245,WEO
-NonOECD,US Virgin Islands,VI,245,WEO
-NonOECD,Wallis and Futuna,WF,245,WEO
-NonOECD,Western Sahara,EH,245,WEO
-NonOECD,Aland Islands,AX,245,WEO
-NonOECDAsia,Bangladesh,BD,34,NA
-NonOECDAsia,Afghanistan,AF,34,NA
-NonOECDAsia,Bhutan,BT,34,NA
-NonOECDAsia,Brunei Darussalam,BN,34,NA
-NonOECDAsia,Cambodia,KH,34,NA
-NonOECDAsia,China,CN,34,NA
-NonOECDAsia,Cook Islands,CK,34,NA
-NonOECDAsia,Democratic People's Republic of Korea,KP,34,NA
-NonOECDAsia,Fiji,FJ,34,NA
-NonOECDAsia,French Polynesia,PF,34,NA
-NonOECDAsia,India,IN,34,NA
-NonOECDAsia,Indonesia,ID,34,NA
-NonOECDAsia,Kiribati,KI,34,NA
-NonOECDAsia,Lao People's Democratic Republic,LA,34,NA
-NonOECDAsia,Macau Special Administrative Region of China,MO,34,NA
-NonOECDAsia,Malaysia,MY,34,NA
-NonOECDAsia,Maldives,MV,34,NA
-NonOECDAsia,Mongolia,MN,34,NA
-NonOECDAsia,Myanmar,MM,34,NA
-NonOECDAsia,Nepal,NP,34,NA
-NonOECDAsia,New Caledonia,NC,34,NA
-NonOECDAsia,Pakistan,PK,34,NA
-NonOECDAsia,Palau,PW,34,NA
-NonOECDAsia,Papua New Guinea,PG,34,NA
-NonOECDAsia,Philippines,PH,34,NA
-NonOECDAsia,Samoa,WS,34,NA
-NonOECDAsia,Singapore,SG,34,NA
-NonOECDAsia,Solomon Islands,SB,34,NA
-NonOECDAsia,Sri Lanka,LK,34,NA
-NonOECDAsia,Thailand,TH,34,NA
-NonOECDAsia,TimorLeste,TL,34,NA
-NonOECDAsia,Tonga,TO,34,NA
-NonOECDAsia,Vanuatu,VU,34,NA
-NonOECDAsia,Vietnam,VN,34,NA
-NonOECDAsiaRest,Bangladesh,BD,32,NA
-NonOECDAsiaRest,Afghanistan,AF,32,NA
-NonOECDAsiaRest,Bhutan,BT,32,NA
-NonOECDAsiaRest,Brunei Darussalam,BN,32,NA
-NonOECDAsiaRest,Cambodia,KH,32,NA
-NonOECDAsiaRest,Cook Islands,CK,32,NA
-NonOECDAsiaRest,Democratic People's Republic of Korea,KP,32,NA
-NonOECDAsiaRest,Fiji,FJ,32,NA
-NonOECDAsiaRest,French Polynesia,PF,32,NA
-NonOECDAsiaRest,Indonesia,ID,32,NA
-NonOECDAsiaRest,Kiribati,KI,32,NA
-NonOECDAsiaRest,Lao People's Democratic Republic,LA,32,NA
-NonOECDAsiaRest,Macau Special Administrative Region of China,MO,32,NA
-NonOECDAsiaRest,Malaysia,MY,32,NA
-NonOECDAsiaRest,Maldives,MV,32,NA
-NonOECDAsiaRest,Mongolia,MN,32,NA
-NonOECDAsiaRest,Myanmar,MM,32,NA
-NonOECDAsiaRest,Nepal,NP,32,NA
-NonOECDAsiaRest,New Caledonia,NC,32,NA
-NonOECDAsiaRest,Pakistan,PK,32,NA
-NonOECDAsiaRest,Palau,PW,32,NA
-NonOECDAsiaRest,Papua New Guinea,PG,32,NA
-NonOECDAsiaRest,Philippines,PH,32,NA
-NonOECDAsiaRest,Samoa,WS,32,NA
-NonOECDAsiaRest,Singapore,SG,32,NA
-NonOECDAsiaRest,Solomon Islands,SB,32,NA
-NonOECDAsiaRest,Sri Lanka,LK,32,NA
-NonOECDAsiaRest,Thailand,TH,32,NA
-NonOECDAsiaRest,TimorLeste,TL,32,NA
-NonOECDAsiaRest,Tonga,TO,32,NA
-NonOECDAsiaRest,Vanuatu,VU,32,NA
-NonOECDAsiaRest,Vietnam,VN,32,NA
-NonOECDRest,American Samoa,AS,47,NA
-NonOECDRest,Andorra,AD,47,NA
-NonOECDRest,Anguilla,AI,47,NA
-NonOECDRest,Faroe Islands,FO,47,NA
-NonOECDRest,Greenland,GL,47,NA
-NonOECDRest,Guam,GU,47,NA
-NonOECDRest,Guernsey,GG,47,NA
-NonOECDRest,Isle of Man,IM,47,NA
-NonOECDRest,Jersey,JE,47,NA
-NonOECDRest,Marshall Islands,MH,47,NA
-NonOECDRest,Mayotte,YT,47,NA
-NonOECDRest,Micronesia (Federated States of),FM,47,NA
-NonOECDRest,Puerto Rico,PR,47,NA
-NonOECDRest,Taiwan,TW,47,NA
-NonOECDRest,Tokelau,TK,47,NA
-NonOECDRest,Tuvalu,TV,47,NA
-NonOECDRest,Virgin Islands (US),VI,47,NA
-NonOECDRest,Saint Barthelemy,BL,47,NA
-NonOECDRest,"Saint Helena, Ascension and Tristan da Cunha",SH,47,NA
-NonOECDRest,Saint Pierre and Miquelon,PM,47,NA
-NonOECDRest,Antarctica,AQ,47,NA
-NonOECDRest,Bouvet Island,BV,47,NA
-NonOECDRest,British Indian Ocean Territory,IO,47,NA
-NonOECDRest,Christmas Island,CX,47,NA
-NonOECDRest,Cocos (Keeling) Islands,CC,47,NA
-NonOECDRest,French Southern Territories,TF,47,NA
-NonOECDRest,Heard Island and McDonald Mcdonald Islands,HM,47,NA
-NonOECDRest,Holy See (Vatican City State),VA,47,NA
-NonOECDRest,Liechtenstein,LI,47,NA
-NonOECDRest,"Micronesia, Federated States of",FM,47,NA
-NonOECDRest,Monaco,MC,47,NA
-NonOECDRest,Nauru,NR,47,NA
-NonOECDRest,Niue,NU,47,NA
-NonOECDRest,Norfolk Island,NF,47,NA
-NonOECDRest,Northern Mariana Islands,MP,47,NA
-NonOECDRest,"Palestine, State of",PS,47,NA
-NonOECDRest,Pitcairn,PN,47,NA
-NonOECDRest,Saint Helena,SH,47,NA
-NonOECDRest,San Marino,SM,47,NA
-NonOECDRest,Sint Maarten (Dutch part),SX,47,NA
-NonOECDRest,South Georgia and the South Sandwich Islands,GS,47,NA
-NonOECDRest,Svalbard and Jan Mayen,SJ,47,NA
-NonOECDRest,"Taiwan, Province of China",TW,47,NA
-NonOECDRest,United States Minor Outlying Islands,UM,47,NA
-NonOECDRest,US Virgin Islands,VI,47,NA
-NonOECDRest,Wallis and Futuna,WF,47,NA
-NonOECDRest,Aland Islands,AX,47,NA
-NorthAmerica,Canada,CA,3,WEO
-NorthAmerica,Mexico,MX,3,WEO
-NorthAmerica,United States,US,3,WEO
-NorthAmericaExUS,Canada,CA,2,NA
-NorthAmericaExUS,Mexico,MX,2,NA
-OECD,Austria,AT,34,WEO
-OECD,Belgium,BE,34,WEO
-OECD,Czech Republic,CZ,34,WEO
-OECD,Denmark,DK,34,WEO
-OECD,Estonia,EE,34,WEO
-OECD,Finland,FI,34,WEO
-OECD,France,FR,34,WEO
-OECD,Germany,DE,34,WEO
-OECD,Greece,GR,34,WEO
-OECD,Hungary,HU,34,WEO
-OECD,Iceland,IS,34,WEO
-OECD,Ireland,IE,34,WEO
-OECD,Italy,IT,34,WEO
-OECD,Luxembourg,LU,34,WEO
-OECD,Netherlands,NL,34,WEO
-OECD,Norway,NO,34,WEO
-OECD,Poland,PL,34,WEO
-OECD,Portugal,PT,34,WEO
-OECD,Slovakia,SK,34,WEO
-OECD,Slovenia,SI,34,WEO
-OECD,Spain,ES,34,WEO
-OECD,Sweden,SE,34,WEO
-OECD,Switzerland,CH,34,WEO
-OECD,Turkey,TR,34,WEO
-OECD,United Kingdom,GB,34,WEO
-OECD,Israel,IL,34,WEO
-OECD,Canada,CA,34,WEO
-OECD,Chile,CL,34,WEO
-OECD,Mexico,MX,34,WEO
-OECD,United States,US,34,WEO
-OECD,Australia,AU,34,WEO
-OECD,Japan,JP,34,WEO
-OECD,South Korea,KR,34,WEO
-OECD,New Zealand,NZ,34,WEO
-OECD & EU (R5),Albania,AL,49,NGFS
-OECD & EU (R5),Australia,AU,49,NGFS
-OECD & EU (R5),Austria,AT,49,NGFS
-OECD & EU (R5),Belgium,BE,49,NGFS
-OECD & EU (R5),Bosnia and Herzegovina,BA,49,NGFS
-OECD & EU (R5),Bulgaria,BG,49,NGFS
-OECD & EU (R5),Canada,CA,49,NGFS
-OECD & EU (R5),Croatia,HR,49,NGFS
-OECD & EU (R5),Cyprus,CY,49,NGFS
-OECD & EU (R5),Czech Republic,CZ,49,NGFS
-OECD & EU (R5),Denmark,DK,49,NGFS
-OECD & EU (R5),Estonia,EE,49,NGFS
-OECD & EU (R5),Fiji,FJ,49,NGFS
-OECD & EU (R5),Finland,FI,49,NGFS
-OECD & EU (R5),France,FR,49,NGFS
-OECD & EU (R5),French Polynesia,PF,49,NGFS
-OECD & EU (R5),Germany,DE,49,NGFS
-OECD & EU (R5),Greece,GR,49,NGFS
-OECD & EU (R5),Guam,GU,49,NGFS
-OECD & EU (R5),Hungary,HU,49,NGFS
-OECD & EU (R5),Iceland,IS,49,NGFS
-OECD & EU (R5),Ireland,IE,49,NGFS
-OECD & EU (R5),Italy,IT,49,NGFS
-OECD & EU (R5),Japan,JP,49,NGFS
-OECD & EU (R5),Latvia,LV,49,NGFS
-OECD & EU (R5),Lithuania,LT,49,NGFS
-OECD & EU (R5),Luxembourg,LU,49,NGFS
-OECD & EU (R5),Malta,MT,49,NGFS
-OECD & EU (R5),Republic of Macedonia,MK,49,NGFS
-OECD & EU (R5),Montenegro,ME,49,NGFS
-OECD & EU (R5),Netherlands,NL,49,NGFS
-OECD & EU (R5),New Caledonia,NC,49,NGFS
-OECD & EU (R5),New Zealand,NZ,49,NGFS
-OECD & EU (R5),Norway,NO,49,NGFS
-OECD & EU (R5),Poland,PL,49,NGFS
-OECD & EU (R5),Portugal,PT,49,NGFS
-OECD & EU (R5),Romania,RO,49,NGFS
-OECD & EU (R5),Samoa,WS,49,NGFS
-OECD & EU (R5),Serbia,RS,49,NGFS
-OECD & EU (R5),Slovakia,SK,49,NGFS
-OECD & EU (R5),Slovenia,SI,49,NGFS
-OECD & EU (R5),Solomon Islands,SB,49,NGFS
-OECD & EU (R5),Spain,ES,49,NGFS
-OECD & EU (R5),Sweden,SE,49,NGFS
-OECD & EU (R5),Switzerland,CH,49,NGFS
-OECD & EU (R5),Turkey,TR,49,NGFS
-OECD & EU (R5),United Kingdom,GB,49,NGFS
-OECD & EU (R5),United States,US,49,NGFS
-OECD & EU (R5),Vanuatu,VU,49,NGFS
-OECDAmericas,Canada,CA,4,NA
-OECDAmericas,Chile,CL,4,NA
-OECDAmericas,Mexico,MX,4,NA
-OECDAmericas,United States,US,4,NA
-OECDAmericasWoUS,Canada,CA,3,NA
-OECDAmericasWoUS,Chile,CL,3,NA
-OECDAmericasWoUS,Mexico,MX,3,NA
-OECDAsiaOceania,Australia,AU,4,NA
-OECDAsiaOceania,Japan,JP,4,NA
-OECDAsiaOceania,South Korea,KR,4,NA
-OECDAsiaOceania,New Zealand,NZ,4,NA
-OECDAsiaOceaniaWoJP,Australia,AU,3,NA
-OECDAsiaOceaniaWoJP,South Korea,KR,3,NA
-OECDAsiaOceaniaWoJP,New Zealand,NZ,3,NA
-OECDEurope,Austria,AT,26,NA
-OECDEurope,Belgium,BE,26,NA
-OECDEurope,Czech Republic,CZ,26,NA
-OECDEurope,Denmark,DK,26,NA
-OECDEurope,Estonia,EE,26,NA
-OECDEurope,Finland,FI,26,NA
-OECDEurope,France,FR,26,NA
-OECDEurope,Germany,DE,26,NA
-OECDEurope,Greece,GR,26,NA
-OECDEurope,Hungary,HU,26,NA
-OECDEurope,Iceland,IS,26,NA
-OECDEurope,Ireland,IE,26,NA
-OECDEurope,Italy,IT,26,NA
-OECDEurope,Luxembourg,LU,26,NA
-OECDEurope,Netherlands,NL,26,NA
-OECDEurope,Norway,NO,26,NA
-OECDEurope,Poland,PL,26,NA
-OECDEurope,Portugal,PT,26,NA
-OECDEurope,Slovakia,SK,26,NA
-OECDEurope,Slovenia,SI,26,NA
-OECDEurope,Spain,ES,26,NA
-OECDEurope,Sweden,SE,26,NA
-OECDEurope,Switzerland,CH,26,NA
-OECDEurope,Turkey,TR,26,NA
-OECDEurope,United Kingdom,GB,26,NA
-OECDEurope,Israel,IL,26,NA
-OtherCIS,Armenia,AM,9,NA
-OtherCIS,Azerbaijan,AZ,9,NA
-OtherCIS,Belarus,BY,9,NA
-OtherCIS,Georgia,GE,9,NA
-OtherCIS,Kazakhstan,KZ,9,NA
-OtherCIS,Kyrgyz Rep,KG,9,NA
-OtherCIS,Tajikistan,TJ,9,NA
-OtherCIS,Turkmenistan,TM,9,NA
-OtherCIS,Uzbekistan,UZ,9,NA
-OthersBalkans,Albania,AL,7,NA
-OthersBalkans,Bosnia Herzegovina,BA,7,NA
-OthersBalkans,Kosovo,XK,7,NA
-OthersBalkans,Macedonia,MK,7,NA
-OthersBalkans,Moldova,MD,7,NA
-OthersBalkans,Montenegro,ME,7,NA
-OthersBalkans,Serbia,RS,7,NA
-Reforming Economies (R5),Armenia,AM,12,NGFS
-Reforming Economies (R5),Azerbaijan,AZ,12,NGFS
-Reforming Economies (R5),Belarus,BY,12,NGFS
-Reforming Economies (R5),Georgia,GE,12,NGFS
-Reforming Economies (R5),Kazakhstan,KZ,12,NGFS
-Reforming Economies (R5),Kyrgyzstan,KG,12,NGFS
-Reforming Economies (R5),Republic of Moldova,MD,12,NGFS
-Reforming Economies (R5),Russian Federation,RU,12,NGFS
-Reforming Economies (R5),Tajikistan,TJ,12,NGFS
-Reforming Economies (R5),Turkmenistan,TM,12,NGFS
-Reforming Economies (R5),Ukraine,UA,12,NGFS
-Reforming Economies (R5),Uzbekistan,UZ,12,NGFS
-RestCentralAmerica,Bahamas,BS,21,NA
-RestCentralAmerica,Barbados,BB,21,NA
-RestCentralAmerica,Belize,BZ,21,NA
-RestCentralAmerica,Bermuda,BM,21,NA
-RestCentralAmerica,Costa Rica,CR,21,NA
-RestCentralAmerica,Cuba,CU,21,NA
-RestCentralAmerica,Dominica,DM,21,NA
-RestCentralAmerica,Dominican Republica,DO,21,NA
-RestCentralAmerica,El Salvador,SV,21,NA
-RestCentralAmerica,Grenada,GD,21,NA
-RestCentralAmerica,Guatemala,GT,21,NA
-RestCentralAmerica,Haiti,HT,21,NA
-RestCentralAmerica,Honduras,HN,21,NA
-RestCentralAmerica,Jamaica,JM,21,NA
-RestCentralAmerica,Nicaragua,NI,21,NA
-RestCentralAmerica,NL Antilles and Aruba,AW,21,NA
-RestCentralAmerica,Panama,PA,21,NA
-RestCentralAmerica,Sao Tome and Principe,ST,21,NA
-RestCentralAmerica,St Lucia,LC,21,NA
-RestCentralAmerica,St Vincent & Grenadines,VC,21,NA
-RestCentralAmerica,Trinidad and Tobago,TT,21,NA
-RestGulf,Bahrain,BH,7,NA
-RestGulf,Iraq,IQ,7,NA
-RestGulf,Kuwait,KW,7,NA
-RestGulf,Oman,OM,7,NA
-RestGulf,Qatar,QA,7,NA
-RestGulf,United Arab Emirates,AE,7,NA
-RestGulf,Yemen,YE,7,NA
-RestPacific,Fiji Island,FJ,7,NA
-RestPacific,Kiribati,KI,7,NA
-RestPacific,Papua New Guinea,PG,7,NA
-RestPacific,Samoa (western),WS,7,NA
-RestPacific,Solomon Islands,SB,7,NA
-RestPacific,Tonga,TO,7,NA
-RestPacific,Vanuatu,VU,7,NA
-RestSouthAmerica,Bolivia,BO,9,NA
-RestSouthAmerica,Colombia,CO,9,NA
-RestSouthAmerica,Ecuador,EC,9,NA
-RestSouthAmerica,Guyana,GY,9,NA
-RestSouthAmerica,Paraguay,PY,9,NA
-RestSouthAmerica,Peru,PE,9,NA
-RestSouthAmerica,Suriname,SR,9,NA
-RestSouthAmerica,Uruguay,UY,9,NA
-RestSouthAmerica,Venezuela,VE,9,NA
-RestSouthAsia,Afghanistan,AF,8,NA
-RestSouthAsia,Bangladesh,BD,8,NA
-RestSouthAsia,Bhutan,BT,8,NA
-RestSouthAsia,Maldives,MV,8,NA
-RestSouthAsia,Nepal,NP,8,NA
-RestSouthAsia,Pakistan,PK,8,NA
-RestSouthAsia,Seychelles,SC,8,NA
-RestSouthAsia,Sri Lanka,LK,8,NA
-RestSouthEastAsia,Brunei,BN,8,NA
-RestSouthEastAsia,Cambodia,KH,8,NA
-RestSouthEastAsia,Lao PDR,LA,8,NA
-RestSouthEastAsia,Mongolia,MN,8,NA
-RestSouthEastAsia,Myanmar,MM,8,NA
-RestSouthEastAsia,North Korea,KP,8,NA
-RestSouthEastAsia,Singapore,SG,8,NA
-RestSouthEastAsia,Taiwan,TW,8,NA
-RestSubSaharanAfrica,Burkina Faso,BF,44,NA
-RestSubSaharanAfrica,Burundi,BI,44,NA
-RestSubSaharanAfrica,Cameroon,CM,44,NA
-RestSubSaharanAfrica,Cape Verde,CV,44,NA
-RestSubSaharanAfrica,Central African Republic,CF,44,NA
-RestSubSaharanAfrica,Chad,TD,44,NA
-RestSubSaharanAfrica,Comoros,KM,44,NA
-RestSubSaharanAfrica,Congo,CG,44,NA
-RestSubSaharanAfrica,Congo DR,CD,44,NA
-RestSubSaharanAfrica,Cote d'ivoire,CI,44,NA
-RestSubSaharanAfrica,Djibouti,DJ,44,NA
-RestSubSaharanAfrica,Equatorial Guinea,GQ,44,NA
-RestSubSaharanAfrica,Eritrea,ER,44,NA
-RestSubSaharanAfrica,Ethiopia,ET,44,NA
-RestSubSaharanAfrica,Gabon,GA,44,NA
-RestSubSaharanAfrica,Gambia,GM,44,NA
-RestSubSaharanAfrica,Ghana,GH,44,NA
-RestSubSaharanAfrica,Guinea,GN,44,NA
-RestSubSaharanAfrica,Guinea-Bissau,GW,44,NA
-RestSubSaharanAfrica,kenya,KE,44,NA
-RestSubSaharanAfrica,Lesotho,LS,44,NA
-RestSubSaharanAfrica,Liberia,LR,44,NA
-RestSubSaharanAfrica,Madagascar,MG,44,NA
-RestSubSaharanAfrica,Malawi,MW,44,NA
-RestSubSaharanAfrica,Mali,ML,44,NA
-RestSubSaharanAfrica,Mauritania,MR,44,NA
-RestSubSaharanAfrica,Mauritius,MU,44,NA
-RestSubSaharanAfrica,Mozambique,MZ,44,NA
-RestSubSaharanAfrica,Namibia,NA,44,NA
-RestSubSaharanAfrica,Niger,NE,44,NA
-RestSubSaharanAfrica,Nigeria,NG,44,NA
-RestSubSaharanAfrica,Rwanda,RW,44,NA
-RestSubSaharanAfrica,Senegal,SN,44,NA
-RestSubSaharanAfrica,Sierra Leone,SL,44,NA
-RestSubSaharanAfrica,Somalia,SO,44,NA
-RestSubSaharanAfrica,Sudan,SD,44,NA
-RestSubSaharanAfrica,Swaziland,SZ,44,NA
-RestSubSaharanAfrica,Tanzania,TZ,44,NA
-RestSubSaharanAfrica,Togo,TG,44,NA
-RestSubSaharanAfrica,Uganda,UG,44,NA
-RestSubSaharanAfrica,Zambia,ZM,44,NA
-RestSubSaharanAfrica,Angola,AO,44,NA
-RestSubSaharanAfrica,Benin,BJ,44,NA
-RestSubSaharanAfrica,Botswana,BW,44,NA
-Russia,Russian Federation,RU,2,WEO
-Russia,Russia,RU,2,WEO
-SaudiArabia,Saudi Arabia,SA,1,NA
-SouthAfrica,South Africa,ZA,1,NA
-SouthKorea,South Korea,KR,1,NA
-Thailand,Thailand,TH,1,NA
-Turkey,Turkey,TR,1,NA
-UK,United Kingdom,GB,1,NA
-Ukraine,Ukraine,UA,1,NA
-USA,United States,US,1,IPR
-Vietnam,Vietnam,VN,1,NA
-AdvancedEconomies,Singapore,SG,41,NA
-AdvancedEconomies,Australia,AU,41,NA
-AdvancedEconomies,Japan,JP,41,NA
-AdvancedEconomies,New Zealand,NZ,41,NA
-AdvancedEconomies,Canada,CA,41,NA
-AdvancedEconomies,Croatia,HR,41,NA
-AdvancedEconomies,Cyprus,CY,41,NA
-AdvancedEconomies,Latvia,LV,41,NA
-AdvancedEconomies,Lithuania,LT,41,NA
-AdvancedEconomies,Malta,MT,41,NA
-AdvancedEconomies,Switzerland,CH,41,NA
-AdvancedEconomies,Norway,NO,41,NA
-AdvancedEconomies,Iceland,IS,41,NA
-AdvancedEconomies,United Kingdom,GB,41,NA
-AdvancedEconomies,Austria,AT,41,NA
-AdvancedEconomies,Belgium,BE,41,NA
-AdvancedEconomies,Czech Republic,CZ,41,NA
-AdvancedEconomies,Denmark,DK,41,NA
-AdvancedEconomies,Estonia,EE,41,NA
-AdvancedEconomies,Finland,FI,41,NA
-AdvancedEconomies,France,FR,41,NA
-AdvancedEconomies,Germany,DE,41,NA
-AdvancedEconomies,Greece,GR,41,NA
-AdvancedEconomies,Ireland,IE,41,NA
-AdvancedEconomies,Italy,IT,41,NA
-AdvancedEconomies,Luxembourg,LU,41,NA
-AdvancedEconomies,Portugal,PT,41,NA
-AdvancedEconomies,Slovenia,SI,41,NA
-AdvancedEconomies,Spain,ES,41,NA
-AdvancedEconomies,Sweden,SE,41,NA
-AdvancedEconomies,Israel,IL,41,NA
-AdvancedEconomies,Andorra,AD,41,NA
-AdvancedEconomies,Puerto Rico,PR,41,NA
-AdvancedEconomies,United States,US,41,NA
-AdvancedEconomies,San Marino,SM,41,NA
-AdvancedEconomies,"Korea,  Republic of",KR,41,NA
-AdvancedEconomies,Hong Kong,HK,41,NA
-AdvancedEconomies,Macao,MO,41,NA
-AdvancedEconomies,Netherlands,NL,41,NA
-AdvancedEconomies,Slovakia,SK,41,NA
-AdvancedEconomies,Taiwan,TW,41,NA
-Emergingmarket&developingeconomies,Algeria,DZ,149,NA
-Emergingmarket&developingeconomies,Angola,AO,149,NA
-Emergingmarket&developingeconomies,Benin,BJ,149,NA
-Emergingmarket&developingeconomies,Botswana,BW,149,NA
-Emergingmarket&developingeconomies,Burkina Faso,BF,149,NA
-Emergingmarket&developingeconomies,Burundi,BI,149,NA
-Emergingmarket&developingeconomies,Cameroon,CM,149,NA
-Emergingmarket&developingeconomies,Chad,TD,149,NA
-Emergingmarket&developingeconomies,Comoros,KM,149,NA
-Emergingmarket&developingeconomies,Djibouti,DJ,149,NA
-Emergingmarket&developingeconomies,Egypt,EG,149,NA
-Emergingmarket&developingeconomies,Equatorial Guinea,GQ,149,NA
-Emergingmarket&developingeconomies,Eritrea,ER,149,NA
-Emergingmarket&developingeconomies,Ethiopia,ET,149,NA
-Emergingmarket&developingeconomies,Gabon,GA,149,NA
-Emergingmarket&developingeconomies,Ghana,GH,149,NA
-Emergingmarket&developingeconomies,Guinea,GN,149,NA
-Emergingmarket&developingeconomies,Kenya,KE,149,NA
-Emergingmarket&developingeconomies,Lesotho,LS,149,NA
-Emergingmarket&developingeconomies,Liberia,LR,149,NA
-Emergingmarket&developingeconomies,Libya,LY,149,NA
-Emergingmarket&developingeconomies,Madagascar,MG,149,NA
-Emergingmarket&developingeconomies,Malawi,MW,149,NA
-Emergingmarket&developingeconomies,Mali,ML,149,NA
-Emergingmarket&developingeconomies,Islamic Republic of Mauritania,MR,149,NA
-Emergingmarket&developingeconomies,Mauritius,MU,149,NA
-Emergingmarket&developingeconomies,Morocco,MA,149,NA
-Emergingmarket&developingeconomies,Mozambique,MZ,149,NA
-Emergingmarket&developingeconomies,NA,NA,149,NA
-Emergingmarket&developingeconomies,Niger,NE,149,NA
-Emergingmarket&developingeconomies,Nigeria,NG,149,NA
-Emergingmarket&developingeconomies,Rwanda,RW,149,NA
-Emergingmarket&developingeconomies,Senegal,SN,149,NA
-Emergingmarket&developingeconomies,Seychelles,SC,149,NA
-Emergingmarket&developingeconomies,Sierra Leone,SL,149,NA
-Emergingmarket&developingeconomies,Somalia,SO,149,NA
-Emergingmarket&developingeconomies,South Africa,ZA,149,NA
-Emergingmarket&developingeconomies,South Sudan,SS,149,NA
-Emergingmarket&developingeconomies,Sudan,SD,149,NA
-Emergingmarket&developingeconomies,Togo,TG,149,NA
-Emergingmarket&developingeconomies,Tunisia,TN,149,NA
-Emergingmarket&developingeconomies,Uganda,UG,149,NA
-Emergingmarket&developingeconomies,Zambia,ZM,149,NA
-Emergingmarket&developingeconomies,Zimbabwe,ZW,149,NA
-Emergingmarket&developingeconomies,Argentina,AR,149,NA
-Emergingmarket&developingeconomies,Indonesia,ID,149,NA
-Emergingmarket&developingeconomies,Brunei,BN,149,NA
-Emergingmarket&developingeconomies,Cambodia,KH,149,NA
-Emergingmarket&developingeconomies,Malaysia,MY,149,NA
-Emergingmarket&developingeconomies,Myanmar,MM,149,NA
-Emergingmarket&developingeconomies,Philippines,PH,149,NA
-Emergingmarket&developingeconomies,Thailand,TH,149,NA
-Emergingmarket&developingeconomies,Viet Nam,VN,149,NA
-Emergingmarket&developingeconomies,Afghanistan,AF,149,NA
-Emergingmarket&developingeconomies,Bangladesh,BD,149,NA
-Emergingmarket&developingeconomies,Bhutan,BT,149,NA
-Emergingmarket&developingeconomies,China,CN,149,NA
-Emergingmarket&developingeconomies,India,IN,149,NA
-Emergingmarket&developingeconomies,Maldives,MV,149,NA
-Emergingmarket&developingeconomies,Mongolia,MN,149,NA
-Emergingmarket&developingeconomies,Nepal,NP,149,NA
-Emergingmarket&developingeconomies,Pakistan,PK,149,NA
-Emergingmarket&developingeconomies,Papua New Guinea,PG,149,NA
-Emergingmarket&developingeconomies,Sri Lanka,LK,149,NA
-Emergingmarket&developingeconomies,Fiji,FJ,149,NA
-Emergingmarket&developingeconomies,Kiribati,KI,149,NA
-Emergingmarket&developingeconomies,Palau,PW,149,NA
-Emergingmarket&developingeconomies,Samoa,WS,149,NA
-Emergingmarket&developingeconomies,Solomon Islands,SB,149,NA
-Emergingmarket&developingeconomies,Tonga,TO,149,NA
-Emergingmarket&developingeconomies,Vanuatu,VU,149,NA
-Emergingmarket&developingeconomies,Brazil,BR,149,NA
-Emergingmarket&developingeconomies,Chile,CL,149,NA
-Emergingmarket&developingeconomies,Albania,AL,149,NA
-Emergingmarket&developingeconomies,Armenia,AM,149,NA
-Emergingmarket&developingeconomies,Azerbaijan,AZ,149,NA
-Emergingmarket&developingeconomies,Belarus,BY,149,NA
-Emergingmarket&developingeconomies,Bulgaria,BG,149,NA
-Emergingmarket&developingeconomies,Georgia,GE,149,NA
-Emergingmarket&developingeconomies,Kazakhstan,KZ,149,NA
-Emergingmarket&developingeconomies,Serbia,RS,149,NA
-Emergingmarket&developingeconomies,Montenegro,ME,149,NA
-Emergingmarket&developingeconomies,Romania,RO,149,NA
-Emergingmarket&developingeconomies,Tajikistan,TJ,149,NA
-Emergingmarket&developingeconomies,Turkmenistan,TM,149,NA
-Emergingmarket&developingeconomies,Ukraine,UA,149,NA
-Emergingmarket&developingeconomies,Uzbekistan,UZ,149,NA
-Emergingmarket&developingeconomies,Hungary,HU,149,NA
-Emergingmarket&developingeconomies,Poland,PL,149,NA
-Emergingmarket&developingeconomies,Russia,EU,149,NA
-Emergingmarket&developingeconomies,Russia,RU,149,NA
-Emergingmarket&developingeconomies,Aruba,AW,149,NA
-Emergingmarket&developingeconomies,Bahrain,BH,149,NA
-Emergingmarket&developingeconomies,Barbados,BB,149,NA
-Emergingmarket&developingeconomies,Belize,BZ,149,NA
-Emergingmarket&developingeconomies,Bolivia,BO,149,NA
-Emergingmarket&developingeconomies,Colombia,CO,149,NA
-Emergingmarket&developingeconomies,Costa Rica,CR,149,NA
-Emergingmarket&developingeconomies,Dominica,DM,149,NA
-Emergingmarket&developingeconomies,Dominican Republic,DO,149,NA
-Emergingmarket&developingeconomies,Ecuador,EC,149,NA
-Emergingmarket&developingeconomies,El Salvador,SV,149,NA
-Emergingmarket&developingeconomies,Grenada,GD,149,NA
-Emergingmarket&developingeconomies,Guatemala,GT,149,NA
-Emergingmarket&developingeconomies,Guyana,GY,149,NA
-Emergingmarket&developingeconomies,Haiti,HT,149,NA
-Emergingmarket&developingeconomies,Honduras,HN,149,NA
-Emergingmarket&developingeconomies,Iraq,IQ,149,NA
-Emergingmarket&developingeconomies,Jamaica,JM,149,NA
-Emergingmarket&developingeconomies,Jordan,JO,149,NA
-Emergingmarket&developingeconomies,Kuwait,KW,149,NA
-Emergingmarket&developingeconomies,Lebanon,LB,149,NA
-Emergingmarket&developingeconomies,Marshall Islands,MH,149,NA
-Emergingmarket&developingeconomies,Mexico,MX,149,NA
-Emergingmarket&developingeconomies,Nicaragua,NI,149,NA
-Emergingmarket&developingeconomies,Oman,OM,149,NA
-Emergingmarket&developingeconomies,Panama,PA,149,NA
-Emergingmarket&developingeconomies,Paraguay,PY,149,NA
-Emergingmarket&developingeconomies,Peru,PE,149,NA
-Emergingmarket&developingeconomies,Qatar,QA,149,NA
-Emergingmarket&developingeconomies,Congo,CG,149,NA
-Emergingmarket&developingeconomies,Saudi Arabia,SA,149,NA
-Emergingmarket&developingeconomies,Suriname,SR,149,NA
-Emergingmarket&developingeconomies,Trinidad and Tobago,TT,149,NA
-Emergingmarket&developingeconomies,Tuvalu,TV,149,NA
-Emergingmarket&developingeconomies,Uruguay,UY,149,NA
-Emergingmarket&developingeconomies,Venezuela,VE,149,NA
-Emergingmarket&developingeconomies,Yemen,YE,149,NA
-Emergingmarket&developingeconomies,Iran,IR,149,NA
-Emergingmarket&developingeconomies,Syria,SY,149,NA
-Emergingmarket&developingeconomies,Tanzania,TZ,149,NA
-Emergingmarket&developingeconomies,Nauru,NR,149,NA
-Emergingmarket&developingeconomies,Moldova,MD,149,NA
-Emergingmarket&developingeconomies,Guinea-Bissau,GW,149,NA
-Emergingmarket&developingeconomies,Antigua And Barbuda,AG,149,NA
-Emergingmarket&developingeconomies,Bahamas,BS,149,NA
-Emergingmarket&developingeconomies,Bosnia Herzegovina,BA,149,NA
-Emergingmarket&developingeconomies,Cape Verde,CV,149,NA
-Emergingmarket&developingeconomies,Central African Republic,CF,149,NA
-Emergingmarket&developingeconomies,Congo DR,CD,149,NA
-Emergingmarket&developingeconomies,Cote d'Ivoire,CI,149,NA
-Emergingmarket&developingeconomies,Kyrgyz Rep,KG,149,NA
-Emergingmarket&developingeconomies,Gambia,GM,149,NA
-Emergingmarket&developingeconomies,Lao PDR,LA,149,NA
-Emergingmarket&developingeconomies,Macedonia,MK,149,NA
-Emergingmarket&developingeconomies,Micronesia (Federated States of),FM,149,NA
-Emergingmarket&developingeconomies,Sao Tome and Principe,ST,149,NA
-Emergingmarket&developingeconomies,Turkey,TR,149,NA
-Emergingmarket&developingeconomies,United Arab Emirates,AE,149,NA
-AUS,Australia,AU,1,IPR
-BRA,Brazil,BR,1,IPR
-CAN,Canada,CA,1,IPR
-CSA,Argentina,AR,27,IPR
-CSA,Chile,CL,27,IPR
-CSA,Belize,BZ,27,IPR
-CSA,Colombia,CO,27,IPR
-CSA,Costa Rica,CR,27,IPR
-CSA,Cuba,CU,27,IPR
-CSA,Dominican Republic,DO,27,IPR
-CSA,Ecuador,EC,27,IPR
-CSA,El Salvador,SV,27,IPR
-CSA,French Guiana,GF,27,IPR
-CSA,Guatemala,GT,27,IPR
-CSA,Guyana,GY,27,IPR
-CSA,Haiti,HT,27,IPR
-CSA,Honduras,HN,27,IPR
-CSA,Jamaica,JM,27,IPR
-CSA,Mexico,MX,27,IPR
-CSA,Nicaragua,NI,27,IPR
-CSA,Panama,PA,27,IPR
-CSA,Paraguay,PY,27,IPR
-CSA,Peru,PE,27,IPR
-CSA,Suriname,SR,27,IPR
-CSA,Trinidad and Tobago,TT,27,IPR
-CSA,Uruguay,UY,27,IPR
-CSA,Bolivia,BO,27,IPR
-CSA,Venezuela,VE,27,IPR
-CSA,Aruba,AW,27,IPR
-CSA,Curacao,CW,27,IPR
-EEU,Bulgaria,BG,11,IPR
-EEU,Croatia,HR,11,IPR
-EEU,Latvia,LV,11,IPR
-EEU,Lithuania,LT,11,IPR
-EEU,Romania,RO,11,IPR
-EEU,Czech Republic,CZ,11,IPR
-EEU,Estonia,EE,11,IPR
-EEU,Hungary,HU,11,IPR
-EEU,Poland,PL,11,IPR
-EEU,Slovenia,SI,11,IPR
-EEU,Slovakia,SK,11,IPR
-EURA,Mongolia,MN,17,IPR
-EURA,Albania,AL,17,IPR
-EURA,Armenia,AM,17,IPR
-EURA,Azerbaijan,AZ,17,IPR
-EURA,Belarus,BY,17,IPR
-EURA,Bosnia Herzegovina,BA,17,IPR
-EURA,Georgia,GE,17,IPR
-EURA,Kazakhstan,KZ,17,IPR
-EURA,Serbia,RS,17,IPR
-EURA,Kyrgyz Rep,KG,17,IPR
-EURA,Montenegro,ME,17,IPR
-EURA,Tajikistan,TJ,17,IPR
-EURA,Moldova,MD,17,IPR
-EURA,Turkmenistan,TM,17,IPR
-EURA,Ukraine,UA,17,IPR
-EURA,Uzbekistan,UZ,17,IPR
-EURA,Macedonia,MK,17,IPR
-GBR,United Kingdom,GB,1,IPR
-GCC,Bahrain,BH,6,IPR
-GCC,Kuwait,KW,6,IPR
-GCC,Oman,OM,6,IPR
-GCC,Qatar,QA,6,IPR
-GCC,Saudi Arabia,SA,6,IPR
-GCC,United Arab Emirates,AE,6,IPR
-IDN,India,IN,1,IPR
-JPN,Japan,JP,1,IPR
-KOR,"Korea,  Republic of",KR,1,IPR
-MENA,Algeria,DZ,15,IPR
-MENA,Egypt,EG,15,IPR
-MENA,Eritrea,ER,15,IPR
-MENA,Libya,LY,15,IPR
-MENA,Morocco,MA,15,IPR
-MENA,Sudan,SD,15,IPR
-MENA,Tunisia,TN,15,IPR
-MENA,Israel,IL,15,IPR
-MENA,Turkey,TR,15,IPR
-MENA,Iraq,IQ,15,IPR
-MENA,Jordan,JO,15,IPR
-MENA,Lebanon,LB,15,IPR
-MENA,Syria,SY,15,IPR
-MENA,Yemen,YE,15,IPR
-MENA,Iran,IR,15,IPR
-RUS,Russia,RU,1,IPR
-SA,Bangladesh,BD,4,IPR
-SA,Nepal,NP,4,IPR
-SA,Pakistan,PK,4,IPR
-SA,Sri Lanka,LK,4,IPR
-SEAO,Brunei,BN,13,IPR
-SEAO,Cambodia,KH,13,IPR
-SEAO,Lao PDR,LA,13,IPR
-SEAO,Malaysia,MY,13,IPR
-SEAO,Myanmar,MM,13,IPR
-SEAO,Philippines,PH,13,IPR
-SEAO,Singapore,SG,13,IPR
-SEAO,Thailand,TH,13,IPR
-SEAO,"Korea,  Republic of",KR,13,IPR
-SEAO,Democratic People's Republic of Korea,KP,13,IPR
-SEAO,New Zealand,NZ,13,IPR
-SEAO,Viet Nam,VN,13,IPR
-SEAO,Taiwan,TW,13,IPR
-SSA,Angola,AO,22,IPR
-SSA,Benin,BJ,22,IPR
-SSA,Botswana,BW,22,IPR
-SSA,Cameroon,CM,22,IPR
-SSA,Equatorial Guinea,GQ,22,IPR
-SSA,Ethiopia,ET,22,IPR
-SSA,Gabon,GA,22,IPR
-SSA,Ghana,GH,22,IPR
-SSA,Kenya,KE,22,IPR
-SSA,Mauritius,MU,22,IPR
-SSA,Mozambique,MZ,22,IPR
-SSA,NA,NA,22,IPR
-SSA,Niger,NE,22,IPR
-SSA,Nigeria,NG,22,IPR
-SSA,Senegal,SN,22,IPR
-SSA,South Sudan,SS,22,IPR
-SSA,Congo DR,CD,22,IPR
-SSA,Tanzania,TZ,22,IPR
-SSA,Togo,TG,22,IPR
-SSA,Zambia,ZM,22,IPR
-SSA,Zimbabwe,ZW,22,IPR
-SSA,Cote d'Ivoire,CI,22,IPR
-WEU,Cyprus,CY,21,IPR
-WEU,Gibraltar,GI,21,IPR
-WEU,Malta,MT,21,IPR
-WEU,Switzerland,CH,21,IPR
-WEU,Norway,NO,21,IPR
-WEU,Iceland,IS,21,IPR
-WEU,Austria,AT,21,IPR
-WEU,Belgium,BE,21,IPR
-WEU,Denmark,DK,21,IPR
-WEU,Finland,FI,21,IPR
-WEU,France,FR,21,IPR
-WEU,Germany,DE,21,IPR
-WEU,Greece,GR,21,IPR
-WEU,Ireland,IE,21,IPR
-WEU,Italy,IT,21,IPR
-WEU,Luxembourg,LU,21,IPR
-WEU,Netherlands,NL,21,IPR
-WEU,Portugal,PT,21,IPR
-WEU,Spain,ES,21,IPR
-WEU,Sweden,SE,21,IPR
-WEU,Greenland,GL,21,IPR
-ZAF,South Africa,ZA,1,IPR
+scenario_geography,country,country_iso,reg_count,scenario_provider,scenario_geography_newname
+Africa,Algeria,DZ,56,WEO,Africa
+Africa,Angola,AO,56,WEO,Africa
+Africa,Benin,BJ,56,WEO,Africa
+Africa,Botswana,BW,56,WEO,Africa
+Africa,Burkina Faso,BF,56,WEO,Africa
+Africa,Burundi,BI,56,WEO,Africa
+Africa,Cape Verde,CV,56,WEO,Africa
+Africa,Cameroon,CM,56,WEO,Africa
+Africa,Central African Republic,CF,56,WEO,Africa
+Africa,Chad,TD,56,WEO,Africa
+Africa,Comoros,KM,56,WEO,Africa
+Africa,Cote d'Ivoire,CI,56,WEO,Africa
+Africa,Djibouti,DJ,56,WEO,Africa
+Africa,Egypt,EG,56,WEO,Africa
+Africa,Equatorial Guinea,GQ,56,WEO,Africa
+Africa,Eritrea,ER,56,WEO,Africa
+Africa,Ethiopia,ET,56,WEO,Africa
+Africa,Gabon,GA,56,WEO,Africa
+Africa,Gambia,GM,56,WEO,Africa
+Africa,Ghana,GH,56,WEO,Africa
+Africa,Guinea,GN,56,WEO,Africa
+Africa,GuineaBissau,GW,56,WEO,Africa
+Africa,Kenya,KE,56,WEO,Africa
+Africa,Lesotho,LS,56,WEO,Africa
+Africa,Liberia,LR,56,WEO,Africa
+Africa,Libya,LY,56,WEO,Africa
+Africa,Madagascar,MG,56,WEO,Africa
+Africa,Malawi,MW,56,WEO,Africa
+Africa,Mali,ML,56,WEO,Africa
+Africa,Mauritania,MR,56,WEO,Africa
+Africa,Mauritius,MU,56,WEO,Africa
+Africa,Morocco,MA,56,WEO,Africa
+Africa,Mozambique,MZ,56,WEO,Africa
+Africa,Namibia,NA,56,WEO,Africa
+Africa,Niger,NE,56,WEO,Africa
+Africa,Nigeria,NG,56,WEO,Africa
+Africa,Reunion,RE,56,WEO,Africa
+Africa,Rwanda,RW,56,WEO,Africa
+Africa,Sao Tome and Principe,ST,56,WEO,Africa
+Africa,Senegal,SN,56,WEO,Africa
+Africa,Seychelles,SC,56,WEO,Africa
+Africa,Sierra Leone,SL,56,WEO,Africa
+Africa,Somalia,SO,56,WEO,Africa
+Africa,South Africa,ZA,56,WEO,Africa
+Africa,South Sudan,SS,56,WEO,Africa
+Africa,Sudan,SD,56,WEO,Africa
+Africa,Swaziland,SZ,56,WEO,Africa
+Africa,Democratic Republic of the Congo,CD,56,WEO,Africa
+Africa,Congo Republic,CG,56,WEO,Africa
+Africa,United Republic of Tanzania,TZ,56,WEO,Africa
+Africa,Togo,TG,56,WEO,Africa
+Africa,Tunisia,TN,56,WEO,Africa
+Africa,Uganda,UG,56,WEO,Africa
+Africa,Western Sahara,EH,56,WEO,Africa
+Africa,Zambia,ZM,56,WEO,Africa
+Africa,Zimbabwe,ZW,56,WEO,Africa
+AfricaWoZA,Algeria,DZ,55,NA,AfricaWoZA
+AfricaWoZA,Angola,AO,55,NA,AfricaWoZA
+AfricaWoZA,Benin,BJ,55,NA,AfricaWoZA
+AfricaWoZA,Botswana,BW,55,NA,AfricaWoZA
+AfricaWoZA,Burkina Faso,BF,55,NA,AfricaWoZA
+AfricaWoZA,Burundi,BI,55,NA,AfricaWoZA
+AfricaWoZA,Cape Verde,CV,55,NA,AfricaWoZA
+AfricaWoZA,Cameroon,CM,55,NA,AfricaWoZA
+AfricaWoZA,Central African Republic,CF,55,NA,AfricaWoZA
+AfricaWoZA,Chad,TD,55,NA,AfricaWoZA
+AfricaWoZA,Comoros,KM,55,NA,AfricaWoZA
+AfricaWoZA,Cote d'Ivoire,CI,55,NA,AfricaWoZA
+AfricaWoZA,Djibouti,DJ,55,NA,AfricaWoZA
+AfricaWoZA,Egypt,EG,55,NA,AfricaWoZA
+AfricaWoZA,Equatorial Guinea,GQ,55,NA,AfricaWoZA
+AfricaWoZA,Eritrea,ER,55,NA,AfricaWoZA
+AfricaWoZA,Ethiopia,ET,55,NA,AfricaWoZA
+AfricaWoZA,Gabon,GA,55,NA,AfricaWoZA
+AfricaWoZA,Gambia,GM,55,NA,AfricaWoZA
+AfricaWoZA,Ghana,GH,55,NA,AfricaWoZA
+AfricaWoZA,Guinea,GN,55,NA,AfricaWoZA
+AfricaWoZA,GuineaBissau,GW,55,NA,AfricaWoZA
+AfricaWoZA,Kenya,KE,55,NA,AfricaWoZA
+AfricaWoZA,Lesotho,LS,55,NA,AfricaWoZA
+AfricaWoZA,Liberia,LR,55,NA,AfricaWoZA
+AfricaWoZA,Libya,LY,55,NA,AfricaWoZA
+AfricaWoZA,Madagascar,MG,55,NA,AfricaWoZA
+AfricaWoZA,Malawi,MW,55,NA,AfricaWoZA
+AfricaWoZA,Mali,ML,55,NA,AfricaWoZA
+AfricaWoZA,Mauritania,MR,55,NA,AfricaWoZA
+AfricaWoZA,Mauritius,MU,55,NA,AfricaWoZA
+AfricaWoZA,Morocco,MA,55,NA,AfricaWoZA
+AfricaWoZA,Mozambique,MZ,55,NA,AfricaWoZA
+AfricaWoZA,Namibia,NA,55,NA,AfricaWoZA
+AfricaWoZA,Niger,NE,55,NA,AfricaWoZA
+AfricaWoZA,Nigeria,NG,55,NA,AfricaWoZA
+AfricaWoZA,Reunion,RE,55,NA,AfricaWoZA
+AfricaWoZA,Rwanda,RW,55,NA,AfricaWoZA
+AfricaWoZA,Sao Tome and Principe,ST,55,NA,AfricaWoZA
+AfricaWoZA,Senegal,SN,55,NA,AfricaWoZA
+AfricaWoZA,Seychelles,SC,55,NA,AfricaWoZA
+AfricaWoZA,Sierra Leone,SL,55,NA,AfricaWoZA
+AfricaWoZA,Somalia,SO,55,NA,AfricaWoZA
+AfricaWoZA,South Sudan,SS,55,NA,AfricaWoZA
+AfricaWoZA,Sudan,SD,55,NA,AfricaWoZA
+AfricaWoZA,Swaziland,SZ,55,NA,AfricaWoZA
+AfricaWoZA,Democratic Republic of the Congo,CD,55,NA,AfricaWoZA
+AfricaWoZA,Congo Republic,CG,55,NA,AfricaWoZA
+AfricaWoZA,United Republic of Tanzania,TZ,55,NA,AfricaWoZA
+AfricaWoZA,Togo,TG,55,NA,AfricaWoZA
+AfricaWoZA,Tunisia,TN,55,NA,AfricaWoZA
+AfricaWoZA,Uganda,UG,55,NA,AfricaWoZA
+AfricaWoZA,Western Sahara,EH,55,NA,AfricaWoZA
+AfricaWoZA,Zambia,ZM,55,NA,AfricaWoZA
+AfricaWoZA,Zimbabwe,ZW,55,NA,AfricaWoZA
+Algeria&Libya,Algeria,DZ,2,NA,AlgeriaAndLibya
+Algeria&Libya,Libya,LY,2,NA,AlgeriaAndLibya
+Argentina,Argentina,AR,1,NA,Argentina
+ASEAN,Indonesia,ID,10,NA,ASEAN
+ASEAN,Brunei Darussalam,BN,10,NA,ASEAN
+ASEAN,Cambodia,KH,10,NA,ASEAN
+ASEAN,Lao People's Democratic Republic,LA,10,NA,ASEAN
+ASEAN,Malaysia,MY,10,NA,ASEAN
+ASEAN,Myanmar,MM,10,NA,ASEAN
+ASEAN,Philippines,PH,10,NA,ASEAN
+ASEAN,Singapore,SG,10,NA,ASEAN
+ASEAN,Thailand,TH,10,NA,ASEAN
+ASEAN,Vietnam,VN,10,NA,ASEAN
+Asia (R5),Afghanistan,AF,27,NGFS,Asia
+Asia (R5),Bangladesh,BD,27,NGFS,Asia
+Asia (R5),Bhutan,BT,27,NGFS,Asia
+Asia (R5),Brunei Darussalam,BN,27,NGFS,Asia
+Asia (R5),Cambodia,KH,27,NGFS,Asia
+Asia (R5),China,CN,27,NGFS,Asia
+Asia (R5),Hong Kong Special Administrative Region of China,HK,27,NGFS,Asia
+Asia (R5),Macau Special Administrative Region of China,MO,27,NGFS,Asia
+Asia (R5),Democratic People's Republic of Korea,KP,27,NGFS,Asia
+Asia (R5),TimorLeste,TL,27,NGFS,Asia
+Asia (R5),India,IN,27,NGFS,Asia
+Asia (R5),Indonesia,ID,27,NGFS,Asia
+Asia (R5),Lao People's Democratic Republic,LA,27,NGFS,Asia
+Asia (R5),Malaysia,MY,27,NGFS,Asia
+Asia (R5),Maldives,MV,27,NGFS,Asia
+Asia (R5),Mongolia,MN,27,NGFS,Asia
+Asia (R5),Myanmar,MM,27,NGFS,Asia
+Asia (R5),Nepal,NP,27,NGFS,Asia
+Asia (R5),Pakistan,PK,27,NGFS,Asia
+Asia (R5),Papua New Guinea,PG,27,NGFS,Asia
+Asia (R5),Philippines,PH,27,NGFS,Asia
+Asia (R5),Republic of Korea,KR,27,NGFS,Asia
+Asia (R5),Singapore,SG,27,NGFS,Asia
+Asia (R5),Sri Lanka,LK,27,NGFS,Asia
+Asia (R5),Taiwan,TW,27,NGFS,Asia
+Asia (R5),Thailand,TH,27,NGFS,Asia
+Asia (R5),VietNam,VN,27,NGFS,Asia
+AsiaPacific,Afghanistan,AF,39,WEO,AsiaPacific
+AsiaPacific,Australia,AU,39,WEO,AsiaPacific
+AsiaPacific,Bangladesh,BD,39,WEO,AsiaPacific
+AsiaPacific,Bhutan,BT,39,WEO,AsiaPacific
+AsiaPacific,Brunei Darussalam,BN,39,WEO,AsiaPacific
+AsiaPacific,Cambodia,KH,39,WEO,AsiaPacific
+AsiaPacific,China,CN,39,WEO,AsiaPacific
+AsiaPacific,Cook Islands,CK,39,WEO,AsiaPacific
+AsiaPacific,Democratic People's Republic of Korea,KP,39,WEO,AsiaPacific
+AsiaPacific,Fiji,FJ,39,WEO,AsiaPacific
+AsiaPacific,French Polynesia,PF,39,WEO,AsiaPacific
+AsiaPacific,India,IN,39,WEO,AsiaPacific
+AsiaPacific,Indonesia,ID,39,WEO,AsiaPacific
+AsiaPacific,Japan,JP,39,WEO,AsiaPacific
+AsiaPacific,Kiribati,KI,39,WEO,AsiaPacific
+AsiaPacific,Lao People's Democratic Republic,LA,39,WEO,AsiaPacific
+AsiaPacific,Macau Special Administrative Region of China,MO,39,WEO,AsiaPacific
+AsiaPacific,Malaysia,MY,39,WEO,AsiaPacific
+AsiaPacific,Maldives,MV,39,WEO,AsiaPacific
+AsiaPacific,Mongolia,MN,39,WEO,AsiaPacific
+AsiaPacific,Myanmar,MM,39,WEO,AsiaPacific
+AsiaPacific,Nepal,NP,39,WEO,AsiaPacific
+AsiaPacific,New Caledonia,NC,39,WEO,AsiaPacific
+AsiaPacific,New Zealand,NZ,39,WEO,AsiaPacific
+AsiaPacific,Pakistan,PK,39,WEO,AsiaPacific
+AsiaPacific,Palau,PW,39,WEO,AsiaPacific
+AsiaPacific,Papua New Guinea,PG,39,WEO,AsiaPacific
+AsiaPacific,Philippines,PH,39,WEO,AsiaPacific
+AsiaPacific,Samoa,WS,39,WEO,AsiaPacific
+AsiaPacific,Singapore,SG,39,WEO,AsiaPacific
+AsiaPacific,Solomon Islands,SB,39,WEO,AsiaPacific
+AsiaPacific,South Korea,KR,39,WEO,AsiaPacific
+AsiaPacific,Sri Lanka,LK,39,WEO,AsiaPacific
+AsiaPacific,Thailand,TH,39,WEO,AsiaPacific
+AsiaPacific,TimorLeste,TL,39,WEO,AsiaPacific
+AsiaPacific,Tonga,TO,39,WEO,AsiaPacific
+AsiaPacific,Vanuatu,VU,39,WEO,AsiaPacific
+AsiaPacific,Vietnam,VN,39,WEO,AsiaPacific
+AsiaPacific,Hong Kong,HK,39,WEO,AsiaPacific
+Australia,Australia,AU,1,NA,Australia
+Brazil,Brazil,BR,1,WEO,Brazil
+Canada,Canada,CA,1,NA,Canada
+Chile,Chile,CL,1,NA,Chile
+China,China,CN,2,WEO,China
+China,Hong Kong Special Administrative Region of China,HK,2,WEO,China
+CHN,China,CN,1,IPR,CHN
+EEurope_Eurasia,Albania,AL,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Armenia,AM,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Azerbaijan,AZ,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Belarus,BY,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Bosnia and Herzegovina,BA,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Bulgaria,BG,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Croatia,HR,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Cyprus,CY,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Georgia,GE,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Gibraltar,GI,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Kazakhstan,KZ,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Kosovo,XK,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Kyrgyzstan,KG,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Latvia,LV,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Lithuania,LT,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Malta,MT,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Montenegro,ME,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Republic of Macedonia,MK,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Romania,RO,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Russian Federation,RU,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Serbia,RS,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Tajikistan,TJ,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Republic of Moldova,MD,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Turkmenistan,TM,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Ukraine,UA,26,NA,EEurope_Eurasia
+EEurope_Eurasia,Uzbekistan,UZ,26,NA,EEurope_Eurasia
+EEurope_EurasiaWoRU,Albania,AL,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Armenia,AM,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Azerbaijan,AZ,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Belarus,BY,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Bosnia and Herzegovina,BA,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Bulgaria,BG,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Croatia,HR,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Cyprus,CY,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Georgia,GE,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Gibraltar,GI,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Kazakhstan,KZ,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Kosovo,XK,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Kyrgyzstan,KG,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Latvia,LV,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Lithuania,LT,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Malta,MT,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Montenegro,ME,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Republic of Macedonia,MK,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Romania,RO,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Serbia,RS,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Tajikistan,TJ,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Republic of Moldova,MD,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Turkmenistan,TM,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Ukraine,UA,25,NA,EEurope_EurasiaWoRU
+EEurope_EurasiaWoRU,Uzbekistan,UZ,25,NA,EEurope_EurasiaWoRU
+EFTA,Switzerland,CH,4,NA,EFTA
+EFTA,Norway,NO,4,NA,EFTA
+EFTA,Iceland,IS,4,NA,EFTA
+EFTA,Liechtenstein,LI,4,NA,EFTA
+EFTA+UK,Switzerland,CH,5,NA,EFTA+UK
+EFTA+UK,Norway,NO,5,NA,EFTA+UK
+EFTA+UK,Iceland,IS,5,NA,EFTA+UK
+EFTA+UK,Liechtenstein,LI,5,NA,EFTA+UK
+EFTA+UK,United Kingdom,GB,5,NA,EFTA+UK
+Egypt,Egypt,EG,1,NA,Egypt
+EU,Austria,AT,28,NA,EU
+EU,Belgium,BE,28,NA,EU
+EU,Bulgaria,BG,28,NA,EU
+EU,Croatia,HR,28,NA,EU
+EU,Cyprus,CY,28,NA,EU
+EU,Czech Republic,CZ,28,NA,EU
+EU,Denmark,DK,28,NA,EU
+EU,Estonia,EE,28,NA,EU
+EU,Finland,FI,28,NA,EU
+EU,France,FR,28,NA,EU
+EU,Germany,DE,28,NA,EU
+EU,Greece,GR,28,NA,EU
+EU,Hungary,HU,28,NA,EU
+EU,Ireland,IE,28,NA,EU
+EU,Italy,IT,28,NA,EU
+EU,Latvia,LV,28,NA,EU
+EU,Lithuania,LT,28,NA,EU
+EU,Luxembourg,LU,28,NA,EU
+EU,Malta,MT,28,NA,EU
+EU,Netherlands,NL,28,NA,EU
+EU,Poland,PL,28,NA,EU
+EU,Portugal,PT,28,NA,EU
+EU,Romania,RO,28,NA,EU
+EU,Slovakia,SK,28,NA,EU
+EU,Slovenia,SI,28,NA,EU
+EU,Spain,ES,28,NA,EU
+EU,Sweden,SE,28,NA,EU
+EU,United Kingdom,GB,28,NA,EU
+EU27,Austria,AT,27,WEO,EU27
+EU27,Belgium,BE,27,WEO,EU27
+EU27,Bulgaria,BG,27,WEO,EU27
+EU27,Croatia,HR,27,WEO,EU27
+EU27,Cyprus,CY,27,WEO,EU27
+EU27,Czech Republic,CZ,27,WEO,EU27
+EU27,Denmark,DK,27,WEO,EU27
+EU27,Estonia,EE,27,WEO,EU27
+EU27,Finland,FI,27,WEO,EU27
+EU27,France,FR,27,WEO,EU27
+EU27,Germany,DE,27,WEO,EU27
+EU27,Greece,GR,27,WEO,EU27
+EU27,Hungary,HU,27,WEO,EU27
+EU27,Ireland,IE,27,WEO,EU27
+EU27,Italy,IT,27,WEO,EU27
+EU27,Latvia,LV,27,WEO,EU27
+EU27,Lithuania,LT,27,WEO,EU27
+EU27,Luxembourg,LU,27,WEO,EU27
+EU27,Malta,MT,27,WEO,EU27
+EU27,Netherlands,NL,27,WEO,EU27
+EU27,Poland,PL,27,WEO,EU27
+EU27,Portugal,PT,27,WEO,EU27
+EU27,Romania,RO,27,WEO,EU27
+EU27,Slovakia,SK,27,WEO,EU27
+EU27,Slovenia,SI,27,WEO,EU27
+EU27,Spain,ES,27,WEO,EU27
+EU27,Sweden,SE,27,WEO,EU27
+Eurasia,Armenia,AM,9,WEO,Eurasia
+Eurasia,Azerbaijan,AZ,9,WEO,Eurasia
+Eurasia,Georgia,GE,9,WEO,Eurasia
+Eurasia,Kazakhstan,KZ,9,WEO,Eurasia
+Eurasia,Kyrgyzstan,KG,9,WEO,Eurasia
+Eurasia,Russian Federation,RU,9,WEO,Eurasia
+Eurasia,Tajikistan,TJ,9,WEO,Eurasia
+Eurasia,Turkmenistan,TM,9,WEO,Eurasia
+Eurasia,Uzbekistan,UZ,9,WEO,Eurasia
+Europe,Albania,AL,45,WEO,Europe
+Europe,Austria,AT,45,WEO,Europe
+Europe,Belarus,BY,45,WEO,Europe
+Europe,Belgium,BE,45,WEO,Europe
+Europe,Bosnia and Herzegovina,BA,45,WEO,Europe
+Europe,Bulgaria,BG,45,WEO,Europe
+Europe,Croatia,HR,45,WEO,Europe
+Europe,Cyprus,CY,45,WEO,Europe
+Europe,Czech Republic,CZ,45,WEO,Europe
+Europe,Denmark,DK,45,WEO,Europe
+Europe,Estonia,EE,45,WEO,Europe
+Europe,Finland,FI,45,WEO,Europe
+Europe,France,FR,45,WEO,Europe
+Europe,Germany,DE,45,WEO,Europe
+Europe,Gibraltar,GI,45,WEO,Europe
+Europe,Greece,GR,45,WEO,Europe
+Europe,Hungary,HU,45,WEO,Europe
+Europe,Iceland,IS,45,WEO,Europe
+Europe,Ireland,IE,45,WEO,Europe
+Europe,Israel,IL,45,WEO,Europe
+Europe,Italy,IT,45,WEO,Europe
+Europe,Kosovo,XK,45,WEO,Europe
+Europe,Latvia,LV,45,WEO,Europe
+Europe,Lithuania,LT,45,WEO,Europe
+Europe,Luxembourg,LU,45,WEO,Europe
+Europe,Malta,MT,45,WEO,Europe
+Europe,Montenegro,ME,45,WEO,Europe
+Europe,Netherlands,NL,45,WEO,Europe
+Europe,Norway,NO,45,WEO,Europe
+Europe,Poland,PL,45,WEO,Europe
+Europe,Portugal,PT,45,WEO,Europe
+Europe,Republic of Macedonia,MK,45,WEO,Europe
+Europe,Republic of Moldova,MD,45,WEO,Europe
+Europe,Romania,RO,45,WEO,Europe
+Europe,Serbia,RS,45,WEO,Europe
+Europe,Slovakia,SK,45,WEO,Europe
+Europe,Slovenia,SI,45,WEO,Europe
+Europe,Spain,ES,45,WEO,Europe
+Europe,Sweden,SE,45,WEO,Europe
+Europe,Switzerland,CH,45,WEO,Europe
+Europe,Turkey,TR,45,WEO,Europe
+Europe,Ukraine,UA,45,WEO,Europe
+Europe,United Kingdom,GB,45,WEO,Europe
+Europe,Russia,EU,45,WEO,Europe
+Europe,Russia,RU,45,WEO,Europe
+Global,Afghanistan,AF,281,NA,Global
+Global,Albania,AL,281,NA,Global
+Global,Algeria,DZ,281,NA,Global
+Global,American Samoa,AS,281,NA,Global
+Global,Andorra,AD,281,NA,Global
+Global,Angola,AO,281,NA,Global
+Global,Anguilla,AI,281,NA,Global
+Global,Antigua And Barbuda,AG,281,NA,Global
+Global,Argentina,AR,281,NA,Global
+Global,Armenia,AM,281,NA,Global
+Global,Aruba,AW,281,NA,Global
+Global,Australia,AU,281,NA,Global
+Global,Austria,AT,281,NA,Global
+Global,Azerbaijan,AZ,281,NA,Global
+Global,Bahamas,BS,281,NA,Global
+Global,Bahrain,BH,281,NA,Global
+Global,Bangladesh,BD,281,NA,Global
+Global,Barbados,BB,281,NA,Global
+Global,Belarus,BY,281,NA,Global
+Global,Belgium,BE,281,NA,Global
+Global,Belize,BZ,281,NA,Global
+Global,Benin,BJ,281,NA,Global
+Global,Bermuda,BM,281,NA,Global
+Global,Bhutan,BT,281,NA,Global
+Global,Bolivia,BO,281,NA,Global
+Global,Bosnia and Herzegovina,BA,281,NA,Global
+Global,Botswana,BW,281,NA,Global
+Global,Brazil,BR,281,NA,Global
+Global,British Virgin Islands,VG,281,NA,Global
+Global,Brunei Darussalam,BN,281,NA,Global
+Global,Bulgaria,BG,281,NA,Global
+Global,Burkina Faso,BF,281,NA,Global
+Global,Burundi,BI,281,NA,Global
+Global,Cambodia,KH,281,NA,Global
+Global,Cameroon,CM,281,NA,Global
+Global,Canada,CA,281,NA,Global
+Global,Cape Verde,CV,281,NA,Global
+Global,Cayman Islands,KY,281,NA,Global
+Global,Chad,TD,281,NA,Global
+Global,Chile,CL,281,NA,Global
+Global,China,CN,281,NA,Global
+Global,Colombia,CO,281,NA,Global
+Global,Cook Islands,CK,281,NA,Global
+Global,Costa Rica,CR,281,NA,Global
+Global,Croatia,HR,281,NA,Global
+Global,Cuba,CU,281,NA,Global
+Global,Curacao,CW,281,NA,Global
+Global,Cyprus,CY,281,NA,Global
+Global,Czech Republic,CZ,281,NA,Global
+Global,Democratic People's Republic of Korea,KP,281,NA,Global
+Global,Democratic Republic of the Congo,CD,281,NA,Global
+Global,Denmark,DK,281,NA,Global
+Global,Djibouti,DJ,281,NA,Global
+Global,Dominica,DM,281,NA,Global
+Global,Dominican Republic,DO,281,NA,Global
+Global,Ecuador,EC,281,NA,Global
+Global,Egypt,EG,281,NA,Global
+Global,El Salvador,SV,281,NA,Global
+Global,Equatorial Guinea,GQ,281,NA,Global
+Global,Eritrea,ER,281,NA,Global
+Global,Estonia,EE,281,NA,Global
+Global,Ethiopia,ET,281,NA,Global
+Global,Faroe Islands,FO,281,NA,Global
+Global,Fiji,FJ,281,NA,Global
+Global,Finland,FI,281,NA,Global
+Global,France,FR,281,NA,Global
+Global,French Guiana,GF,281,NA,Global
+Global,French Polynesia,PF,281,NA,Global
+Global,Gabon,GA,281,NA,Global
+Global,Gambia,GM,281,NA,Global
+Global,Georgia,GE,281,NA,Global
+Global,Germany,DE,281,NA,Global
+Global,Ghana,GH,281,NA,Global
+Global,Gibraltar,GI,281,NA,Global
+Global,Greece,GR,281,NA,Global
+Global,Greenland,GL,281,NA,Global
+Global,Grenada,GD,281,NA,Global
+Global,Guadeloupe,GP,281,NA,Global
+Global,Guam,GU,281,NA,Global
+Global,Guatemala,GT,281,NA,Global
+Global,Guernsey,GG,281,NA,Global
+Global,Guinea,GN,281,NA,Global
+Global,GuineaBissau,GW,281,NA,Global
+Global,Guyana,GY,281,NA,Global
+Global,Haiti,HT,281,NA,Global
+Global,Honduras,HN,281,NA,Global
+Global,Hong Kong Special Administrative Region of China,HK,281,NA,Global
+Global,Hungary,HU,281,NA,Global
+Global,Iceland,IS,281,NA,Global
+Global,India,IN,281,NA,Global
+Global,Indonesia,ID,281,NA,Global
+Global,Iran (Islamic Republic of Iran),IR,281,NA,Global
+Global,Iraq,IQ,281,NA,Global
+Global,Ireland,IE,281,NA,Global
+Global,Islamic Republic of Mauritania,MR,281,NA,Global
+Global,Isle of Man,IM,281,NA,Global
+Global,Israel,IL,281,NA,Global
+Global,Italy,IT,281,NA,Global
+Global,Ivory Coast,CI,281,NA,Global
+Global,Jamaica,JM,281,NA,Global
+Global,Japan,JP,281,NA,Global
+Global,Jersey,JE,281,NA,Global
+Global,Jordan,JO,281,NA,Global
+Global,Kazakhstan,KZ,281,NA,Global
+Global,Kenya,KE,281,NA,Global
+Global,Kiribati,KI,281,NA,Global
+Global,Kosovo,XK,281,NA,Global
+Global,Kuwait,KW,281,NA,Global
+Global,Kyrgyzstan,KG,281,NA,Global
+Global,Lao People's Democratic Republic,LA,281,NA,Global
+Global,Latvia,LV,281,NA,Global
+Global,Lebanon,LB,281,NA,Global
+Global,Lesotho,LS,281,NA,Global
+Global,Liberia,LR,281,NA,Global
+Global,Libyan Arab Jamahiriya,LY,281,NA,Global
+Global,Lithuania,LT,281,NA,Global
+Global,Luxembourg,LU,281,NA,Global
+Global,Macau Special Administrative Region of China,MO,281,NA,Global
+Global,Madagascar,MG,281,NA,Global
+Global,Malawi,MW,281,NA,Global
+Global,Malaysia,MY,281,NA,Global
+Global,Maldives,MV,281,NA,Global
+Global,Mali,ML,281,NA,Global
+Global,Malta,MT,281,NA,Global
+Global,Marshall Islands,MH,281,NA,Global
+Global,Martinique,MQ,281,NA,Global
+Global,Mauritius,MU,281,NA,Global
+Global,Mayotte,YT,281,NA,Global
+Global,Mexico,MX,281,NA,Global
+Global,Micronesia (Federated States of),FM,281,NA,Global
+Global,Mongolia,MN,281,NA,Global
+Global,Montenegro,ME,281,NA,Global
+Global,Morocco,MA,281,NA,Global
+Global,Mozambique,MZ,281,NA,Global
+Global,Myanmar,MM,281,NA,Global
+Global,Nepal,NP,281,NA,Global
+Global,Netherlands,NL,281,NA,Global
+Global,New Caledonia,NC,281,NA,Global
+Global,New Zealand,NZ,281,NA,Global
+Global,Nicaragua,NI,281,NA,Global
+Global,Niger,NE,281,NA,Global
+Global,Nigeria,NG,281,NA,Global
+Global,Norway,NO,281,NA,Global
+Global,Oman,OM,281,NA,Global
+Global,Pakistan,PK,281,NA,Global
+Global,Palau,PW,281,NA,Global
+Global,Panama,PA,281,NA,Global
+Global,Papua New Guinea,PG,281,NA,Global
+Global,Paraguay,PY,281,NA,Global
+Global,Peru,PE,281,NA,Global
+Global,Philippines,PH,281,NA,Global
+Global,Poland,PL,281,NA,Global
+Global,Portugal,PT,281,NA,Global
+Global,Puerto Rico,PR,281,NA,Global
+Global,Qatar,QA,281,NA,Global
+Global,Republic of Congo,CG,281,NA,Global
+Global,Republic of Korea,KR,281,NA,Global
+Global,Republic of Macedonia,MK,281,NA,Global
+Global,Republic of Moldova,MD,281,NA,Global
+Global,Reunion,RE,281,NA,Global
+Global,Romania,RO,281,NA,Global
+Global,Russian Federation,RU,281,NA,Global
+Global,Rwanda,RW,281,NA,Global
+Global,Samoa,WS,281,NA,Global
+Global,Saudi Arabia,SA,281,NA,Global
+Global,Senegal,SN,281,NA,Global
+Global,Serbia,RS,281,NA,Global
+Global,Seychelles,SC,281,NA,Global
+Global,Sierra Leone,SL,281,NA,Global
+Global,Singapore,SG,281,NA,Global
+Global,Slovakia,SK,281,NA,Global
+Global,Slovenia,SI,281,NA,Global
+Global,Solomon Islands,SB,281,NA,Global
+Global,Somalia,SO,281,NA,Global
+Global,Somaliland,SO,281,NA,Global
+Global,South Africa,ZA,281,NA,Global
+Global,Spain,ES,281,NA,Global
+Global,Sri Lanka,LK,281,NA,Global
+Global,Sudan,SD,281,NA,Global
+Global,Suriname,SR,281,NA,Global
+Global,Swaziland,SZ,281,NA,Global
+Global,Sweden,SE,281,NA,Global
+Global,Switzerland,CH,281,NA,Global
+Global,Syrian Arab Republic,SY,281,NA,Global
+Global,Taiwan,TW,281,NA,Global
+Global,Tajikistan,TJ,281,NA,Global
+Global,Thailand,TH,281,NA,Global
+Global,TimorLeste,TL,281,NA,Global
+Global,Togo,TG,281,NA,Global
+Global,Tokelau,TK,281,NA,Global
+Global,Tonga,TO,281,NA,Global
+Global,Trinidad and Tobago,TT,281,NA,Global
+Global,Tunisia,TN,281,NA,Global
+Global,Turkey,TR,281,NA,Global
+Global,Turkmenistan,TM,281,NA,Global
+Global,Tuvalu,TV,281,NA,Global
+Global,Uganda,UG,281,NA,Global
+Global,Ukraine,UA,281,NA,Global
+Global,United Arab Emirates,AE,281,NA,Global
+Global,United Kingdom,GB,281,NA,Global
+Global,United Republic Of Tanzania,TZ,281,NA,Global
+Global,United States,US,281,NA,Global
+Global,Uruguay,UY,281,NA,Global
+Global,Uzbekistan,UZ,281,NA,Global
+Global,Vanuatu,VU,281,NA,Global
+Global,Venezuela,VE,281,NA,Global
+Global,Vietnam,VN,281,NA,Global
+Global,Virgin Islands (US),VI,281,NA,Global
+Global,Yemen,YE,281,NA,Global
+Global,Zambia,ZM,281,NA,Global
+Global,Zimbabwe,ZW,281,NA,Global
+Global,AngolaCongo Republic Joint Development Area,AO,281,NA,Global
+Global,Brunei,BN,281,NA,Global
+Global,Comoros,KM,281,NA,Global
+Global,Congo Republic,CG,281,NA,Global
+Global,Cote d'Ivoire,CI,281,NA,Global
+Global,Falkland Islands,FK,281,NA,Global
+Global,Iran,IR,281,NA,Global
+Global,KuwaitSaudi Arabia Partitioned Neutral Zone,KW,281,NA,Global
+Global,Libya,LY,281,NA,Global
+Global,Malaysia  Thailand Joint Development Area,MY,281,NA,Global
+Global,Malaysia  Vietnam PM3 Commercial Arrangement Area,MY,281,NA,Global
+Global,Mauritania,MR,281,NA,Global
+Global,Russia,RU,281,NA,Global
+Global,South Korea,KR,281,NA,Global
+Global,South Sudan,SS,281,NA,Global
+Global,Syria,SY,281,NA,Global
+Global,Tanzania,TZ,281,NA,Global
+Global,Timor Sea Joint Petroleum Development Area,TL,281,NA,Global
+Global,Saint Barthelemy,BL,281,NA,Global
+Global,"Saint Helena,  Ascension and Tristan da Cunha",SH,281,NA,Global
+Global,Saint Kitts and Nevis,KN,281,NA,Global
+Global,Saint Lucia,LC,281,NA,Global
+Global,Saint Pierre and Miquelon,PM,281,NA,Global
+Global,Saint Vincent and the Grenadines,VC,281,NA,Global
+Global,Sint Maarten,MF,281,NA,Global
+Global,Antarctica,AQ,281,NA,Global
+Global,Bonaire,BQ,281,NA,Global
+Global,Bouvet Island,BV,281,NA,Global
+Global,British Indian Ocean Territory,IO,281,NA,Global
+Global,Central African Republic,CF,281,NA,Global
+Global,Christmas Island,CX,281,NA,Global
+Global,Cocos (Keeling) Islands,CC,281,NA,Global
+Global,Congo,CG,281,NA,Global
+Global,Falkland Islands (Malvinas),FK,281,NA,Global
+Global,French Southern Territories,TF,281,NA,Global
+Global,Heard Island and McDonald Mcdonald Islands,HM,281,NA,Global
+Global,Holy See (Vatican City State),VA,281,NA,Global
+Global,Hong Kong,HK,281,NA,Global
+Global,"Iran,  Islamic Republic of",IR,281,NA,Global
+Global,"Korea,  Democratic People's Republic of",KP,281,NA,Global
+Global,"Korea,  Republic of",KR,281,NA,Global
+Global,Liechtenstein,LI,281,NA,Global
+Global,Macao,MO,281,NA,Global
+Global,"Macedonia, the Former Yugoslav Republic of",MK,281,NA,Global
+Global,"Micronesia, Federated States of",FM,281,NA,Global
+Global,"Moldova, Republic of",MD,281,NA,Global
+Global,Monaco,MC,281,NA,Global
+Global,Montserrat,MS,281,NA,Global
+Global,Namibia,NA,281,NA,Global
+Global,Nauru,NR,281,NA,Global
+Global,Niue,NU,281,NA,Global
+Global,Norfolk Island,NF,281,NA,Global
+Global,Northern Mariana Islands,MP,281,NA,Global
+Global,"Palestine, State of",PS,281,NA,Global
+Global,Pitcairn,PN,281,NA,Global
+Global,Saint Helena,SH,281,NA,Global
+Global,Saint Martin (French part),MF,281,NA,Global
+Global,San Marino,SM,281,NA,Global
+Global,Sao Tome and Principe,ST,281,NA,Global
+Global,Sint Maarten (Dutch part),SX,281,NA,Global
+Global,South Georgia and the South Sandwich Islands,GS,281,NA,Global
+Global,Svalbard and Jan Mayen,SJ,281,NA,Global
+Global,"Taiwan, Province of China",TW,281,NA,Global
+Global,Turks and Caicos Islands,TC,281,NA,Global
+Global,United States Minor Outlying Islands,UM,281,NA,Global
+Global,Viet Nam,VN,281,NA,Global
+Global,US Virgin Islands,VI,281,NA,Global
+Global,Wallis and Futuna,WF,281,NA,Global
+Global,Western Sahara,EH,281,NA,Global
+Global,Aland Islands,AX,281,NA,Global
+IND,India,IN,1,IPR,India
+India,India,IN,1,WEO,India
+Indonesia,Indonesia,ID,1,NA,Indonesia
+Iran,Iran,IR,1,NA,Iran
+Japan,Japan,JP,1,WEO,Japan
+Latin America (R5),Argentina,AR,30,NGFS,LatinAmerica
+Latin America (R5),Bahamas,BS,30,NGFS,LatinAmerica
+Latin America (R5),Barbados,BB,30,NGFS,LatinAmerica
+Latin America (R5),Belize,BZ,30,NGFS,LatinAmerica
+Latin America (R5),Bolivia,BO,30,NGFS,LatinAmerica
+Latin America (R5),Brazil,BR,30,NGFS,LatinAmerica
+Latin America (R5),Chile,CL,30,NGFS,LatinAmerica
+Latin America (R5),Colombia,CO,30,NGFS,LatinAmerica
+Latin America (R5),Costa Rica,CR,30,NGFS,LatinAmerica
+Latin America (R5),Cuba,CU,30,NGFS,LatinAmerica
+Latin America (R5),Dominican Republic,DO,30,NGFS,LatinAmerica
+Latin America (R5),Ecuador,EC,30,NGFS,LatinAmerica
+Latin America (R5),El Salvador,SV,30,NGFS,LatinAmerica
+Latin America (R5),Guadeloupe,GP,30,NGFS,LatinAmerica
+Latin America (R5),Guatemala,GT,30,NGFS,LatinAmerica
+Latin America (R5),Guyana,GY,30,NGFS,LatinAmerica
+Latin America (R5),Haiti,HT,30,NGFS,LatinAmerica
+Latin America (R5),Honduras,HN,30,NGFS,LatinAmerica
+Latin America (R5),Jamaica,JM,30,NGFS,LatinAmerica
+Latin America (R5),Martinique,MQ,30,NGFS,LatinAmerica
+Latin America (R5),Mexico,MX,30,NGFS,LatinAmerica
+Latin America (R5),Nicaragua,NI,30,NGFS,LatinAmerica
+Latin America (R5),Panama,PA,30,NGFS,LatinAmerica
+Latin America (R5),Paraguay,PY,30,NGFS,LatinAmerica
+Latin America (R5),Peru,PE,30,NGFS,LatinAmerica
+Latin America (R5),Puerto Rico,PR,30,NGFS,LatinAmerica
+Latin America (R5),Suriname,SR,30,NGFS,LatinAmerica
+Latin America (R5),Trinidad and Tobago,TT,30,NGFS,LatinAmerica
+Latin America (R5),Uruguay,UY,30,NGFS,LatinAmerica
+Latin America (R5),Venezuela,VE,30,NGFS,LatinAmerica
+LatinAmerica,Antigua and Barbuda,AG,46,WEO,LatinAmerica
+LatinAmerica,Argentina,AR,46,WEO,LatinAmerica
+LatinAmerica,Aruba,AW,46,WEO,LatinAmerica
+LatinAmerica,Bahamas,BS,46,WEO,LatinAmerica
+LatinAmerica,Barbados,BB,46,WEO,LatinAmerica
+LatinAmerica,Belize,BZ,46,WEO,LatinAmerica
+LatinAmerica,Bermuda,BM,46,WEO,LatinAmerica
+LatinAmerica,Bolivia,BO,46,WEO,LatinAmerica
+LatinAmerica,Bonaire,BQ,46,WEO,LatinAmerica
+LatinAmerica,Brazil,BR,46,WEO,LatinAmerica
+LatinAmerica,British Virgin Islands,VG,46,WEO,LatinAmerica
+LatinAmerica,Caicos Islands,TC,46,WEO,LatinAmerica
+LatinAmerica,Cayman Islands,KY,46,WEO,LatinAmerica
+LatinAmerica,Colombia,CO,46,WEO,LatinAmerica
+LatinAmerica,Costa Rica,CR,46,WEO,LatinAmerica
+LatinAmerica,Cuba,CU,46,WEO,LatinAmerica
+LatinAmerica,Curacao,CW,46,WEO,LatinAmerica
+LatinAmerica,Dominica,DM,46,WEO,LatinAmerica
+LatinAmerica,Dominican Republic,DO,46,WEO,LatinAmerica
+LatinAmerica,Ecuador,EC,46,WEO,LatinAmerica
+LatinAmerica,El Salvador,SV,46,WEO,LatinAmerica
+LatinAmerica,Falkland Islands,FK,46,WEO,LatinAmerica
+LatinAmerica,French Guiana,GF,46,WEO,LatinAmerica
+LatinAmerica,Grenada,GD,46,WEO,LatinAmerica
+LatinAmerica,Guadeloupe,GP,46,WEO,LatinAmerica
+LatinAmerica,Guatemala,GT,46,WEO,LatinAmerica
+LatinAmerica,Guyana,GY,46,WEO,LatinAmerica
+LatinAmerica,Haiti,HT,46,WEO,LatinAmerica
+LatinAmerica,Honduras,HN,46,WEO,LatinAmerica
+LatinAmerica,Jamaica,JM,46,WEO,LatinAmerica
+LatinAmerica,Martinique,MQ,46,WEO,LatinAmerica
+LatinAmerica,Montserrat,MS,46,WEO,LatinAmerica
+LatinAmerica,Nicaragua,NI,46,WEO,LatinAmerica
+LatinAmerica,Panama,PA,46,WEO,LatinAmerica
+LatinAmerica,Paraguay,PY,46,WEO,LatinAmerica
+LatinAmerica,Peru,PE,46,WEO,LatinAmerica
+LatinAmerica,Saint Kitts and Nevis,KN,46,WEO,LatinAmerica
+LatinAmerica,Saint Lucia,LC,46,WEO,LatinAmerica
+LatinAmerica,Sint Maarten,MF,46,WEO,LatinAmerica
+LatinAmerica,Saint Vincent and the Grenadines,VC,46,WEO,LatinAmerica
+LatinAmerica,Suriname,SR,46,WEO,LatinAmerica
+LatinAmerica,Trinidad and Tobago,TT,46,WEO,LatinAmerica
+LatinAmerica,Turks,TC,46,WEO,LatinAmerica
+LatinAmerica,Uruguay,UY,46,WEO,LatinAmerica
+LatinAmerica,Venezuela,VE,46,WEO,LatinAmerica
+LatinAmerica,Chile,CL,46,WEO,LatinAmerica
+LatinAmericaExBrazil,Antigua and Barbuda,AG,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Argentina,AR,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Aruba,AW,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Bahamas,BS,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Barbados,BB,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Belize,BZ,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Bermuda,BM,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Bolivia,BO,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Bonaire,BQ,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,British Virgin Islands,VG,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Caicos Islands,TC,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Cayman Islands,KY,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Colombia,CO,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Costa Rica,CR,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Cuba,CU,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Curacao,CW,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Dominica,DM,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Dominican Republic,DO,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Ecuador,EC,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,El Salvador,SV,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Falkland Islands,FK,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,French Guiana,GF,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Grenada,GD,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Guadeloupe,GP,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Guatemala,GT,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Guyana,GY,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Haiti,HT,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Honduras,HN,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Jamaica,JM,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Martinique,MQ,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Montserrat,MS,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Nicaragua,NI,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Panama,PA,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Paraguay,PY,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Peru,PE,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Saint Kitts and Nevis,KN,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Saint Lucia,LC,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Sint Maarten,MF,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Saint Vincent and the Grenadines,VC,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Suriname,SR,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Trinidad and Tobago,TT,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Turks,TC,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Uruguay,UY,44,NA,LatinAmericaExBrazil
+LatinAmericaExBrazil,Venezuela,VE,44,NA,LatinAmericaExBrazil
+Malaysia,Malaysia,MY,1,NA,Malaysia
+MediteraneanMiddleEast,Israel,IL,4,NA,MediteraneanMiddleEast
+MediteraneanMiddleEast,Jordan,JO,4,NA,MediteraneanMiddleEast
+MediteraneanMiddleEast,Lebanon,LB,4,NA,MediteraneanMiddleEast
+MediteraneanMiddleEast,Syria,SY,4,NA,MediteraneanMiddleEast
+Mexico,Mexico,MX,1,NA,Mexico
+Middle East & Africa (R5),Algeria,DZ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Angola,AO,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Bahrain,BH,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Benin,BJ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Botswana,BW,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Burkina Faso,BF,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Burundi,BI,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Cameroon,CM,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Cape Verde,CV,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Central African Republic,CF,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Chad,TD,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Comoros,KM,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Congo,CG,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Cote d'Ivoire,CI,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Democratic Republic of the Congo,CD,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Djibouti,DJ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Egypt,EG,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Equatorial Guinea,GQ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Eritrea,ER,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Ethiopia,ET,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Gabon,GA,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Gambia,GM,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Ghana,GH,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Guinea,GN,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),GuineaBissau,GW,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Iran,IR,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Iraq,IQ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Israel,IL,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Jordan,JO,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Kenya,KE,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Kuwait,KW,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Lebanon,LB,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Lesotho,LS,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Liberia,LR,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Libyan Arab Jamahiriya,LY,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Madagascar,MG,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Malawi,MW,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Mali,ML,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Mauritania,MR,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Mauritius,MU,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Morocco,MA,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Mozambique,MZ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Namibia,NA,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Niger,NE,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Nigeria,NG,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Oman,OM,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Qatar,QA,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Reunion,RE,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Rwanda,RW,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Saudi Arabia,SA,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Senegal,SN,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Sierra Leone,SL,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Somalia,SO,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),South Africa,ZA,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Sudan,SD,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Swaziland,SZ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Syrian Arab Republic,SY,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Togo,TG,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Tunisia,TN,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Uganda,UG,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),United Arab Emirates,AE,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),United Republic of Tanzania,TZ,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Western Sahara,EH,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Yemen,YE,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Zambia,ZM,66,NGFS,MiddleEastAndAfrica
+Middle East & Africa (R5),Zimbabwe,ZW,66,NGFS,MiddleEastAndAfrica
+MiddleEast,Bahrain,BH,12,WEO,MiddleEast
+MiddleEast,Iran,IR,12,WEO,MiddleEast
+MiddleEast,Iraq,IQ,12,WEO,MiddleEast
+MiddleEast,Jordan,JO,12,WEO,MiddleEast
+MiddleEast,Kuwait,KW,12,WEO,MiddleEast
+MiddleEast,Lebanon,LB,12,WEO,MiddleEast
+MiddleEast,Oman,OM,12,WEO,MiddleEast
+MiddleEast,Qatar,QA,12,WEO,MiddleEast
+MiddleEast,Saudi Arabia,SA,12,WEO,MiddleEast
+MiddleEast,Syria,SY,12,WEO,MiddleEast
+MiddleEast,United Arab Emirates,AE,12,WEO,MiddleEast
+MiddleEast,Yemen,YE,12,WEO,MiddleEast
+Morocco&Tunisia,Morocco,MA,2,NA,MoroccoAndTunisia
+Morocco&Tunisia,Tunisia,TN,2,NA,MoroccoAndTunisia
+NewZealand,New Zealand,NZ,1,NA,NewZealand
+NonOECD,Afghanistan,AF,245,WEO,NonOECD
+NonOECD,Albania,AL,245,WEO,NonOECD
+NonOECD,Algeria,DZ,245,WEO,NonOECD
+NonOECD,American Samoa,AS,245,WEO,NonOECD
+NonOECD,Andorra,AD,245,WEO,NonOECD
+NonOECD,Angola,AO,245,WEO,NonOECD
+NonOECD,Anguilla,AI,245,WEO,NonOECD
+NonOECD,Antigua And Barbuda,AG,245,WEO,NonOECD
+NonOECD,Argentina,AR,245,WEO,NonOECD
+NonOECD,Armenia,AM,245,WEO,NonOECD
+NonOECD,Aruba,AW,245,WEO,NonOECD
+NonOECD,Azerbaijan,AZ,245,WEO,NonOECD
+NonOECD,Bahamas,BS,245,WEO,NonOECD
+NonOECD,Bahrain,BH,245,WEO,NonOECD
+NonOECD,Bangladesh,BD,245,WEO,NonOECD
+NonOECD,Barbados,BB,245,WEO,NonOECD
+NonOECD,Belarus,BY,245,WEO,NonOECD
+NonOECD,Belize,BZ,245,WEO,NonOECD
+NonOECD,Benin,BJ,245,WEO,NonOECD
+NonOECD,Bermuda,BM,245,WEO,NonOECD
+NonOECD,Bhutan,BT,245,WEO,NonOECD
+NonOECD,Bolivia,BO,245,WEO,NonOECD
+NonOECD,Bosnia and Herzegovina,BA,245,WEO,NonOECD
+NonOECD,Botswana,BW,245,WEO,NonOECD
+NonOECD,Brazil,BR,245,WEO,NonOECD
+NonOECD,British Virgin Islands,VG,245,WEO,NonOECD
+NonOECD,Brunei Darussalam,BN,245,WEO,NonOECD
+NonOECD,Bulgaria,BG,245,WEO,NonOECD
+NonOECD,Burkina Faso,BF,245,WEO,NonOECD
+NonOECD,Burundi,BI,245,WEO,NonOECD
+NonOECD,Cambodia,KH,245,WEO,NonOECD
+NonOECD,Cameroon,CM,245,WEO,NonOECD
+NonOECD,Cape Verde,CV,245,WEO,NonOECD
+NonOECD,Cayman Islands,KY,245,WEO,NonOECD
+NonOECD,Chad,TD,245,WEO,NonOECD
+NonOECD,China,CN,245,WEO,NonOECD
+NonOECD,Colombia,CO,245,WEO,NonOECD
+NonOECD,Cook Islands,CK,245,WEO,NonOECD
+NonOECD,Costa Rica,CR,245,WEO,NonOECD
+NonOECD,Croatia,HR,245,WEO,NonOECD
+NonOECD,Cuba,CU,245,WEO,NonOECD
+NonOECD,Curacao,CW,245,WEO,NonOECD
+NonOECD,Cyprus,CY,245,WEO,NonOECD
+NonOECD,Democratic Republic of the Congo,CD,245,WEO,NonOECD
+NonOECD,Djibouti,DJ,245,WEO,NonOECD
+NonOECD,Dominica,DM,245,WEO,NonOECD
+NonOECD,Dominican Republic,DO,245,WEO,NonOECD
+NonOECD,Ecuador,EC,245,WEO,NonOECD
+NonOECD,Egypt,EG,245,WEO,NonOECD
+NonOECD,El Salvador,SV,245,WEO,NonOECD
+NonOECD,Equatorial Guinea,GQ,245,WEO,NonOECD
+NonOECD,Eritrea,ER,245,WEO,NonOECD
+NonOECD,Ethiopia,ET,245,WEO,NonOECD
+NonOECD,Faroe Islands,FO,245,WEO,NonOECD
+NonOECD,Fiji,FJ,245,WEO,NonOECD
+NonOECD,French Guiana,GF,245,WEO,NonOECD
+NonOECD,French Polynesia,PF,245,WEO,NonOECD
+NonOECD,Gabon,GA,245,WEO,NonOECD
+NonOECD,Gambia,GM,245,WEO,NonOECD
+NonOECD,Georgia,GE,245,WEO,NonOECD
+NonOECD,Ghana,GH,245,WEO,NonOECD
+NonOECD,Gibraltar,GI,245,WEO,NonOECD
+NonOECD,Greenland,GL,245,WEO,NonOECD
+NonOECD,Grenada,GD,245,WEO,NonOECD
+NonOECD,Guadeloupe,GP,245,WEO,NonOECD
+NonOECD,Guam,GU,245,WEO,NonOECD
+NonOECD,Guatemala,GT,245,WEO,NonOECD
+NonOECD,Guernsey,GG,245,WEO,NonOECD
+NonOECD,Guinea,GN,245,WEO,NonOECD
+NonOECD,GuineaBissau,GW,245,WEO,NonOECD
+NonOECD,Guyana,GY,245,WEO,NonOECD
+NonOECD,Haiti,HT,245,WEO,NonOECD
+NonOECD,Honduras,HN,245,WEO,NonOECD
+NonOECD,Hong Kong Special Administrative Region of China,HK,245,WEO,NonOECD
+NonOECD,India,IN,245,WEO,NonOECD
+NonOECD,Indonesia,ID,245,WEO,NonOECD
+NonOECD,Iran (Islamic Republic of Iran),IR,245,WEO,NonOECD
+NonOECD,Iraq,IQ,245,WEO,NonOECD
+NonOECD,Islamic Republic of Mauritania,MR,245,WEO,NonOECD
+NonOECD,Isle of Man,IM,245,WEO,NonOECD
+NonOECD,Ivory Coast,CI,245,WEO,NonOECD
+NonOECD,Jamaica,JM,245,WEO,NonOECD
+NonOECD,Jersey,JE,245,WEO,NonOECD
+NonOECD,Jordan,JO,245,WEO,NonOECD
+NonOECD,Kazakhstan,KZ,245,WEO,NonOECD
+NonOECD,Kenya,KE,245,WEO,NonOECD
+NonOECD,Kiribati,KI,245,WEO,NonOECD
+NonOECD,Kosovo,XK,245,WEO,NonOECD
+NonOECD,Kuwait,KW,245,WEO,NonOECD
+NonOECD,Kyrgyzstan,KG,245,WEO,NonOECD
+NonOECD,Lao People's Democratic Republic,LA,245,WEO,NonOECD
+NonOECD,Latvia,LV,245,WEO,NonOECD
+NonOECD,Lebanon,LB,245,WEO,NonOECD
+NonOECD,Lesotho,LS,245,WEO,NonOECD
+NonOECD,Liberia,LR,245,WEO,NonOECD
+NonOECD,Libyan Arab Jamahiriya,LY,245,WEO,NonOECD
+NonOECD,Lithuania,LT,245,WEO,NonOECD
+NonOECD,Macau Special Administrative Region of China,MO,245,WEO,NonOECD
+NonOECD,Madagascar,MG,245,WEO,NonOECD
+NonOECD,Malawi,MW,245,WEO,NonOECD
+NonOECD,Malaysia,MY,245,WEO,NonOECD
+NonOECD,Maldives,MV,245,WEO,NonOECD
+NonOECD,Mali,ML,245,WEO,NonOECD
+NonOECD,Malta,MT,245,WEO,NonOECD
+NonOECD,Marshall Islands,MH,245,WEO,NonOECD
+NonOECD,Martinique,MQ,245,WEO,NonOECD
+NonOECD,Mauritius,MU,245,WEO,NonOECD
+NonOECD,Mayotte,YT,245,WEO,NonOECD
+NonOECD,Micronesia (Federated States of),FM,245,WEO,NonOECD
+NonOECD,Mongolia,MN,245,WEO,NonOECD
+NonOECD,Montenegro,ME,245,WEO,NonOECD
+NonOECD,Morocco,MA,245,WEO,NonOECD
+NonOECD,Mozambique,MZ,245,WEO,NonOECD
+NonOECD,Myanmar,MM,245,WEO,NonOECD
+NonOECD,Nepal,NP,245,WEO,NonOECD
+NonOECD,New Caledonia,NC,245,WEO,NonOECD
+NonOECD,Nicaragua,NI,245,WEO,NonOECD
+NonOECD,Niger,NE,245,WEO,NonOECD
+NonOECD,Nigeria,NG,245,WEO,NonOECD
+NonOECD,Oman,OM,245,WEO,NonOECD
+NonOECD,Pakistan,PK,245,WEO,NonOECD
+NonOECD,Palau,PW,245,WEO,NonOECD
+NonOECD,Panama,PA,245,WEO,NonOECD
+NonOECD,Papua New Guinea,PG,245,WEO,NonOECD
+NonOECD,Paraguay,PY,245,WEO,NonOECD
+NonOECD,Peru,PE,245,WEO,NonOECD
+NonOECD,Philippines,PH,245,WEO,NonOECD
+NonOECD,Puerto Rico,PR,245,WEO,NonOECD
+NonOECD,Qatar,QA,245,WEO,NonOECD
+NonOECD,Republic of Congo,CG,245,WEO,NonOECD
+NonOECD,Republic of Korea,KR,245,WEO,NonOECD
+NonOECD,Republic of Macedonia,MK,245,WEO,NonOECD
+NonOECD,Republic of Moldova,MD,245,WEO,NonOECD
+NonOECD,Reunion,RE,245,WEO,NonOECD
+NonOECD,Romania,RO,245,WEO,NonOECD
+NonOECD,Russian Federation,RU,245,WEO,NonOECD
+NonOECD,Rwanda,RW,245,WEO,NonOECD
+NonOECD,Samoa,WS,245,WEO,NonOECD
+NonOECD,Saudi Arabia,SA,245,WEO,NonOECD
+NonOECD,Senegal,SN,245,WEO,NonOECD
+NonOECD,Serbia,RS,245,WEO,NonOECD
+NonOECD,Seychelles,SC,245,WEO,NonOECD
+NonOECD,Sierra Leone,SL,245,WEO,NonOECD
+NonOECD,Singapore,SG,245,WEO,NonOECD
+NonOECD,Solomon Islands,SB,245,WEO,NonOECD
+NonOECD,Somalia,SO,245,WEO,NonOECD
+NonOECD,Somaliland,SO,245,WEO,NonOECD
+NonOECD,South Africa,ZA,245,WEO,NonOECD
+NonOECD,Sri Lanka,LK,245,WEO,NonOECD
+NonOECD,Sudan,SD,245,WEO,NonOECD
+NonOECD,Suriname,SR,245,WEO,NonOECD
+NonOECD,Swaziland,SZ,245,WEO,NonOECD
+NonOECD,Syrian Arab Republic,SY,245,WEO,NonOECD
+NonOECD,Taiwan,TW,245,WEO,NonOECD
+NonOECD,Tajikistan,TJ,245,WEO,NonOECD
+NonOECD,Thailand,TH,245,WEO,NonOECD
+NonOECD,TimorLeste,TL,245,WEO,NonOECD
+NonOECD,Togo,TG,245,WEO,NonOECD
+NonOECD,Tokelau,TK,245,WEO,NonOECD
+NonOECD,Tonga,TO,245,WEO,NonOECD
+NonOECD,Trinidad and Tobago,TT,245,WEO,NonOECD
+NonOECD,Tunisia,TN,245,WEO,NonOECD
+NonOECD,Turkmenistan,TM,245,WEO,NonOECD
+NonOECD,Tuvalu,TV,245,WEO,NonOECD
+NonOECD,Uganda,UG,245,WEO,NonOECD
+NonOECD,Ukraine,UA,245,WEO,NonOECD
+NonOECD,United Arab Emirates,AE,245,WEO,NonOECD
+NonOECD,United Republic Of Tanzania,TZ,245,WEO,NonOECD
+NonOECD,Uruguay,UY,245,WEO,NonOECD
+NonOECD,Uzbekistan,UZ,245,WEO,NonOECD
+NonOECD,Vanuatu,VU,245,WEO,NonOECD
+NonOECD,Venezuela,VE,245,WEO,NonOECD
+NonOECD,Vietnam,VN,245,WEO,NonOECD
+NonOECD,Virgin Islands (US),VI,245,WEO,NonOECD
+NonOECD,Yemen,YE,245,WEO,NonOECD
+NonOECD,Zambia,ZM,245,WEO,NonOECD
+NonOECD,Zimbabwe,ZW,245,WEO,NonOECD
+NonOECD,AngolaCongo Republic Joint Development Area,AO,245,WEO,NonOECD
+NonOECD,Brunei,BN,245,WEO,NonOECD
+NonOECD,Comoros,KM,245,WEO,NonOECD
+NonOECD,Congo Republic,CG,245,WEO,NonOECD
+NonOECD,Cote d'Ivoire,CI,245,WEO,NonOECD
+NonOECD,Falkland Islands,FK,245,WEO,NonOECD
+NonOECD,Iran,IR,245,WEO,NonOECD
+NonOECD,KuwaitSaudi Arabia Partitioned Neutral Zone,KW,245,WEO,NonOECD
+NonOECD,Libya,LY,245,WEO,NonOECD
+NonOECD,Malaysia  Thailand Joint Development Area,MY,245,WEO,NonOECD
+NonOECD,Malaysia  Vietnam PM3 Commercial Arrangement Area,MY,245,WEO,NonOECD
+NonOECD,Mauritania,MR,245,WEO,NonOECD
+NonOECD,Russia,RU,245,WEO,NonOECD
+NonOECD,South Sudan,SS,245,WEO,NonOECD
+NonOECD,Syria,SY,245,WEO,NonOECD
+NonOECD,Tanzania,TZ,245,WEO,NonOECD
+NonOECD,Timor Sea Joint Petroleum Development Area,TL,245,WEO,NonOECD
+NonOECD,Saint Barthelemy,BL,245,WEO,NonOECD
+NonOECD,"Saint Helena,  Ascension and Tristan da Cunha",SH,245,WEO,NonOECD
+NonOECD,Saint Kitts and Nevis,KN,245,WEO,NonOECD
+NonOECD,Saint Lucia,LC,245,WEO,NonOECD
+NonOECD,Saint Pierre and Miquelon,PM,245,WEO,NonOECD
+NonOECD,Saint Vincent and the Grenadines,VC,245,WEO,NonOECD
+NonOECD,Sint Maarten,MF,245,WEO,NonOECD
+NonOECD,Antarctica,AQ,245,WEO,NonOECD
+NonOECD,Bonaire,BQ,245,WEO,NonOECD
+NonOECD,Bouvet Island,BV,245,WEO,NonOECD
+NonOECD,British Indian Ocean Territory,IO,245,WEO,NonOECD
+NonOECD,Central African Republic,CF,245,WEO,NonOECD
+NonOECD,Christmas Island,CX,245,WEO,NonOECD
+NonOECD,Cocos (Keeling) Islands,CC,245,WEO,NonOECD
+NonOECD,Congo,CG,245,WEO,NonOECD
+NonOECD,Falkland Islands (Malvinas),FK,245,WEO,NonOECD
+NonOECD,French Southern Territories,TF,245,WEO,NonOECD
+NonOECD,Heard Island and McDonald Mcdonald Islands,HM,245,WEO,NonOECD
+NonOECD,Holy See (Vatican City State),VA,245,WEO,NonOECD
+NonOECD,Hong Kong,HK,245,WEO,NonOECD
+NonOECD,"Iran, Islamic Republic of",IR,245,WEO,NonOECD
+NonOECD,"Korea, Democratic People's Republic of",KP,245,WEO,NonOECD
+NonOECD,Liechtenstein,LI,245,WEO,NonOECD
+NonOECD,Macao,MO,245,WEO,NonOECD
+NonOECD,"Macedonia, the Former Yugoslav Republic of",MK,245,WEO,NonOECD
+NonOECD,"Micronesia, Federated States of",FM,245,WEO,NonOECD
+NonOECD,"Moldova, Republic of",MD,245,WEO,NonOECD
+NonOECD,Monaco,MC,245,WEO,NonOECD
+NonOECD,Montserrat,MS,245,WEO,NonOECD
+NonOECD,Namibia,NA,245,WEO,NonOECD
+NonOECD,Nauru,NR,245,WEO,NonOECD
+NonOECD,Niue,NU,245,WEO,NonOECD
+NonOECD,Norfolk Island,NF,245,WEO,NonOECD
+NonOECD,Northern Mariana Islands,MP,245,WEO,NonOECD
+NonOECD,"Palestine, State of",PS,245,WEO,NonOECD
+NonOECD,Pitcairn,PN,245,WEO,NonOECD
+NonOECD,Saint Helena,SH,245,WEO,NonOECD
+NonOECD,Saint Martin (French part),MF,245,WEO,NonOECD
+NonOECD,San Marino,SM,245,WEO,NonOECD
+NonOECD,Sao Tome and Principe,ST,245,WEO,NonOECD
+NonOECD,Sint Maarten (Dutch part),SX,245,WEO,NonOECD
+NonOECD,South Georgia and the South Sandwich Islands,GS,245,WEO,NonOECD
+NonOECD,Svalbard and Jan Mayen,SJ,245,WEO,NonOECD
+NonOECD,"Taiwan, Province of China",TW,245,WEO,NonOECD
+NonOECD,Turks and Caicos Islands,TC,245,WEO,NonOECD
+NonOECD,United States Minor Outlying Islands,UM,245,WEO,NonOECD
+NonOECD,Viet Nam,VN,245,WEO,NonOECD
+NonOECD,US Virgin Islands,VI,245,WEO,NonOECD
+NonOECD,Wallis and Futuna,WF,245,WEO,NonOECD
+NonOECD,Western Sahara,EH,245,WEO,NonOECD
+NonOECD,Aland Islands,AX,245,WEO,NonOECD
+NonOECDAsia,Bangladesh,BD,34,NA,NonOECDAsia
+NonOECDAsia,Afghanistan,AF,34,NA,NonOECDAsia
+NonOECDAsia,Bhutan,BT,34,NA,NonOECDAsia
+NonOECDAsia,Brunei Darussalam,BN,34,NA,NonOECDAsia
+NonOECDAsia,Cambodia,KH,34,NA,NonOECDAsia
+NonOECDAsia,China,CN,34,NA,NonOECDAsia
+NonOECDAsia,Cook Islands,CK,34,NA,NonOECDAsia
+NonOECDAsia,Democratic People's Republic of Korea,KP,34,NA,NonOECDAsia
+NonOECDAsia,Fiji,FJ,34,NA,NonOECDAsia
+NonOECDAsia,French Polynesia,PF,34,NA,NonOECDAsia
+NonOECDAsia,India,IN,34,NA,NonOECDAsia
+NonOECDAsia,Indonesia,ID,34,NA,NonOECDAsia
+NonOECDAsia,Kiribati,KI,34,NA,NonOECDAsia
+NonOECDAsia,Lao People's Democratic Republic,LA,34,NA,NonOECDAsia
+NonOECDAsia,Macau Special Administrative Region of China,MO,34,NA,NonOECDAsia
+NonOECDAsia,Malaysia,MY,34,NA,NonOECDAsia
+NonOECDAsia,Maldives,MV,34,NA,NonOECDAsia
+NonOECDAsia,Mongolia,MN,34,NA,NonOECDAsia
+NonOECDAsia,Myanmar,MM,34,NA,NonOECDAsia
+NonOECDAsia,Nepal,NP,34,NA,NonOECDAsia
+NonOECDAsia,New Caledonia,NC,34,NA,NonOECDAsia
+NonOECDAsia,Pakistan,PK,34,NA,NonOECDAsia
+NonOECDAsia,Palau,PW,34,NA,NonOECDAsia
+NonOECDAsia,Papua New Guinea,PG,34,NA,NonOECDAsia
+NonOECDAsia,Philippines,PH,34,NA,NonOECDAsia
+NonOECDAsia,Samoa,WS,34,NA,NonOECDAsia
+NonOECDAsia,Singapore,SG,34,NA,NonOECDAsia
+NonOECDAsia,Solomon Islands,SB,34,NA,NonOECDAsia
+NonOECDAsia,Sri Lanka,LK,34,NA,NonOECDAsia
+NonOECDAsia,Thailand,TH,34,NA,NonOECDAsia
+NonOECDAsia,TimorLeste,TL,34,NA,NonOECDAsia
+NonOECDAsia,Tonga,TO,34,NA,NonOECDAsia
+NonOECDAsia,Vanuatu,VU,34,NA,NonOECDAsia
+NonOECDAsia,Vietnam,VN,34,NA,NonOECDAsia
+NonOECDAsiaRest,Bangladesh,BD,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Afghanistan,AF,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Bhutan,BT,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Brunei Darussalam,BN,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Cambodia,KH,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Cook Islands,CK,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Democratic People's Republic of Korea,KP,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Fiji,FJ,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,French Polynesia,PF,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Indonesia,ID,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Kiribati,KI,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Lao People's Democratic Republic,LA,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Macau Special Administrative Region of China,MO,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Malaysia,MY,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Maldives,MV,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Mongolia,MN,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Myanmar,MM,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Nepal,NP,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,New Caledonia,NC,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Pakistan,PK,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Palau,PW,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Papua New Guinea,PG,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Philippines,PH,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Samoa,WS,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Singapore,SG,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Solomon Islands,SB,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Sri Lanka,LK,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Thailand,TH,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,TimorLeste,TL,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Tonga,TO,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Vanuatu,VU,32,NA,NonOECDAsiaRest
+NonOECDAsiaRest,Vietnam,VN,32,NA,NonOECDAsiaRest
+NonOECDRest,American Samoa,AS,47,NA,NonOECDRest
+NonOECDRest,Andorra,AD,47,NA,NonOECDRest
+NonOECDRest,Anguilla,AI,47,NA,NonOECDRest
+NonOECDRest,Faroe Islands,FO,47,NA,NonOECDRest
+NonOECDRest,Greenland,GL,47,NA,NonOECDRest
+NonOECDRest,Guam,GU,47,NA,NonOECDRest
+NonOECDRest,Guernsey,GG,47,NA,NonOECDRest
+NonOECDRest,Isle of Man,IM,47,NA,NonOECDRest
+NonOECDRest,Jersey,JE,47,NA,NonOECDRest
+NonOECDRest,Marshall Islands,MH,47,NA,NonOECDRest
+NonOECDRest,Mayotte,YT,47,NA,NonOECDRest
+NonOECDRest,Micronesia (Federated States of),FM,47,NA,NonOECDRest
+NonOECDRest,Puerto Rico,PR,47,NA,NonOECDRest
+NonOECDRest,Taiwan,TW,47,NA,NonOECDRest
+NonOECDRest,Tokelau,TK,47,NA,NonOECDRest
+NonOECDRest,Tuvalu,TV,47,NA,NonOECDRest
+NonOECDRest,Virgin Islands (US),VI,47,NA,NonOECDRest
+NonOECDRest,Saint Barthelemy,BL,47,NA,NonOECDRest
+NonOECDRest,"Saint Helena, Ascension and Tristan da Cunha",SH,47,NA,NonOECDRest
+NonOECDRest,Saint Pierre and Miquelon,PM,47,NA,NonOECDRest
+NonOECDRest,Antarctica,AQ,47,NA,NonOECDRest
+NonOECDRest,Bouvet Island,BV,47,NA,NonOECDRest
+NonOECDRest,British Indian Ocean Territory,IO,47,NA,NonOECDRest
+NonOECDRest,Christmas Island,CX,47,NA,NonOECDRest
+NonOECDRest,Cocos (Keeling) Islands,CC,47,NA,NonOECDRest
+NonOECDRest,French Southern Territories,TF,47,NA,NonOECDRest
+NonOECDRest,Heard Island and McDonald Mcdonald Islands,HM,47,NA,NonOECDRest
+NonOECDRest,Holy See (Vatican City State),VA,47,NA,NonOECDRest
+NonOECDRest,Liechtenstein,LI,47,NA,NonOECDRest
+NonOECDRest,"Micronesia, Federated States of",FM,47,NA,NonOECDRest
+NonOECDRest,Monaco,MC,47,NA,NonOECDRest
+NonOECDRest,Nauru,NR,47,NA,NonOECDRest
+NonOECDRest,Niue,NU,47,NA,NonOECDRest
+NonOECDRest,Norfolk Island,NF,47,NA,NonOECDRest
+NonOECDRest,Northern Mariana Islands,MP,47,NA,NonOECDRest
+NonOECDRest,"Palestine, State of",PS,47,NA,NonOECDRest
+NonOECDRest,Pitcairn,PN,47,NA,NonOECDRest
+NonOECDRest,Saint Helena,SH,47,NA,NonOECDRest
+NonOECDRest,San Marino,SM,47,NA,NonOECDRest
+NonOECDRest,Sint Maarten (Dutch part),SX,47,NA,NonOECDRest
+NonOECDRest,South Georgia and the South Sandwich Islands,GS,47,NA,NonOECDRest
+NonOECDRest,Svalbard and Jan Mayen,SJ,47,NA,NonOECDRest
+NonOECDRest,"Taiwan, Province of China",TW,47,NA,NonOECDRest
+NonOECDRest,United States Minor Outlying Islands,UM,47,NA,NonOECDRest
+NonOECDRest,US Virgin Islands,VI,47,NA,NonOECDRest
+NonOECDRest,Wallis and Futuna,WF,47,NA,NonOECDRest
+NonOECDRest,Aland Islands,AX,47,NA,NonOECDRest
+NorthAmerica,Canada,CA,3,WEO,NorthAmerica
+NorthAmerica,Mexico,MX,3,WEO,NorthAmerica
+NorthAmerica,United States,US,3,WEO,NorthAmerica
+NorthAmericaExUS,Canada,CA,2,NA,NorthAmericaExUS
+NorthAmericaExUS,Mexico,MX,2,NA,NorthAmericaExUS
+OECD,Austria,AT,34,WEO,OECD
+OECD,Belgium,BE,34,WEO,OECD
+OECD,Czech Republic,CZ,34,WEO,OECD
+OECD,Denmark,DK,34,WEO,OECD
+OECD,Estonia,EE,34,WEO,OECD
+OECD,Finland,FI,34,WEO,OECD
+OECD,France,FR,34,WEO,OECD
+OECD,Germany,DE,34,WEO,OECD
+OECD,Greece,GR,34,WEO,OECD
+OECD,Hungary,HU,34,WEO,OECD
+OECD,Iceland,IS,34,WEO,OECD
+OECD,Ireland,IE,34,WEO,OECD
+OECD,Italy,IT,34,WEO,OECD
+OECD,Luxembourg,LU,34,WEO,OECD
+OECD,Netherlands,NL,34,WEO,OECD
+OECD,Norway,NO,34,WEO,OECD
+OECD,Poland,PL,34,WEO,OECD
+OECD,Portugal,PT,34,WEO,OECD
+OECD,Slovakia,SK,34,WEO,OECD
+OECD,Slovenia,SI,34,WEO,OECD
+OECD,Spain,ES,34,WEO,OECD
+OECD,Sweden,SE,34,WEO,OECD
+OECD,Switzerland,CH,34,WEO,OECD
+OECD,Turkey,TR,34,WEO,OECD
+OECD,United Kingdom,GB,34,WEO,OECD
+OECD,Israel,IL,34,WEO,OECD
+OECD,Canada,CA,34,WEO,OECD
+OECD,Chile,CL,34,WEO,OECD
+OECD,Mexico,MX,34,WEO,OECD
+OECD,United States,US,34,WEO,OECD
+OECD,Australia,AU,34,WEO,OECD
+OECD,Japan,JP,34,WEO,OECD
+OECD,South Korea,KR,34,WEO,OECD
+OECD,New Zealand,NZ,34,WEO,OECD
+OECD & EU (R5),Albania,AL,49,NGFS,OecdAndEu
+OECD & EU (R5),Australia,AU,49,NGFS,OecdAndEu
+OECD & EU (R5),Austria,AT,49,NGFS,OecdAndEu
+OECD & EU (R5),Belgium,BE,49,NGFS,OecdAndEu
+OECD & EU (R5),Bosnia and Herzegovina,BA,49,NGFS,OecdAndEu
+OECD & EU (R5),Bulgaria,BG,49,NGFS,OecdAndEu
+OECD & EU (R5),Canada,CA,49,NGFS,OecdAndEu
+OECD & EU (R5),Croatia,HR,49,NGFS,OecdAndEu
+OECD & EU (R5),Cyprus,CY,49,NGFS,OecdAndEu
+OECD & EU (R5),Czech Republic,CZ,49,NGFS,OecdAndEu
+OECD & EU (R5),Denmark,DK,49,NGFS,OecdAndEu
+OECD & EU (R5),Estonia,EE,49,NGFS,OecdAndEu
+OECD & EU (R5),Fiji,FJ,49,NGFS,OecdAndEu
+OECD & EU (R5),Finland,FI,49,NGFS,OecdAndEu
+OECD & EU (R5),France,FR,49,NGFS,OecdAndEu
+OECD & EU (R5),French Polynesia,PF,49,NGFS,OecdAndEu
+OECD & EU (R5),Germany,DE,49,NGFS,OecdAndEu
+OECD & EU (R5),Greece,GR,49,NGFS,OecdAndEu
+OECD & EU (R5),Guam,GU,49,NGFS,OecdAndEu
+OECD & EU (R5),Hungary,HU,49,NGFS,OecdAndEu
+OECD & EU (R5),Iceland,IS,49,NGFS,OecdAndEu
+OECD & EU (R5),Ireland,IE,49,NGFS,OecdAndEu
+OECD & EU (R5),Italy,IT,49,NGFS,OecdAndEu
+OECD & EU (R5),Japan,JP,49,NGFS,OecdAndEu
+OECD & EU (R5),Latvia,LV,49,NGFS,OecdAndEu
+OECD & EU (R5),Lithuania,LT,49,NGFS,OecdAndEu
+OECD & EU (R5),Luxembourg,LU,49,NGFS,OecdAndEu
+OECD & EU (R5),Malta,MT,49,NGFS,OecdAndEu
+OECD & EU (R5),Republic of Macedonia,MK,49,NGFS,OecdAndEu
+OECD & EU (R5),Montenegro,ME,49,NGFS,OecdAndEu
+OECD & EU (R5),Netherlands,NL,49,NGFS,OecdAndEu
+OECD & EU (R5),New Caledonia,NC,49,NGFS,OecdAndEu
+OECD & EU (R5),New Zealand,NZ,49,NGFS,OecdAndEu
+OECD & EU (R5),Norway,NO,49,NGFS,OecdAndEu
+OECD & EU (R5),Poland,PL,49,NGFS,OecdAndEu
+OECD & EU (R5),Portugal,PT,49,NGFS,OecdAndEu
+OECD & EU (R5),Romania,RO,49,NGFS,OecdAndEu
+OECD & EU (R5),Samoa,WS,49,NGFS,OecdAndEu
+OECD & EU (R5),Serbia,RS,49,NGFS,OecdAndEu
+OECD & EU (R5),Slovakia,SK,49,NGFS,OecdAndEu
+OECD & EU (R5),Slovenia,SI,49,NGFS,OecdAndEu
+OECD & EU (R5),Solomon Islands,SB,49,NGFS,OecdAndEu
+OECD & EU (R5),Spain,ES,49,NGFS,OecdAndEu
+OECD & EU (R5),Sweden,SE,49,NGFS,OecdAndEu
+OECD & EU (R5),Switzerland,CH,49,NGFS,OecdAndEu
+OECD & EU (R5),Turkey,TR,49,NGFS,OecdAndEu
+OECD & EU (R5),United Kingdom,GB,49,NGFS,OecdAndEu
+OECD & EU (R5),United States,US,49,NGFS,OecdAndEu
+OECD & EU (R5),Vanuatu,VU,49,NGFS,OecdAndEu
+OECDAmericas,Canada,CA,4,NA,OECDAmericas
+OECDAmericas,Chile,CL,4,NA,OECDAmericas
+OECDAmericas,Mexico,MX,4,NA,OECDAmericas
+OECDAmericas,United States,US,4,NA,OECDAmericas
+OECDAmericasWoUS,Canada,CA,3,NA,OECDAmericasWoUS
+OECDAmericasWoUS,Chile,CL,3,NA,OECDAmericasWoUS
+OECDAmericasWoUS,Mexico,MX,3,NA,OECDAmericasWoUS
+OECDAsiaOceania,Australia,AU,4,NA,OECDAsiaOceania
+OECDAsiaOceania,Japan,JP,4,NA,OECDAsiaOceania
+OECDAsiaOceania,South Korea,KR,4,NA,OECDAsiaOceania
+OECDAsiaOceania,New Zealand,NZ,4,NA,OECDAsiaOceania
+OECDAsiaOceaniaWoJP,Australia,AU,3,NA,OECDAsiaOceaniaWoJP
+OECDAsiaOceaniaWoJP,South Korea,KR,3,NA,OECDAsiaOceaniaWoJP
+OECDAsiaOceaniaWoJP,New Zealand,NZ,3,NA,OECDAsiaOceaniaWoJP
+OECDEurope,Austria,AT,26,NA,OECDEurope
+OECDEurope,Belgium,BE,26,NA,OECDEurope
+OECDEurope,Czech Republic,CZ,26,NA,OECDEurope
+OECDEurope,Denmark,DK,26,NA,OECDEurope
+OECDEurope,Estonia,EE,26,NA,OECDEurope
+OECDEurope,Finland,FI,26,NA,OECDEurope
+OECDEurope,France,FR,26,NA,OECDEurope
+OECDEurope,Germany,DE,26,NA,OECDEurope
+OECDEurope,Greece,GR,26,NA,OECDEurope
+OECDEurope,Hungary,HU,26,NA,OECDEurope
+OECDEurope,Iceland,IS,26,NA,OECDEurope
+OECDEurope,Ireland,IE,26,NA,OECDEurope
+OECDEurope,Italy,IT,26,NA,OECDEurope
+OECDEurope,Luxembourg,LU,26,NA,OECDEurope
+OECDEurope,Netherlands,NL,26,NA,OECDEurope
+OECDEurope,Norway,NO,26,NA,OECDEurope
+OECDEurope,Poland,PL,26,NA,OECDEurope
+OECDEurope,Portugal,PT,26,NA,OECDEurope
+OECDEurope,Slovakia,SK,26,NA,OECDEurope
+OECDEurope,Slovenia,SI,26,NA,OECDEurope
+OECDEurope,Spain,ES,26,NA,OECDEurope
+OECDEurope,Sweden,SE,26,NA,OECDEurope
+OECDEurope,Switzerland,CH,26,NA,OECDEurope
+OECDEurope,Turkey,TR,26,NA,OECDEurope
+OECDEurope,United Kingdom,GB,26,NA,OECDEurope
+OECDEurope,Israel,IL,26,NA,OECDEurope
+OtherCIS,Armenia,AM,9,NA,OtherCIS
+OtherCIS,Azerbaijan,AZ,9,NA,OtherCIS
+OtherCIS,Belarus,BY,9,NA,OtherCIS
+OtherCIS,Georgia,GE,9,NA,OtherCIS
+OtherCIS,Kazakhstan,KZ,9,NA,OtherCIS
+OtherCIS,Kyrgyz Rep,KG,9,NA,OtherCIS
+OtherCIS,Tajikistan,TJ,9,NA,OtherCIS
+OtherCIS,Turkmenistan,TM,9,NA,OtherCIS
+OtherCIS,Uzbekistan,UZ,9,NA,OtherCIS
+OthersBalkans,Albania,AL,7,NA,OthersBalkans
+OthersBalkans,Bosnia Herzegovina,BA,7,NA,OthersBalkans
+OthersBalkans,Kosovo,XK,7,NA,OthersBalkans
+OthersBalkans,Macedonia,MK,7,NA,OthersBalkans
+OthersBalkans,Moldova,MD,7,NA,OthersBalkans
+OthersBalkans,Montenegro,ME,7,NA,OthersBalkans
+OthersBalkans,Serbia,RS,7,NA,OthersBalkans
+Reforming Economies (R5),Armenia,AM,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Azerbaijan,AZ,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Belarus,BY,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Georgia,GE,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Kazakhstan,KZ,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Kyrgyzstan,KG,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Republic of Moldova,MD,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Russian Federation,RU,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Tajikistan,TJ,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Turkmenistan,TM,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Ukraine,UA,12,NGFS,ReformingEconomies
+Reforming Economies (R5),Uzbekistan,UZ,12,NGFS,ReformingEconomies
+RestCentralAmerica,Bahamas,BS,21,NA,RestCentralAmerica
+RestCentralAmerica,Barbados,BB,21,NA,RestCentralAmerica
+RestCentralAmerica,Belize,BZ,21,NA,RestCentralAmerica
+RestCentralAmerica,Bermuda,BM,21,NA,RestCentralAmerica
+RestCentralAmerica,Costa Rica,CR,21,NA,RestCentralAmerica
+RestCentralAmerica,Cuba,CU,21,NA,RestCentralAmerica
+RestCentralAmerica,Dominica,DM,21,NA,RestCentralAmerica
+RestCentralAmerica,Dominican Republica,DO,21,NA,RestCentralAmerica
+RestCentralAmerica,El Salvador,SV,21,NA,RestCentralAmerica
+RestCentralAmerica,Grenada,GD,21,NA,RestCentralAmerica
+RestCentralAmerica,Guatemala,GT,21,NA,RestCentralAmerica
+RestCentralAmerica,Haiti,HT,21,NA,RestCentralAmerica
+RestCentralAmerica,Honduras,HN,21,NA,RestCentralAmerica
+RestCentralAmerica,Jamaica,JM,21,NA,RestCentralAmerica
+RestCentralAmerica,Nicaragua,NI,21,NA,RestCentralAmerica
+RestCentralAmerica,NL Antilles and Aruba,AW,21,NA,RestCentralAmerica
+RestCentralAmerica,Panama,PA,21,NA,RestCentralAmerica
+RestCentralAmerica,Sao Tome and Principe,ST,21,NA,RestCentralAmerica
+RestCentralAmerica,St Lucia,LC,21,NA,RestCentralAmerica
+RestCentralAmerica,St Vincent & Grenadines,VC,21,NA,RestCentralAmerica
+RestCentralAmerica,Trinidad and Tobago,TT,21,NA,RestCentralAmerica
+RestGulf,Bahrain,BH,7,NA,RestGulf
+RestGulf,Iraq,IQ,7,NA,RestGulf
+RestGulf,Kuwait,KW,7,NA,RestGulf
+RestGulf,Oman,OM,7,NA,RestGulf
+RestGulf,Qatar,QA,7,NA,RestGulf
+RestGulf,United Arab Emirates,AE,7,NA,RestGulf
+RestGulf,Yemen,YE,7,NA,RestGulf
+RestPacific,Fiji Island,FJ,7,NA,RestPacific
+RestPacific,Kiribati,KI,7,NA,RestPacific
+RestPacific,Papua New Guinea,PG,7,NA,RestPacific
+RestPacific,Samoa (western),WS,7,NA,RestPacific
+RestPacific,Solomon Islands,SB,7,NA,RestPacific
+RestPacific,Tonga,TO,7,NA,RestPacific
+RestPacific,Vanuatu,VU,7,NA,RestPacific
+RestSouthAmerica,Bolivia,BO,9,NA,RestSouthAmerica
+RestSouthAmerica,Colombia,CO,9,NA,RestSouthAmerica
+RestSouthAmerica,Ecuador,EC,9,NA,RestSouthAmerica
+RestSouthAmerica,Guyana,GY,9,NA,RestSouthAmerica
+RestSouthAmerica,Paraguay,PY,9,NA,RestSouthAmerica
+RestSouthAmerica,Peru,PE,9,NA,RestSouthAmerica
+RestSouthAmerica,Suriname,SR,9,NA,RestSouthAmerica
+RestSouthAmerica,Uruguay,UY,9,NA,RestSouthAmerica
+RestSouthAmerica,Venezuela,VE,9,NA,RestSouthAmerica
+RestSouthAsia,Afghanistan,AF,8,NA,RestSouthAsia
+RestSouthAsia,Bangladesh,BD,8,NA,RestSouthAsia
+RestSouthAsia,Bhutan,BT,8,NA,RestSouthAsia
+RestSouthAsia,Maldives,MV,8,NA,RestSouthAsia
+RestSouthAsia,Nepal,NP,8,NA,RestSouthAsia
+RestSouthAsia,Pakistan,PK,8,NA,RestSouthAsia
+RestSouthAsia,Seychelles,SC,8,NA,RestSouthAsia
+RestSouthAsia,Sri Lanka,LK,8,NA,RestSouthAsia
+RestSouthEastAsia,Brunei,BN,8,NA,RestSouthEastAsia
+RestSouthEastAsia,Cambodia,KH,8,NA,RestSouthEastAsia
+RestSouthEastAsia,Lao PDR,LA,8,NA,RestSouthEastAsia
+RestSouthEastAsia,Mongolia,MN,8,NA,RestSouthEastAsia
+RestSouthEastAsia,Myanmar,MM,8,NA,RestSouthEastAsia
+RestSouthEastAsia,North Korea,KP,8,NA,RestSouthEastAsia
+RestSouthEastAsia,Singapore,SG,8,NA,RestSouthEastAsia
+RestSouthEastAsia,Taiwan,TW,8,NA,RestSouthEastAsia
+RestSubSaharanAfrica,Burkina Faso,BF,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Burundi,BI,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Cameroon,CM,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Cape Verde,CV,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Central African Republic,CF,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Chad,TD,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Comoros,KM,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Congo,CG,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Congo DR,CD,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Cote d'ivoire,CI,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Djibouti,DJ,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Equatorial Guinea,GQ,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Eritrea,ER,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Ethiopia,ET,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Gabon,GA,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Gambia,GM,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Ghana,GH,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Guinea,GN,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Guinea-Bissau,GW,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,kenya,KE,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Lesotho,LS,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Liberia,LR,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Madagascar,MG,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Malawi,MW,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Mali,ML,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Mauritania,MR,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Mauritius,MU,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Mozambique,MZ,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Namibia,NA,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Niger,NE,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Nigeria,NG,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Rwanda,RW,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Senegal,SN,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Sierra Leone,SL,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Somalia,SO,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Sudan,SD,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Swaziland,SZ,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Tanzania,TZ,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Togo,TG,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Uganda,UG,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Zambia,ZM,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Angola,AO,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Benin,BJ,44,NA,RestSubSaharanAfrica
+RestSubSaharanAfrica,Botswana,BW,44,NA,RestSubSaharanAfrica
+Russia,Russian Federation,RU,2,WEO,Russia
+Russia,Russia,RU,2,WEO,Russia
+SaudiArabia,Saudi Arabia,SA,1,NA,SaudiArabia
+SouthAfrica,South Africa,ZA,1,NA,SouthAfrica
+SouthKorea,South Korea,KR,1,NA,SouthKorea
+Thailand,Thailand,TH,1,NA,Thailand
+Turkey,Turkey,TR,1,NA,Turkey
+UK,United Kingdom,GB,1,NA,GBR
+Ukraine,Ukraine,UA,1,NA,Ukraine
+USA,United States,US,1,IPR,USA
+Vietnam,Vietnam,VN,1,NA,Vietnam
+AdvancedEconomies,Singapore,SG,41,NA,AdvancedEconomies
+AdvancedEconomies,Australia,AU,41,NA,AdvancedEconomies
+AdvancedEconomies,Japan,JP,41,NA,AdvancedEconomies
+AdvancedEconomies,New Zealand,NZ,41,NA,AdvancedEconomies
+AdvancedEconomies,Canada,CA,41,NA,AdvancedEconomies
+AdvancedEconomies,Croatia,HR,41,NA,AdvancedEconomies
+AdvancedEconomies,Cyprus,CY,41,NA,AdvancedEconomies
+AdvancedEconomies,Latvia,LV,41,NA,AdvancedEconomies
+AdvancedEconomies,Lithuania,LT,41,NA,AdvancedEconomies
+AdvancedEconomies,Malta,MT,41,NA,AdvancedEconomies
+AdvancedEconomies,Switzerland,CH,41,NA,AdvancedEconomies
+AdvancedEconomies,Norway,NO,41,NA,AdvancedEconomies
+AdvancedEconomies,Iceland,IS,41,NA,AdvancedEconomies
+AdvancedEconomies,United Kingdom,GB,41,NA,AdvancedEconomies
+AdvancedEconomies,Austria,AT,41,NA,AdvancedEconomies
+AdvancedEconomies,Belgium,BE,41,NA,AdvancedEconomies
+AdvancedEconomies,Czech Republic,CZ,41,NA,AdvancedEconomies
+AdvancedEconomies,Denmark,DK,41,NA,AdvancedEconomies
+AdvancedEconomies,Estonia,EE,41,NA,AdvancedEconomies
+AdvancedEconomies,Finland,FI,41,NA,AdvancedEconomies
+AdvancedEconomies,France,FR,41,NA,AdvancedEconomies
+AdvancedEconomies,Germany,DE,41,NA,AdvancedEconomies
+AdvancedEconomies,Greece,GR,41,NA,AdvancedEconomies
+AdvancedEconomies,Ireland,IE,41,NA,AdvancedEconomies
+AdvancedEconomies,Italy,IT,41,NA,AdvancedEconomies
+AdvancedEconomies,Luxembourg,LU,41,NA,AdvancedEconomies
+AdvancedEconomies,Portugal,PT,41,NA,AdvancedEconomies
+AdvancedEconomies,Slovenia,SI,41,NA,AdvancedEconomies
+AdvancedEconomies,Spain,ES,41,NA,AdvancedEconomies
+AdvancedEconomies,Sweden,SE,41,NA,AdvancedEconomies
+AdvancedEconomies,Israel,IL,41,NA,AdvancedEconomies
+AdvancedEconomies,Andorra,AD,41,NA,AdvancedEconomies
+AdvancedEconomies,Puerto Rico,PR,41,NA,AdvancedEconomies
+AdvancedEconomies,United States,US,41,NA,AdvancedEconomies
+AdvancedEconomies,San Marino,SM,41,NA,AdvancedEconomies
+AdvancedEconomies,"Korea,  Republic of",KR,41,NA,AdvancedEconomies
+AdvancedEconomies,Hong Kong,HK,41,NA,AdvancedEconomies
+AdvancedEconomies,Macao,MO,41,NA,AdvancedEconomies
+AdvancedEconomies,Netherlands,NL,41,NA,AdvancedEconomies
+AdvancedEconomies,Slovakia,SK,41,NA,AdvancedEconomies
+AdvancedEconomies,Taiwan,TW,41,NA,AdvancedEconomies
+Emergingmarket&developingeconomies,Algeria,DZ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Angola,AO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Benin,BJ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Botswana,BW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Burkina Faso,BF,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Burundi,BI,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Cameroon,CM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Chad,TD,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Comoros,KM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Djibouti,DJ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Egypt,EG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Equatorial Guinea,GQ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Eritrea,ER,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Ethiopia,ET,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Gabon,GA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Ghana,GH,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Guinea,GN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Kenya,KE,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Lesotho,LS,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Liberia,LR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Libya,LY,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Madagascar,MG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Malawi,MW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Mali,ML,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Islamic Republic of Mauritania,MR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Mauritius,MU,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Morocco,MA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Mozambique,MZ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,NA,NA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Niger,NE,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Nigeria,NG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Rwanda,RW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Senegal,SN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Seychelles,SC,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Sierra Leone,SL,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Somalia,SO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,South Africa,ZA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,South Sudan,SS,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Sudan,SD,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Togo,TG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Tunisia,TN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Uganda,UG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Zambia,ZM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Zimbabwe,ZW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Argentina,AR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Indonesia,ID,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Brunei,BN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Cambodia,KH,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Malaysia,MY,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Myanmar,MM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Philippines,PH,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Thailand,TH,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Viet Nam,VN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Afghanistan,AF,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Bangladesh,BD,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Bhutan,BT,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,China,CN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,India,IN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Maldives,MV,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Mongolia,MN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Nepal,NP,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Pakistan,PK,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Papua New Guinea,PG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Sri Lanka,LK,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Fiji,FJ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Kiribati,KI,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Palau,PW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Samoa,WS,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Solomon Islands,SB,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Tonga,TO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Vanuatu,VU,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Brazil,BR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Chile,CL,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Albania,AL,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Armenia,AM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Azerbaijan,AZ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Belarus,BY,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Bulgaria,BG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Georgia,GE,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Kazakhstan,KZ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Serbia,RS,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Montenegro,ME,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Romania,RO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Tajikistan,TJ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Turkmenistan,TM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Ukraine,UA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Uzbekistan,UZ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Hungary,HU,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Poland,PL,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Russia,EU,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Russia,RU,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Aruba,AW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Bahrain,BH,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Barbados,BB,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Belize,BZ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Bolivia,BO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Colombia,CO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Costa Rica,CR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Dominica,DM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Dominican Republic,DO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Ecuador,EC,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,El Salvador,SV,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Grenada,GD,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Guatemala,GT,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Guyana,GY,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Haiti,HT,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Honduras,HN,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Iraq,IQ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Jamaica,JM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Jordan,JO,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Kuwait,KW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Lebanon,LB,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Marshall Islands,MH,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Mexico,MX,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Nicaragua,NI,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Oman,OM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Panama,PA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Paraguay,PY,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Peru,PE,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Qatar,QA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Congo,CG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Saudi Arabia,SA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Suriname,SR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Trinidad and Tobago,TT,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Tuvalu,TV,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Uruguay,UY,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Venezuela,VE,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Yemen,YE,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Iran,IR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Syria,SY,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Tanzania,TZ,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Nauru,NR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Moldova,MD,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Guinea-Bissau,GW,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Antigua And Barbuda,AG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Bahamas,BS,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Bosnia Herzegovina,BA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Cape Verde,CV,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Central African Republic,CF,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Congo DR,CD,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Cote d'Ivoire,CI,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Kyrgyz Rep,KG,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Gambia,GM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Lao PDR,LA,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Macedonia,MK,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Micronesia (Federated States of),FM,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Sao Tome and Principe,ST,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,Turkey,TR,149,NA,EmergingmarketAndDevelopingeconomies
+Emergingmarket&developingeconomies,United Arab Emirates,AE,149,NA,EmergingmarketAndDevelopingeconomies
+AUS,Australia,AU,1,IPR,Australia
+BRA,Brazil,BR,1,IPR,Brazil
+CAN,Canada,CA,1,IPR,Canada
+CSA,Argentina,AR,27,IPR,CSA
+CSA,Chile,CL,27,IPR,CSA
+CSA,Belize,BZ,27,IPR,CSA
+CSA,Colombia,CO,27,IPR,CSA
+CSA,Costa Rica,CR,27,IPR,CSA
+CSA,Cuba,CU,27,IPR,CSA
+CSA,Dominican Republic,DO,27,IPR,CSA
+CSA,Ecuador,EC,27,IPR,CSA
+CSA,El Salvador,SV,27,IPR,CSA
+CSA,French Guiana,GF,27,IPR,CSA
+CSA,Guatemala,GT,27,IPR,CSA
+CSA,Guyana,GY,27,IPR,CSA
+CSA,Haiti,HT,27,IPR,CSA
+CSA,Honduras,HN,27,IPR,CSA
+CSA,Jamaica,JM,27,IPR,CSA
+CSA,Mexico,MX,27,IPR,CSA
+CSA,Nicaragua,NI,27,IPR,CSA
+CSA,Panama,PA,27,IPR,CSA
+CSA,Paraguay,PY,27,IPR,CSA
+CSA,Peru,PE,27,IPR,CSA
+CSA,Suriname,SR,27,IPR,CSA
+CSA,Trinidad and Tobago,TT,27,IPR,CSA
+CSA,Uruguay,UY,27,IPR,CSA
+CSA,Bolivia,BO,27,IPR,CSA
+CSA,Venezuela,VE,27,IPR,CSA
+CSA,Aruba,AW,27,IPR,CSA
+CSA,Curacao,CW,27,IPR,CSA
+EEU,Bulgaria,BG,11,IPR,EEU
+EEU,Croatia,HR,11,IPR,EEU
+EEU,Latvia,LV,11,IPR,EEU
+EEU,Lithuania,LT,11,IPR,EEU
+EEU,Romania,RO,11,IPR,EEU
+EEU,Czech Republic,CZ,11,IPR,EEU
+EEU,Estonia,EE,11,IPR,EEU
+EEU,Hungary,HU,11,IPR,EEU
+EEU,Poland,PL,11,IPR,EEU
+EEU,Slovenia,SI,11,IPR,EEU
+EEU,Slovakia,SK,11,IPR,EEU
+EURA,Mongolia,MN,17,IPR,EURA
+EURA,Albania,AL,17,IPR,EURA
+EURA,Armenia,AM,17,IPR,EURA
+EURA,Azerbaijan,AZ,17,IPR,EURA
+EURA,Belarus,BY,17,IPR,EURA
+EURA,Bosnia Herzegovina,BA,17,IPR,EURA
+EURA,Georgia,GE,17,IPR,EURA
+EURA,Kazakhstan,KZ,17,IPR,EURA
+EURA,Serbia,RS,17,IPR,EURA
+EURA,Kyrgyz Rep,KG,17,IPR,EURA
+EURA,Montenegro,ME,17,IPR,EURA
+EURA,Tajikistan,TJ,17,IPR,EURA
+EURA,Moldova,MD,17,IPR,EURA
+EURA,Turkmenistan,TM,17,IPR,EURA
+EURA,Ukraine,UA,17,IPR,EURA
+EURA,Uzbekistan,UZ,17,IPR,EURA
+EURA,Macedonia,MK,17,IPR,EURA
+GBR,United Kingdom,GB,1,IPR,GBR
+GCC,Bahrain,BH,6,IPR,GCC
+GCC,Kuwait,KW,6,IPR,GCC
+GCC,Oman,OM,6,IPR,GCC
+GCC,Qatar,QA,6,IPR,GCC
+GCC,Saudi Arabia,SA,6,IPR,GCC
+GCC,United Arab Emirates,AE,6,IPR,GCC
+IDN,India,IN,1,IPR,India
+JPN,Japan,JP,1,IPR,Japan
+KOR,"Korea,  Republic of",KR,1,IPR,SouthKorea
+MENA,Algeria,DZ,15,IPR,MENA
+MENA,Egypt,EG,15,IPR,MENA
+MENA,Eritrea,ER,15,IPR,MENA
+MENA,Libya,LY,15,IPR,MENA
+MENA,Morocco,MA,15,IPR,MENA
+MENA,Sudan,SD,15,IPR,MENA
+MENA,Tunisia,TN,15,IPR,MENA
+MENA,Israel,IL,15,IPR,MENA
+MENA,Turkey,TR,15,IPR,MENA
+MENA,Iraq,IQ,15,IPR,MENA
+MENA,Jordan,JO,15,IPR,MENA
+MENA,Lebanon,LB,15,IPR,MENA
+MENA,Syria,SY,15,IPR,MENA
+MENA,Yemen,YE,15,IPR,MENA
+MENA,Iran,IR,15,IPR,MENA
+RUS,Russia,RU,1,IPR,RUS
+SA,Bangladesh,BD,4,IPR,SA
+SA,Nepal,NP,4,IPR,SA
+SA,Pakistan,PK,4,IPR,SA
+SA,Sri Lanka,LK,4,IPR,SA
+SEAO,Brunei,BN,13,IPR,SEAO
+SEAO,Cambodia,KH,13,IPR,SEAO
+SEAO,Lao PDR,LA,13,IPR,SEAO
+SEAO,Malaysia,MY,13,IPR,SEAO
+SEAO,Myanmar,MM,13,IPR,SEAO
+SEAO,Philippines,PH,13,IPR,SEAO
+SEAO,Singapore,SG,13,IPR,SEAO
+SEAO,Thailand,TH,13,IPR,SEAO
+SEAO,"Korea,  Republic of",KR,13,IPR,SEAO
+SEAO,Democratic People's Republic of Korea,KP,13,IPR,SEAO
+SEAO,New Zealand,NZ,13,IPR,SEAO
+SEAO,Viet Nam,VN,13,IPR,SEAO
+SEAO,Taiwan,TW,13,IPR,SEAO
+SSA,Angola,AO,22,IPR,SSA
+SSA,Benin,BJ,22,IPR,SSA
+SSA,Botswana,BW,22,IPR,SSA
+SSA,Cameroon,CM,22,IPR,SSA
+SSA,Equatorial Guinea,GQ,22,IPR,SSA
+SSA,Ethiopia,ET,22,IPR,SSA
+SSA,Gabon,GA,22,IPR,SSA
+SSA,Ghana,GH,22,IPR,SSA
+SSA,Kenya,KE,22,IPR,SSA
+SSA,Mauritius,MU,22,IPR,SSA
+SSA,Mozambique,MZ,22,IPR,SSA
+SSA,NA,NA,22,IPR,SSA
+SSA,Niger,NE,22,IPR,SSA
+SSA,Nigeria,NG,22,IPR,SSA
+SSA,Senegal,SN,22,IPR,SSA
+SSA,South Sudan,SS,22,IPR,SSA
+SSA,Congo DR,CD,22,IPR,SSA
+SSA,Tanzania,TZ,22,IPR,SSA
+SSA,Togo,TG,22,IPR,SSA
+SSA,Zambia,ZM,22,IPR,SSA
+SSA,Zimbabwe,ZW,22,IPR,SSA
+SSA,Cote d'Ivoire,CI,22,IPR,SSA
+WEU,Cyprus,CY,21,IPR,WEU
+WEU,Gibraltar,GI,21,IPR,WEU
+WEU,Malta,MT,21,IPR,WEU
+WEU,Switzerland,CH,21,IPR,WEU
+WEU,Norway,NO,21,IPR,WEU
+WEU,Iceland,IS,21,IPR,WEU
+WEU,Austria,AT,21,IPR,WEU
+WEU,Belgium,BE,21,IPR,WEU
+WEU,Denmark,DK,21,IPR,WEU
+WEU,Finland,FI,21,IPR,WEU
+WEU,France,FR,21,IPR,WEU
+WEU,Germany,DE,21,IPR,WEU
+WEU,Greece,GR,21,IPR,WEU
+WEU,Ireland,IE,21,IPR,WEU
+WEU,Italy,IT,21,IPR,WEU
+WEU,Luxembourg,LU,21,IPR,WEU
+WEU,Netherlands,NL,21,IPR,WEU
+WEU,Portugal,PT,21,IPR,WEU
+WEU,Spain,ES,21,IPR,WEU
+WEU,Sweden,SE,21,IPR,WEU
+WEU,Greenland,GL,21,IPR,WEU
+ZAF,South Africa,ZA,1,IPR,SouthAfrica
