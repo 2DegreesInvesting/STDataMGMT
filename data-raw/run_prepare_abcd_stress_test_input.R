@@ -61,10 +61,6 @@ company_emissions <-
 abcd_data <-
   match_emissions_to_production(company_activities, company_emissions)
 
-## FILTERINGS
-abcd_data <-
-  filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
-
 ## AGGREGATIONS
 
 abcd_data <- aggregate_technology_types(abcd_data)
@@ -86,13 +82,12 @@ abcd_data <- expand_by_scenario_geography(abcd_data, bench_regions)
 
 abcd_data <- create_plan_prod_columns(abcd_data)
 
-# library(ggplot2)
-#
-# pp <- abcd_data %>% filter(scenario_geography=="Global") %>% ggplot(aes(x=year, y=log(plan_tech_prod+1), group=id, color=company_name))+
-#   geom_line(linewidth=0.05, alpha=1) +
-#   facet_wrap(vars(technology)) +
-#   theme(legend.position = "none")
-# ggsave(pp, filename="leplot.png", width=24, height=30)
+## FILTERINGS
+abcd_data <-
+  filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
+
+
+abcd_data <- filter_sectors_abcd_data(abcd_data, sector_list = c("HDV", "Automotive", "Power", "Fossil Fuels", "Oil&Gas", "Coal"))
 
 
 abcd_data %>% readr::write_csv(output_path_stress_test_inputs)

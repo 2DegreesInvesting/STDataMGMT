@@ -334,9 +334,20 @@ aggregate_technology_types <- function(abcd_data) {
 #'
 #' @export
 drop_empty_prod_and_ef <- function(abcd_data) {
-  abcd_data <- abcd_data %>%
-    dplyr::filter(!is.na(.data$ald_production) &
-                    !is.na(.data$emissions_factor))
+  nan_on_all_years <- abcd_data %>%
+    dplyr::group_by(
+      dplyr::across(c(-.data$year, -.data$ald_production, -.data$emissions_factor))
+    ) %>%
+    dplyr::summarise(all_nans_prod = all(is.na(.data$ald_production)),
+                     all_nans_emiss = all(is.na(.data$emissions_factor))) %>%
+    dplyr::ungroup()
+
+  rows_to_drop <- nan_on_all_years %>%
+    dplyr::filter(.data$all_nans_prod | .data$all_nans_emiss) %>%
+    dplyr::select(c(-.data$all_nans_prod, -.data$all_nans_emiss))
+
+  abcd_data <- abcd_data %>% dplyr::anti_join(rows_to_drop)
+
   return(abcd_data)
 }
 
@@ -442,4 +453,13 @@ create_plan_prod_columns <- function(abcd_data) {
   )
 
   return(abcd_data)
+}
+
+#' Filter dataframe to keep only desired sectors
+#' @param abcd_data abcd_data
+#'
+#' @export
+filter_sectors_abcd_data <- function(abcd_data, sector_list){
+  abcd_data <- abcd_data %>%
+    dplyr::filter(.data$ald_sector %in% sector_list)
 }
