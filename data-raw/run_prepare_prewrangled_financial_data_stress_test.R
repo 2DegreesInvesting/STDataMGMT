@@ -2,11 +2,11 @@ devtools::load_all()
 
 eikon_data <-
   readr::read_csv(
-    r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_PRODUCTION", "eikon_data_enhanced_ids.csv")
+    r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "eikon_data_enhanced_ids.csv")
   )
 abcd_data <-
   readr::read_csv(
-    r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_PRODUCTION", "abcd_stress_test_input.csv")
+    r2dii.utils::path_dropbox_2dii("ST_INPUTS", "ST_INPUTS_PRODUCTION", "abcd_stress_test_input.csv")
   )
 
 eikon_data <- eikon_data %>%
