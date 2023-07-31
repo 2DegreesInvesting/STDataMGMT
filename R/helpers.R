@@ -153,3 +153,16 @@ remove_incomplete_sectors <- function(data, p4_type = "P4I") {
   return(complete_combinations)
 }
 
+#' Apply a rename mapping on a tibble column
+#' @param data A tibble
+#' @param colname name of the column with values to be renamed
+#' @param key_value_mapping A named vector describing the mapping, keys as old name, values as new name
+#'
+#' @return input dataframe `data` with `colname` column values renamed according to `key_value_mapping`
+rename_column_values <- function(data, colname, key_value_mapping) {
+  data[[colname]] <- purrr::map_vec(
+    data[[colname]],
+    function(x) ifelse(x %in% names(key_value_mapping), key_value_mapping[[x]], x)
+  )
+  return(data)
+}
