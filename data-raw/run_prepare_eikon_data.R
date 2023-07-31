@@ -16,7 +16,7 @@ devtools::load_all()
 # same directory as path_db_analysis_inputs
 
 path_db_analysis_inputs <- fs::path(
-  r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "2020Q4_05172021_2020_MFM"
+  r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "2023Q2"
 )
 output_path_db_analysis_inputs <- fs::path(
   r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "2020Q4_05182021_2020"
@@ -25,7 +25,7 @@ path_db_datastore <- fs::path(
   r2dii.utils::dbox_port_00(), "06_DataStore", "DataStore_export_05172021", "2020Q4"
 )
 path_db_eikon_data <- fs::path(
-  r2dii.utils::dbox_port_00(), "02_FinancialData", "Eikon_Data", "2021Q2"
+  r2dii.utils::dbox_port_00(), "02_FinancialData", "Eikon_Data", "2023Q2"
 )
 
 # 2) set parameters------
@@ -76,40 +76,6 @@ ownership_tree <- ownership_tree %>%
     cause = "by ensuring column structure is unique"
   )
 
-# ABCD master data----------------
-# load master data ownership from dropbox, as created by running data_preparation
-masterdata_ownership <- readr::read_rds(
-  fs::path(path_db_analysis_inputs, "masterdata_ownership_datastore", ext = "rda")
-) %>%
-  dplyr::as_tibble()
-
-# load master data debt from dropbox, as created by running data_preparation
-masterdata_debt <- readr::read_rds(
-  fs::path(path_db_analysis_inputs, "masterdata_debt_datastore", ext = "rda")
-) %>%
-  dplyr::as_tibble()
-
-# ado 1182 - load master credit methodology (entire subsequent prep based on ado 1182)
-# from dropbox, as provided by AR
-masterdata_credit <- readr::read_csv(
-  file.path(path_db_datastore, "masterdata_credit_methodology.csv"),
-  col_types = readr::cols(
-    company_id = "d", company_name = "c", bloomberg_id = "d",
-    corporate_bond_ticker = "c", is_ultimate_parent = "l",
-    is_ultimate_listed_parent = "l", company_status = "c",
-    has_financial_data = "l", sector = "c", technology = "c",
-    technology_type = "c", asset_country = "c", emissions_factor = "d",
-    emissions_factor_unit = "c", number_of_assets = "d",
-    p_eu_eligible_gross = "d", p_eu_green_gross = "d", metric = "c", unit = "c",
-    asset_level_timestamp = "c",
-    .default = "d"
-  )
-) %>%
-  dplyr::as_tibble()
-
-masterdata_credit <- masterdata_credit %>%
-  prewrangle_masterdata_credit(consolidated_financial_data)
-
 # country region bridge-------
 country_region_bridge <- rworldmap::countryRegions %>%
   dplyr::rename(iso_a3 = ISO3) %>%
@@ -125,31 +91,34 @@ country_region_bridge <- country_region_bridge %>%
   # dplyr::transmute(iso_a2, subregion = REGION) %>%
   tidyr::drop_na()
 
-# load raw eikon financial data files---------------------------------------------------
+# load raw eikon financial data ---------------------------------------------------
 
-list_eikon_files <- list.files(path_db_eikon_data)
-
-# read eikon data from dropbox path as described in path_db_eikon_data
-list_eikon_data <- list_eikon_files %>%
-  purrr::map(
-    function(x) {
-      message(paste0("Processing ", x))
-      data <- readxl::read_xlsx(fs::path(path_db_eikon_data, x)) %>%
-        janitor::clean_names(case = "snake")
-    }
+eikon_data_input <- readr::read_csv(
+  fs::path(path_db_eikon_data, "eikon_data.csv")
   )
 
-rm(list_eikon_files)
+# load asset_impact data -------
+asset_impact_company_informations <-
+  readxl::read_excel(fs::path(path_db_analysis_inputs, "AI-Company-Indicators.xlsx"),
+                     sheet = "Company Information") %>%
+  dplyr::select(c(-LEI)) %>%
+  dplyr::rename(
+   company_id=`Company ID` ,
+   company_name=`Company Name`,
+   is_ultimate_parent = `Is Ultimate Parent`,
+   country_of_domicile=`Country of Domicile`
+  )
+
+# masterdata_credit_methodology <- readr::read_csv(fs::path(path_db_analysis_inputs, "masterdata_credit_methodology.csv"))
+
 
 # 4) run eikon data preparation-----
 eikon_data <- prepare_eikon_data(
-  list_eikon_data = list_eikon_data,
+  eikon_data_input = eikon_data_input,
   security_financial_data = security_financial_data,
   consolidated_financial_data = consolidated_financial_data,
   ownership_tree = ownership_tree,
-  masterdata_ownership = masterdata_ownership,
-  masterdata_debt = masterdata_debt,
-  masterdata_credit = masterdata_credit,
+  asset_impact_data=asset_impact_company_informations,
   country_region_bridge = country_region_bridge,
   n_min_sample = n_min_sample,
   min_ratio_sample_subgroup = min_ratio_sample_subgroup,
