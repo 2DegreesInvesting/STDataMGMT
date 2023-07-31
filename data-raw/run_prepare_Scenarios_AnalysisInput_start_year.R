@@ -32,35 +32,6 @@ data <- readr::read_csv(
 
 prepared_data <- prepare_scenario_data(data = data, start_year = start_year)
 
-
-# due to likely manual errors the raw input scenario data for start year 2021
-# versus before, there are slight formatting differences in a scenario geography
-# Fixing this here in a hardcoded way.
-if (start_year == 2021) {
-  prepared_data <- prepared_data %>%
-    dplyr::mutate(
-      scenario_geography = dplyr::if_else(
-        .data$scenario_geography == "Emerging market and developing economies",
-        "Emergingmarket&developingeconomies",
-        .data$scenario_geography
-      )
-    ) %>%
-    dplyr::mutate(
-      scenario_geography = dplyr::if_else(
-        .data$scenario_geography == "EU27",
-        "EU",
-        .data$scenario_geography
-      )
-    ) %>%
-    dplyr::mutate(
-      scenario_geography = dplyr::if_else(
-        .data$scenario_geography == "Advanced economies",
-        "AdvancedEconomies",
-        .data$scenario_geography
-      )
-    )
-}
-
 # make sure to set the relevant start year when running the data preparation
 # example:
 start_year <- 2021
