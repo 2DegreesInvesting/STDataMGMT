@@ -9,9 +9,11 @@ path_ar_data_raw <-
   )
 
 output_path_stress_test_inputs <-
-  r2dii.utils::path_dropbox_2dii("ST_INPUTS",
-                                 "ST_INPUTS_MASTER",
-                                 "abcd_stress_test_input.csv")
+  r2dii.utils::path_dropbox_2dii(
+    "ST_INPUTS",
+    "ST_INPUTS_MASTER",
+    "abcd_stress_test_input.csv"
+  )
 
 start_year <- 2021
 time_horizon <- 5
@@ -87,7 +89,7 @@ abcd_data <-
   filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
 
 
-abcd_data <- filter_sectors_abcd_data(abcd_data, sector_list = c("HDV", "Automotive", "Power", "Fossil Fuels", "Oil&Gas", "Coal"))
+abcd_data <- filter_sectors_abcd_data(abcd_data, sector_list = c("Automotive", "Power", "Oil&Gas", "Coal"))
 
 
 abcd_data %>% readr::write_csv(output_path_stress_test_inputs)

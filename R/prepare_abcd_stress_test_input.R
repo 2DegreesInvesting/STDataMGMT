@@ -23,7 +23,8 @@
 #' @export
 read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
   ar_data <- readxl::read_xlsx(path_ar_data_raw,
-                               sheet = sheet_name) %>%
+    sheet = sheet_name
+  ) %>%
     dplyr::select(-dplyr::starts_with("Direct Ownership")) %>%
     dplyr::rename(
       id = .data$`Company ID`,
@@ -223,9 +224,11 @@ filter_years_abcd_data <- function(abcd_data,
 #' @export
 fill_missing_emission_factor <- function(abcd_data) {
   avg_emission_factors <- abcd_data %>%
-    dplyr::group_by(.data$ald_sector,
-                    .data$technology,
-                    .data$emissions_factor_unit) %>%
+    dplyr::group_by(
+      .data$ald_sector,
+      .data$technology,
+      .data$emissions_factor_unit
+    ) %>%
     dplyr::summarise(emissions_factor = mean(.data$emissions_factor, na.rm = T)) %>%
     dplyr::ungroup()
 
@@ -235,7 +238,8 @@ fill_missing_emission_factor <- function(abcd_data) {
   abcd_missing_ef <- abcd_missing_ef %>%
     dplyr::select(-.data$emissions_factor, -.data$emissions_factor_unit) %>%
     dplyr::left_join(avg_emission_factors,
-                     by = c("ald_sector", "technology"))
+      by = c("ald_sector", "technology")
+    )
 
   # Fill nans when there is no avg emission factor for some technologies
   # TODO why is there no emission factor on HDV ?
@@ -338,8 +342,10 @@ drop_empty_prod_and_ef <- function(abcd_data) {
     dplyr::group_by(
       dplyr::across(c(-.data$year, -.data$ald_production, -.data$emissions_factor))
     ) %>%
-    dplyr::summarise(all_nans_prod = all(is.na(.data$ald_production)),
-                     all_nans_emiss = all(is.na(.data$emissions_factor))) %>%
+    dplyr::summarise(
+      all_nans_prod = all(is.na(.data$ald_production)),
+      all_nans_emiss = all(is.na(.data$emissions_factor))
+    ) %>%
     dplyr::ungroup()
 
   rows_to_drop <- nan_on_all_years %>%
@@ -432,11 +438,13 @@ create_plan_prod_columns <- function(abcd_data) {
     )
 
   abcd_data <- abcd_data %>%
-    dplyr::group_by(.data$id,
-                    .data$company_name,
-                    .data$scenario_geography,
-                    .data$year,
-                    .data$ald_sector) %>%
+    dplyr::group_by(
+      .data$id,
+      .data$company_name,
+      .data$scenario_geography,
+      .data$year,
+      .data$ald_sector
+    ) %>%
     dplyr::mutate(plan_sec_prod = sum(.data$plan_tech_prod, na.rm = TRUE)) %>%
     dplyr::ungroup()
 
@@ -457,9 +465,10 @@ create_plan_prod_columns <- function(abcd_data) {
 
 #' Filter dataframe to keep only desired sectors
 #' @param abcd_data abcd_data
+#' @param sector_list list of sectors to keep
 #'
 #' @export
-filter_sectors_abcd_data <- function(abcd_data, sector_list){
+filter_sectors_abcd_data <- function(abcd_data, sector_list) {
   abcd_data <- abcd_data %>%
     dplyr::filter(.data$ald_sector %in% sector_list)
 }

@@ -8,6 +8,8 @@ filter_sectors_abcd_data(abcd_data, sector_list)
 }
 \arguments{
 \item{abcd_data}{abcd_data}
+
+\item{sector_list}{list of sectors to keep}
 }
 \description{
 Filter dataframe to keep only desired sectors
