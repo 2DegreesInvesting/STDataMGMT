@@ -58,6 +58,6 @@ eikon_full <-
 
 eikon_full <- eikon_full %>%
   dplyr::select(c(-.data$trbc_industry_name)) %>%
-  dplyr::left_join(abcd_data %>% distinct(.data$company_id, .data$company_name))
+  dplyr::left_join(abcd_data %>% dplyr::distinct(.data$company_id, .data$company_name))
 
 eikon_full %>% readr::write_csv(file.path("data-raw", "prewrangled_financial_data_stress_test.csv"))
