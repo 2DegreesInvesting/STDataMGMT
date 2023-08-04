@@ -259,7 +259,7 @@ fill_missing_emission_factor <- function(abcd_data) {
 #' @param abcd_data abcd_data
 #'
 #' @export
-recreate_prop_emissions <- function(abcd_data) {
+create_emissions_factor_ratio <- function(abcd_data) {
   # note : It appears that AR data assumes that vehicles will
   # drive 15000 km to compute the CO2/km emission factor
   # TODO check if this is true on every vehicle technology
@@ -313,7 +313,7 @@ recreate_prop_emissions <- function(abcd_data) {
 #' @param abcd_data abcd_data
 #'
 #' @export
-aggregate_technology_types <- function(abcd_data) {
+aggregate_over_technology_types <- function(abcd_data) {
   abcd_data <- abcd_data %>%
     dplyr::group_by(
       .data$id,
@@ -333,11 +333,11 @@ aggregate_technology_types <- function(abcd_data) {
   return(abcd_data)
 }
 
-#' Drop rows where production or emission are nan
+#' Drop rows where production OR emission are nan
 #' @param abcd_data abcd_data
 #'
 #' @export
-drop_empty_prod_and_ef <- function(abcd_data) {
+drop_empty_prod_or_ef <- function(abcd_data) {
   nan_on_all_years <- abcd_data %>%
     dplyr::group_by(
       dplyr::across(c(-.data$year, -.data$ald_production, -.data$emissions_factor))
@@ -372,13 +372,13 @@ expand_by_scenario_geography <-
            .iso2c = "ald_location") {
     stopifnot(.iso2c %in% names(abcd_data))
 
-    # TODO skip regions in the dataloading, never used in preprocessing
     abcd_data <- abcd_data %>%
       dplyr::select(-.data$region)
 
     dict <-
       bench_regions %>%
-      dplyr::select(.data$country_iso, .data$scenario_geography) %>%
+      dplyr::select(.data$country_iso, .data$scenario_geography_newname) %>%
+      dplyr::rename(scenario_geography = .data$scenario_geography_newname) %>%
       dplyr::distinct()
 
     abcd_data <- abcd_data %>%
@@ -389,9 +389,28 @@ expand_by_scenario_geography <-
           .data$scenario_geography == "" ~ .default,
           TRUE ~ .data$scenario_geography
         )
-      )
+      ) %>%
+      dplyr::select(-c(.data$ald_location))
     return(abcd_data)
   }
+
+#' Sum productions and emissions over all other columns.
+#' This is done to aggregate those metrics over the different
+#' countries in a region where a company operates in.
+#'
+#' @param abcd_data abcd_data
+#'
+#' @return abcd_data
+#' @export
+aggregate_over_geographies <- function(abcd_data) {
+  abcd_data <- abcd_data %>%
+    dplyr::group_by(dplyr::across(c(-.data$ald_production, -.data$emissions_factor))) %>%
+    dplyr::summarise(
+      ald_production = .sum_or_all_nans(.data$ald_production),
+      emissions_factor = .sum_or_all_nans(.data$emissions_factor)
+    )
+  return(abcd_data)
+}
 
 #' Fill ald_production and emissions_factor with values of previous years
 #' for a given technology at a company

@@ -9,13 +9,7 @@ bench_regions <- bench_regions %>%
 trisk_input_dfs_paths <- c(
   here::here("data-raw", "prewrangled_capacity_factors.csv"),
   here::here("data-raw", "price_data_long.csv"),
-  here::here("data-raw", "Scenarios_AnalysisInput_2021.csv"),
-  fs::path(
-    r2dii.utils::path_dropbox_2dii(),
-    "ST_INPUTS",
-    "ST_INPUTS_MASTER",
-    "abcd_stress_test_input.csv"
-  )
+  here::here("data-raw", "Scenarios_AnalysisInput_2021.csv")
 )
 trisk_input_dfs <- lapply(trisk_input_dfs_paths, readr::read_csv)
 names(trisk_input_dfs) <- trisk_input_dfs_paths
@@ -51,16 +45,18 @@ group_identical_geographies <-
       dplyr::group_by(scenario_geography.x, scenario_geography.y) %>%
       dplyr::mutate(n_country_match = length(country_iso_list.x[country_iso_list.x %in% country_iso_list.y]) / length(country_iso_list.x)) %>%
       dplyr::ungroup() %>%
-      dplyr::select(scenario_geography.x,
-                    scenario_geography.y,
-                    n_country_match)
+      dplyr::select(
+        scenario_geography.x,
+        scenario_geography.y,
+        n_country_match
+      )
     # keep geographies pairs having perfect matching
     identical_geographies <- count_match_country_iso %>%
       dplyr::filter(n_country_match >= matching_tol &
-                      scenario_geography.x != scenario_geography.y)
+        scenario_geography.x != scenario_geography.y)
     # remove geographies pairs permutation duplicates
     identical_geographies <-
-      identical_geographies[!duplicated(t(apply(identical_geographies, 1, sort))),]
+      identical_geographies[!duplicated(t(apply(identical_geographies, 1, sort))), ]
 
     # map each geography to the identical one having the longest name
     clean_identical <- identical_geographies %>%
@@ -79,8 +75,9 @@ group_identical_geographies <-
       )
     clean_identical <-
       dplyr::anti_join(clean_identical,
-                       clean_identical,
-                       by = c("longest_name" = "shortest_name"))
+        clean_identical,
+        by = c("longest_name" = "shortest_name")
+      )
 
     # create renaming mapper. Use longest name as new geography name
     geo_group_mapper <- clean_identical$longest_name
@@ -89,9 +86,11 @@ group_identical_geographies <-
   }
 geo_group_mapper <- group_identical_geographies(bench_regions)
 bench_regions <-
-  rename_column_values(bench_regions,
-                       "scenario_geography_newname",
-                       geo_group_mapper)
+  rename_column_values(
+    bench_regions,
+    "scenario_geography_newname",
+    geo_group_mapper
+  )
 
 ### GENERIC RENAMING
 
@@ -101,9 +100,11 @@ rename_bench_region_geographies <-
     old_names <- unique(bench_regions$scenario_geography_newname)
     new_names <- renaming_fun(old_names)
     rename_mapping <- setNames(new_names, old_names)
-    bench_regions <- rename_column_values(bench_regions,
-                                          "scenario_geography_newname",
-                                          rename_mapping)
+    bench_regions <- rename_column_values(
+      bench_regions,
+      "scenario_geography_newname",
+      rename_mapping
+    )
     return(bench_regions)
   }
 ## replace "&" character by and
