@@ -129,15 +129,9 @@ rename_ald_sector <- function(ar_data) {
 aggregate_equity_ownership_after_renaming <- function(ar_data) {
   ar_data <- ar_data %>%
     dplyr::group_by(
-      .data$id,
-      .data$company_name,
-      .data$ald_sector,
-      .data$technology,
-      .data$technology_type,
-      .data$region,
-      .data$ald_location,
-      .data$activity_unit,
-      .data$year
+      dplyr::across(c(
+        -.data$equity_ownership
+      ))
     ) %>%
     dplyr::summarise(equity_ownership = .sum_or_all_nans(.data$equity_ownership)) %>%
     dplyr::ungroup()
@@ -164,7 +158,7 @@ match_emissions_to_production <- function(company_activities,
     )
 
   abcd_data <-
-    dplyr::left_join(company_activities, company_emissions)
+    dplyr::full_join(company_activities, company_emissions)
 
   return(abcd_data)
 }
@@ -281,15 +275,9 @@ create_emissions_factor_ratio <- function(abcd_data) {
 aggregate_over_technology_types <- function(abcd_data) {
   abcd_data <- abcd_data %>%
     dplyr::group_by(
-      .data$id,
-      .data$company_name,
-      .data$region,
-      .data$ald_location,
-      .data$ald_sector,
-      .data$technology,
-      .data$year,
-      .data$ald_production_unit,
-      .data$emissions_factor_unit
+      dplyr::across(c(
+        -.data$technology_type, -.data$ald_production, -.data$emissions_factor
+      ))
     ) %>%
     dplyr::summarise(
       emissions_factor = .sum_or_all_nans(.data$emissions_factor),
@@ -356,8 +344,7 @@ expand_by_scenario_geography <-
           .data$scenario_geography == "" ~ .default,
           TRUE ~ .data$scenario_geography
         )
-      ) %>%
-      dplyr::select(-c(.data$ald_location))
+      )
     return(abcd_data)
   }
 
@@ -368,10 +355,10 @@ expand_by_scenario_geography <-
 #' @param abcd_data abcd_data
 #'
 #' @return abcd_data
-aggregate_over_geographies <- function(abcd_data) {
+aggregate_over_locations <- function(abcd_data) {
   abcd_data <- abcd_data %>%
     dplyr::group_by(dplyr::across(c(
-      -.data$ald_production, -.data$emissions_factor
+      -.data$ald_location, -.data$ald_production, -.data$emissions_factor
     ))) %>%
     dplyr::summarise(
       ald_production = .sum_or_all_nans(.data$ald_production),
@@ -528,6 +515,7 @@ prepare_abcd_data <- function(company_activities,
   ## AGGREGATIONS
 
   abcd_data <- aggregate_over_technology_types(abcd_data)
+
   abcd_data <- fill_empty_years_that_follows(abcd_data)
 
   # at this point, nans in ald_production are only due to fully empty production in raw data
@@ -536,7 +524,7 @@ prepare_abcd_data <- function(company_activities,
 
   abcd_data <-
     expand_by_scenario_geography(abcd_data, bench_regions)
-  abcd_data <- aggregate_over_geographies(abcd_data)
+  abcd_data <- aggregate_over_locations(abcd_data)
 
   abcd_data <- create_emissions_factor_ratio(abcd_data)
   abcd_data <- fill_missing_emission_factor(abcd_data)
