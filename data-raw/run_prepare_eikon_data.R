@@ -98,7 +98,8 @@ eikon_data_input <- readr::read_csv(
   )
 
 # load asset_impact data -------
-asset_impact_company_informations <-
+# asset_impact_company_informations
+asset_impact_data <-
   readxl::read_excel(fs::path(path_db_analysis_inputs, "AI-Company-Indicators.xlsx"),
                      sheet = "Company Information") %>%
   dplyr::select(c(-LEI)) %>%
@@ -118,7 +119,7 @@ eikon_data <- prepare_eikon_data(
   security_financial_data = security_financial_data,
   consolidated_financial_data = consolidated_financial_data,
   ownership_tree = ownership_tree,
-  asset_impact_data=asset_impact_company_informations,
+  asset_impact_data=asset_impact_data,
   country_region_bridge = country_region_bridge,
   n_min_sample = n_min_sample,
   min_ratio_sample_subgroup = min_ratio_sample_subgroup,
