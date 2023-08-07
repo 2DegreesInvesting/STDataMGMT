@@ -7,7 +7,10 @@
 prepare_eikon_data_input(data)
 }
 \arguments{
-\item{data}{A list holding raw Eikon input data sets}
+\item{data}{The raw Eikon dataframe}
+}
+\value{
+expected eikon input data
 }
 \description{
 Prepare raw input data files from Eikon

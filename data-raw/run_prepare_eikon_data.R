@@ -19,19 +19,23 @@ devtools::load_all()
 path_db_analysis_inputs <-
   fs::path(r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "2023Q2")
 output_path_db_analysis_inputs <-
-  fs::path(r2dii.utils::dbox_port_00(),
-           "07_AnalysisInputs",
-           "2020Q4_05182021_2020")
+  fs::path(
+    r2dii.utils::dbox_port_00(),
+    "07_AnalysisInputs",
+    "2020Q4_05182021_2020"
+  )
 path_db_datastore <- fs::path(
   r2dii.utils::dbox_port_00(),
   "06_DataStore",
   "DataStore_export_05172021",
   "2020Q4"
 )
-path_db_eikon_data <- fs::path(r2dii.utils::dbox_port_00(),
-                               "02_FinancialData",
-                               "Eikon_Data",
-                               "2023Q2")
+path_db_eikon_data <- fs::path(
+  r2dii.utils::dbox_port_00(),
+  "02_FinancialData",
+  "Eikon_Data",
+  "2023Q2"
+)
 
 # 2) set parameters------
 # regional level for calculating financial data averages
@@ -54,7 +58,7 @@ eikon_data <- prepare_eikon_data(
   security_financial_data = security_financial_data,
   consolidated_financial_data = consolidated_financial_data,
   ownership_tree = ownership_tree,
-  asset_impact_data=asset_impact_data,
+  asset_impact_data = asset_impact_data,
   country_region_bridge = country_region_bridge,
   n_min_sample = n_min_sample,
   min_ratio_sample_subgroup = min_ratio_sample_subgroup,
