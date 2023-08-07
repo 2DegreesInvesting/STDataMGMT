@@ -49,25 +49,29 @@ group_identical_geographies <-
   function(bench_regions, matching_tol) {
     # group country iso names into lists
     grouped_country_iso <- bench_regions %>%
-      dplyr::group_by(scenario_geography) %>%
-      dplyr::summarise(country_iso_list = list(country_iso))
+      dplyr::group_by(.data$scenario_geography) %>%
+      dplyr::summarise(country_iso_list = list(.data$country_iso))
+
     # create a dataframe with all geographies pairs
     match_country_iso <-
       dplyr::cross_join(grouped_country_iso, grouped_country_iso)
+
     # count how many country_iso are identical between geographies
     count_match_country_iso <- match_country_iso %>%
-      dplyr::group_by(scenario_geography.x, scenario_geography.y) %>%
-      dplyr::mutate(n_country_match = length(country_iso_list.x[country_iso_list.x %in% country_iso_list.y]) / length(country_iso_list.x)) %>%
+      dplyr::group_by(.data$scenario_geography.x, .data$scenario_geography.y) %>%
+      dplyr::mutate(n_country_match = length(.data$country_iso_list.x[.data$country_iso_list.x %in% .data$country_iso_list.y]) / length(.data$country_iso_list.x)) %>%
       dplyr::ungroup() %>%
       dplyr::select(
-        scenario_geography.x,
-        scenario_geography.y,
-        n_country_match
+        .data$scenario_geography.x,
+        .data$scenario_geography.y,
+        .data$n_country_match
       )
+
     # keep geographies pairs having perfect matching
     identical_geographies <- count_match_country_iso %>%
-      dplyr::filter(n_country_match >= matching_tol &
-        scenario_geography.x != scenario_geography.y)
+      dplyr::filter(.data$n_country_match >= .env$matching_tol &
+        .data$scenario_geography.x != .data$scenario_geography.y)
+
     # remove geographies pairs permutation duplicates
     identical_geographies <-
       identical_geographies[!duplicated(t(apply(identical_geographies, 1, sort))), ]
@@ -77,14 +81,14 @@ group_identical_geographies <-
       dplyr::rowwise() %>%
       dplyr::mutate(
         longest_name = dplyr::if_else(
-          nchar(scenario_geography.x) >= nchar(scenario_geography.y),
-          scenario_geography.x,
-          scenario_geography.y
+          nchar(.data$scenario_geography.x) >= nchar(.data$scenario_geography.y),
+          .data$scenario_geography.x,
+          .data$scenario_geography.y
         ),
         shortest_name = dplyr::if_else(
-          nchar(scenario_geography.x) >= nchar(scenario_geography.y),
-          scenario_geography.y,
-          scenario_geography.x
+          nchar(.data$scenario_geography.x) >= nchar(.data$scenario_geography.y),
+          .data$scenario_geography.y,
+          .data$scenario_geography.x
         )
       )
     clean_identical <-
@@ -231,7 +235,7 @@ regroup_and_rename_geographies <-
     geo_group_mapper <-
       group_identical_geographies(bench_regions, matching_tol = matching_tol)
     bench_regions <- bench_regions %>%
-      dplyr::mutate(scenario_geography_newname = scenario_geography) %>%
+      dplyr::mutate(scenario_geography_newname = .data$scenario_geography) %>%
       rename_column_values(
         "scenario_geography_newname",
         geo_group_mapper
