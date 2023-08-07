@@ -5,13 +5,11 @@
 \title{For each company select the final financial value of the best granularity}
 \usage{
 prepare_eikon_data(
-  list_eikon_data,
+  eikon_data_input,
   security_financial_data,
   consolidated_financial_data,
   ownership_tree,
-  masterdata_ownership,
-  masterdata_debt,
-  masterdata_credit,
+  asset_impact_data,
   country_region_bridge,
   n_min_sample,
   min_ratio_sample_subgroup,
@@ -19,7 +17,7 @@ prepare_eikon_data(
 )
 }
 \arguments{
-\item{list_eikon_data}{A list of data frames containing the raw input data
+\item{eikon_data_input}{A data frame containing the raw input data
 from eikon}
 
 \item{security_financial_data}{A data frame containing the
@@ -31,14 +29,8 @@ consolidated_financial_data as prepared in the data_preparation repo}
 \item{ownership_tree}{A data frame containing the ownership_tree as provided
 by Asset Resolution}
 
-\item{masterdata_ownership}{A data frame containing the masterdata_ownership
-as prepared in the data_preparation repo}
-
-\item{masterdata_debt}{A data frame containing the masterdata_debt as
-prepared in the data_preparation repo}
-
-\item{masterdata_credit}{A data frame containing the masterdata_credit as
-provided by Asset Resolution}
+\item{asset_impact_data}{A data frame containing the companies and characteristics
+.  profided by Asset Resolution}
 
 \item{country_region_bridge}{A data frame which contains a mapping of
 countries to multiple regional levels of interest}
