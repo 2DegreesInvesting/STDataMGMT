@@ -89,20 +89,20 @@ prewrangle_masterdata_credit <- function(masterdata_credit,
 prepare_eikon_data_input <- function(data) {
   data <- data %>%
     dplyr::rename(
-      debt_equity_ratio = credit_structural_leverage,
-      corporate_bond_ticker = ticker_symbol,
-      pd = `credit_structural_pd_%`,
-      net_profit_margin = `net_profit_margin_%`,
-      volatility = `credit_structural_asset_volatility_%`,
-      bics_subgroup = trbc_industry_name,
-      bics_sector = source_sheet,
+      debt_equity_ratio = .data$credit_structural_leverage,
+      corporate_bond_ticker = .data$ticker_symbol,
+      pd = .data$`credit_structural_pd_%`,
+      net_profit_margin = .data$`net_profit_margin_%`,
+      volatility = .data$`credit_structural_asset_volatility_%`,
+      bics_subgroup = .data$trbc_industry_name,
+      bics_sector = .data$source_sheet,
     ) %>%
     dplyr::mutate(
       net_profit_margin = .data$net_profit_margin / 100,
       volatility = .data$volatility / 100,
       pd = .data$pd / 100
     ) %>%
-    dplyr::select(c(-company_name))
+    dplyr::select(c(-.data$company_name))
 
   return(data)
 }
@@ -180,9 +180,8 @@ prewrangle_ownership_tree <- function(data) {
 #' Identify which companies in the masterdata_ownership are missing in Eikon
 #'
 #' @param data A data frame holding the masterdata file in which to find the missings
-#' @param company_identifier A data frame holding combinations of company_id,
+#' @param eikon_data A data frame holding prepared Eikon data set, containing company_id,
 #'   company_name and corporate_bond_ticker
-#' @param eikon_data A data frame holding prepared Eikon data set
 #'
 #' @return NULL
 find_missing_companies_ownership <- function(data, eikon_data) {
@@ -286,12 +285,8 @@ find_missing_companies_credit <- function(data, eikon_data) {
 #' Identify which companies in the masterdata_credit are missing in Eikon
 #'
 #' @param data A data frame holding prepared Eikon data set
-#' @param missing_companies_ownership A data frame with missing companies from
+#' @param missing_companies A data frame with missing companies from
 #'   the masterdata_ownership data set
-#' @param missing_companies_debt A data frame with missing companies from
-#'   the masterdata_debt data set
-#' @param missing_companies_credit A data frame with missing companies from
-#'   the masterdata_credit data set
 #'
 #' @return NULL
 add_missing_companies_to_eikon <- function(data,
@@ -547,14 +542,14 @@ select_final_financial_value <- function(data) {
   # change variable classes back to doubles
   data <- data %>%
     dplyr::mutate(dplyr::across(c(
-      dplyr::contains(c("final_", "eikon_", "avg_")),-dplyr::contains(c("_type_", "structural"))
+      dplyr::contains(c("final_", "eikon_", "avg_")), -dplyr::contains(c("_type_", "structural"))
     ),
     ~ as.double(.)))
 }
 
 #' For each company select the final financial value of the best granularity
 #'
-#' @param list_eikon_data A list of data frames containing the raw input data
+#' @param eikon_data_input A data frame containing the raw input data
 #'   from eikon
 #' @param security_financial_data A data frame containing the
 #'   security_financial_data as prepared in the data_preparation repo
@@ -562,12 +557,8 @@ select_final_financial_value <- function(data) {
 #'   consolidated_financial_data as prepared in the data_preparation repo
 #' @param ownership_tree A data frame containing the ownership_tree as provided
 #'   by Asset Resolution
-#' @param masterdata_ownership A data frame containing the masterdata_ownership
-#'   as prepared in the data_preparation repo
-#' @param masterdata_debt A data frame containing the masterdata_debt as
-#'   prepared in the data_preparation repo
-#' @param masterdata_credit A data frame containing the masterdata_credit as
-#'   provided by Asset Resolution
+#' @param asset_impact_data A data frame containing the companies and characteristics
+#' .  profided by Asset Resolution
 #' @param country_region_bridge A data frame which contains a mapping of
 #'   countries to multiple regional levels of interest
 #' @param n_min_sample A numeric vector of length one, indicating the minimum
@@ -603,10 +594,12 @@ prepare_eikon_data <- function(eikon_data_input,
   # join in ownership tree----
   eikon_data <- eikon_data %>%
     # ADO 1948 - apparently no diff between left_join and inner_join, so changed to the more commonly correct one
-    dplyr::inner_join(prewrangled_ownership_tree,
+    dplyr::left_join(prewrangled_ownership_tree,
                       by = c("parent_company_id" = "target_company_id")) %>%
-    report_diff_rows(initial_n_rows = nrow(eikon_data),
-                     cause = "by joining in the ownership tree")
+    dplyr::mutate(
+      company_id = dplyr::if_else(is.na(company_id), parent_company_id, company_id),
+      ownership_level = dplyr::if_else(is.na(ownership_level), 0, ownership_level)
+    )
 
   # rm(ownership_tree, prewrangled_ownership_tree)
 
@@ -732,7 +725,7 @@ prepare_eikon_data <- function(eikon_data_input,
 
   # create averages by bics subsector and region
   bics_subgroup_region_averages <- eikon_data %>%
-    dplyr::filter(!is.na(.data$bics_subgroup),!is.na(.data$subregion)) %>%
+    dplyr::filter(!is.na(.data$bics_subgroup), !is.na(.data$subregion)) %>%
     dplyr::group_by(.data$bics_subgroup, .data$subregion) %>%
     create_averages_eikon(
       minimum_sample_size = n_min_sample,
@@ -805,7 +798,7 @@ prepare_eikon_data <- function(eikon_data_input,
                          subregion = TRUE)
 
   plot_bics_subgroup_averages <- bics_subgroup_averages %>%
-    dplyr::filter(dplyr::between(.data$avg_net_profit_margin,-2, 2)) %>%
+    dplyr::filter(dplyr::between(.data$avg_net_profit_margin, -2, 2)) %>%
     plot_sector_averages(x = "bics_subgroup",
                          y = "avg_net_profit_margin")
 
@@ -898,23 +891,13 @@ prepare_eikon_data <- function(eikon_data_input,
 
   # 6) pick the best financial data point available----
   eikon_data <- eikon_data %>%
-    select_final_financial_value()
+    select_final_financial_value() %>%
+    assertr::verify(length(unique(.$company_id)) == length(unique(asset_impact_data$company_id)))
 
   # 7) apply financial data values cleaning assumptions
   eikon_data <- eikon_data %>%
     prepare_prewrangled_financial_data_stress_test()
 
-  return(
-    eikon_data %>%
-      dplyr::select(
-        company_name,
-        company_id,
-        corporate_bond_ticker,
-        dplyr::starts_with("final_")
-      ) %>%
-      dplyr::rename_with(function(x) {
-        gsub("final_", "", x)
-      })
+  return(eikon_data)
 
-  )
 }
