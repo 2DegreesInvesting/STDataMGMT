@@ -2,12 +2,16 @@ devtools::load_all()
 
 ## PARAMETERS
 path_ar_data_raw <-
-  r2dii.utils::path_dropbox_2dii("ST_INPUTS",
-                                 "ST_INPUTS_PRODUCTION")
+  r2dii.utils::path_dropbox_2dii(
+    "ST_INPUTS",
+    "ST_INPUTS_PRODUCTION"
+  )
 
 output_path_stress_test_input <-
-  r2dii.utils::path_dropbox_2dii("ST_INPUTS",
-                                 "ST_INPUTS_MASTER")
+  r2dii.utils::path_dropbox_2dii(
+    "ST_INPUTS",
+    "ST_INPUTS_MASTER"
+  )
 
 start_year <- 2021
 time_horizon <- 5
@@ -18,15 +22,21 @@ bench_regions <-
   readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = "")
 
 company_activities <-
-  read_asset_resolution(fs::path(path_ar_data_raw,
-                                 "AR-Company-Indicators",
-                                 ext = "xlsx"),
-                        sheet_name = "Company Activities")
+  read_asset_resolution(
+    fs::path(path_ar_data_raw,
+      "AR-Company-Indicators",
+      ext = "xlsx"
+    ),
+    sheet_name = "Company Activities"
+  )
 company_emissions <-
-  read_asset_resolution(fs::path(path_ar_data_raw,
-                                 "AR-Company-Indicators",
-                                 ext = "xlsx"),
-                        sheet_name = "Company Emissions")
+  read_asset_resolution(
+    fs::path(path_ar_data_raw,
+      "AR-Company-Indicators",
+      ext = "xlsx"
+    ),
+    sheet_name = "Company Emissions"
+  )
 
 outputs_list <-
   prepare_assets_data(company_activities, company_emissions)

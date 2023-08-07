@@ -1,7 +1,7 @@
 devtools::load_all()
 
 ## PARAMETERS
-#TODO config file
+# TODO config file
 
 #### bench_regions renaming
 matching_tol <- 1
@@ -26,9 +26,11 @@ path_ar_data_raw <-
   )
 
 output_path_stress_test_inputs <-
-  r2dii.utils::path_dropbox_2dii("ST_INPUTS",
-                                 "ST_INPUTS_MASTER",
-                                 "abcd_stress_test_input.csv")
+  r2dii.utils::path_dropbox_2dii(
+    "ST_INPUTS",
+    "ST_INPUTS_MASTER",
+    "abcd_stress_test_input.csv"
+  )
 
 start_year <- 2021
 time_horizon <- 5
