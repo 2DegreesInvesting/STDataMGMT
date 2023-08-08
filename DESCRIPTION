@@ -21,7 +21,6 @@ Imports:
     readr,
     readxl,
     rlang,
-    stringi,
     stringr,
     tibble,
     tidyr,

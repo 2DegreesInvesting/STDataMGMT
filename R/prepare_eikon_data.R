@@ -625,8 +625,8 @@ prepare_eikon_data <- function(eikon_data_input,
       by = c("parent_company_id" = "target_company_id")
     ) %>%
     dplyr::mutate(
-      company_id = dplyr::if_else(is.na(company_id), parent_company_id, company_id),
-      ownership_level = dplyr::if_else(is.na(ownership_level), 0, ownership_level)
+      company_id = dplyr::if_else(is.na(.data$company_id), .data$parent_company_id, .data$company_id),
+      ownership_level = dplyr::if_else(is.na(.data$ownership_level), 0, .data$ownership_level)
     )
 
   # rm(ownership_tree, prewrangled_ownership_tree)
