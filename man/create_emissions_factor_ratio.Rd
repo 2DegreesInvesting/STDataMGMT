@@ -4,10 +4,14 @@
 \alias{create_emissions_factor_ratio}
 \title{convert EF from tCO2 (or tCO2e) to the ratio of tCO2 (or tCO2e) over production}
 \usage{
-create_emissions_factor_ratio(abcd_data)
+create_emissions_factor_ratio(abcd_data, km_per_vehicle)
 }
 \arguments{
 \item{abcd_data}{abcd_data}
+
+\item{km_per_vehicle}{It appears that AR data assumes that vehicles will
+drive 15000 km to compute the CO2/km emission factor
+TODO check if this is true on every vehicle technology}
 }
 \description{
 convert EF from tCO2 (or tCO2e) to the ratio of tCO2 (or tCO2e) over production
