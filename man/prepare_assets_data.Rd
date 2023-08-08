@@ -2,18 +2,21 @@
 % Please edit documentation in R/prepare_abcd_stress_test_input.R
 \name{prepare_assets_data}
 \alias{prepare_assets_data}
-\title{Title}
+\title{Prepare companies emissions and productions dataframes}
 \usage{
 prepare_assets_data(company_activities, company_emissions)
 }
 \arguments{
-\item{company_activities}{company_activities}
+\item{company_activities}{production of companies in different countries.
+Production amount is indicated in equity_ownership columns, 1 column per year}
 
-\item{company_emissions}{company_emissions}
+\item{company_emissions}{emissions of companies in different countries.
+Emission amount is indicated in equity_ownership columns, 1 column per year}
 }
 \value{
-company_activities, company_emissions
+company_activities : production of companies, 1 row per year
+company_emissions : emissions of companies (in tCO2 or tCO2e), 1 row per year
 }
 \description{
-Title
+Prepare companies emissions and productions dataframes
 }

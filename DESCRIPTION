@@ -18,6 +18,7 @@ Imports:
     glue,
     magrittr,
     purrr,
+    readr,
     readxl,
     rlang,
     stringi,

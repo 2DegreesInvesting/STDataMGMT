@@ -438,12 +438,16 @@ filter_sectors_abcd_data <- function(abcd_data, sector_list) {
 
 
 
-#' Title
+#' Prepare companies emissions and productions dataframes
 #'
-#' @param company_activities company_activities
-#' @param company_emissions company_emissions
 #'
-#' @return company_activities, company_emissions
+#' @param company_activities production of companies in different countries.
+#'    Production amount is indicated in equity_ownership columns, 1 column per year
+#' @param company_emissions emissions of companies in different countries.
+#'    Emission amount is indicated in equity_ownership columns, 1 column per year
+#' @return
+#'  company_activities : production of companies, 1 row per year
+#'  company_emissions : emissions of companies (in tCO2 or tCO2e), 1 row per year
 #' @export
 prepare_assets_data <-
   function(company_activities, company_emissions) {
@@ -484,17 +488,19 @@ prepare_assets_data <-
   }
 
 
-#' Title
+#' Creates the abcd stress test input data, using companies emissions and productions.
+#' Aggregate absolute values of production and emissions over technology types and regions.
+#' Computes the emissions factor ratio out of absolute emissions and productions.
 #'
-#' @param company_activities company_activities
-#' @param company_emissions company_emissions
-#' @param scenarios_geographies scenarios_geographies
+#' @param company_activities production of companies, 1 row per year
+#' @param company_emissions emissions of companies (in tCO2 or tCO2e), 1 row per year
+#' @param scenarios_geographies mapping between country code and climate scenario geographies
 #' @param start_year start_year
 #' @param time_horizon time_horizon
 #' @param additional_year additional_year
 #' @param sector_list sector_list
 #'
-#' @return abcd_data
+#' @return companies production matched to the appropriate emission, 1 row per year and scenario geography
 #' @export
 prepare_abcd_data <- function(company_activities,
                               company_emissions,

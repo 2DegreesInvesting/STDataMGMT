@@ -111,7 +111,7 @@ rename_bench_region_geographies <-
   function(bench_regions, renaming_fun) {
     old_names <- unique(bench_regions$scenario_geography_newname)
     new_names <- renaming_fun(old_names)
-    rename_mapping <- setNames(new_names, old_names)
+    rename_mapping <- stats::setNames(new_names, old_names)
     bench_regions <- rename_column_values(
       bench_regions,
       "scenario_geography_newname",
@@ -184,13 +184,13 @@ standardize_geoographies_name <- function(bench_regions) {
 rename_stress_test_inputs <-
   function(bench_regions, trisk_input_dfs) {
     bench_regions_unique_geographies <- bench_regions %>%
-      dplyr::distinct(scenario_geography, scenario_geography_newname)
+      dplyr::distinct(.data$scenario_geography, .data$scenario_geography_newname)
     geographies_old_names <-
       bench_regions_unique_geographies$scenario_geography
     geographies_new_names <-
       bench_regions_unique_geographies$scenario_geography_newname
     final_geo_renaming <-
-      setNames(geographies_new_names, geographies_old_names)
+      stats::setNames(geographies_new_names, geographies_old_names)
 
     trisk_input_dfs <- purrr::map(
       trisk_input_dfs,

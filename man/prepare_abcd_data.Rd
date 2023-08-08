@@ -2,7 +2,9 @@
 % Please edit documentation in R/prepare_abcd_stress_test_input.R
 \name{prepare_abcd_data}
 \alias{prepare_abcd_data}
-\title{Title}
+\title{Creates the abcd stress test input data, using companies emissions and productions.
+Aggregate absolute values of production and emissions over technology types and regions.
+Computes the emissions factor ratio out of absolute emissions and productions.}
 \usage{
 prepare_abcd_data(
   company_activities,
@@ -15,11 +17,11 @@ prepare_abcd_data(
 )
 }
 \arguments{
-\item{company_activities}{company_activities}
+\item{company_activities}{production of companies, 1 row per year}
 
-\item{company_emissions}{company_emissions}
+\item{company_emissions}{emissions of companies (in tCO2 or tCO2e), 1 row per year}
 
-\item{scenarios_geographies}{scenarios_geographies}
+\item{scenarios_geographies}{mapping between country code and climate scenario geographies}
 
 \item{start_year}{start_year}
 
@@ -30,8 +32,10 @@ prepare_abcd_data(
 \item{sector_list}{sector_list}
 }
 \value{
-abcd_data
+companies production matched to the appropriate emission, 1 row per year and scenario geography
 }
 \description{
-Title
+Creates the abcd stress test input data, using companies emissions and productions.
+Aggregate absolute values of production and emissions over technology types and regions.
+Computes the emissions factor ratio out of absolute emissions and productions.
 }
