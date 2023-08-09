@@ -24,7 +24,7 @@ bench_regions <-
 company_activities <-
   read_asset_resolution(
     fs::path(path_ar_data_raw,
-      "AR-Company-Indicators",
+      "AR-Company-Indicators_2022Q4",
       ext = "xlsx"
     ),
     sheet_name = "Company Activities"
@@ -32,7 +32,7 @@ company_activities <-
 company_emissions <-
   read_asset_resolution(
     fs::path(path_ar_data_raw,
-      "AR-Company-Indicators",
+      "AR-Company-Indicators_2022Q4",
       ext = "xlsx"
     ),
     sheet_name = "Company Emissions"
