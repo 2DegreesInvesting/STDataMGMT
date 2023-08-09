@@ -17,6 +17,7 @@ start_year <- 2021
 time_horizon <- 5
 additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
+km_per_vehicle <- 15000
 
 bench_regions <-
   readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = "")
@@ -48,11 +49,16 @@ abcd_data <-
   prepare_abcd_data(
     company_activities = clean_company_activities,
     company_emissions = clean_company_emissions,
-    scenarios_geographies = bench_regions_renamed,
+    scenarios_geographies = bench_regions,
     start_year = start_year,
     time_horizon = time_horizon,
     additional_year = additional_year,
+    km_per_vehicle = km_per_vehicle,
     sector_list = sector_list
   )
 
-abcd_data %>% readr::write_csv(output_path_stress_test_inputs)
+abcd_data %>% readr::write_csv(fs::path(
+  output_path_stress_test_input,
+  "abcd_stress_test_input",
+  ext = "csv"
+))

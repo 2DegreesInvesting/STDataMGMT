@@ -497,7 +497,9 @@ prepare_assets_data <-
 #' @param scenarios_geographies mapping between country code and climate scenario geographies
 #' @param start_year start_year
 #' @param time_horizon time_horizon
-#' @param additional_year additional_year
+#' @param additional_year list of years to add to the year range
+#' @param km_per_vehicle the number of km associated to the production of 1 vehicle,
+#'    used to convert the emissions from TCO2/# vehicles to TCO2/km
 #' @param sector_list sector_list
 #'
 #' @return companies production matched to the appropriate emission, 1 row per year and scenario geography
@@ -508,6 +510,7 @@ prepare_abcd_data <- function(company_activities,
                               start_year,
                               time_horizon,
                               additional_year,
+                              km_per_vehicle,
                               sector_list) {
   ###### ABCD
 
@@ -531,7 +534,7 @@ prepare_abcd_data <- function(company_activities,
     expand_by_scenario_geography(abcd_data, scenarios_geographies)
   abcd_data <- aggregate_over_locations(abcd_data)
 
-  abcd_data <- create_emissions_factor_ratio(abcd_data)
+  abcd_data <- create_emissions_factor_ratio(abcd_data, km_per_vehicle = km_per_vehicle)
   abcd_data <- fill_missing_emission_factor(abcd_data)
 
   # nans in emission_factor only on all years of a given thech (same as above)
