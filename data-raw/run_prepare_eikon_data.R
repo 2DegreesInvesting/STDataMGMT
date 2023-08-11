@@ -35,6 +35,13 @@ range_profit_margin <- c(-Inf, Inf)
 
 # 3) load input data----------------------------------------------------
 
+# companies data--------
+# load
+companies <-
+  readr::read_rds(here::here("data-raw", "db_companies.rds"))
+
+
+
 # security financial data--------
 # read from the dropbox. produced by running the data_preparation repo
 security_financial_data <-
