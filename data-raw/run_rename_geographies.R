@@ -2,7 +2,18 @@ devtools::load_all()
 
 ## load required data
 bench_regions <-
-  readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = c(""))
+  readr::read_rds(here::here("data-raw", "bench_regions.rds"))
+
+# Check there are no duplicates country_iso in a geography
+stopifnot(max(
+  bench_regions %>%
+    dplyr::group_by(.data$scenario_geography, .data$country_iso) %>%
+    dplyr::summarise(duplicates = dplyr::n(), .groups =
+                       "drop") %>%
+    dplyr::pull(.data$duplicates)
+) == 1)
+
+
 bench_regions <- bench_regions %>%
   dplyr::mutate(scenario_geography_newname = scenario_geography)
 
@@ -60,7 +71,7 @@ group_identical_geographies <-
                       scenario_geography.x != scenario_geography.y)
     # remove geographies pairs permutation duplicates
     identical_geographies <-
-      identical_geographies[!duplicated(t(apply(identical_geographies, 1, sort))),]
+      identical_geographies[!duplicated(t(apply(identical_geographies, 1, sort))), ]
 
     # map each geography to the identical one having the longest name
     clean_identical <- identical_geographies %>%
