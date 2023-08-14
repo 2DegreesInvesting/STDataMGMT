@@ -30,7 +30,7 @@ trisk_input_dfs <- output_list[["trisk_input_dfs"]]
 bench_regions <- output_list[["bench_regions"]]
 
 ## ------------------------------ WRITE OUTPUTS
-bench_regions %>% readr::write_rds(bench_regions_output_path, na = c(""))
+bench_regions %>% readr::write_rds(bench_regions_output_path)
 
 for (fp in names(trisk_input_dfs)) {
   readr::write_csv(trisk_input_dfs[[fp]], fp)
