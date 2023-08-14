@@ -142,7 +142,7 @@ no_r5_renaming <- function(x) {
 bench_regions <-
   rename_bench_region_geographies(bench_regions, no_r5_renaming)
 
-bench_regions %>% readr::write_csv(here::here("data-raw", "bench_regions.csv"), na = c(""))
+bench_regions %>% readr::write_rds(here::here("data-raw", "bench_regions.rds"))
 
 ### TRISK INPUTS RENAMING
 

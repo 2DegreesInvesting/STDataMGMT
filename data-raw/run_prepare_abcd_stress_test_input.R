@@ -20,7 +20,7 @@ time_horizon <- 5
 additional_year <- NULL
 
 bench_regions <-
-  readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = "")
+  readr::read_csv(here::here("data-raw", "bench_regions.rds"), na = "")
 
 #### PREPROCESS ASSET RESOLUTION DATA
 
