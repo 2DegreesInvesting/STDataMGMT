@@ -2,10 +2,10 @@ devtools::load_all()
 library(dplyr)
 
 country_to_iso2c <- countrycode::codelist %>%
-  filter(!is.na(iso2c),!is.na(`country.name.en`)) %>%
+  filter(!is.na(iso2c), !is.na(`country.name.en`)) %>%
   distinct(iso2c, `country.name.en`) %>%
   rename(country = `country.name.en`, country_iso = iso2c) %>%
-  bind_rows(tibble::tribble( ~ country, ~ country_iso, c("Kosovo"), c("XK")))
+  bind_rows(tibble::tribble(~country, ~country_iso, c("Kosovo"), c("XK")))
 
 bench_regions <- readr::read_csv("data-raw/bench_regions.csv")
 # remove countries with countrycode EU, unknown as a country (is European but which one ?)
@@ -14,14 +14,16 @@ bench_regions <- bench_regions %>% filter(country_iso != "EU")
 
 # Adds new geographies
 new_geos <- readxl::read_excel("data-raw/matchingregions.xlsx") %>%
-  bind_rows(tibble::tribble( ~ scenario_geography, ~ country, c("Coastal China"), c("China")))
+  bind_rows(tibble::tribble(~scenario_geography, ~country, c("Coastal China"), c("China")))
 
 new_geos_in_countrycodes <- new_geos %>%
   dplyr::inner_join(country_to_iso2c,
-                    by = "country")
+    by = "country"
+  )
 new_geos_not_in_countrycodes <- new_geos %>%
   dplyr::anti_join(country_to_iso2c,
-                   by = "country")
+    by = "country"
+  )
 
 # All commented countries (30) belong to the Developing Economies geography
 remap_countries <-
@@ -105,11 +107,12 @@ new_geos_and_countrycodes <-
   bind_rows(new_geos_in_countrycodes, new_geos_added_countrycodes)
 new_geos_and_countrycodes <- new_geos_and_countrycodes %>%
   group_by(scenario_geography) %>%
-  mutate(reg_count = n()) %>% ungroup()
+  mutate(reg_count = n()) %>%
+  ungroup()
 
 bench_regions <- bind_rows(bench_regions, new_geos_and_countrycodes)
 
-bench_regions %>% readr::write_csv("data-raw/bench_regions.csv")
+bench_regions %>% readr::write_csv("data-raw/bench_regions.rds")
 
 # REMOVE DUPLICATES ===============================================================
 
@@ -141,7 +144,10 @@ bench_regions <-
   bind_rows(bench_regions_no_dupl, bench_regions_cleaned_dupl)
 
 bench_regions <-
-  bench_regions %>% group_by(scenario_geography) %>% mutate(reg_count = n()) %>% ungroup()
+  bench_regions %>%
+  group_by(scenario_geography) %>%
+  mutate(reg_count = n()) %>%
+  ungroup()
 
 bench_regions %>% readr::write_rds("data-raw/bench_regions.rds")
 
@@ -152,13 +158,14 @@ bench_regions %>% readr::write_rds("data-raw/bench_regions.rds")
 # using the iso2c as join key
 # 32 countrycodes  concerned: to check:
 sum(
-  bench_regions %>% distinct(country, country_iso) %>% group_by(country_iso) %>% summarise(nrow =                                                                                            n()) %>% arrange(desc(nrow)) %>% print(n = 100) %>% pull(nrow) > 1
+  bench_regions %>% distinct(country, country_iso) %>% group_by(country_iso) %>% summarise(nrow = n()) %>% arrange(desc(nrow)) %>% print(n = 100) %>% pull(nrow) > 1
 )
 # rename countries
-bench_regions <- bench_regions %>% select(c(-country)) %>%
+bench_regions <- bench_regions %>%
+  select(c(-country)) %>%
   dplyr::left_join(country_to_iso2c,
-                   by = c("country_iso"))
+    by = c("country_iso")
+  )
 
 
 bench_regions %>% readr::write_rds("data-raw/bench_regions.rds")
-
