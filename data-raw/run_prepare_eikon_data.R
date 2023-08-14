@@ -16,8 +16,15 @@ devtools::load_all()
 # same directory as path_db_analysis_inputs
 
 
-path_prepare_eikon_inputs <- fs::path(r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "2023Q3_08152023")
-
+db_root_path <- r2dii.utils::path_dropbox_2dii(fs::path("PortCheck",
+                                                        "00_Data",
+                                                        "07_AnalysisInputs",
+                                                        "db"))
+abcd_path <- r2dii.utils::path_dropbox_2dii(
+  "ST_INPUTS",
+  "ST_INPUTS_MASTER",
+  "abcd_stress_test_input.csv"
+)
 # 2) set parameters------
 # regional level for calculating financial data averages
 level_subregion <- "REGION"
@@ -35,56 +42,35 @@ range_profit_margin <- c(-Inf, Inf)
 
 # 3) load input data----------------------------------------------------
 
-# companies data--------
-# load
+abcd_data <- readr::read_csv(abcd_path)
+
+# load data tables
+# created by a merge of security_financial_data and consolidated_financial data
+# by company_id.
+# to this merge has been added additional data provided by Asset Impact in 2023Q2
+
+# unique id: isin
+ids <- readr::read_rds(fs::path(db_root_path, "db_ids.rds")) %>%
+  assertr::verify(length(unique(.$isin)) == nrow(.))
+
+
+# unique id: company_id
 companies <-
-  readr::read_rds(here::here("data-raw", "db_companies.rds"))
+  readr::read_rds(fs::path(db_root_path, "db_companies.rds")) %>%
+  assertr::verify(length(unique(.$company_id)) == nrow(.))
+#  TODO move to workflow branch
+# companies <-
+#   companies %>% dplyr::filter(companies$company_id %in% unique(abcd_data$id))
 
+# unique id: isin
+assets <- readr::read_rds(fs::path(db_root_path, "db_assets.rds"))%>%
+  assertr::verify(length(unique(.$isin)) == nrow(.))
 
+ownership_tree <- readr::read_rds(fs::path(db_root_path, "db_ownership_tree.rds"))
+# prepare ownership tree----
 
-# security financial data--------
-# read from the dropbox. produced by running the data_preparation repo
-security_financial_data <-
-  readr::read_rds(fs::path(path_prepare_eikon_inputs, "security_financial_data", ext = "rda"))
-# add complementary isins/company_id from security_financial_data
-asset_impact_isins <- readxl::read_excel(fs::path(path_prepare_eikon_inputs, "AR-Company-Indicators.xlsx"),
-  sheet = "Company ISINs"
-) %>%
-  dplyr::rename(
-    company_id = `Company ID`,
-    company_name = `Company Name`,
-    isin = ISIN
-  ) %>%
-  dplyr::mutate(security_mapped_sector = "Other")
-security_financial_data <-
-  dplyr::bind_rows(
-    security_financial_data %>% dplyr::distinct(company_id, company_name, isin, security_mapped_sector),
-    asset_impact_isins
-  )
-# consolidated financial data----
-# read from the dropbox. produced by running the data_preparation repo
-consolidated_financial_data <-
-  readr::read_rds(fs::path(path_prepare_eikon_inputs, "consolidated_financial_data", ext = "rda"))
-
-# ownership_tree-----------------
-# read from the dropbox. file provided by AR. clarify interval of releases.
-ownership_tree <- readr::read_csv(
-  file.path(path_prepare_eikon_inputs, "company_ownership_bidirectional.csv"),
-  col_types = readr::cols_only(
-    target_company_id = "d",
-    company_id = "d",
-    linking_stake = "d",
-    ownership_level = "d"
-  )
-)
-
-# make sure ownership structures are unique
-ownership_tree <- ownership_tree %>%
-  dplyr::distinct_all() %>%
-  report_diff_rows(
-    initial_n_rows = nrow(ownership_tree),
-    cause = "by ensuring column structure is unique"
-  )
+ownership_tree <-
+  prewrangle_ownership_tree(ownership_tree)
 
 # country region bridge-------
 country_region_bridge <- rworldmap::countryRegions %>%
@@ -101,37 +87,22 @@ country_region_bridge <- country_region_bridge %>%
   # dplyr::transmute(iso_a2, subregion = REGION) %>%
   tidyr::drop_na()
 
-# load raw eikon financial data ---------------------------------------------------
 
-eikon_data_input <-
-  readr::read_csv(fs::path(path_prepare_eikon_inputs, "eikon_data.csv"))
-
-# load asset_impact data -------
-# asset_impact_company_informations
-asset_impact_data <-
-  readxl::read_excel(fs::path(path_prepare_eikon_inputs, "AR-Company-Indicators.xlsx"),
-    sheet = "Company Information"
-  ) %>%
-  dplyr::select(c(-LEI)) %>%
-  dplyr::rename(
-    company_id = `Company ID`,
-    company_name = `Company Name`,
-    is_ultimate_parent = `Is Ultimate Parent`,
-    country_of_domicile = `Country of Domicile`
-  )
-
-asset_impact_data <-
-  asset_impact_data %>% dplyr::filter(asset_impact_data$company_id %in% unique(abcd_data$id))
-
+# TODO mismatch in sectors meaning between files
+# companies %>%
+#   inner_join(ids %>% distinct(company_id, isin)) %>%
+#   inner_join(assets, by="isin") %>%
+#   filter(security_mapped_sector!= "Other")  %>%
+#   inner_join(company_activities  %>% distinct(id, ald_sector), by=c("company_id"="id")) %>%
+#   distinct(ald_sector, bics_sector, bics_subgroup, security_mapped_sector)
 
 
 # 4) run eikon data preparation-----
 eikon_data <- prepare_eikon_data(
-  eikon_data_input = eikon_data_input,
-  security_financial_data = security_financial_data,
-  consolidated_financial_data = consolidated_financial_data,
+  ids=ids,
+  companies=companies,
+  assets=assets,
   ownership_tree = ownership_tree,
-  asset_impact_data = asset_impact_data,
   country_region_bridge = country_region_bridge,
   n_min_sample = n_min_sample,
   min_ratio_sample_subgroup = min_ratio_sample_subgroup,
@@ -190,6 +161,4 @@ eikon_data <- prepare_eikon_data(
 # optional - the file can be fairly large, so saving the file on the dropbox by
 # default
 eikon_data %>%
-  readr::write_csv(
-    fs::path(output_path_db_analysis_inputs, "eikon_financial_data.csv")
-  )
+  readr::write_csv(fs::path(output_path_db_analysis_inputs, "eikon_financial_data.csv"))

@@ -1,164 +1,65 @@
-#' Prewrangle the raw master data credit input file from AR
-#'
-#' @param masterdata_credit A data frame holding the raw master data credit data
-#' @param consolidated_financial_data A data frame holding
-#'   consolidated_financial_data
-#'
-#' @return NULL
-prewrangle_masterdata_credit <- function(masterdata_credit,
-                                         consolidated_financial_data) {
-  masterdata_credit <- masterdata_credit %>%
-    tidyr::pivot_longer(
-      cols = tidyr::starts_with("_"),
-      names_to = "year",
-      names_prefix = "_",
-      values_to = "ald_production"
-    ) %>%
-    dplyr::rename(
-      id = .data$company_id,
-      ald_sector = .data$sector,
-      ald_location = .data$asset_country,
-      ald_production_unit = .data$unit,
-      ald_emissions_factor = .data$emissions_factor,
-      ald_emissions_factor_unit = .data$emissions_factor_unit
-    ) %>%
-    dplyr::mutate(
-      id_name = "company_id",
-      year = as.numeric(.data$year)
-    )
 
-  # ado 1182 - taken from data_preparation/convert_ald_to_2019_datastore_output.R
-  masterdata_credit <- masterdata_credit %>%
-    dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "Oil and Condensate" ~ "Oil",
-        .data$ald_sector == "Coal" ~ "Coal",
-        TRUE ~ .data$technology
-      )
-    ) %>%
-    dplyr::mutate(technology = sub("Grade$", "", .data$technology)) %>%
-    dplyr::select(-.data$technology_type) %>%
-    dplyr::group_by(dplyr::across(-.data$ald_production)) %>%
-    dplyr::summarise(
-      ald_production = sum(.data$ald_production, na.rm = TRUE),
-      .groups = "drop"
-    ) %>%
-    dplyr::ungroup()
-
-  masterdata_credit <- masterdata_credit %>%
-    # left join, because there are companies w/o bbg_id that we want to keep
-    dplyr::left_join(
-      consolidated_financial_data %>%
-        dplyr::select(.data$bloomberg_id, .data$country_of_domicile) %>%
-        dplyr::filter(!is.na(.data$bloomberg_id)),
-      by = c("id" = "bloomberg_id")
-    )
-
-  masterdata_credit <- masterdata_credit %>%
-    dplyr::mutate(
-      technology = dplyr::if_else(
-        .data$ald_sector == "HDV",
-        paste0(.data$technology, "_", .data$ald_sector),
-        .data$technology
-      ),
-      ald_sector = dplyr::if_else(.data$ald_sector == "HDV", "Automotive", .data$ald_sector)
-    )
-
-  # After this select, we have created the same format for credit masterdata as for the other types
-  masterdata_credit <- masterdata_credit %>%
-    dplyr::select(
-      -c(
-        .data$corporate_bond_ticker,
-        .data$is_ultimate_parent,
-        .data$is_ultimate_listed_parent,
-        .data$company_status,
-        .data$has_financial_data,
-        .data$p_eu_eligible_gross,
-        .data$p_eu_green_gross,
-        .data$asset_level_timestamp,
-        .data$number_of_assets,
-        .data$metric,
-        .data$bloomberg_id
-      )
-    )
-}
 
 #' Prepare raw input data files from Eikon
 #'
-#' @param data The raw Eikon dataframe
+#' @param ids ids db
+#' @param assets assets db
+#' @param companies companies db
 #'
 #' @return expected eikon input data
-prepare_eikon_data_input <- function(data) {
-  data <- data %>%
+
+prepare_eikon_data_input <- function(ids, assets, companies) {
+  table_keys <- ids %>%
+    filter(!is.na(company_id),!is.na(isin)) %>%
+    distinct(company_id, isin)
+
+  eikon_data <- dplyr::inner_join(
+    dplyr::inner_join(table_keys, assets, by = "isin"),
+    dplyr::inner_join(table_keys, companies, by = "company_id"),
+    by = c("isin", "company_id")
+  ) %>%
     dplyr::rename(
+      parent_company_id=company_id,
       debt_equity_ratio = .data$credit_structural_leverage,
-      corporate_bond_ticker = .data$ticker_symbol,
       pd = .data$`credit_structural_pd_%`,
       net_profit_margin = .data$`net_profit_margin_%`,
-      volatility = .data$`credit_structural_asset_volatility_%`,
-      bics_subgroup = .data$trbc_industry_name,
-      bics_sector = .data$source_sheet,
+      volatility = .data$`credit_structural_asset_volatility_%`
     ) %>%
     dplyr::mutate(
       net_profit_margin = .data$net_profit_margin / 100,
       volatility = .data$volatility / 100,
       pd = .data$pd / 100
     ) %>%
-    dplyr::select(c(-.data$company_name))
+    select(
+      c(
+        "isin",
+        "parent_company_id",
+        "is_ultimate_parent",
+        "company_name",
+        "country_of_domicile",
+        "bics_sector",
+        "bics_subgroup",
+        "company_market_cap",
+        "volatility",
+        "credit_structural_asset_drift_%",
+        "pd",
+        "debt_equity_ratio",
+        "net_profit_margin",
+        "total_debt"
+      )
+    )
+  # filter rows where all eikon numerical columns are NA
+  eikon_data <- eikon_data %>%
+    filter(
+      !(is.na(debt_equity_ratio)
+      & is.na(pd)
+      & is.na(net_profit_margin)
+      & is.na(volatility))) %>%
+    report_diff_rows(initial_n_rows = nrow(eikon_data),
+                     cause = "Because no Eikon features provided for those ISINs")
 
   return(data)
 }
-
-#' Prewrangle the input data files from Eikon
-#'
-#' @param data A data frame holding prepared Eikon input data sets
-#' @param security_financial_data_input A data frame holding
-#'   security_financial_data
-#'
-#' @return NULL
-prewrangle_eikon_data <-
-  function(data, security_financial_data_input) {
-    # kickout rows with no ISIN -> low chance | much effort to match to our data
-    eikon_data <- data %>%
-      dplyr::filter(!is.na(.data$isin)) %>%
-      report_diff_rows(
-        initial_n_rows = nrow(data),
-        cause = "because of NAs in the ISIN column"
-      )
-
-    # ensure isins are unique
-    eikon_data <- eikon_data %>%
-      dplyr::distinct(.data$isin, .keep_all = TRUE) %>%
-      report_diff_rows(
-        initial_n_rows = nrow(eikon_data),
-        cause = "because of non unique ISINs"
-      )
-
-    # only filter ISINs which we have in our data and add company id
-    security_financial_data_isin_id <-
-      security_financial_data_input %>%
-      dplyr::distinct(.data$isin, .data$company_id)
-
-    eikon_data <- eikon_data %>%
-      dplyr::inner_join(security_financial_data_isin_id, by = "isin") %>%
-      report_diff_rows(
-        initial_n_rows = nrow(eikon_data),
-        cause = "because we inner joined our company ID by ISIN"
-      ) %>%
-      dplyr::select(-.data$isin)
-
-    # drop (very few) companies without company_id
-    eikon_data <- eikon_data %>%
-      dplyr::filter(!is.na(.data$company_id)) %>%
-      report_diff_rows(
-        initial_n_rows = nrow(eikon_data),
-        cause = "because company ID is missing"
-      )
-
-    # rename company_id to parent_company_id
-    eikon_data <- eikon_data %>%
-      dplyr::rename(parent_company_id = .data$company_id)
-  }
 
 #' Prewrangle the ownership tree data from AR
 #'
@@ -168,10 +69,8 @@ prewrangle_ownership_tree <- function(data) {
   # filter only one direction within ownership_tree
   ownership_tree <- data %>%
     dplyr::filter(.data$ownership_level >= 0) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(data),
-      cause = "because of the wrong direction in the ownership tree"
-    )
+    report_diff_rows(initial_n_rows = nrow(data),
+                     cause = "because of the wrong direction in the ownership tree")
 
   # only take the majority parent for each company at each ownership level
   # (otherwise it would get the profit margins from both parents, which one is the better one??)
@@ -185,10 +84,8 @@ prewrangle_ownership_tree <- function(data) {
     dplyr::ungroup() %>%
     # still have to take distinct in case the linking stake is equal (e.g. 50%/50%)
     dplyr::distinct(.data$company_id, .data$ownership_level, .keep_all = TRUE) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(ownership_tree),
-      cause = "by choosing only the majority parent"
-    )
+    report_diff_rows(initial_n_rows = nrow(ownership_tree),
+                     cause = "by choosing only the majority parent")
 }
 
 #' Identify which companies in the masterdata_ownership are missing in Eikon
@@ -206,99 +103,12 @@ find_missing_companies_ownership <- function(data, eikon_data) {
   data_missing_companies <- data %>%
     dplyr::distinct(.data$company_id) %>%
     dplyr::anti_join(eikon_data, by = "company_id") %>%
-    report_diff_rows(
-      initial_n_rows = nrow(data),
-      cause = "because the other companies were already present in the Eikon Data"
-    )
+    report_diff_rows(initial_n_rows = nrow(data),
+                     cause = "because the other companies were already present in the Eikon Data")
   return(data_missing_companies)
 }
 
-#' Identify which companies in the masterdata_debt are missing in Eikon
-#'
-#' @param data A data frame holding the masterdata file in which to find the missings
-#' @param company_identifier A data frame holding combinations of company_id,
-#'   company_name and corporate_bond_ticker
-#' @param eikon_data A data frame holding prepared Eikon data set
-#'
-#' @return NULL
-find_missing_companies_debt <-
-  function(data, company_identifier, eikon_data) {
-    # take distinct corporate bond ticker
-    masterdata_debt_missing_companies <- data %>%
-      dplyr::distinct(.data$id)
-
-    # filter missing IDs
-    # take distinct corporate bond ticker
-    masterdata_debt_missing_companies <-
-      masterdata_debt_missing_companies %>%
-      dplyr::filter(!is.na(.data$id)) %>%
-      dplyr::inner_join(company_identifier,
-        by = c("id" = "corporate_bond_ticker")
-      ) %>%
-      report_diff_rows(
-        initial_n_rows = nrow(masterdata_debt_missing_companies),
-        cause = "by adding all companies per coporate bond ticker"
-      )
-
-    # identify missing companies by corporate bond ticker
-    masterdata_debt_missing_companies <-
-      masterdata_debt_missing_companies %>%
-      dplyr::anti_join(eikon_data, by = "company_id") %>%
-      report_diff_rows(
-        initial_n_rows = nrow(masterdata_debt_missing_companies),
-        cause = "because the other companies were already present in the Eikon Data"
-      )
-
-    # filter NAs in company ID
-    masterdata_debt_missing_companies <-
-      masterdata_debt_missing_companies %>%
-      dplyr::select(.data$company_id) %>%
-      dplyr::filter(!is.na(.data$company_id)) %>%
-      report_diff_rows(
-        initial_n_rows = nrow(masterdata_debt_missing_companies),
-        cause = "because company IDs are missing"
-      )
-  }
-
-#' Identify which companies in the masterdata_credit are missing in Eikon
-#'
-#' @param data A data frame holding the masterdata file in which to find the missings
-#' @param eikon_data A data frame holding prepared Eikon data set
-#'
-#' @return NULL
-find_missing_companies_credit <- function(data, eikon_data) {
-  # take distinct company ids
-  masterdata_credit_missing_companies <- data %>%
-    dplyr::distinct(.data$id) %>%
-    # ADO1948 - for loans, the id is the same as the company_id, so adding the company identifier is not necessary
-    dplyr::rename(company_id = .data$id)
-
-  # filter missing IDs
-  masterdata_credit_missing_companies <-
-    masterdata_credit_missing_companies %>%
-    dplyr::filter(!is.na(.data$company_id))
-
-  # identify missing companies by company_id
-  masterdata_credit_missing_companies <-
-    masterdata_credit_missing_companies %>%
-    dplyr::anti_join(eikon_data, by = "company_id") %>%
-    report_diff_rows(
-      initial_n_rows = nrow(masterdata_credit_missing_companies),
-      cause = "because the other companies were already present in the Eikon Data"
-    )
-
-  # filter NAs in company ID
-  masterdata_credit_missing_companies <-
-    masterdata_credit_missing_companies %>%
-    dplyr::select(.data$company_id) %>%
-    dplyr::filter(!is.na(.data$company_id)) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(masterdata_credit_missing_companies),
-      cause = "because company IDs are missing"
-    )
-}
-
-#' Identify which companies in the masterdata_credit are missing in Eikon
+#' Identify which companies in the abcd_stress_test_input are missing in Eikon
 #'
 #' @param data A data frame holding prepared Eikon data set
 #' @param missing_companies A data frame with missing companies from
@@ -311,18 +121,14 @@ add_missing_companies_to_eikon <- function(data,
   # will also belong to companies in the ownership data)
   missing_companies <- missing_companies %>%
     dplyr::distinct(.data$company_id, .keep_all = TRUE) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(missing_companies),
-      cause = "because of non unique company IDs"
-    )
+    report_diff_rows(initial_n_rows = nrow(missing_companies),
+                     cause = "because of non unique company IDs")
 
   # add to Eikon data
   eikon_data <- data %>%
     dplyr::bind_rows(missing_companies) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(data),
-      cause = "by adding the missing companies from AR"
-    )
+    report_diff_rows(initial_n_rows = nrow(data),
+                     cause = "by adding the missing companies from AR")
 }
 
 #' Adds information on where the company information in the processed Eikon data
@@ -343,45 +149,6 @@ add_company_source_info <- function(data) {
     )
 }
 
-#' Removes companies from processed eikon data for which no asset based company
-#' data can be found for any asset type.
-#'
-#' @param data A data frame holding processed Eikon data
-#' @param md_ownership A data frame containing the masterdata_ownership data set
-#' @param md_debt A data frame containing the masterdata_debt data set
-#' @param md_credit A data frame containing the masterdata_credit data set
-#'
-#' @return A data frame
-rm_companies_without_abcd <- function(data,
-                                      md_ownership,
-                                      md_debt,
-                                      md_credit) {
-  masterdata_ownership_without_na_company_name <- md_ownership %>%
-    dplyr::filter(!is.na(.data$company_name)) %>%
-    dplyr::distinct(.data$company_name) %>%
-    dplyr::pull(.data$company_name)
-
-  masterdata_debt_without_na_id <- md_debt %>%
-    dplyr::filter(!is.na(.data$id)) %>%
-    dplyr::distinct(.data$id) %>%
-    dplyr::pull(.data$id)
-
-  masterdata_credit_without_na_id <- md_credit %>%
-    dplyr::filter(!is.na(.data$id)) %>%
-    dplyr::distinct(.data$id) %>%
-    dplyr::pull(.data$id)
-
-  data <- data %>%
-    dplyr::filter(
-      .data$company_name %in% .env$masterdata_ownership_without_na_company_name |
-        .data$corporate_bond_ticker %in% .env$masterdata_debt_without_na_id |
-        .data$company_id %in% .env$masterdata_credit_without_na_id
-    ) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(data),
-      cause = "by only filtering companies with ABCD"
-    )
-}
 
 #' Create averages of eikon variables for companies with missing values
 #'
@@ -424,12 +191,10 @@ create_averages_eikon <- function(data,
       .groups = "drop"
     ) %>%
     dplyr::ungroup() %>%
-    dplyr::filter(
-      dplyr::across(dplyr::contains("avg_"), ~ (!is.na(.))),
-      dplyr::across(dplyr::contains("avg_"), ~ (!is.infinite(.)))
-    ) %>%
+    dplyr::filter(dplyr::across(dplyr::contains("avg_"), ~ (!is.na(.))),
+                  dplyr::across(dplyr::contains("avg_"), ~ (!is.infinite(.)))) %>%
     dplyr::filter(.data$sample_sufficient == TRUE |
-      .data$ratio_sufficient == TRUE) %>%
+                    .data$ratio_sufficient == TRUE) %>%
     dplyr::filter(dplyr::between(
       .data$avg_net_profit_margin,
       min(.env$allowed_range_npm, na.rm = TRUE),
@@ -452,9 +217,8 @@ plot_sector_averages <- function(data, x, y, subregion = FALSE) {
     plot <- data %>%
       ggplot2::ggplot(ggplot2::aes(x = !!rlang::sym(x), y = !!rlang::sym(y))) +
       ggplot2::geom_point(ggplot2::aes(col = subregion),
-        size = 4,
-        alpha = 0.6
-      ) +
+                          size = 4,
+                          alpha = 0.6) +
       ggplot2::theme_light() +
       ggplot2::coord_flip() +
       ggplot2::theme(
@@ -532,19 +296,19 @@ select_final_financial_value <- function(data) {
         "Eikon company | Financial indicator from Eikon",
         "Subsidiary of eikon company | Financial indicator from Eikon",
         "Eikon company | Financial indicator from bics_subgroup_region average",
-        "Eikon company | Financial indicator from security_mapped_sector_region average",
+        "Eikon company | Financial indicator from ald_sector_region average",
         "Eikon company | Financial indicator from bics_subgroup average",
-        "Eikon company | Financial indicator from security_mapped_sector average",
+        "Eikon company | Financial indicator from ald_sector average",
         "Eikon company | Financial indicator from global average",
         "Subsidiary of eikon company | Financial indicator from bics_subgroup_region average",
-        "Subsidiary of eikon company | Financial indicator from security_mapped_sector_region average",
+        "Subsidiary of eikon company | Financial indicator from ald_sector_region average",
         "Subsidiary of eikon company | Financial indicator from bics_subgroup average",
-        "Subsidiary of eikon company | Financial indicator from security_mapped_sector average",
+        "Subsidiary of eikon company | Financial indicator from ald_sector average",
         "Subsidiary of eikon company | Financial indicator from global average",
         "AR company | Financial indicator from bics_subgroup_region average",
-        "AR company | Financial indicator from security_mapped_sector_region average",
+        "AR company | Financial indicator from ald_sector_region average",
         "AR company | Financial indicator from bics_subgroup average",
-        "AR company | Financial indicator from security_mapped_sector average",
+        "AR company | Financial indicator from ald_sector average",
         "AR company | Financial indicator from global average"
       )
     ))
@@ -566,26 +330,19 @@ select_final_financial_value <- function(data) {
 
   # change variable classes back to doubles
   data <- data %>%
-    dplyr::mutate(dplyr::across(
-      c(
-        dplyr::contains(c("final_", "eikon_", "avg_")), -dplyr::contains(c("_type_", "structural"))
-      ),
-      ~ as.double(.)
-    ))
+    dplyr::mutate(dplyr::across(c(
+      dplyr::contains(c("final_", "eikon_", "avg_")),-dplyr::contains(c("_type_", "structural"))
+    ),
+    ~ as.double(.)))
 }
 
 #' For each company select the final financial value of the best granularity
 #'
-#' @param eikon_data_input A data frame containing the raw input data
-#'   from eikon
-#' @param security_financial_data A data frame containing the
-#'   security_financial_data as prepared in the data_preparation repo
-#' @param consolidated_financial_data A data frame containing the
-#'   consolidated_financial_data as prepared in the data_preparation repo
+#' @param ids ids db
+#' @param companies companies db
+#' @param assets assets db
 #' @param ownership_tree A data frame containing the ownership_tree as provided
 #'   by Asset Resolution
-#' @param asset_impact_data A data frame containing the companies and characteristics
-#' .  profided by Asset Resolution
 #' @param country_region_bridge A data frame which contains a mapping of
 #'   countries to multiple regional levels of interest
 #' @param n_min_sample A numeric vector of length one, indicating the minimum
@@ -597,39 +354,32 @@ select_final_financial_value <- function(data) {
 #'   and maximum values for the net profit margin when calculating the averages
 #'
 #' @return A data frame
-prepare_eikon_data <- function(eikon_data_input,
-                               security_financial_data,
-                               consolidated_financial_data,
+prepare_eikon_data <- function(companies,
+                               assets,
                                ownership_tree,
-                               asset_impact_data,
                                country_region_bridge,
                                n_min_sample,
                                min_ratio_sample_subgroup,
                                range_profit_margin) {
   # 1) Eikon preparation / pre wrangling----
-  eikon_data <- prepare_eikon_data_input(eikon_data_input)
-
-  eikon_data <- eikon_data %>%
-    prewrangle_eikon_data(security_financial_data)
+  eikon_data <- prepare_eikon_data_input(ids, assets, companies)
 
   # 2) Expand eikon data across ownership tree and bond_tickers-----
-
-  # prepare ownership tree----
-  prewrangled_ownership_tree <-
-    prewrangle_ownership_tree(ownership_tree)
-
   # join in ownership tree----
   eikon_data <- eikon_data %>%
     # ADO 1948 - apparently no diff between left_join and inner_join, so changed to the more commonly correct one
-    dplyr::left_join(prewrangled_ownership_tree,
-      by = c("parent_company_id" = "target_company_id")
-    ) %>%
+    dplyr::left_join(ownership_tree,
+                     by = c("parent_company_id" = "target_company_id")) %>%
     dplyr::mutate(
-      company_id = dplyr::if_else(is.na(.data$company_id), .data$parent_company_id, .data$company_id),
+      company_id = dplyr::if_else(
+        is.na(.data$company_id),
+        .data$parent_company_id,
+        .data$company_id
+      ),
       ownership_level = dplyr::if_else(is.na(.data$ownership_level), 0, .data$ownership_level)
     )
 
-  # rm(ownership_tree, prewrangled_ownership_tree)
+  # rm(ownership_tree, ownership_tree)
 
   # ensure that company_ids are distinct----
   # ... but consider the most granular eikon
@@ -647,20 +397,18 @@ prepare_eikon_data <- function(eikon_data_input,
     dplyr::group_by(.data$company_id) %>%
     dplyr::slice_min(.data$ownership_level) %>%
     dplyr::ungroup() %>%
-    report_diff_rows(
-      initial_n_rows = nrow(eikon_data),
-      cause = "in order to only consider the closest information"
-    )
+    report_diff_rows(initial_n_rows = nrow(eikon_data),
+                     cause = "in order to only consider the closest information")
 
   # 3) Add companies which have ALD but no eikon data (these will obtain averages)----
 
   # asset_impact_missing_companies----
-  asset_impact_missing_companies <- asset_impact_data %>%
+  abcd_data_missing_companies <- abcd_data %>%
     find_missing_companies_ownership(eikon_data = eikon_data)
 
   # add additional companies to eikon data----
   eikon_data <- eikon_data %>%
-    add_missing_companies_to_eikon(missing_companies = asset_impact_missing_companies)
+    add_missing_companies_to_eikon(missing_companies = abcd_data_missing_companies)
 
   # for each company ID in the processed eikon data set, define the source of that
   # company (also used as an indicator later on)
@@ -669,41 +417,23 @@ prepare_eikon_data <- function(eikon_data_input,
 
   # 4) add further company information------
 
-  # add company_name, is_ultimate_parent, country_of_domicile
-  eikon_data <- eikon_data %>%
-    # ADO 1948 - left and inner behave the same, so I opt for the safer one
-    dplyr::inner_join(
-      asset_impact_data %>%
-        dplyr::select(
-          .data$company_id,
-          .data$company_name,
-          .data$is_ultimate_parent,
-          .data$country_of_domicile,
-        ),
-      by = "company_id"
-    ) %>%
-    assertr::verify(nrow(.) == nrow(asset_impact_data))
-
   # add security mapped sector (this determines the final sector in pacta and can
   # differ from financial sector)
   security_financial_data_sector_classifications <-
-    security_financial_data %>%
-    dplyr::filter(.data$security_mapped_sector != "Other") %>%
+    companies %>%
+    dplyr::filter(.data$ald_sector != "Other") %>%
     dplyr::distinct(.data$company_id, .keep_all = TRUE) %>%
-    dplyr::select(
-      .data$company_id,
-      .data$security_mapped_sector
-    )
+    dplyr::select(.data$company_id,
+                  .data$ald_sector)
 
   eikon_data <- eikon_data %>%
     dplyr::left_join(security_financial_data_sector_classifications,
-      by = "company_id"
-    ) %>%
+                     by = "company_id") %>%
     dplyr::mutate(
-      security_mapped_sector = dplyr::if_else(
-        is.na(.data$security_mapped_sector),
+      ald_sector = dplyr::if_else(
+        is.na(.data$ald_sector),
         "Other",
-        .data$security_mapped_sector
+        .data$ald_sector
       )
     ) %>%
     assertr::verify(nrow(.) == nrow(eikon_data))
@@ -711,8 +441,7 @@ prepare_eikon_data <- function(eikon_data_input,
   # join in regional bridge for country_of_domicile
   eikon_data <- eikon_data %>%
     dplyr::left_join(country_region_bridge,
-      by = c("country_of_domicile" = "iso_a2")
-    ) %>%
+                     by = c("country_of_domicile" = "iso_a2")) %>%
     assertr::verify(nrow(.) == nrow(eikon_data))
 
   # arrange columns
@@ -721,7 +450,7 @@ prepare_eikon_data <- function(eikon_data_input,
       .data$company_name,
       .data$country_of_domicile,
       # .data$financial_sector,
-      .data$security_mapped_sector,
+      .data$ald_sector,
       .data$bics_sector,
       .data$bics_subgroup,
       .data$company_id,
@@ -732,7 +461,8 @@ prepare_eikon_data <- function(eikon_data_input,
       # .data$market_cap,
       .data$parent_company_id,
       .data$ownership_level,
-      dplyr::everything(), -.data$linking_stake
+      dplyr::everything(),
+      -.data$linking_stake
     )
 
   # ensure unique company names because will be used to join later
@@ -742,10 +472,8 @@ prepare_eikon_data <- function(eikon_data_input,
     # duplicates has a CB ticker)
     dplyr::arrange(.data$corporate_bond_ticker) %>%
     dplyr::distinct(.data$company_name, .keep_all = TRUE) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(eikon_data),
-      cause = "to ensure unique company names"
-    )
+    report_diff_rows(initial_n_rows = nrow(eikon_data),
+                     cause = "to ensure unique company names")
 
   # only filter companies with ALD --> kick out out irrelevant eikon companies or
   # irrelevant added subsidiaries
@@ -761,7 +489,7 @@ prepare_eikon_data <- function(eikon_data_input,
 
   # create averages by bics subsector and region
   bics_subgroup_region_averages <- eikon_data %>%
-    dplyr::filter(!is.na(.data$bics_subgroup), !is.na(.data$subregion)) %>%
+    dplyr::filter(!is.na(.data$bics_subgroup),!is.na(.data$subregion)) %>%
     dplyr::group_by(.data$bics_subgroup, .data$subregion) %>%
     create_averages_eikon(
       minimum_sample_size = n_min_sample,
@@ -771,20 +499,17 @@ prepare_eikon_data <- function(eikon_data_input,
     dplyr::ungroup() %>%
     dplyr::mutate(average_type = "bics_subgroup_region")
 
-  # create averages by security_mapped_sector and region
-  security_mapped_sector_region_averages <- eikon_data %>%
-    dplyr::filter(
-      !is.na(.data$security_mapped_sector),
-      !is.na(.data$subregion)
-    ) %>%
-    dplyr::group_by(.data$security_mapped_sector, .data$subregion) %>%
+  # create averages by ald_sector and region
+  ald_sector_region_averages <- eikon_data %>%
+    dplyr::filter(!is.na(.data$ald_sector),!is.na(.data$subregion)) %>%
+    dplyr::group_by(.data$ald_sector, .data$subregion) %>%
     create_averages_eikon(
       minimum_sample_size = n_min_sample,
       minimum_ratio_sample = min_ratio_sample_subgroup,
       allowed_range_npm = range_profit_margin
     ) %>%
     dplyr::ungroup() %>%
-    dplyr::mutate(average_type = "security_mapped_sector_region")
+    dplyr::mutate(average_type = "ald_sector_region")
 
   # create global bics_subgroup average
   bics_subgroup_averages <- eikon_data %>%
@@ -798,17 +523,17 @@ prepare_eikon_data <- function(eikon_data_input,
     dplyr::ungroup() %>%
     dplyr::mutate(average_type = "bics_subgroup")
 
-  # create global security_mapped_sector average
-  security_mapped_sector_averages <- eikon_data %>%
-    dplyr::filter(!is.na(.data$security_mapped_sector)) %>%
-    dplyr::group_by(.data$security_mapped_sector) %>%
+  # create global ald_sector average
+  ald_sector_averages <- eikon_data %>%
+    dplyr::filter(!is.na(.data$ald_sector)) %>%
+    dplyr::group_by(.data$ald_sector) %>%
     create_averages_eikon(
       minimum_sample_size = n_min_sample,
       minimum_ratio_sample = min_ratio_sample_subgroup,
       allowed_range_npm = range_profit_margin
     ) %>%
     dplyr::ungroup() %>%
-    dplyr::mutate(average_type = "security_mapped_sector")
+    dplyr::mutate(average_type = "ald_sector")
 
   # create global average
   global_averages <- eikon_data %>%
@@ -824,79 +549,70 @@ prepare_eikon_data <- function(eikon_data_input,
   plot_bics_subgroup_region_averages <-
     bics_subgroup_region_averages %>%
     # dplyr::filter(dplyr::between(.data$avg_profit_margin_preferred, -2,2)) %>%
-    plot_sector_averages(
-      x = "bics_subgroup",
-      y = "avg_net_profit_margin",
-      subregion = TRUE
-    )
+    plot_sector_averages(x = "bics_subgroup",
+                         y = "avg_net_profit_margin",
+                         subregion = TRUE)
 
-  plot_security_mapped_sector_region_averages <-
-    security_mapped_sector_region_averages %>%
+  plot_ald_sector_region_averages <-
+    ald_sector_region_averages %>%
     # dplyr::filter(dplyr::between(.data$avg_net_profit_margin, -2,2)) %>%
-    plot_sector_averages(
-      x = "security_mapped_sector",
-      y = "avg_net_profit_margin",
-      subregion = TRUE
-    )
+    plot_sector_averages(x = "ald_sector",
+                         y = "avg_net_profit_margin",
+                         subregion = TRUE)
 
   plot_bics_subgroup_averages <- bics_subgroup_averages %>%
-    dplyr::filter(dplyr::between(.data$avg_net_profit_margin, -2, 2)) %>%
-    plot_sector_averages(
-      x = "bics_subgroup",
-      y = "avg_net_profit_margin"
-    )
+    dplyr::filter(dplyr::between(.data$avg_net_profit_margin,-2, 2)) %>%
+    plot_sector_averages(x = "bics_subgroup",
+                         y = "avg_net_profit_margin")
 
-  plot_security_mapped_sector_averages <-
-    security_mapped_sector_averages %>%
+  plot_ald_sector_averages <-
+    ald_sector_averages %>%
     # dplyr::filter(dplyr::between(.data$avg_profit_margin_preferred, -2,2)) %>%
-    plot_sector_averages(
-      x = "security_mapped_sector",
-      y = "avg_net_profit_margin"
-    )
+    plot_sector_averages(x = "ald_sector",
+                         y = "avg_net_profit_margin")
 
   # add most the most granular average calculated to the eikon data----
   # subset companies for which we have good bics_subgroup + regional averages available
   eikon_data_bics_subgroup_region_averages <- eikon_data %>%
     dplyr::inner_join(bics_subgroup_region_averages,
-      by = c("bics_subgroup", "subregion")
-    )
+                      by = c("bics_subgroup", "subregion"))
 
-  # subset companies for which we have good security_mapped_sector + regional averages available
-  eikon_data_security_mapped_sector_region_averages <-
+  # subset companies for which we have good ald_sector + regional averages available
+  eikon_data_ald_sector_region_averages <-
     eikon_data %>%
     dplyr::anti_join(eikon_data_bics_subgroup_region_averages, by = "company_id") %>%
     dplyr::inner_join(
-      security_mapped_sector_region_averages,
-      by = c("security_mapped_sector", "subregion")
+      ald_sector_region_averages,
+      by = c("ald_sector", "subregion")
     )
 
   # subset companies for which we have good bics_subgroup averages available + which havent subset beforehand
   eikon_data_bics_subgroup_averages <- eikon_data %>%
     dplyr::anti_join(eikon_data_bics_subgroup_region_averages, by = "company_id") %>%
-    dplyr::anti_join(eikon_data_security_mapped_sector_region_averages, by = "company_id") %>%
+    dplyr::anti_join(eikon_data_ald_sector_region_averages, by = "company_id") %>%
     dplyr::inner_join(bics_subgroup_averages, by = "bics_subgroup")
 
-  # subset companies for which we have good security_mapped_sector averages available + which havent subset beforehand
-  eikon_data_security_mapped_sector_averages <- eikon_data %>%
+  # subset companies for which we have good ald_sector averages available + which havent subset beforehand
+  eikon_data_ald_sector_averages <- eikon_data %>%
     dplyr::anti_join(eikon_data_bics_subgroup_region_averages, by = "company_id") %>%
-    dplyr::anti_join(eikon_data_security_mapped_sector_region_averages, by = "company_id") %>%
+    dplyr::anti_join(eikon_data_ald_sector_region_averages, by = "company_id") %>%
     dplyr::anti_join(eikon_data_bics_subgroup_averages, by = "company_id") %>%
-    dplyr::inner_join(security_mapped_sector_averages, by = "security_mapped_sector")
+    dplyr::inner_join(ald_sector_averages, by = "ald_sector")
 
   # add global averages for companies which havent obtained averages beforehand
   eikon_data_global_averages <- eikon_data %>%
     dplyr::anti_join(eikon_data_bics_subgroup_region_averages, by = "company_id") %>%
-    dplyr::anti_join(eikon_data_security_mapped_sector_region_averages, by = "company_id") %>%
+    dplyr::anti_join(eikon_data_ald_sector_region_averages, by = "company_id") %>%
     dplyr::anti_join(eikon_data_bics_subgroup_averages, by = "company_id") %>%
-    dplyr::anti_join(eikon_data_security_mapped_sector_averages, by = "company_id") %>%
+    dplyr::anti_join(eikon_data_ald_sector_averages, by = "company_id") %>%
     dplyr::bind_cols(global_averages)
 
   # bind together
   eikon_data <- rbind.data.frame(
     eikon_data_bics_subgroup_region_averages,
-    eikon_data_security_mapped_sector_region_averages,
+    eikon_data_ald_sector_region_averages,
     eikon_data_bics_subgroup_averages,
-    eikon_data_security_mapped_sector_averages,
+    eikon_data_ald_sector_averages,
     eikon_data_global_averages
   ) %>%
     assertr::verify(nrow(.) == nrow(eikon_data))
@@ -904,10 +620,10 @@ prepare_eikon_data <- function(eikon_data_input,
   # rm(
   #   n_min_sample, min_ratio_sample_subgroup, range_profit_margin,
   #   eikon_data_bics_subgroup_region_averages, bics_subgroup_region_averages,
-  #   bics_subgroup_averages, security_mapped_sector_region_averages,
-  #   security_mapped_sector_averages, eikon_data_bics_subgroup_averages,
-  #   eikon_data_global_averages, eikon_data_security_mapped_sector_region_averages,
-  #   eikon_data_security_mapped_sector_averages, global_averages
+  #   bics_subgroup_averages, ald_sector_region_averages,
+  #   ald_sector_averages, eikon_data_bics_subgroup_averages,
+  #   eikon_data_global_averages, eikon_data_ald_sector_region_averages,
+  #   eikon_data_ald_sector_averages, global_averages
   # )
 
   # # create new avg rating based on avg PDs. Rating boundaries based on input data
@@ -933,7 +649,7 @@ prepare_eikon_data <- function(eikon_data_input,
   # ensure that no NAs and Inf are in the avg data
   eikon_data %>%
     dplyr::filter(dplyr::if_any(dplyr::contains("avg_"), ~ (is.na(.))) |
-      dplyr::if_any(dplyr::contains("avg_"), ~ (is.infinite(.)))) %>%
+                    dplyr::if_any(dplyr::contains("avg_"), ~ (is.infinite(.)))) %>%
     assertr::verify(nrow(.) == 0)
 
   # 6) pick the best financial data point available----
