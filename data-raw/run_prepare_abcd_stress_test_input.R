@@ -20,7 +20,7 @@ sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
 bench_regions <-
-  readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = "")
+  readr::read_csv(here::here("data-raw", "bench_regions.rds"), na = "")
 
 company_activities <-
   read_asset_resolution(

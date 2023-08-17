@@ -3629,36 +3629,36 @@ year,scenario,scenario_geography,sector,technology,indicator,unit,price
 2048,WEO2021_APS,China,Oil&Gas,Gas,price,GJ,7.715231359242
 2049,WEO2021_APS,China,Oil&Gas,Gas,price,GJ,7.696275016835999
 2050,WEO2021_APS,China,Oil&Gas,Gas,price,GJ,7.67731867443
-2021,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,87.8
-2022,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,86.6
-2023,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,85.4
-2024,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,84.2
-2025,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,83
-2026,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,81.8
-2027,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,80.6
-2028,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,79.4
-2029,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,78.2
-2030,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,77
-2031,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,76.4
-2032,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,75.8
-2033,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,75.2
-2034,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,74.6
-2035,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,74
-2036,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,73.4
-2037,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,72.8
-2038,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,72.2
-2039,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,71.6
-2040,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,71
-2041,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,70.4
-2042,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,69.8
-2043,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,69.2
-2044,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,68.6
-2045,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,68
-2046,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,67.4
-2047,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,66.8
-2048,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,66.2
-2049,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,65.6
-2050,WEO2021_APS,Coastal China,Coal,Coal,price,usd/tonne,65
+2021,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,87.8
+2022,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,86.6
+2023,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,85.4
+2024,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,84.2
+2025,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,83
+2026,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,81.8
+2027,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,80.6
+2028,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,79.4
+2029,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,78.2
+2030,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,77
+2031,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,76.4
+2032,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,75.8
+2033,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,75.2
+2034,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,74.6
+2035,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,74
+2036,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,73.4
+2037,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,72.8
+2038,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,72.2
+2039,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,71.6
+2040,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,71
+2041,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,70.4
+2042,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,69.8
+2043,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,69.2
+2044,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,68.6
+2045,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,68
+2046,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,67.4
+2047,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,66.8
+2048,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,66.2
+2049,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,65.6
+2050,WEO2021_APS,CoastalChina,Coal,Coal,price,usd/tonne,65
 2021,WEO2021_APS,EuropeanUnion,Coal,Coal,price,usd/tonne,51.6
 2022,WEO2021_APS,EuropeanUnion,Coal,Coal,price,usd/tonne,53.2
 2023,WEO2021_APS,EuropeanUnion,Coal,Coal,price,usd/tonne,54.8
@@ -3959,36 +3959,36 @@ year,scenario,scenario_geography,sector,technology,indicator,unit,price
 2048,WEO2021_NZE_2050,China,Oil&Gas,Gas,price,GJ,4.511609492628001
 2049,WEO2021_NZE_2050,China,Oil&Gas,Gas,price,GJ,4.483174979019
 2050,WEO2021_NZE_2050,China,Oil&Gas,Gas,price,GJ,4.4547404654100005
-2021,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,86.2
-2022,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,83.4
-2023,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,80.6
-2024,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,77.8
-2025,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,75
-2026,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,72.2
-2027,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,69.4
-2028,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,66.6
-2029,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,63.8
-2030,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,61
-2031,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,60.5
-2032,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,60
-2033,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,59.5
-2034,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,59
-2035,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,58.5
-2036,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,58
-2037,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,57.5
-2038,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,57
-2039,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,56.5
-2040,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,56
-2041,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,55.5
-2042,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,55
-2043,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,54.5
-2044,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,54
-2045,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,53.5
-2046,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,53
-2047,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,52.5
-2048,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,52
-2049,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,51.5
-2050,WEO2021_NZE_2050,Coastal China,Coal,Coal,price,usd/tonne,51
+2021,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,86.2
+2022,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,83.4
+2023,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,80.6
+2024,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,77.8
+2025,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,75
+2026,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,72.2
+2027,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,69.4
+2028,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,66.6
+2029,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,63.8
+2030,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,61
+2031,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,60.5
+2032,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,60
+2033,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,59.5
+2034,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,59
+2035,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,58.5
+2036,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,58
+2037,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,57.5
+2038,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,57
+2039,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,56.5
+2040,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,56
+2041,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,55.5
+2042,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,55
+2043,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,54.5
+2044,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,54
+2045,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,53.5
+2046,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,53
+2047,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,52.5
+2048,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,52
+2049,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,51.5
+2050,WEO2021_NZE_2050,CoastalChina,Coal,Coal,price,usd/tonne,51
 2021,WEO2021_NZE_2050,EuropeanUnion,Coal,Coal,price,usd/tonne,50.2
 2022,WEO2021_NZE_2050,EuropeanUnion,Coal,Coal,price,usd/tonne,50.4
 2023,WEO2021_NZE_2050,EuropeanUnion,Coal,Coal,price,usd/tonne,50.6
@@ -4289,36 +4289,36 @@ year,scenario,scenario_geography,sector,technology,indicator,unit,price
 2048,WEO2021_SDS,China,Oil&Gas,Gas,price,GJ,5.97124785789
 2049,WEO2021_SDS,China,Oil&Gas,Gas,price,GJ,5.97124785789
 2050,WEO2021_SDS,China,Oil&Gas,Gas,price,GJ,5.97124785789
-2021,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,87.3
-2022,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,85.6
-2023,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,83.9
-2024,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,82.2
-2025,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,80.5
-2026,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,78.8
-2027,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,77.1
-2028,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,75.4
-2029,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,73.7
-2030,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,72
-2031,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,71.7
-2032,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,71.4
-2033,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,71.1
-2034,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,70.8
-2035,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,70.5
-2036,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,70.2
-2037,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,69.9
-2038,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,69.6
-2039,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,69.3
-2040,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,69
-2041,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,68.7
-2042,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,68.4
-2043,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,68.1
-2044,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,67.8
-2045,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,67.5
-2046,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,67.2
-2047,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,66.9
-2048,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,66.6
-2049,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,66.3
-2050,WEO2021_SDS,Coastal China,Coal,Coal,price,usd/tonne,66
+2021,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,87.3
+2022,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,85.6
+2023,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,83.9
+2024,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,82.2
+2025,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,80.5
+2026,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,78.8
+2027,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,77.1
+2028,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,75.4
+2029,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,73.7
+2030,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,72
+2031,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,71.7
+2032,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,71.4
+2033,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,71.1
+2034,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,70.8
+2035,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,70.5
+2036,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,70.2
+2037,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,69.9
+2038,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,69.6
+2039,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,69.3
+2040,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,69
+2041,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,68.7
+2042,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,68.4
+2043,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,68.1
+2044,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,67.8
+2045,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,67.5
+2046,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,67.2
+2047,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,66.9
+2048,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,66.6
+2049,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,66.3
+2050,WEO2021_SDS,CoastalChina,Coal,Coal,price,usd/tonne,66
 2021,WEO2021_SDS,EuropeanUnion,Coal,Coal,price,usd/tonne,50.8
 2022,WEO2021_SDS,EuropeanUnion,Coal,Coal,price,usd/tonne,51.6
 2023,WEO2021_SDS,EuropeanUnion,Coal,Coal,price,usd/tonne,52.4
@@ -4619,36 +4619,36 @@ year,scenario,scenario_geography,sector,technology,indicator,unit,price
 2048,WEO2021_STEPS,China,Oil&Gas,Gas,price,GJ,8.407137857061
 2049,WEO2021_STEPS,China,Oil&Gas,Gas,price,GJ,8.4213551138655
 2050,WEO2021_STEPS,China,Oil&Gas,Gas,price,GJ,8.43557237067
-2021,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,88.4
-2022,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,87.8
-2023,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,87.2
-2024,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,86.6
-2025,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,86
-2026,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,85.4
-2027,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,84.8
-2028,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,84.2
-2029,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,83.6
-2030,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,83
-2031,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,82.55
-2032,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,82.1
-2033,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,81.65
-2034,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,81.2
-2035,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,80.75
-2036,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,80.3
-2037,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,79.85
-2038,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,79.4
-2039,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,78.95
-2040,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,78.5
-2041,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,78.05
-2042,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,77.6
-2043,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,77.15
-2044,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,76.7
-2045,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,76.25
-2046,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,75.8
-2047,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,75.35
-2048,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,74.9
-2049,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,74.45
-2050,WEO2021_STEPS,Coastal China,Coal,Coal,price,usd/tonne,74
+2021,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,88.4
+2022,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,87.8
+2023,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,87.2
+2024,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,86.6
+2025,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,86
+2026,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,85.4
+2027,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,84.8
+2028,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,84.2
+2029,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,83.6
+2030,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,83
+2031,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,82.55
+2032,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,82.1
+2033,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,81.65
+2034,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,81.2
+2035,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,80.75
+2036,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,80.3
+2037,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,79.85
+2038,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,79.4
+2039,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,78.95
+2040,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,78.5
+2041,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,78.05
+2042,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,77.6
+2043,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,77.15
+2044,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,76.7
+2045,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,76.25
+2046,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,75.8
+2047,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,75.35
+2048,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,74.9
+2049,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,74.45
+2050,WEO2021_STEPS,CoastalChina,Coal,Coal,price,usd/tonne,74
 2021,WEO2021_STEPS,EuropeanUnion,Coal,Coal,price,usd/tonne,51.7
 2022,WEO2021_STEPS,EuropeanUnion,Coal,Coal,price,usd/tonne,53.4
 2023,WEO2021_STEPS,EuropeanUnion,Coal,Coal,price,usd/tonne,55.1
@@ -45149,36 +45149,36 @@ year,scenario,scenario_geography,sector,technology,indicator,unit,price
 2048,IPR2021_baseline,China,Oil&Gas,Gas,price,GJ,8.407137857061
 2049,IPR2021_baseline,China,Oil&Gas,Gas,price,GJ,8.4213551138655
 2050,IPR2021_baseline,China,Oil&Gas,Gas,price,GJ,8.43557237067
-2021,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,88.4
-2022,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,87.8
-2023,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,87.2
-2024,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,86.6
-2025,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,86
-2026,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,85.4
-2027,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,84.8
-2028,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,84.2
-2029,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,83.6
-2030,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,83
-2031,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,82.55
-2032,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,82.1
-2033,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,81.65
-2034,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,81.2
-2035,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,80.75
-2036,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,80.3
-2037,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,79.85
-2038,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,79.4
-2039,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,78.95
-2040,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,78.5
-2041,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,78.05
-2042,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,77.6
-2043,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,77.15
-2044,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,76.7
-2045,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,76.25
-2046,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,75.8
-2047,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,75.35
-2048,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,74.9
-2049,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,74.45
-2050,IPR2021_baseline,Coastal China,Coal,Coal,price,usd/tonne,74
+2021,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,88.4
+2022,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,87.8
+2023,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,87.2
+2024,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,86.6
+2025,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,86
+2026,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,85.4
+2027,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,84.8
+2028,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,84.2
+2029,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,83.6
+2030,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,83
+2031,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,82.55
+2032,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,82.1
+2033,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,81.65
+2034,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,81.2
+2035,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,80.75
+2036,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,80.3
+2037,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,79.85
+2038,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,79.4
+2039,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,78.95
+2040,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,78.5
+2041,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,78.05
+2042,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,77.6
+2043,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,77.15
+2044,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,76.7
+2045,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,76.25
+2046,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,75.8
+2047,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,75.35
+2048,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,74.9
+2049,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,74.45
+2050,IPR2021_baseline,CoastalChina,Coal,Coal,price,usd/tonne,74
 2021,IPR2021_baseline,EuropeanUnion,Coal,Coal,price,usd/tonne,51.7
 2022,IPR2021_baseline,EuropeanUnion,Coal,Coal,price,usd/tonne,53.4
 2023,IPR2021_baseline,EuropeanUnion,Coal,Coal,price,usd/tonne,55.1

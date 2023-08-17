@@ -221,6 +221,14 @@ regroup_and_rename_geographies <-
            path_price_data_long,
            path_Scenarios_AnalysisInput,
            matching_tol = 1) {
+    # Check there are no duplicates country_iso in a geography
+    stopifnot(max(
+      bench_regions %>%
+        dplyr::group_by(.data$scenario_geography, .data$country_iso) %>%
+        dplyr::summarise(duplicates = dplyr::n(), .groups = "drop") %>%
+        dplyr::pull(.data$duplicates)
+    ) == 1)
+
     trisk_input_dfs <-
       load_trisk_inputs(
         path_prewrangled_capacity_factors,
@@ -228,14 +236,17 @@ regroup_and_rename_geographies <-
         path_Scenarios_AnalysisInput
       )
 
-    ## Check if all geographies exist in bench_regions
-    # all_geographies <- get_all_unique_geographies(trisk_input_dfs)
-    # stopifnot(all(all_geographies %in% bench_regions$scenario_geography))
+    # Check if all geographies from trisk input dfs exist in bench_regions
+    all_geographies <- get_all_unique_geographies(trisk_input_dfs)
+    stopifnot(all(all_geographies %in% bench_regions$scenario_geography
+                  | all_geographies %in% bench_regions$scenario_geography_newname))
+
+    bench_regions <- bench_regions %>%
+      dplyr::mutate(scenario_geography_newname = .data$scenario_geography)
 
     geo_group_mapper <-
       group_identical_geographies(bench_regions, matching_tol = matching_tol)
     bench_regions <- bench_regions %>%
-      dplyr::mutate(scenario_geography_newname = .data$scenario_geography) %>%
       rename_column_values(
         "scenario_geography_newname",
         geo_group_mapper
