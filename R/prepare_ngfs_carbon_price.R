@@ -111,7 +111,6 @@ prepare_ngfs_carbon_price <- function(data,
         .data$scenario == "DT_Indonesia" &
           .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
-        
         TRUE ~ 0
       )
     ) %>%
@@ -127,4 +126,3 @@ prepare_ngfs_carbon_price <- function(data,
 
   return(data)
 }
-
