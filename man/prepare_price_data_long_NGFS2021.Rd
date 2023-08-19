@@ -5,7 +5,7 @@
 \title{This function reads raw NGFS price data files from 2021 in and wrangles
 it to fit the format to be used in the transition risk stress test work flow.}
 \usage{
-prepare_price_data_long_NGFS2021(input_data_fossil_fuels_ngfs)
+prepare_price_data_long_NGFS2021(input_data_fossil_fuels_ngfs, start_year)
 }
 \arguments{
 \item{input_data_fossil_fuels_ngfs}{A dataset containing prices for the fossil
