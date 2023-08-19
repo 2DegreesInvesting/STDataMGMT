@@ -236,6 +236,7 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
 #'
 #' @param input_data_fossil_fuels_ngfs A dataset containing prices for the fossil
 #' fuels
+#' @param start_year Beginning year of the analysis.
 #'
 #' @family data preparation functions
 #'
@@ -243,7 +244,6 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
 
 
 prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs, start_year) {
- # start_year <- 2021
 
   data <- input_data_fossil_fuels_ngfs %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
