@@ -7,7 +7,8 @@ the LCOE for the power sector.}
 \usage{
 prepare_lcoe_adjusted_price_data_oxford2021(
   input_data_lcoe_oxford,
-  average_npm_power
+  average_npm_power,
+  start_year
 )
 }
 \arguments{
