@@ -75,6 +75,7 @@ prepare_lcoe_adjusted_price_data_weo <- function(input_data,
 #'
 #' @param input_data_lcoe_oxford Dataet containg Oxford prices
 #' @param average_npm_power net profit margin in the power sector
+#' @param start_year First year of analysis.
 #'
 #' @export
 prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
