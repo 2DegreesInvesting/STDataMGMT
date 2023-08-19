@@ -244,7 +244,6 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
 
 
 prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs, start_year) {
-
   data <- input_data_fossil_fuels_ngfs %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(
@@ -406,7 +405,7 @@ prepare_price_data_long_IPR2021 <- function(data, start_year) {
 
   ### filtering for start year
 
-  #start_year <- 2021
+  # start_year <- 2021
   data$year <- as.numeric(as.character(data$year))
   data <- data %>% dplyr::filter(.data$year >= start_year)
 
