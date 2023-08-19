@@ -10,6 +10,8 @@ prepare_price_data_long_NGFS2021(input_data_fossil_fuels_ngfs, start_year)
 \arguments{
 \item{input_data_fossil_fuels_ngfs}{A dataset containing prices for the fossil
 fuels}
+
+\item{start_year}{Beginning year of the analysis.}
 }
 \description{
 This function reads raw NGFS price data files from 2021 in and wrangles
