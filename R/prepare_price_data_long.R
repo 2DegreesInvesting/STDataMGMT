@@ -242,8 +242,8 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
 #' @export
 
 
-prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs) {
-  start_year <- 2021
+prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs, start_year) {
+ # start_year <- 2021
 
   data <- input_data_fossil_fuels_ngfs %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
@@ -306,7 +306,7 @@ prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs) {
 
 ### IPR price data function
 
-prepare_price_data_long_IPR2021 <- function(data) {
+prepare_price_data_long_IPR2021 <- function(data, start_year) {
   ### Objective: extract the prices for Oil coal and Gas
   # Coal: only available for Europe, USA; CHN and JPN. We take the average to get a global variable
   # Gas: only available for USA, Europe and Asia, Plus available as high price and low price. We create a global low and global high and take the average from that
@@ -406,7 +406,7 @@ prepare_price_data_long_IPR2021 <- function(data) {
 
   ### filtering for start year
 
-  start_year <- 2021
+  #start_year <- 2021
   data$year <- as.numeric(as.character(data$year))
   data <- data %>% dplyr::filter(.data$year >= start_year)
 
@@ -573,7 +573,7 @@ prepare_price_data_long_IPR2021_baseline <- function(data) {
 ## Oxford Fossil Fuel Price data function
 
 
-prepare_price_data_long_Oxf2021 <- function(data) {
+prepare_price_data_long_Oxf2021 <- function(data, start_year) {
   ### Objective: extract the prices for Oil coal and Gas
   # All technologies only available for "Global" region
   # Units in $/MWH, have to be transfered into $/GJ for Oil and Gas and $/tonnes for coal
@@ -654,7 +654,7 @@ prepare_price_data_long_Oxf2021 <- function(data) {
 
   # delete data for years below 2021 and the Oxford_slow scenario
   data <- data %>%
-    dplyr::filter(.data$year >= 2021) %>%
+    dplyr::filter(.data$year >= start_year) %>%
     dplyr::filter(.data$scenario != "Oxford2021_slow")
 
 
