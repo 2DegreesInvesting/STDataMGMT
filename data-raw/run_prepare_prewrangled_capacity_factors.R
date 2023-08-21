@@ -1,5 +1,8 @@
 devtools::load_all()
 
+##set start year 
+start_year <- 2022
+
 # prepare capacity factor data WEO 2021
 
 # NOTE: the WEO2021 raw data did not deliver the required data points to
@@ -33,7 +36,7 @@ data <- readr::read_csv(
 )
 
 ## prepare data
-prepared_data_WEO2021 <- prepare_prewrangled_capacity_factors_WEO2021(data)
+prepared_data_WEO2021 <- prepare_prewrangled_capacity_factors_WEO2021(data, start_year = start_year)
 
 ## read data
 input_path <- file.path("data-raw", "raw_capacity_factors_NGFS2021.csv")
@@ -56,7 +59,7 @@ data <- readr::read_csv(
 )
 
 ## prepare data
-prepared_data_NGFS2021 <- prepare_capacity_factors_NGFS2021(data)
+prepared_data_NGFS2021 <- prepare_capacity_factors_NGFS2021(data, start_year = start_year)
 
 ### IPR data
 
@@ -79,10 +82,9 @@ data <- readr::read_csv(
 )
 
 ## prepare IPR data
-prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data)
+prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data, start_year = start_year)
 
 ## IPR baseline CF is a duplicate of IPR2021_FPS
-
 IPR_baseline <- prepare_capacity_factors_IPR2021_baseline(prepared_data_IPR2021)
 
 # merging IPR CF data
