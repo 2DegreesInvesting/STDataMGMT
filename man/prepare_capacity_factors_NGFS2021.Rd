@@ -6,11 +6,13 @@
 under "Raw Data" and creates capacity factors for the power sector.
 and prepares these in the format required in the stress test.}
 \usage{
-prepare_capacity_factors_NGFS2021(data)
+prepare_capacity_factors_NGFS2021(data, start_year)
 }
 \arguments{
 \item{data}{Tibble that provides raw capacity and secondary energy ngfs data file that is to be
 processed}
+
+\item{start_year}{Beginning of the analysis.}
 }
 \description{
 This function reads in raw ngfs capacity and secondary energy data, as found in the dropbox
