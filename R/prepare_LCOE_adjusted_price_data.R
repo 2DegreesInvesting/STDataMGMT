@@ -75,11 +75,12 @@ prepare_lcoe_adjusted_price_data_weo <- function(input_data,
 #'
 #' @param input_data_lcoe_oxford Dataet containg Oxford prices
 #' @param average_npm_power net profit margin in the power sector
+#' @param start_year First year of analysis.
 #'
 #' @export
 prepare_lcoe_adjusted_price_data_oxford2021 <- function(input_data_lcoe_oxford,
-                                                        average_npm_power) {
-  start_year <- 2021
+                                                        average_npm_power, start_year) {
+  # start_year <- 2021
 
   data <- input_data_lcoe_oxford %>%
     dplyr::filter(.data$Sector == "Power") %>%
