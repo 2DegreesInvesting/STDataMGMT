@@ -53,6 +53,10 @@ prepare_ngfs_carbon_price <- function(data,
 
   data <- data %>% rbind(no_carbon_tax)
 
+  data$`2025` <- ifelse(data$scenario == "NDC_Indonesia", 2, data$`2025`)
+  data$`2030` <- ifelse(data$scenario == "NDC_Indonesia", NA, data$`2030`)
+  data$`2035` <- ifelse(data$scenario == "NDC_Indonesia", 5, data$`2035`)
+
   data <- data %>%
     tidyr::pivot_longer(
       cols = tidyr::starts_with(c("20", "21")),
@@ -90,6 +94,21 @@ prepare_ngfs_carbon_price <- function(data,
           .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
         .data$scenario == "B2DS" &
+          .data$year >= 2025 ~
+          zoo::na.approx(object = .data$carbon_tax),
+        .data$scenario == "DN0_Indonesia" &
+          .data$year >= 2025 ~
+          zoo::na.approx(object = .data$carbon_tax),
+        .data$scenario == "B2DS_Indonesia" &
+          .data$year >= 2025 ~
+          zoo::na.approx(object = .data$carbon_tax),
+        .data$scenario == "NZ2050_Indonesia" &
+          .data$year >= 2025 ~
+          zoo::na.approx(object = .data$carbon_tax),
+        .data$scenario == "NDC_Indonesia" &
+          .data$year >= 2025 ~
+          zoo::na.approx(object = .data$carbon_tax),
+        .data$scenario == "DT_Indonesia" &
           .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
         TRUE ~ 0

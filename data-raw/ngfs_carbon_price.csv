@@ -85,6 +85,178 @@ year,model,scenario,scenario_geography,variable,unit,carbon_tax
 2098,GCAM 5.3+ NGFS,B2DS,Global,Price|Carbon,US$2010/t CO2,1007.7923043343618
 2099,GCAM 5.3+ NGFS,B2DS,Global,Price|Carbon,US$2010/t CO2,1013.7315887803611
 2100,GCAM 5.3+ NGFS,B2DS,Global,Price|Carbon,US$2010/t CO2,1019.6708732263603
+2015,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2016,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2017,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2018,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2019,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2020,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2021,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2022,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2023,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2024,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2025,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,40.45377857727269
+2026,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,45.2296809801818
+2027,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,50.0055833830909
+2028,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,54.781485786000005
+2029,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,59.55738818890911
+2030,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,64.33329059181821
+2031,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,69.74421602890911
+2032,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,75.155141466
+2033,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,80.5660669030909
+2034,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,85.97699234018181
+2035,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,91.3879177772727
+2036,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,97.05599446909096
+2037,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,102.72407116090922
+2038,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,108.39214785272746
+2039,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,114.06022454454572
+2040,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,119.72830123636398
+2041,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,129.02874275781838
+2042,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,138.3291842792728
+2043,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,147.6296258007272
+2044,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,156.9300673221816
+2045,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,166.23050884363602
+2046,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,182.59558162036342
+2047,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,198.96065439709082
+2048,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,215.3257271738182
+2049,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,231.69079995054562
+2050,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,248.055872727273
+2051,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,267.9003425454548
+2052,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,287.7448123636366
+2053,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,307.58928218181836
+2054,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,327.43375200000014
+2055,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,347.2782218181819
+2056,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,375.06047956363653
+2057,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,402.84273730909115
+2058,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,430.62499505454576
+2059,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,458.4072528000004
+2060,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,486.189510545455
+2061,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,525.0846713890915
+2062,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,563.9798322327279
+2063,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,602.8749930763643
+2064,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,641.7701539200007
+2065,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,680.6653147636371
+2066,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,694.2786210589097
+2067,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,707.8919273541823
+2068,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,721.5052336494549
+2069,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,735.1185399447274
+2070,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,748.7318462400001
+2071,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,763.7061524236366
+2072,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,778.680458607273
+2073,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,793.6547647909094
+2074,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,808.6290709745458
+2075,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,823.6033771581823
+2076,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,840.0759408130912
+2077,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,856.5485044680001
+2078,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,873.021068122909
+2079,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,889.493631777818
+2080,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,905.9661954327269
+2081,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,911.4019264570907
+2082,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,916.8376574814546
+2083,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,922.2733885058184
+2084,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,927.7091195301823
+2085,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,933.1448505545461
+2086,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,938.7434716020005
+2087,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,944.3420926494548
+2088,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,949.9407136969091
+2089,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,955.5393347443635
+2090,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,961.1379557918178
+2091,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,966.9052548327271
+2092,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,972.6725538736364
+2093,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,978.4398529145456
+2094,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,984.2071519554548
+2095,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,989.9744509963641
+2096,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,995.9137354423633
+2097,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1001.8530198883626
+2098,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1007.7923043343618
+2099,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1013.7315887803611
+2100,GCAM 5.3+ NGFS,B2DS_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1019.6708732263603
+2015,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2016,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2017,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2018,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2019,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2020,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2021,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2022,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2023,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2024,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2025,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2026,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2027,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2028,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2029,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2030,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2031,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2032,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2033,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2034,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2035,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2036,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2037,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2038,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2039,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2040,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2041,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2042,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2043,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2044,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2045,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2046,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2047,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2048,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2049,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2050,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2051,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2052,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2053,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2054,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2055,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2056,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2057,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2058,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2059,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2060,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2061,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2062,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2063,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2064,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2065,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2066,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2067,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2068,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2069,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2070,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2071,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2072,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2073,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2074,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2075,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2076,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2077,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2078,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2079,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2080,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2081,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2082,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2083,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2084,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2085,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2086,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2087,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2088,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2089,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2090,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2091,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2092,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2093,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2094,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2095,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2096,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2097,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2098,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2099,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
+2100,GCAM 5.3+ NGFS,Current Policies,Indonesia,Price|Carbon,US$2010/t CO2,0
 2015,GCAM 5.3+ NGFS,DN0,Global,Price|Carbon,US$2010/t CO2,0
 2016,GCAM 5.3+ NGFS,DN0,Global,Price|Carbon,US$2010/t CO2,0
 2017,GCAM 5.3+ NGFS,DN0,Global,Price|Carbon,US$2010/t CO2,0
@@ -171,6 +343,178 @@ year,model,scenario,scenario_geography,variable,unit,carbon_tax
 2098,GCAM 5.3+ NGFS,DN0,Global,Price|Carbon,US$2010/t CO2,2330.483600217102
 2099,GCAM 5.3+ NGFS,DN0,Global,Price|Carbon,US$2010/t CO2,2323.744023043326
 2100,GCAM 5.3+ NGFS,DN0,Global,Price|Carbon,US$2010/t CO2,2317.0044458695497
+2015,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2016,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2017,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2018,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2019,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2020,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2021,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2022,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2023,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2024,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2025,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,232.51665137872098
+2026,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,238.4848028300568
+2027,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,244.4529542813926
+2028,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,250.42110573272845
+2029,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,256.38925718406426
+2030,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,262.3574086354001
+2031,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,277.23679692069805
+2032,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,292.11618520599603
+2033,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,306.995573491294
+2034,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,321.874961776592
+2035,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,336.75435006188997
+2036,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,356.7342220736074
+2037,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,376.7140940853248
+2038,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,396.69396609704216
+2039,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,416.6738381087596
+2040,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,436.653710120477
+2041,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,478.1181176797314
+2042,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,519.5825252389859
+2043,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,561.0469327982403
+2044,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,602.5113403574946
+2045,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,643.9757479167491
+2046,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,711.3377060282373
+2047,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,778.6996641397255
+2048,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,846.0616222512137
+2049,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,913.423580362702
+2050,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,980.7855384741902
+2051,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1038.481950996278
+2052,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1096.1783635183663
+2053,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1153.8747760404542
+2054,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1211.5711885625424
+2055,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1269.2676010846303
+2056,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1365.4771674433282
+2057,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1461.686733802026
+2058,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1557.896300160724
+2059,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1654.1058665194219
+2060,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1750.3154328781197
+2061,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1771.7481295140658
+2062,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1793.1808261500119
+2063,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1814.6135227859577
+2064,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1836.0462194219037
+2065,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1857.4789160578498
+2066,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1884.3153456693958
+2067,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1911.1517752809418
+2068,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1937.9882048924878
+2069,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1964.8246345040338
+2070,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1991.6610641155798
+2071,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2028.56793864678
+2072,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2065.47481317798
+2073,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2102.3816877091804
+2074,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2139.2885622403805
+2075,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2176.1954367715807
+2076,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2230.204211821581
+2077,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2284.2129868715806
+2078,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2338.2217619215808
+2079,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2392.2305369715805
+2080,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2446.2393120215806
+2081,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2460.1793433463345
+2082,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2474.1193746710883
+2083,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2488.0594059958426
+2084,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2501.9994373205964
+2085,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2515.93946864535
+2086,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2507.757518932036
+2087,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2499.575569218722
+2088,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2491.393619505408
+2089,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2483.211669792094
+2090,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2475.02972007878
+2091,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2450.123124321888
+2092,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2425.216528564996
+2093,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2400.309932808104
+2094,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2375.403337051212
+2095,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2350.49674129432
+2096,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2346.275025843494
+2097,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2342.053310392668
+2098,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2337.831594941842
+2099,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2333.6098794910163
+2100,GCAM 5.3+ NGFS,DN0_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2329.38816404019
+2015,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2016,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2017,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2018,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2019,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2020,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2021,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2022,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2023,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2024,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2025,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2026,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2027,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2028,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2029,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2030,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2031,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2032,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2033,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2034,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2035,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2036,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2037,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2038,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2039,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2040,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2041,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2042,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2043,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2044,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2045,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2046,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2047,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2048,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2049,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2050,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2051,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2052,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2053,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2054,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2055,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2056,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2057,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2058,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2059,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2060,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2061,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2062,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2063,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2064,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2065,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2066,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2067,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2068,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2069,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2070,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2071,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2072,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2073,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2074,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2075,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2076,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2077,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2078,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2079,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2080,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2081,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2082,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2083,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2084,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2085,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2086,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2087,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2088,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2089,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2090,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2091,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2092,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2093,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2094,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2095,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2096,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2097,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2098,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2099,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
+2100,GCAM 5.3+ NGFS,Delayed transition,Indonesia,Price|Carbon,US$2010/t CO2,0
 2015,GCAM 5.3+ NGFS,NDC,Global,Price|Carbon,US$2010/t CO2,0
 2016,GCAM 5.3+ NGFS,NDC,Global,Price|Carbon,US$2010/t CO2,0
 2017,GCAM 5.3+ NGFS,NDC,Global,Price|Carbon,US$2010/t CO2,0
@@ -257,6 +601,92 @@ year,model,scenario,scenario_geography,variable,unit,carbon_tax
 2098,GCAM 5.3+ NGFS,NDC,Global,Price|Carbon,US$2010/t CO2,185.52521883182143
 2099,GCAM 5.3+ NGFS,NDC,Global,Price|Carbon,US$2010/t CO2,189.25691759740624
 2100,GCAM 5.3+ NGFS,NDC,Global,Price|Carbon,US$2010/t CO2,192.98861636299105
+2015,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2016,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2017,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2018,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2019,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2020,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2021,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2022,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2023,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2024,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2025,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2
+2026,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2.3
+2027,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2.6
+2028,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,2.9
+2029,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,3.2
+2030,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,3.5
+2031,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,3.8
+2032,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,4.1
+2033,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,4.4
+2034,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,4.7
+2035,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,5
+2036,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,5.309313313016364
+2037,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,5.618626626032729
+2038,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,5.927939939049092
+2039,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,6.2372532520654564
+2040,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,6.546566565081821
+2041,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,7.604541399321817
+2042,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,8.662516233561814
+2043,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,9.72049106780181
+2044,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,10.778465902041805
+2045,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,11.836440736281801
+2046,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,14.328897876916361
+2047,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,16.82135501755092
+2048,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,19.313812158185478
+2049,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,21.80626929882004
+2050,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,24.298726439454597
+2051,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,21.528975907227316
+2052,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,18.75922537500004
+2053,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,15.98947484277276
+2054,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,13.219724310545478
+2055,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,10.4499737783182
+2056,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,17.12693504716366
+2057,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,23.80389631600912
+2058,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,30.48085758485458
+2059,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,37.157818853700036
+2060,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,43.834780122545496
+2061,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,45.55686667630911
+2062,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,47.27895323007274
+2063,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,49.001039783836355
+2064,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,50.72312633759998
+2065,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,52.445212891363596
+2066,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,53.184832818545416
+2067,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,53.92445274572724
+2068,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,54.664072672909064
+2069,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,55.403692600090885
+2070,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,56.143312527272705
+2071,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,57.49083471321816
+2072,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,58.83835689916362
+2073,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,60.18587908510907
+2074,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,61.53340127105453
+2075,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,62.88092345699999
+2076,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,63.626827466290884
+2077,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,64.37273147558179
+2078,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,65.11863548487268
+2079,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,65.86453949416358
+2080,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,66.61044350345448
+2081,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,68.37726279959995
+2082,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,70.14408209574542
+2083,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,71.91090139189087
+2084,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,73.67772068803635
+2085,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,75.44453998418182
+2086,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,77.61163877361817
+2087,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,79.77873756305453
+2088,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,81.94583635249089
+2089,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,84.11293514192725
+2090,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,86.2800339313636
+2091,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,85.05877218463634
+2092,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,83.83751043790907
+2093,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,82.61624869118181
+2094,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,81.39498694445454
+2095,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,80.17372519772728
+2096,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,78.07633010852729
+2097,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,75.97893501932728
+2098,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,73.88153993012729
+2099,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,71.78414484092728
+2100,GCAM 5.3+ NGFS,NDC_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,69.68674975172729
 2015,GCAM 5.3+ NGFS,NZ2050,Global,Price|Carbon,US$2010/t CO2,0
 2016,GCAM 5.3+ NGFS,NZ2050,Global,Price|Carbon,US$2010/t CO2,0
 2017,GCAM 5.3+ NGFS,NZ2050,Global,Price|Carbon,US$2010/t CO2,0
@@ -343,6 +773,92 @@ year,model,scenario,scenario_geography,variable,unit,carbon_tax
 2098,GCAM 5.3+ NGFS,NZ2050,Global,Price|Carbon,US$2010/t CO2,1410.8004035238077
 2099,GCAM 5.3+ NGFS,NZ2050,Global,Price|Carbon,US$2010/t CO2,1441.3571263764638
 2100,GCAM 5.3+ NGFS,NZ2050,Global,Price|Carbon,US$2010/t CO2,1471.91384922912
+2015,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2016,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2017,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2018,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2019,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2020,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2021,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2022,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2023,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2024,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,0
+2025,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,62.98758748227269
+2026,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,69.48656866243633
+2027,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,75.98554984259997
+2028,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,82.4845310227636
+2029,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,88.98351220292726
+2030,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,95.4824933830909
+2031,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,104.78359638687273
+2032,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,114.08469939065456
+2033,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,123.38580239443638
+2034,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,132.68690539821822
+2035,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,141.98800840200005
+2036,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,148.74207370461824
+2037,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,155.49613900723645
+2038,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,162.25020430985464
+2039,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,169.00426961247285
+2040,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,175.75833491509104
+2041,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,197.85754993107284
+2042,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,219.95676494705464
+2043,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,242.0559799630364
+2044,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,264.15519497901823
+2045,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,286.254409995
+2046,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,341.6787739178182
+2047,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,397.1031378406364
+2048,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,452.52750176345455
+2049,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,507.95186568627275
+2050,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,563.376229609091
+2051,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,589.379099894182
+2052,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,615.381970179273
+2053,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,641.384840464364
+2054,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,667.387710749455
+2055,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,693.390581034546
+2056,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,735.1044834452732
+2057,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,776.8183858560004
+2058,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,818.5322882667276
+2059,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,860.2461906774548
+2060,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,901.960093088182
+2061,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,908.7072128263638
+2062,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,915.4543325645457
+2063,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,922.2014523027275
+2064,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,928.9485720409093
+2065,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,935.6956917790911
+2066,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,948.8641512092729
+2067,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,962.0326106394547
+2068,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,975.2010700696364
+2069,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,988.3695294998182
+2070,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1001.53798893
+2071,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1021.835574142364
+2072,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1042.133159354728
+2073,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1062.430744567092
+2074,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1082.7283297794559
+2075,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1103.02591499182
+2076,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1131.132299077638
+2077,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1159.238683163456
+2078,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1187.345067249274
+2079,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1215.451451335092
+2080,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1243.5578354209101
+2081,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1250.2007716925461
+2082,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1256.8437079641822
+2083,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1263.486644235818
+2084,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1270.129580507454
+2085,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1276.77251677909
+2086,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1280.617382806362
+2087,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1284.462248833634
+2088,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1288.3071148609058
+2089,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1292.1519808881778
+2090,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1295.9968469154499
+2091,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1299.0421461796318
+2092,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1302.0874454438137
+2093,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1305.1327447079957
+2094,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1308.1780439721776
+2095,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1311.2233432363596
+2096,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1342.4816906116337
+2097,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1373.7400379869077
+2098,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1404.998385362182
+2099,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1436.256732737456
+2100,GCAM 5.3+ NGFS,NZ2050_Indonesia,Indonesia,Price|Carbon,US$2010/t CO2,1467.5150801127302
 2015,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
 2016,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
 2017,no_carbon_tax,no_carbon_tax,Global,Price|Carbon,US$2010/t CO2,0
