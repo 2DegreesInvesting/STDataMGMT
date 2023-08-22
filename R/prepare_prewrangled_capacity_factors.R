@@ -4,13 +4,14 @@
 #' expects to get data for up to year 2040.
 #'
 #' @param data Tibble that provides raw scenario data file that is to be
+#' @param start_year Beginning of the analysis.
 #'   processed
 #' @family data preparation functions
 #' @return NULL
 
-prepare_prewrangled_capacity_factors_WEO2021 <- function(data) {
-  # WEO2021 start year should be the release year
-  start_year <- 2021
+prepare_prewrangled_capacity_factors_WEO2021 <- function(data, start_year) {
+  # WEO2021 start year should be the release year 
+  #start_year <- 2021
 
   # WEO2021 end year in raw data is 2040 as it os based on weo2020 at the moment
   end_year <- 2040
@@ -245,12 +246,12 @@ prepare_prewrangled_capacity_factors_WEO2021 <- function(data) {
 #'
 #' @param data Tibble that provides raw capacity and secondary energy ngfs data file that is to be
 #'   processed
+#' @param start_year Beginning of the analysis.
 #'
 #' @family data preparation functions
 #' @return NULL
 
-prepare_capacity_factors_NGFS2021 <- function(data) {
-  start_year <- 2021
+prepare_capacity_factors_NGFS2021 <- function(data, start_year) {
 
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
@@ -364,7 +365,7 @@ prepare_capacity_factors_NGFS2021 <- function(data) {
 }
 
 ### IPR Capacity Factors
-prepare_capacity_factors_IPR2021 <- function(data) {
+prepare_capacity_factors_IPR2021 <- function(data, start_year) {
   ### Creating a technology column
 
   data$technology <- ifelse(data$Sector == "Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
@@ -495,9 +496,7 @@ prepare_capacity_factors_IPR2021 <- function(data) {
   data <- data %>%
     dplyr::select(-c(.data$Capacity, .data$Generation, .data$units, .data$ald_sector))
 
-
   ### filtering for start year
-  start_year <- 2021
   data$year <- as.numeric(as.character(data$year))
   data <- data %>% dplyr::filter(.data$year >= start_year)
 }
