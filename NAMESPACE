@@ -3,6 +3,7 @@
 export(add_market_share_columns)
 export(degrees)
 export(dropbox_exists)
+export(format_p4i)
 export(interpolate_yearly)
 export(path_dropbox_2dii)
 export(prepare_abcd_data)
