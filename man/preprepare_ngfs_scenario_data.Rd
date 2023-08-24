@@ -6,11 +6,12 @@
 under "Processed Data" and wrangles it to fit the required format for the
 usual scenario analysis input routine.}
 \usage{
-preprepare_ngfs_scenario_data(data)
+preprepare_ngfs_scenario_data(data, start_year)
 }
 \arguments{
-\item{data}{Tibble that contains the scenario data file that is to be
-processed}
+\item{data}{Tibble that contains the scenario data file that is to be}
+
+\item{start_year}{processed}
 }
 \description{
 This function reads  NGFS raw scenario data as found in the dropbox
