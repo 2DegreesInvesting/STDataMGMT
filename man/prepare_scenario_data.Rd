@@ -6,13 +6,11 @@
 under "Processed Data" and wrangles it to fit the required format for the
 stress test.}
 \usage{
-prepare_scenario_data(data, start_year)
+prepare_scenario_data(data)
 }
 \arguments{
 \item{data}{Tibble that contains the scenario data file that is to be
 processed}
-
-\item{start_year}{Numeric holding start year.}
 }
 \description{
 This function reads scenario data in the form of data as found in the dropbox
