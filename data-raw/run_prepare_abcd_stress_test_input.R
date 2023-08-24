@@ -13,14 +13,14 @@ output_path_stress_test_input <-
     "ST_INPUTS_MASTER"
   )
 
-start_year <- 2021
+start_year <- 2022
 time_horizon <- 5
 additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
 bench_regions <-
-  readr::read_csv(here::here("data-raw", "bench_regions.rds"), na = "")
+  readr::read_rds(here::here("data-raw", "bench_regions.rds"))
 
 company_activities <-
   read_asset_resolution(
@@ -56,6 +56,9 @@ abcd_data <-
     km_per_vehicle = km_per_vehicle,
     sector_list = sector_list
   )
+
+abcd_data %>%
+  assertr::verify(all(colSums(is.na(.)) == 0))
 
 abcd_data %>% readr::write_csv(fs::path(
   output_path_stress_test_input,
