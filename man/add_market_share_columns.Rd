@@ -4,12 +4,12 @@
 \alias{add_market_share_columns}
 \title{Add market share columns to a scenario dataset}
 \usage{
-add_market_share_columns(data, start_year)
+add_market_share_columns(data, start_year_despite_old_data)
 }
 \arguments{
-\item{data}{A scenario dataset, in this case NGFS 2021.}
+\item{data}{A scenario dataset.}
 
-\item{start_year}{The baseline year, against which the technology- and
+\item{start_year_despite_old_data}{The baseline year, against which the technology- and
 sector- market shares will be calculated. Note: At the start year, tmsr = 1
 and smsp =0 respectively.}
 }
