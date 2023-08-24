@@ -47,10 +47,17 @@ common_fs_groups <- function() {
   c("scenario", "sector", "scenario_geography")
 }
 
-#' @param start_year The baseline year, against which the technology- and
+#' Add market share columns to a scenario dataset
+#'
+#' Calculates and adds market share values (ie. technology market-share ratio
+#' and sector market-share percentage) to a scenario dataset. A reference
+#' start-year must be provided.
+#'
+#' @param data A scenario dataset.
+#' @param start_year_despite_old_data The baseline year, against which the technology- and
 #'   sector- market shares will be calculated. Note: At the start year, tmsr = 1
 #'   and smsp =0 respectively.
-#'
+#'   
 #' @return A scenario dataset, with the new columns `tmsr` and `smsp`.
 #'
 #' @export
@@ -93,18 +100,18 @@ check_crucial_names <- function(x, expected_names) {
 
 abort_missing_names <- function(missing_names) {
   nms <- glue::glue_collapse(missing_names, sep = ", ", last = ", and ")
-  abort(glue("Must have missing names:\n{nms}."), class = "missing_names")
+  abort(glue::glue("Must have missing names:\n{nms}."), class = "missing_names")
 }
 
 abort_missing_names <- function(missing_names) {
   nms <- glue::glue_collapse(missing_names, sep = ", ", last = ", and ")
-  abort(glue("Must have missing names:\n{nms}."), class = "missing_names")
+  abort(glue::glue("Must have missing names:\n{nms}."), class = "missing_names")
 }
 
 
 #' Format scenario data for P4I
 #'
-#' @param data A scenario dataset, like [pacta.scenario.preparation::weo_2021].
+#' @param data A scenario dataset.
 #' @param green_techs A list of green technologies. For these, a `direction` of
 #'   "increasing" will be assigned, and the `smsp` column will be used to assign
 #'   a `FairSharePerc`. Otherwise the `direction` will be `decreasing` and the
@@ -160,7 +167,6 @@ format_p4i <- function(data, green_techs) {
 #'
 #' @param data Tibble that contains the scenario data file that is to be
 #'   processed
-#' @param start_year Numeric holding start year.
 #' @family data preparation functions
 #' @export
 prepare_scenario_data <- function(data) {
@@ -255,6 +261,7 @@ prepare_scenario_data <- function(data) {
 #' usual scenario analysis input routine.
 #'
 #' @param data Tibble that contains the scenario data file that is to be
+#' @param start_year 
 #'   processed
 #' @family data preparation functions
 #' @export
