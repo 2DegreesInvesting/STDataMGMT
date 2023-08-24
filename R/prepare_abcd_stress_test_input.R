@@ -381,7 +381,6 @@ fill_partially_missing_values <- function(abcd_data) {
   abcd_data <- abcd_data %>%
     dplyr::group_by(
       .data$id,
-      .data$ald_location,
       .data$ald_sector,
       .data$technology,
       .data$ald_location,
