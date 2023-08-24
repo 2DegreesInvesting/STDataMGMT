@@ -1,40 +1,100 @@
 devtools::load_all()
 
-# make sure to set the relevant start year when running the data preparation
-# example:
+#set start_year
+start_year_despite_old_data <- 2022 
 start_year <- 2021
-input_path <- r2dii.utils::path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
-  glue::glue("new_shorter_Scenarios_AnalysisInput_{start_year}.csv")
+
+#vector of low carbon technologies 
+green_techs <- c(
+  "FuelCell",
+  "Electric",
+  "Hybrid",
+  "RenewablesCap",
+  "HydroCap",
+  "NuclearCap",
+  "FuelCell_HDV",
+  "Electric_HDV",
+  "Hybrid_HDV"
 )
 
-data <- readr::read_csv(
-  input_path,
-  col_types = readr::cols_only(
-    Source = "c",
-    Technology = "c",
-    ScenarioGeography = "c",
-    Sector = "c",
-    Units = "c",
-    Indicator = "c",
-    Scenario = "c",
-    Sub_Technology = "c",
-    Year = "d",
-    Direction = "c",
-    mktFSRatio = "d",
-    techFSRatio = "d",
-    FairSharePerc = "d"
-  )
+# scenario values will be linearly interpolated for each group below
+interpolation_groups <- c(
+  "source",
+  "scenario",
+  "sector",
+  "technology",
+  "scenario_geography",
+  "indicator",
+  "units"
 )
 
-prepared_data <- prepare_scenario_data(data = data, start_year = start_year)
 
-# make sure to set the relevant start year when running the data preparation
-# example:
-start_year <- 2021
+#WEO data from PACTA routine
+ input_path <- r2dii.utils::path_dropbox_2dii(
+   "PortCheck",
+   "00_Data",
+   "01_ProcessedData",
+   "03_ScenarioData",
+   glue::glue("pacta_processed_weo_Scenarios_AnalysisInput_{start_year}.csv")
+ )
+
+ weo_data <- readr::read_csv(
+   input_path,
+   col_types = readr::cols_only(
+     source = "c",
+     scenario = "c",
+     scenario_geography = "c",
+     sector = "c",
+     technology = "c",
+     units = "c",
+     indicator = "c",
+     year = "d",
+     value = "d"
+   )
+ )
+ 
+#GECO data from PACTA routine 
+ input_path <- r2dii.utils::path_dropbox_2dii(
+   "PortCheck",
+   "00_Data",
+   "01_ProcessedData",
+   "03_ScenarioData",
+   glue::glue("pacta_processed_geco_Scenarios_AnalysisInput_{start_year}.csv")
+ )
+ 
+ geco_data <- readr::read_csv(
+   input_path,
+   col_types = readr::cols_only(
+     source = "c",
+     scenario = "c",
+     scenario_geography = "c",
+     sector = "c",
+     technology = "c",
+     units = "c",
+     indicator = "c",
+     year = "d",
+     value = "d"
+   )
+ ) 
+ 
+# combine WEO with GECO data 
+ weo_geco_data <- rbind(
+   weo_data,
+   geco_data
+ )
+ 
+ weo_geco_data <- weo_geco_data %>%
+   interpolate_yearly(!!!rlang::syms(interpolation_groups)) %>%
+   dplyr::filter(year >= start_year_despite_old_data) %>% 
+   add_market_share_columns(start_year_despite_old_data = start_year_despite_old_data) 
+ 
+ weo_geco_data <- weo_geco_data %>%
+   format_p4i(green_techs)
+ 
+prepared_data <- prepare_scenario_data(data = weo_geco_data)
+
+
+#NGFS 
 input_path <- r2dii.utils::path_dropbox_2dii(
   "PortCheck",
   "00_Data",
@@ -43,7 +103,7 @@ input_path <- r2dii.utils::path_dropbox_2dii(
   glue::glue("ngfs_Scenarios_AnalysisInput_{start_year}.csv")
 )
 
-data <- readr::read_csv(
+ngfs_data <- readr::read_csv(
   input_path,
   col_types = readr::cols_only(
     Model = "c",
@@ -59,38 +119,18 @@ data <- readr::read_csv(
   )
 )
 
-preprepared_ngfs_data <- preprepare_ngfs_scenario_data(data)
+preprepared_ngfs_data <- preprepare_ngfs_scenario_data(ngfs_data, 
+                                                       start_year = start_year)
 
-# scenario values will be linearly interpolated for each group below
-interpolation_groups <- c(
-  "source",
-  "scenario",
-  "sector",
-  "technology",
-  "scenario_geography",
-  "indicator",
-  "units"
-)
 
 preprepared_ngfs_data <- preprepared_ngfs_data %>%
   interpolate_yearly(!!!rlang::syms(interpolation_groups)) %>%
-  dplyr::filter(year >= start_year) %>%
-  add_market_share_columns(start_year = start_year)
-
-# vector of green technolgies
-green_techs <- c(
-  "FuelCell",
-  "Electric",
-  "Hybrid",
-  "RenewablesCap",
-  "HydroCap",
-  "NuclearCap",
-  "FuelCell_HDV",
-  "Electric_HDV",
-  "Hybrid_HDV"
-)
+  dplyr::filter(year >= start_year_despite_old_data) %>%
+  add_market_share_columns(start_year_despite_old_data = start_year_despite_old_data) 
 
 preprepared_ngfs_data <- preprepared_ngfs_data %>% format_p4i(green_techs)
+
+preprepared_ngfs_data <- style_ngfs(preprepared_ngfs_data)
 
 # replace nan fair_share_perc by 0. Nans appear when dividing per 0 in the tmsr computation
 preprepared_ngfs_data <- preprepared_ngfs_data %>%
@@ -99,7 +139,6 @@ preprepared_ngfs_data <- preprepared_ngfs_data %>%
 ### IPR Scenario
 ### Read IPR
 
-start_year <- 2021
 input_path <- r2dii.utils::path_dropbox_2dii(
   "PortCheck",
   "00_Data",
@@ -123,7 +162,8 @@ IPR <- as.data.frame(readr::read_csv(
   )
 ))
 
-prepared_IPR_data <- prepare_IPR_scenario_data(IPR)
+prepared_IPR_data <- prepare_IPR_scenario_data(IPR, 
+                                               start_year_despite_old_data = start_year_despite_old_data)
 # IPR baseline scenario
 # IPR baseline is a duplicate of the WEO2021 STEPs scenario
 
@@ -140,13 +180,12 @@ prepared_IPR_data <- prepared_IPR_data %>%
 ### Oxford Scenario
 ### Read Oxford
 
-start_year <- 2021
 input_path <- r2dii.utils::path_dropbox_2dii(
   "PortCheck",
   "00_Data",
   "01_ProcessedData",
   "03_ScenarioData",
-  glue::glue("oxford_Scenarios_AnalysisInput_2021.csv")
+  glue::glue("oxford_Scenarios_AnalysisInput_{start_year}.csv")
 )
 
 OXF <- as.data.frame(readr::read_csv(
@@ -160,7 +199,8 @@ OXF <- as.data.frame(readr::read_csv(
     value = "d"
   )
 ))
-prepared_OXF_data <- prepare_OXF_scenario_data(OXF)
+prepared_OXF_data <- prepare_OXF_scenario_data(OXF, 
+                                               start_year_despite_old_data = start_year_despite_old_data)
 
 ### Merge Data from Scenario Sources
 prepared_data_IEA_NGFS <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
