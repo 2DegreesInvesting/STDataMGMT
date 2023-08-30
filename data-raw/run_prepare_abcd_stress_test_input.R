@@ -13,13 +13,14 @@ output_path_stress_test_input <-
     "ST_INPUTS_MASTER"
   )
 
-start_year <- 2021
+start_year <- 2022
 time_horizon <- 5
 additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
+km_per_vehicle <- 15000
 
 bench_regions <-
-  readr::read_csv(here::here("data-raw", "bench_regions.csv"), na = "")
+  readr::read_rds(here::here("data-raw", "bench_regions.rds"))
 
 company_activities <-
   read_asset_resolution(
@@ -32,7 +33,7 @@ company_activities <-
 company_emissions <-
   read_asset_resolution(
     fs::path(path_ar_data_raw,
-      "AR-Company-Indicators",
+      "AR-Company-Indicators_2022Q4",
       ext = "xlsx"
     ),
     sheet_name = "Company Emissions"
@@ -48,11 +49,19 @@ abcd_data <-
   prepare_abcd_data(
     company_activities = clean_company_activities,
     company_emissions = clean_company_emissions,
-    scenarios_geographies = bench_regions_renamed,
+    scenarios_geographies = bench_regions,
     start_year = start_year,
     time_horizon = time_horizon,
     additional_year = additional_year,
+    km_per_vehicle = km_per_vehicle,
     sector_list = sector_list
   )
 
-abcd_data %>% readr::write_csv(output_path_stress_test_inputs)
+abcd_data %>%
+  assertr::verify(all(colSums(is.na(.)) == 0))
+
+abcd_data %>% readr::write_csv(fs::path(
+  output_path_stress_test_input,
+  "abcd_stress_test_input",
+  ext = "csv"
+))

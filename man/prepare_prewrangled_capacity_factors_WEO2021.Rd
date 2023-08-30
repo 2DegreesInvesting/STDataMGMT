@@ -7,10 +7,12 @@ under "Raw Data", extracts the relevant information for power capacity factors
 and prepares these in the format required in the stress test. Currently
 expects to get data for up to year 2040.}
 \usage{
-prepare_prewrangled_capacity_factors_WEO2021(data)
+prepare_prewrangled_capacity_factors_WEO2021(data, start_year)
 }
 \arguments{
-\item{data}{Tibble that provides raw scenario data file that is to be
+\item{data}{Tibble that provides raw scenario data file that is to be}
+
+\item{start_year}{Beginning of the analysis.
 processed}
 }
 \description{

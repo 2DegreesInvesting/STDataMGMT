@@ -7,13 +7,16 @@ the LCOE for the power sector.}
 \usage{
 prepare_lcoe_adjusted_price_data_oxford2021(
   input_data_lcoe_oxford,
-  average_npm_power
+  average_npm_power,
+  start_year
 )
 }
 \arguments{
 \item{input_data_lcoe_oxford}{Dataet containg Oxford prices}
 
 \item{average_npm_power}{net profit margin in the power sector}
+
+\item{start_year}{First year of analysis.}
 }
 \description{
 This function reads in the price data from Oxford and calculates

@@ -13,6 +13,7 @@ prepare_abcd_data(
   start_year,
   time_horizon,
   additional_year,
+  km_per_vehicle,
   sector_list
 )
 }
@@ -27,7 +28,10 @@ prepare_abcd_data(
 
 \item{time_horizon}{time_horizon}
 
-\item{additional_year}{additional_year}
+\item{additional_year}{list of years to add to the year range}
+
+\item{km_per_vehicle}{the number of km associated to the production of 1 vehicle,
+used to convert the emissions from TCO2/# vehicles to TCO2/km}
 
 \item{sector_list}{sector_list}
 }
