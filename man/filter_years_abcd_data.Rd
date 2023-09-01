@@ -2,7 +2,9 @@
 % Please edit documentation in R/prepare_abcd_stress_test_input.R
 \name{filter_years_abcd_data}
 \alias{filter_years_abcd_data}
-\title{filter to keep only desired years}
+\title{filter to keep only desired years
+Filtering years and fill/create missing years is done independantly, because
+other cleaning steps}
 \usage{
 filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
 }
@@ -17,4 +19,6 @@ filter_years_abcd_data(abcd_data, start_year, time_horizon, additional_year)
 }
 \description{
 filter to keep only desired years
+Filtering years and fill/create missing years is done independantly, because
+other cleaning steps
 }

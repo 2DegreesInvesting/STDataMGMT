@@ -159,7 +159,32 @@ match_emissions_to_production <- function(company_activities,
   return(abcd_data)
 }
 
+#' Create new rows replicating the nesting columns for each year of the desired
+#'  scope not present.
+#' New rows have NA values for columns outside nesting.
+#'
+#' @param abcd_data abcd_data
+#' @param start_year start_year
+#' @param time_horizon time_horizon
+#'
+#' @return abcd_data
+#'
+create_missing_year_rows <- function(abcd_data, start_year, time_horizon){
+  abcd_data <- abcd_data %>%
+    dplyr::mutate(year=as.numeric(.data$year)) %>%
+    tidyr::complete(
+      year = seq(start_year, start_year + time_horizon),
+      tidyr::nesting(!!!rlang::syms(c(
+        "id", "company_name", "ald_sector", "technology", "technology_type", "region",
+        "ald_location", "ald_production_unit", "emissions_factor_unit"
+      )))
+    )
+  return(abcd_data)
+}
+
 #' filter to keep only desired years
+#' Filtering years and fill/create missing years is done independantly, because
+#' other cleaning steps
 #'
 #' @param abcd_data abcd_data
 #' @param start_year start_year
@@ -275,7 +300,8 @@ aggregate_over_technology_types <- function(abcd_data) {
   abcd_data <- abcd_data %>%
     dplyr::group_by(dplyr::across(
       c(
-        -.data$technology_type, -.data$ald_production, -.data$emissions_factor
+        -.data$technology_type, # removes this column after grouping
+        -.data$ald_production, -.data$emissions_factor
       )
     )) %>%
     dplyr::summarise(
@@ -370,36 +396,40 @@ aggregate_over_locations <- function(abcd_data) {
   return(abcd_data)
 }
 
-#' Fill ald_production and emissions_factor with values of previous years
-#' for a given technology at a company
+#' Fill ald_production and emissions_factor for a given technology at a company
+#'  with values of previous years, or with interpolation for values in the middle.
 #'
 #' @param abcd_data abcd_data
 #'
-fill_empty_years_that_follows <- function(abcd_data) {
+#'
+fill_partially_missing_values <- function(abcd_data) {
   abcd_data <- abcd_data %>%
-    dplyr::arrange(
-      .data$id,
-      .data$ald_location,
-      .data$ald_sector,
-      .data$technology,
-      .data$ald_production_unit,
-      .data$emissions_factor_unit,
-      .data$year # TODO arrange only on years => same result
-    ) %>%
     dplyr::group_by(
       .data$id,
-      .data$ald_location,
       .data$ald_sector,
       .data$technology,
+      .data$ald_location,
       .data$emissions_factor_unit,
       .data$ald_production_unit
     ) %>%
+    dplyr::arrange(
+      .data$year,
+      .by_group = T
+    ) %>%
+    dplyr::mutate(
+      # Fill years in the middle with interpolation
+      ald_production = zoo::na.approx(.data$ald_production, na.rm = F),
+      emissions_factor = zoo::na.approx(.data$emissions_factor, na.rm = F),
+    ) %>%
+    # Fill years in the beginning and et the end, by extending the first or last non-na value
     tidyr::fill(.data$ald_production, .direction = "downup") %>%
     tidyr::fill(.data$emissions_factor, .direction = "downup") %>%
     dplyr::ungroup()
 
   return(abcd_data)
 }
+
+
 
 #' rename columns, and sum ald_production over each company to create
 #' plan_sec_prod column
@@ -518,13 +548,15 @@ prepare_abcd_data <- function(company_activities,
   abcd_data <-
     match_emissions_to_production(company_activities, company_emissions)
 
+  abcd_data <- create_missing_year_rows(abcd_data, start_year, time_horizon)
+
   rm(company_activities, company_emissions)
 
   ## AGGREGATIONS
 
   abcd_data <- aggregate_over_technology_types(abcd_data)
 
-  abcd_data <- fill_empty_years_that_follows(abcd_data)
+  abcd_data <- fill_partially_missing_values(abcd_data)
 
   # at this point, nans in ald_production are only due to fully empty production in raw data
   # to check that, only 2 values with this command:

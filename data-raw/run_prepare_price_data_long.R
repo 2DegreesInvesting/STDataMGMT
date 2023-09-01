@@ -3,6 +3,8 @@ devtools::load_all()
 # set overall parameters----
 # based on internal research, see stress.testing.internal repo
 average_npm_power <- 0.115
+start_year <- 2022
+
 
 # prepare price data WEO 2021----
 
@@ -52,10 +54,7 @@ input_data_power <- readr::read_csv(
   )
 )
 
-### set parameters WEO2021----
-start_year <- 2021
 
-# prepare data
 price_data_long_WEO2021 <- prepare_price_data_long_WEO2021(
   input_data_fossil_fuel = input_data_fossil_fuels,
   input_data_power = input_data_power
@@ -70,11 +69,10 @@ price_data_long_adjusted_WEO2021 <- prepare_lcoe_adjusted_price_data_weo(
   dplyr::select(-.data$source)
 
 
-
-# prepare price data NGFS 2021
-
+# prepare price data NGFS2021----
 ## read input data
 input_path_fossil_fuels_ngfs <- file.path("data-raw", "raw_price_data_long_NGFS2021.csv")
+
 input_data_fossil_fuels_ngfs <- readr::read_csv(
   input_path_fossil_fuels_ngfs,
   col_types = readr::cols(
@@ -92,7 +90,7 @@ input_data_fossil_fuels_ngfs <- readr::read_csv(
   )
 )
 
-## read LCOE price data Oxford2021
+## NOTE.: NGFS uses LCOE price data Oxford2021
 input_path_lcoe_oxford <- file.path("data-raw", "raw_Oxford_LCOE_wrangled.csv")
 
 input_data_lcoe_oxford <- readr::read_delim(
@@ -109,13 +107,16 @@ input_data_lcoe_oxford <- readr::read_delim(
   )
 )
 
+
 price_data_long_NGFS2021 <- prepare_price_data_long_NGFS2021(
-  input_data_fossil_fuels_ngfs = input_data_fossil_fuels_ngfs
+  input_data_fossil_fuels_ngfs = input_data_fossil_fuels_ngfs,
+  start_year = start_year
 )
 
 lcoe_adjusted_price_data_oxford2021 <- prepare_lcoe_adjusted_price_data_oxford2021(
   input_data_lcoe_oxford = input_data_lcoe_oxford,
-  average_npm_power = average_npm_power
+  average_npm_power = average_npm_power,
+  start_year = start_year
 )
 
 price_data_long_adjusted_NGFS2021 <- price_data_long_NGFS2021 %>%
@@ -123,8 +124,7 @@ price_data_long_adjusted_NGFS2021 <- price_data_long_NGFS2021 %>%
 
 
 ### prepare price data IPR 2021
-
-## prepare IPR 2021 Fossil Fuel price data
+## read input data----
 input_path_fossil_fuels_ipr <- file.path("data-raw", "raw_price_data_long_IPR2021.csv")
 
 input_data_fossil_fuels_ipr <- readr::read_delim(
@@ -141,11 +141,11 @@ input_data_fossil_fuels_ipr <- readr::read_delim(
   )
 )
 
-price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr)
+price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr,
+  start_year = start_year
+)
 
-## prepare IPR 2021 Power price data
-## IPR prices for the power sector uses LCOE data from WEO2021 (input_data_power, see above)
-
+## NOTE: IPR prices for the power sector uses LCOE data from WEO2021 (input_data_power, see above)
 
 price_data_power_IPR2021 <- prepare_price_data_long_Power_IPR2021(input_data_power)
 
@@ -167,9 +167,9 @@ price_data_long_adjusted_IPR2021 <- price_data_long_IPR2021 %>%
   dplyr::bind_rows(price_data_IPR2021_baseline)
 
 
-## Oxford Price data
+## prepare price data Oxford
+## read input data
 
-## Fossil Fuel prices
 input_path_fossil_fuels_oxf <- file.path("data-raw", "raw_price_data_long_OXF2021.csv")
 
 input_data_fossil_fuels_oxf <- readr::read_delim(
@@ -185,10 +185,11 @@ input_data_fossil_fuels_oxf <- readr::read_delim(
   )
 )
 
-price_data_long_adjusted_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_fossil_fuels_oxf)
+price_data_long_adjusted_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_fossil_fuels_oxf,
+  start_year = start_year
+)
 
-### Oxford Power prices
-### Oxford power prices are already in the data through lcoe_adjusted_price_data_oxford2021
+### NOTE: Oxford power prices are already in the data through lcoe_adjusted_price_data_oxford2021
 
 ## combine and write all price data----
 
