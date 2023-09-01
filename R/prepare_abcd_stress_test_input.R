@@ -548,7 +548,7 @@ prepare_abcd_data <- function(company_activities,
   abcd_data <-
     match_emissions_to_production(company_activities, company_emissions)
 
-  abcd_data <- create_missing_year_rows(abcd_data)
+  abcd_data <- create_missing_year_rows(abcd_data, start_year, time_horizon)
 
   rm(company_activities, company_emissions)
 
