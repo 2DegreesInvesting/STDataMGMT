@@ -159,7 +159,32 @@ match_emissions_to_production <- function(company_activities,
   return(abcd_data)
 }
 
+#' Create new rows replicating the nesting columns for each year of the desired
+#'  scope not present.
+#' New rows have NA values for columns outside nesting.
+#'
+#' @param abcd_data abcd_data
+#' @param start_year start_year
+#' @param time_horizon time_horizon
+#'
+#' @return abcd_data
+#'
+create_missing_year_rows <- function(abcd_data, start_year, time_horizon){
+  abcd_data <- abcd_data %>%
+    dplyr::mutate(year=as.numeric(.data$year)) %>%
+    tidyr::complete(
+      year = seq(start_year, start_year + time_horizon),
+      tidyr::nesting(!!!rlang::syms(c(
+        "id", "company_name", "ald_sector", "technology", "technology_type", "region",
+        "ald_location", "ald_production_unit", "emissions_factor_unit"
+      )))
+    )
+  return(abcd_data)
+}
+
 #' filter to keep only desired years
+#' Filtering years and fill/create missing years is done independantly, because
+#' other cleaning steps
 #'
 #' @param abcd_data abcd_data
 #' @param start_year start_year
@@ -522,6 +547,8 @@ prepare_abcd_data <- function(company_activities,
   ## DATALOAD
   abcd_data <-
     match_emissions_to_production(company_activities, company_emissions)
+
+  abcd_data <- create_missing_year_rows(abcd_data)
 
   rm(company_activities, company_emissions)
 
