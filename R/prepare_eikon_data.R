@@ -721,8 +721,8 @@ prepare_eikon_data <- function(list_eikon_data,
     dplyr::summarise(dplyr::across(dplyr::everything(),
                                    ~ ifelse(
                                      is.numeric(.x),
-                                     mean(.x, na.rm = T),
-                                     first(.x)
+                                     mean(na.omit(.x)),
+                                     first(na.omit(.x))
                                    )))
 
   # add security mapped sector (this determines the final sector in pacta and can
