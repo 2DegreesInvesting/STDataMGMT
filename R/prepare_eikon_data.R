@@ -716,6 +716,15 @@ prepare_eikon_data <- function(list_eikon_data,
     ) %>%
     assertr::verify(nrow(.) == nrow(eikon_data))
 
+  eikon_data <- eikon_data %>%
+    dplyr::group_by(company_id) %>%
+    dplyr::summarise(dplyr::across(dplyr::everything(),
+                                   ~ ifelse(
+                                     is.numeric(.x),
+                                     mean(.x, na.rm = T),
+                                     first(.x)
+                                   )))
+
   # add security mapped sector (this determines the final sector in pacta and can
   # differ from financial sector)
   security_financial_data_sector_classifications <- security_financial_data %>%
@@ -769,17 +778,17 @@ prepare_eikon_data <- function(list_eikon_data,
       -.data$linking_stake
     )
 
-  # ensure unique company names because will be used to join later
-  # as they are not unique, we just have to gamble that we take the right one
-  eikon_data <- eikon_data %>%
-    # arrange by CB ticker to improve CB ticker coverage (often only one of the
-    # duplicates has a CB ticker)
-    dplyr::arrange(.data$corporate_bond_ticker) %>%
-    dplyr::distinct(.data$company_name, .keep_all = TRUE) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(eikon_data),
-      cause = "to ensure unique company names"
-    )
+  # # ensure unique company names because will be used to join later
+  # # as they are not unique, we just have to gamble that we take the right one
+  # eikon_data <- eikon_data %>%
+  #   # arrange by CB ticker to improve CB ticker coverage (often only one of the
+  #   # duplicates has a CB ticker)
+  #   dplyr::arrange(.data$corporate_bond_ticker) %>%
+  #   dplyr::distinct(.data$company_name, .keep_all = TRUE) %>%
+  #   report_diff_rows(
+  #     initial_n_rows = nrow(eikon_data),
+  #     cause = "to ensure unique company names"
+  #   )
 
   # only filter companies with ALD --> kick out out irrelevant eikon companies or
   # irrelevant added subsidiaries
