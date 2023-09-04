@@ -235,7 +235,7 @@ find_missing_companies_ownership <- function(data, company_identifier, eikon_dat
       initial_n_rows = nrow(abcd_data_missing_companies),
       cause = "because company IDs are missing"
     )
-  abcd_data
+  abcd_data_missing_companies
 }
 
 #' Identify which companies in the masterdata_debt are missing in Eikon
@@ -320,12 +320,7 @@ find_missing_companies_credit <- function(data, eikon_data) {
 #' Identify which companies in the masterdata_credit are missing in Eikon
 #'
 #' @param data A data frame holding prepared Eikon data set
-#' @param missing_companies_ownership A data frame with missing companies from
-#'   the masterdata_ownership data set
-#' @param missing_companies_debt A data frame with missing companies from
-#'   the masterdata_debt data set
-#' @param missing_companies_credit A data frame with missing companies from
-#'   the masterdata_credit data set
+#' @param abcd_data abcd_data
 #'
 #' @return NULL
 add_missing_companies_to_eikon <- function(data,
@@ -598,14 +593,9 @@ select_final_financial_value <- function(data) {
 #'   security_financial_data as prepared in the data_preparation repo
 #' @param consolidated_financial_data A data frame containing the
 #'   consolidated_financial_data as prepared in the data_preparation repo
-#' @param ownership_tree A data frame containing the ownership_tree as provided
+#' @param prewrangled_ownership_tree A data frame containing the ownership_tree as provided
 #'   by Asset Resolution
-#' @param masterdata_ownership A data frame containing the masterdata_ownership
-#'   as prepared in the data_preparation repo
-#' @param masterdata_debt A data frame containing the masterdata_debt as
-#'   prepared in the data_preparation repo
-#' @param masterdata_credit A data frame containing the masterdata_credit as
-#'   provided by Asset Resolution
+#' @param abcd_data abcd_data
 #' @param country_region_bridge A data frame which contains a mapping of
 #'   countries to multiple regional levels of interest
 #' @param n_min_sample A numeric vector of length one, indicating the minimum
@@ -716,8 +706,10 @@ prepare_eikon_data <- function(list_eikon_data,
     ) %>%
     assertr::verify(nrow(.) == nrow(eikon_data))
 
+  # group duplicate company_id rows,
+  # taking average of non-NA numeric value, any(first non-NA) character value
   eikon_data <- eikon_data %>%
-    dplyr::group_by(company_id) %>%
+    dplyr::group_by(.data$company_id) %>%
     dplyr::summarise(dplyr::across(dplyr::everything(),
                                    ~ ifelse(
                                      is.numeric(.x),

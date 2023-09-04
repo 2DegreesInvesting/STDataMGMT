@@ -26,6 +26,11 @@ security_financial_data as prepared in the data_preparation repo}
 \item{consolidated_financial_data}{A data frame containing the
 consolidated_financial_data as prepared in the data_preparation repo}
 
+\item{prewrangled_ownership_tree}{A data frame containing the ownership_tree as provided
+by Asset Resolution}
+
+\item{abcd_data}{abcd_data}
+
 \item{country_region_bridge}{A data frame which contains a mapping of
 countries to multiple regional levels of interest}
 
@@ -38,18 +43,6 @@ sample size when calculating averages}
 
 \item{range_profit_margin}{A numeric vector indicating the allowed minimum
 and maximum values for the net profit margin when calculating the averages}
-
-\item{ownership_tree}{A data frame containing the ownership_tree as provided
-by Asset Resolution}
-
-\item{masterdata_ownership}{A data frame containing the masterdata_ownership
-as prepared in the data_preparation repo}
-
-\item{masterdata_debt}{A data frame containing the masterdata_debt as
-prepared in the data_preparation repo}
-
-\item{masterdata_credit}{A data frame containing the masterdata_credit as
-provided by Asset Resolution}
 }
 \value{
 A data frame
