@@ -89,8 +89,7 @@ prewrangled_ownership_tree <- prewrangle_ownership_tree(ownership_tree)
 
 # load abcd data for ids reference
 abcd_data <- readr::read_csv(abcd_input_path) %>%
-  dplyr::rename(company_id=id) %>%
-  dplyr::select(c(-company_name))
+  dplyr::rename(company_id=id)
 
 # country region bridge-------
 country_region_bridge <- rworldmap::countryRegions %>%

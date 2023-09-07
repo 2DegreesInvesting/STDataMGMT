@@ -8,7 +8,11 @@ devtools::load_all()
 list_prewrangled_financial_data <- eikon_data %>%
   prepare_prewrangled_financial_data_stress_test()
 
-list_prewrangled_financial_data[[1]] %>%
+prewrangled_financial_data_stress_test <- list_prewrangled_financial_data[[1]]
+
+prewrangled_financial_data_stress_test[is.na(prewrangled_financial_data_stress_test)] <- "Missing"
+
+prewrangled_financial_data_stress_test %>%
   readr::write_csv(
     file.path("data-raw", "prewrangled_financial_data_stress_test.csv")
   )

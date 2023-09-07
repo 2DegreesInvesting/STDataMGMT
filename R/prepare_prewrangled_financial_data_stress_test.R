@@ -73,10 +73,10 @@ prepare_prewrangled_financial_data_stress_test <- function(eikon_data) {
     dplyr::filter(.data$enc != "ASCII") %>%
     dplyr::select(-.data$enc)
 
-  financial_data_stress_test <- financial_data_stress_test %>%
-    dplyr::mutate(enc = stringi::stri_enc_mark(.data$company_name)) %>%
-    dplyr::filter(.data$enc == "ASCII") %>%
-    dplyr::select(-.data$enc)
+  # financial_data_stress_test <- financial_data_stress_test %>%
+  #   dplyr::mutate(enc = stringi::stri_enc_mark(.data$company_name)) %>%
+  #   dplyr::filter(.data$enc == "ASCII") %>%
+  #   dplyr::select(-.data$enc)
 
   # TODO: any logic/bounds needed for debt/equity ratio and volatility?
 
