@@ -50,7 +50,7 @@ prepare_ngfs_carbon_price <- function(data,
     ~`2055`, ~`2060`, ~`2065`, ~`2070`, ~`2075`, ~`2080`, ~`2085`, ~`2090`, ~`2095`, ~`2100`,
     "no_carbon_tax", "no_carbon_tax", "Global", "Price|Carbon", "US$2010/t CO2", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
   )
-browser()
+
   data <- data %>% rbind(no_carbon_tax)
 
   data$`2025` <- ifelse(data$scenario == "NDC_Indonesia_moderate", 2, data$`2025`)
