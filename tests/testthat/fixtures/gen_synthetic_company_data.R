@@ -1,0 +1,199 @@
+#' Generation of synthetic data
+
+library(dplyr)
+
+
+production_types <-
+  readRDS(file = here::here("data", "production_types.rds"))
+
+random_isin <- function() {
+  sprintf(
+    "%s%s",
+    paste0(sample(LETTERS, 2, TRUE), collapse = ""),
+    paste0(sample(9, 10, TRUE), collapse = "")
+  )
+}
+
+generate_company_isin <- function(n_companies) {
+  isin <- replicate(n_companies, random_isin())
+  company_name <- paste0("company", sep = "-", 1:n_companies)
+  company_isin <-
+    tibble::tibble(isin = isin, company_name = company_name)
+  return(company_isin)
+}
+
+generate_company_sectors <-
+  function(company_isin, n_multi_sector) {
+    n_company <- nrow(company_isin)
+
+    company_sectors <-
+      company_isin %>%
+      dplyr::cross_join(production_types %>% select(-emissions_unit)) %>%
+      dplyr::group_by(isin, company_name) %>%
+      dplyr::sample_n(size = n_multi_sector, replace = FALSE)
+
+    MW_to_duplicate <-
+      company_sectors %>% dplyr::filter(activity_unit == "MW")
+    MWh_to_duplicate <-
+      company_sectors %>% dplyr::filter(activity_unit == "MWh")
+    company_sectors <- dplyr::bind_rows(
+      company_sectors,
+      MW_to_duplicate %>% dplyr::mutate(activity_unit = "MWh"),
+      MWh_to_duplicate %>% dplyr::mutate(activity_unit = "MW")
+    )
+    return(company_sectors)
+  }
+
+generate_company_location <-
+  function(company_sectors, max_assigned_countries) {
+    countries <- countrycode::codelist$iso2c
+    countries <- countries[!is.na(countries)]
+    # subsample the country codes, so we're sure some companies will
+    # have different technologies in same countries
+    countries <-
+      sample(countries, size = max_assigned_countries + 1, replace = FALSE)
+
+    n_country_foreach_row <-
+      sample(
+        x = 1:max_assigned_countries,
+        size = nrow(company_sectors),
+        replace = TRUE
+      )
+    countries_foreach_row <-
+      purrr::map(
+        n_country_foreach_row,
+        ~ sample(countries, size = .x, replace = FALSE)
+      )
+    ald_location <-
+      tibble::tibble(ald_location = countries_foreach_row)
+    company_location <-
+      dplyr::bind_cols(company_sectors, ald_location) %>%
+      tidyr::unnest_longer(col = "ald_location")
+    return(company_location)
+  }
+
+
+generate_company_production <-
+  function(company_location,
+           n_year_plan,
+           prop_na,
+           nrow_full_na,
+           mean_production) {
+    productions_values <-
+      replicate(nrow(company_location),
+        rgeom(n_year_plan, 1 / mean_production),
+        simplify = FALSE
+      )
+    productions_values <-
+      tidyr::unnest_wider(
+        tibble::tibble(ald_production = productions_values),
+        col = "ald_production",
+        names_sep = "_"
+      )
+    colnames(productions_values) <-
+      paste0("production", sep = "_", 2021:(2021 + n_year_plan))
+
+    # add random NA. Total NA match proportion parameter
+    productions_values <-
+      apply(productions_values, 2, function(x) {
+        x[sample(c(1:nrow(productions_values)), floor(nrow(productions_values) / (1 /
+          prop_na)))] <-
+          NA
+        x
+      })
+
+    # Add some random rows with all production values NA
+    productions_values[sample(1:nrow(productions_values), nrow_full_na), ] <-
+      NA
+
+    company_production <-
+      dplyr::bind_cols(company_location, productions_values)
+    return(company_production)
+  }
+
+
+#' GENERATE COMPANY ACTIVITY
+#' Generative operations are repeated for companies assigned to a single sector
+#' and companies assigned to multiple sectors
+#'
+#' Generate random unique ISIN identifier
+#' Generate random company name for each ISIN
+#' Assign random sectors (single or multiple) to each company. Force companies
+#'   being assigned a production in MW to have a production in MWh, and vice-versa.
+#' Assign random iso2c country codes to each company sector
+#' Assign random production values at each row, add random nans, set some random rows to full nans
+generate_company_activities <-
+  function(n_companies = 200,
+           n_multi_sector = 3,
+           max_assigned_countries = 5,
+           n_year_plan = 5,
+           prop_na = 0.3,
+           nrow_full_na = 10,
+           mean_production = 1e10) {
+    company_activities_single_sector <-
+      generate_company_isin(n_companies / 2) %>%
+      generate_company_sectors(n_multi_sector = 1) %>%
+      generate_company_location(max_assigned_countries) %>%
+      generate_company_production(n_year_plan, prop_na, nrow_full_na, mean_production)
+
+    company_activities_multi_sector <-
+      generate_company_isin(n_companies / 2) %>%
+      generate_company_sectors(n_multi_sector = n_multi_sector) %>%
+      generate_company_location(max_assigned_countries) %>%
+      generate_company_production(n_year_plan, prop_na, nrow_full_na, mean_production)
+
+    company_activities <-
+      dplyr::bind_rows(
+        company_activities_single_sector,
+        company_activities_multi_sector
+      )
+
+    return(company_activities)
+  }
+
+
+assign_activities_to_their_emission_unit <- function(base_data) {
+  company_emission_unit <- base_data %>%
+    dplyr::left_join(production_types, by = dplyr::join_by(ald_sector, technology, activity_unit)) %>%
+    dplyr::select(-activity_unit)
+  return(company_emission_unit)
+}
+
+
+#' GENERATE COMPANY EMISSIONS
+generate_company_emissions <- function(company_activities) {
+  base_data <-
+    company_activities %>% dplyr::select(
+      isin,
+      company_name,
+      ald_sector,
+      technology,
+      ald_location,
+      activity_unit
+    )
+  company_emission_unit <-
+    assign_activities_to_their_emission_unit(base_data)
+  company_emissions <-
+    generate_company_production(
+      company_emission_unit,
+      n_year_plan = 5,
+      prop_na = 0.2,
+      nrow_full_na = 5,
+      mean_production = 1e5
+    )
+  return(company_emissions)
+}
+
+company_activities <- generate_company_activities()
+company_emissions <- generate_company_emissions(company_activities)
+
+
+saveRDS(
+  company_activities,
+  file = here::here("tests", "testthat", "fixtures", "company_activities.rds")
+)
+
+saveRDS(
+  company_emissions,
+  file = here::here("tests", "testthat", "fixtures", "company_emissions.rds")
+)
