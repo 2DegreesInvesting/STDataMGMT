@@ -57,6 +57,8 @@ prepare_ngfs_carbon_price <- function(data,
   data$`2030` <- ifelse(data$scenario == "NDC_Indonesia_moderate", NA, data$`2030`)
   data$`2035` <- ifelse(data$scenario == "NDC_Indonesia_moderate", 10, data$`2035`)
   data$`2040` <- ifelse(data$scenario == "NDC_Indonesia_moderate", NA, data$`2040`)
+  data$`2045` <- ifelse(data$scenario == "NDC_Indonesia_moderate", NA, data$`2045`)
+  
   
   
   data$`2025` <- ifelse(data$scenario == "NDC_Indonesia_market_assumption", 5, data$`2025`)
