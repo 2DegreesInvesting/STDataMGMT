@@ -6,30 +6,38 @@ library(dplyr)
 production_types <-
   readRDS(file = here::here("data", "production_types.rds"))
 
-random_isin <- function() {
-  sprintf(
-    "%s%s",
-    paste0(sample(LETTERS, 2, TRUE), collapse = ""),
-    paste0(sample(9, 10, TRUE), collapse = "")
-  )
-}
+# random_isin <- function() {
+#   sprintf(
+#     "%s%s",
+#     paste0(sample(LETTERS, 2, TRUE), collapse = ""),
+#     paste0(sample(9, 10, TRUE), collapse = "")
+#   )
+# }
 
-generate_company_isin <- function(n_companies) {
-  isin <- replicate(n_companies, random_isin())
+# generate_company_isin <- function(n_companies) {
+#   isin <- replicate(n_companies, random_isin())
+#   company_name <- paste0("company", sep = "-", 1:n_companies)
+#   company_isin <-
+#     tibble::tibble(isin = isin, company_name = company_name)
+#   return(company_isin)
+# }
+
+generate_company_name_ids <- function(n_companies) {
   company_name <- paste0("company", sep = "-", 1:n_companies)
-  company_isin <-
-    tibble::tibble(isin = isin, company_name = company_name)
-  return(company_isin)
+  company_id <- 1:n_companies
+  company_name_ids <-
+    tibble::tibble(company_id = company_id, company_name = company_name)
+  return(company_name_ids)
 }
 
 generate_company_sectors <-
-  function(company_isin, n_multi_sector) {
-    n_company <- nrow(company_isin)
+  function(company_name_ids, n_multi_sector) {
+    n_company <- nrow(company_name_ids)
 
     company_sectors <-
-      company_isin %>%
+      company_name_ids %>%
       dplyr::cross_join(production_types %>% select(-emissions_unit)) %>%
-      dplyr::group_by(isin, company_name) %>%
+      dplyr::group_by(company_id, company_name) %>%
       dplyr::sample_n(size = n_multi_sector, replace = FALSE)
 
     MW_to_duplicate <-
@@ -60,10 +68,8 @@ generate_company_location <-
         replace = TRUE
       )
     countries_foreach_row <-
-      purrr::map(
-        n_country_foreach_row,
-        ~ sample(countries, size = .x, replace = FALSE)
-      )
+      purrr::map(n_country_foreach_row,
+                 ~ sample(countries, size = .x, replace = FALSE))
     ald_location <-
       tibble::tibble(ald_location = countries_foreach_row)
     company_location <-
@@ -81,9 +87,8 @@ generate_company_production <-
            mean_production) {
     productions_values <-
       replicate(nrow(company_location),
-        rgeom(n_year_plan, 1 / mean_production),
-        simplify = FALSE
-      )
+                rgeom(n_year_plan, 1 / mean_production),
+                simplify = FALSE)
     productions_values <-
       tidyr::unnest_wider(
         tibble::tibble(ald_production = productions_values),
@@ -97,13 +102,13 @@ generate_company_production <-
     productions_values <-
       apply(productions_values, 2, function(x) {
         x[sample(c(1:nrow(productions_values)), floor(nrow(productions_values) / (1 /
-          prop_na)))] <-
+                                                                                    prop_na)))] <-
           NA
         x
       })
 
     # Add some random rows with all production values NA
-    productions_values[sample(1:nrow(productions_values), nrow_full_na), ] <-
+    productions_values[sample(1:nrow(productions_values), nrow_full_na),] <-
       NA
 
     company_production <-
@@ -116,8 +121,8 @@ generate_company_production <-
 #' Generative operations are repeated for companies assigned to a single sector
 #' and companies assigned to multiple sectors
 #'
-#' Generate random unique ISIN identifier
-#' Generate random company name for each ISIN
+#' Generate random unique company_id identifier
+#' Generate random company name for each company_id
 #' Assign random sectors (single or multiple) to each company. Force companies
 #'   being assigned a production in MW to have a production in MWh, and vice-versa.
 #' Assign random iso2c country codes to each company sector
@@ -131,22 +136,23 @@ generate_company_activities <-
            nrow_full_na = 10,
            mean_production = 1e10) {
     company_activities_single_sector <-
-      generate_company_isin(n_companies / 2) %>%
+      generate_company_name_ids(n_companies / 2) %>%
       generate_company_sectors(n_multi_sector = 1) %>%
       generate_company_location(max_assigned_countries) %>%
       generate_company_production(n_year_plan, prop_na, nrow_full_na, mean_production)
 
     company_activities_multi_sector <-
-      generate_company_isin(n_companies / 2) %>%
+      generate_company_name_ids(n_companies / 2) %>%
       generate_company_sectors(n_multi_sector = n_multi_sector) %>%
       generate_company_location(max_assigned_countries) %>%
       generate_company_production(n_year_plan, prop_na, nrow_full_na, mean_production)
 
     company_activities <-
-      dplyr::bind_rows(
-        company_activities_single_sector,
-        company_activities_multi_sector
-      )
+      dplyr::bind_rows(company_activities_single_sector,
+                       company_activities_multi_sector)
+
+    company_activities <- company_activities %>%
+      dplyr::ungroup()
 
     return(company_activities)
   }
@@ -154,7 +160,8 @@ generate_company_activities <-
 
 assign_activities_to_their_emission_unit <- function(base_data) {
   company_emission_unit <- base_data %>%
-    dplyr::left_join(production_types, by = dplyr::join_by(ald_sector, technology, activity_unit)) %>%
+    dplyr::left_join(production_types,
+                     by = dplyr::join_by(ald_sector, ald_business_unit, activity_unit)) %>%
     dplyr::select(-activity_unit)
   return(company_emission_unit)
 }
@@ -163,14 +170,12 @@ assign_activities_to_their_emission_unit <- function(base_data) {
 #' GENERATE COMPANY EMISSIONS
 generate_company_emissions <- function(company_activities) {
   base_data <-
-    company_activities %>% dplyr::select(
-      isin,
-      company_name,
-      ald_sector,
-      technology,
-      ald_location,
-      activity_unit
-    )
+    company_activities %>% dplyr::select(company_id,
+                                         company_name,
+                                         ald_sector,
+                                         ald_business_unit,
+                                         ald_location,
+                                         activity_unit)
   company_emission_unit <-
     assign_activities_to_their_emission_unit(base_data)
   company_emissions <-
@@ -181,6 +186,8 @@ generate_company_emissions <- function(company_activities) {
       nrow_full_na = 5,
       mean_production = 1e5
     )
+  company_emissions <- company_emissions %>%
+    ungroup()
   return(company_emissions)
 }
 
