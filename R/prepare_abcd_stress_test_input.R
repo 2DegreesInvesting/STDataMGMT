@@ -383,7 +383,6 @@ prepare_abcd_data <- function(company_activities,
                               additional_year,
                               km_per_vehicle,
                               sector_list) {
-
   company_activities <-
     pivot_equity_ownership_columns(company_activities)
   company_emissions <-
@@ -395,9 +394,9 @@ prepare_abcd_data <- function(company_activities,
   company_emissions <-
     aggregate_equity_ownership(company_emissions)
 
-  # From here, shape of activities and emissions data : 
+  # From here, shape of activities and emissions data :
   #   company_activities : production of companies, 1 row per year
-  #   company_emissions : emissions of companies (in tCO2 or tCO2e), 1 row per year    
+  #   company_emissions : emissions of companies (in tCO2 or tCO2e), 1 row per year
 
   ###### ABCD
 

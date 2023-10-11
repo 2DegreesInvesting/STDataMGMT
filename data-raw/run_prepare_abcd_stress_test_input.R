@@ -1,6 +1,6 @@
 # This script generates the abcd input from asset_resolution data
 # as well as the production_type.rda reference dataset in this packge
-# TODO all the code before abcd_data should be translated to SQL 
+# TODO all the code before abcd_data should be translated to SQL
 
 devtools::load_all()
 
@@ -87,7 +87,7 @@ rename_technology <- function(ar_data) {
       )
     )
   return(ar_data)
-}  
+}
 
 
 ## RENAME
@@ -101,7 +101,6 @@ remove_unknown_owner_companies <- function(ar_data) {
   ar_data <-
     ar_data %>% dplyr::filter(.data$company_name != "Unknown Owner")
   return(ar_data)
-
 }
 company_activities <- remove_unknown_owner_companies(company_activities)
 company_emissions <- remove_unknown_owner_companies(company_emissions)
@@ -138,7 +137,8 @@ aggregate_over_technology_types <- function(ar_data) {
     )) %>%
     dplyr::summarise(
       across(dplyr::contains("Equity Ownership "), .sum_or_all_nans),
-    .groups="drop") 
+      .groups = "drop"
+    )
   return(ar_data)
 }
 
@@ -168,11 +168,13 @@ company_emissions <- remove_prop_emissions(company_emissions)
 
 
 company_activities <- company_activities %>% dplyr::rename(
-  ald_business_unit=technology,
-  company_id=id)
+  ald_business_unit = technology,
+  company_id = id
+)
 company_emissions <- company_emissions %>% dplyr::rename(
-  ald_business_unit=technology,
-  company_id=id)
+  ald_business_unit = technology,
+  company_id = id
+)
 
 # THE PART ABOVE IS ASSET RESOLUTION SPECIFIC
 # ========================
