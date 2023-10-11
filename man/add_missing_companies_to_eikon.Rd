@@ -4,24 +4,12 @@
 \alias{add_missing_companies_to_eikon}
 \title{Identify which companies in the masterdata_credit are missing in Eikon}
 \usage{
-add_missing_companies_to_eikon(
-  data,
-  missing_companies_ownership,
-  missing_companies_debt,
-  missing_companies_credit
-)
+add_missing_companies_to_eikon(data, abcd_data)
 }
 \arguments{
 \item{data}{A data frame holding prepared Eikon data set}
 
-\item{missing_companies_ownership}{A data frame with missing companies from
-the masterdata_ownership data set}
-
-\item{missing_companies_debt}{A data frame with missing companies from
-the masterdata_debt data set}
-
-\item{missing_companies_credit}{A data frame with missing companies from
-the masterdata_credit data set}
+\item{abcd_data}{abcd_data}
 }
 \description{
 Identify which companies in the masterdata_credit are missing in Eikon

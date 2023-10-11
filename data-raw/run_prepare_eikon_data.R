@@ -15,6 +15,15 @@ devtools::load_all()
 # - generated with stresstest_masterdata_files(), which normally points to the
 # same directory as path_db_analysis_inputs
 
+
+abcd_input_path <- fs::path(
+  r2dii.utils::path_dropbox_2dii(
+    "ST_INPUTS",
+    "ST_INPUTS_MASTER",
+    "abcd_stress_test_input"
+  ),
+  ext = "csv"
+)
 path_db_analysis_inputs <- fs::path(
   r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "2020Q4_05172021_2020_MFM"
 )
@@ -75,40 +84,12 @@ ownership_tree <- ownership_tree %>%
     initial_n_rows = nrow(ownership_tree),
     cause = "by ensuring column structure is unique"
   )
+# prepare ownership tree----
+prewrangled_ownership_tree <- prewrangle_ownership_tree(ownership_tree)
 
-# ABCD master data----------------
-# load master data ownership from dropbox, as created by running data_preparation
-masterdata_ownership <- readr::read_rds(
-  fs::path(path_db_analysis_inputs, "masterdata_ownership_datastore", ext = "rda")
-) %>%
-  dplyr::as_tibble()
-
-# load master data debt from dropbox, as created by running data_preparation
-masterdata_debt <- readr::read_rds(
-  fs::path(path_db_analysis_inputs, "masterdata_debt_datastore", ext = "rda")
-) %>%
-  dplyr::as_tibble()
-
-# ado 1182 - load master credit methodology (entire subsequent prep based on ado 1182)
-# from dropbox, as provided by AR
-masterdata_credit <- readr::read_csv(
-  file.path(path_db_datastore, "masterdata_credit_methodology.csv"),
-  col_types = readr::cols(
-    company_id = "d", company_name = "c", bloomberg_id = "d",
-    corporate_bond_ticker = "c", is_ultimate_parent = "l",
-    is_ultimate_listed_parent = "l", company_status = "c",
-    has_financial_data = "l", sector = "c", technology = "c",
-    technology_type = "c", asset_country = "c", emissions_factor = "d",
-    emissions_factor_unit = "c", number_of_assets = "d",
-    p_eu_eligible_gross = "d", p_eu_green_gross = "d", metric = "c", unit = "c",
-    asset_level_timestamp = "c",
-    .default = "d"
-  )
-) %>%
-  dplyr::as_tibble()
-
-masterdata_credit <- masterdata_credit %>%
-  prewrangle_masterdata_credit(consolidated_financial_data)
+# load abcd data for ids reference
+abcd_data <- readr::read_csv(abcd_input_path) %>%
+  dplyr::rename(company_id=id)
 
 # country region bridge-------
 country_region_bridge <- rworldmap::countryRegions %>%
@@ -146,10 +127,8 @@ eikon_data <- prepare_eikon_data(
   list_eikon_data = list_eikon_data,
   security_financial_data = security_financial_data,
   consolidated_financial_data = consolidated_financial_data,
-  ownership_tree = ownership_tree,
-  masterdata_ownership = masterdata_ownership,
-  masterdata_debt = masterdata_debt,
-  masterdata_credit = masterdata_credit,
+  prewrangled_ownership_tree = prewrangled_ownership_tree,
+  abcd_data=abcd_data,
   country_region_bridge = country_region_bridge,
   n_min_sample = n_min_sample,
   min_ratio_sample_subgroup = min_ratio_sample_subgroup,

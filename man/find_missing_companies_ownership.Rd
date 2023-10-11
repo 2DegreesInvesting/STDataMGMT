@@ -4,13 +4,10 @@
 \alias{find_missing_companies_ownership}
 \title{Identify which companies in the masterdata_ownership are missing in Eikon}
 \usage{
-find_missing_companies_ownership(data, company_identifier, eikon_data)
+find_missing_companies_ownership(data, eikon_data)
 }
 \arguments{
 \item{data}{A data frame holding the masterdata file in which to find the missings}
-
-\item{company_identifier}{A data frame holding combinations of company_id,
-company_name and corporate_bond_ticker}
 
 \item{eikon_data}{A data frame holding prepared Eikon data set}
 }

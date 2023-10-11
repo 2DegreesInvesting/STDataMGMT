@@ -100,6 +100,14 @@ rename_technology <- function(ar_data) {
         .data$ald_sector == "Coal" ~ "Coal",
         .data$technology %in% c("Gas", "Natural Gas Liquids") ~ "Gas",
         .data$technology == "Oil and Condensate" ~ "Oil",
+        .data$technology == "ICE Diesel" ~ "ICE",
+        .data$technology == "ICE Gasoline" ~ "ICE",
+        .data$technology == "ICE CNG" ~ "ICE",
+        .data$technology == "ICE Propane" ~ "ICE",
+        .data$technology == "ICE E85+" ~ "ICE",
+        .data$technology == "Hybrid No-Plug" ~ "Hybrid",
+        .data$technology == "Hybrid Plug-In" ~ "Hybrid",
+        .data$technology == "Fuel Cell" ~ "FuelCell",
         TRUE ~ .data$technology
       )
     )
