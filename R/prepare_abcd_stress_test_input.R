@@ -169,9 +169,9 @@ match_emissions_to_production <- function(company_activities,
 #'
 #' @return abcd_data
 #'
-create_missing_year_rows <- function(abcd_data, start_year, time_horizon){
+create_missing_year_rows <- function(abcd_data, start_year, time_horizon) {
   abcd_data <- abcd_data %>%
-    dplyr::mutate(year=as.numeric(.data$year)) %>%
+    dplyr::mutate(year = as.numeric(.data$year)) %>%
     tidyr::complete(
       year = seq(start_year, start_year + time_horizon),
       tidyr::nesting(!!!rlang::syms(c(
@@ -352,9 +352,6 @@ expand_by_scenario_geography <-
            .default = "Global",
            .iso2c = "ald_location") {
     stopifnot(.iso2c %in% names(abcd_data))
-
-    abcd_data <- abcd_data %>%
-      dplyr::select(-.data$region)
 
     dict <-
       bench_regions %>%
@@ -562,8 +559,9 @@ prepare_abcd_data <- function(company_activities,
   # to check that, only 2 values with this command:
   #   abcd_data %>% group_by(id, company_name, region, ald_location, ald_sector, technology, ald_production_unit, emissions_factor_unit) %>% summarise(nna=sum(is.na(ald_production))) %>% ungroup() %>% distinct(nna)
 
-  abcd_data <-
-    expand_by_scenario_geography(abcd_data, scenarios_geographies)
+  abcd_data <- abcd_data %>%
+    dplyr::select(-.data$region) %>%
+    expand_by_scenario_geography(scenarios_geographies)
   abcd_data <- aggregate_over_locations(abcd_data)
 
   abcd_data <- create_emissions_factor_ratio(abcd_data, km_per_vehicle = km_per_vehicle)
