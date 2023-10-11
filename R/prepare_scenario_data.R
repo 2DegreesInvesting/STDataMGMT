@@ -16,7 +16,6 @@ interpolate_yearly <- function(data, ...) {
       value = zoo::na.approx(.data$value, .data$year, na.rm = FALSE)
     ) %>%
     dplyr::ungroup()
-
 }
 
 add_technology_fair_share_ratio <- function(data) {
@@ -57,7 +56,7 @@ common_fs_groups <- function() {
 #' @param start_year_despite_old_data The baseline year, against which the technology- and
 #'   sector- market shares will be calculated. Note: At the start year, tmsr = 1
 #'   and smsp =0 respectively.
-#'   
+#'
 #' @return A scenario dataset, with the new columns `tmsr` and `smsp`.
 #'
 #' @export
@@ -89,12 +88,12 @@ add_market_share_columns <- function(data, start_year_despite_old_data) {
 check_crucial_names <- function(x, expected_names) {
   stopifnot(rlang::is_named(x))
   stopifnot(is.character(expected_names))
-  
+
   ok <- all(unique(expected_names) %in% names(x))
   if (!ok) {
     abort_missing_names(sort(setdiff(expected_names, names(x))))
   }
-  
+
   invisible(x)
 }
 
@@ -121,8 +120,7 @@ abort_missing_names <- function(missing_names) {
 #'   pacta.data.preparation input requirements.
 #' @export
 format_p4i <- function(data, green_techs) {
-
-    crucial_names <- c(
+  crucial_names <- c(
     "source",
     "scenario",
     "scenario_geography",
@@ -137,11 +135,12 @@ format_p4i <- function(data, green_techs) {
 
   check_crucial_names(data, crucial_names)
 
-    data %>%
-   dplyr::mutate(Sub_Technology = NA) %>% # this column should be dropped from PACTA
-   dplyr::mutate(
-    Direction = dplyr::if_else(.data$technology %in% .env$green_techs, "increasing", "declining"),
-    FairSharePerc = dplyr::if_else(.data$Direction == "declining", .data$tmsr, .data$smsp)) %>%
+  data %>%
+    dplyr::mutate(Sub_Technology = NA) %>% # this column should be dropped from PACTA
+    dplyr::mutate(
+      Direction = dplyr::if_else(.data$technology %in% .env$green_techs, "increasing", "declining"),
+      FairSharePerc = dplyr::if_else(.data$Direction == "declining", .data$tmsr, .data$smsp)
+    ) %>%
     dplyr::select(
       Source = .data$source,
       ScenarioGeography = .data$scenario_geography,
@@ -157,8 +156,6 @@ format_p4i <- function(data, green_techs) {
       .data$Direction,
       .data$FairSharePerc
     )
-
-
 }
 
 #' This function reads scenario data in the form of data as found in the dropbox
@@ -177,9 +174,9 @@ prepare_scenario_data <- function(data) {
       "FairSharePerc"
     ) %in% colnames(data)
   )
- 
+
   stopifnot(data_has_expected_columns)
-  
+
   # due to inconsistencies in the raw data across sources, we need to filter for
   # other Indicators in IEA scenarios than in GECO scenarios at least up until
   # WEO 2021 and GECO 2021. Please review once new scenarios are available
@@ -221,7 +218,7 @@ prepare_scenario_data <- function(data) {
       scenario = stringr::str_c(.data$scenario_source, .data$scenario, sep = "_")
     ) %>%
     dplyr::distinct_all()
-  
+
   # We can only use scenario x scenario_geography combinations that do not have
   # NAs on any not nullable columns. We currently  use STEPS, SDS, APS and NZE_2050, thus for
   # now only affected scenario x scenario_geography combinations in those sectors
@@ -236,21 +233,21 @@ prepare_scenario_data <- function(data) {
     ) %>%
     dplyr::filter_all(dplyr::any_vars(is.na(.))) %>%
     dplyr::distinct(.data$scenario_source, .data$scenario_geography, .data$ald_sector)
-  
+
   data <- data %>%
     dplyr::anti_join(NA_geos, by = c("scenario_source", "scenario_geography", "ald_sector"))
-  
+
   # removing sectors that are not supported by stress testing
   p4i_p4b_sector_technology_lookup_df <- p4i_p4b_sector_technology_lookup()
-  
+
   data <- data %>%
     dplyr::filter(.data$ald_sector %in% unique(p4i_p4b_sector_technology_lookup_df$sector_p4i))
-  
+
   data <- remove_incomplete_sectors(data)
-  
+
   data <- data %>%
     dplyr::select(-.data$scenario_source)
-  
+
   return(data)
 }
 
@@ -261,13 +258,12 @@ prepare_scenario_data <- function(data) {
 #' usual scenario analysis input routine.
 #'
 #' @param data Tibble that contains the scenario data file that is to be
-#' @param start_year 
+#' @param start_year
 #'   processed
 #' @family data preparation functions
 #' @export
 
 preprepare_ngfs_scenario_data <- function(data, start_year) {
-
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(
@@ -335,7 +331,6 @@ preprepare_ngfs_scenario_data <- function(data, start_year) {
 
 
 style_ngfs <- function(data) {
-
   data <- data %>%
     dplyr::select(
       -c(
@@ -351,8 +346,7 @@ style_ngfs <- function(data) {
       year = .data$Year,
       direction = .data$Direction,
       fair_share_perc = .data$FairSharePerc
-    ) 
-  
+    )
 }
 
 
@@ -443,7 +437,7 @@ prepare_IPR_scenario_data <- function(data, start_year_despite_old_data) {
 
   ### Calculating TMSR
 
-  #start_year <- 2021
+  # start_year <- 2021
   data$year <- as.numeric(as.character(data$year))
   data <- data[!(data$year < start_year_despite_old_data), ]
 
@@ -553,7 +547,7 @@ prepare_OXF_scenario_data <- function(data, start_year_despite_old_data) {
 
   ### Calculating TMSR
 
-  #start_year <- 2021
+  # start_year <- 2021
   data$year <- as.numeric(as.character(data$year))
   data <- data[!(data$year < start_year_despite_old_data), ]
 

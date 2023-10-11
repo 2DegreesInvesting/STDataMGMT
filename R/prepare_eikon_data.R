@@ -489,7 +489,7 @@ select_final_financial_value <- function(data) {
       values_to = "eikon",
       values_transform = list(eikon = as.character) # TODO Why is this here ?
     ) %>%
-    dplyr::mutate(eikon=as.double(.data$eikon))
+    dplyr::mutate(eikon = as.double(.data$eikon))
 
   # pivot long averages
   average_values_long <- data %>%
@@ -499,8 +499,10 @@ select_final_financial_value <- function(data) {
       values_to = "avg",
       values_transform = list(avg = as.character)
     ) %>%
-    dplyr::mutate(name = stringr::str_remove_all(.data$name, "avg_"),
-                  avg=as.double(.data$avg))
+    dplyr::mutate(
+      name = stringr::str_remove_all(.data$name, "avg_"),
+      avg = as.double(.data$avg)
+    )
 
   # join both long formats
   eikon_data_long <- eikon_values_long %>%
@@ -684,12 +686,14 @@ prepare_eikon_data <- function(list_eikon_data,
   # taking average of non-NA numeric value, any(first non-NA) character value
   eikon_data <- eikon_data %>%
     dplyr::group_by(.data$company_id) %>%
-    dplyr::summarise(dplyr::across(dplyr::everything(),
-                                   ~ ifelse(
-                                     is.numeric(.x),
-                                     mean(na.omit(.x)),
-                                     dplyr::first(na.omit(.x))
-                                   )))
+    dplyr::summarise(dplyr::across(
+      dplyr::everything(),
+      ~ ifelse(
+        is.numeric(.x),
+        mean(na.omit(.x)),
+        dplyr::first(na.omit(.x))
+      )
+    ))
 
   # add security mapped sector (this determines the final sector in pacta and can
   # differ from financial sector)

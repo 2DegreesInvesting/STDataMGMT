@@ -1,12 +1,13 @@
-
 devtools::load_all()
 library(dplyr)
 library(readr)
 
 portfolio_values <- company_activities %>%
   select(company_id, company_name, ald_sector, ald_business_unit, ald_location) %>%
-  mutate(value_usd=sample(1e4:1e9, n(), replace = TRUE),
-         term=sample(1:5, n(), replace = TRUE))
+  mutate(
+    value_usd = sample(1e4:1e9, n(), replace = TRUE),
+    term = sample(1:5, n(), replace = TRUE)
+  )
 
 
 companies_bonds <-
@@ -75,4 +76,4 @@ portfolio_data <- portfolio_data %>% select(
   loss_given_default,
 )
 
-usethis::use_data(portfolio_data)
+usethis::use_data(portfolio_data, overwrite = TRUE)

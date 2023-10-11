@@ -75,17 +75,9 @@ remove_prop_emissions <- function(company_emissions) {
   # Check that all companies have their emissions in raw tCO2 or tCO2e
   stopifnot(nrow(
     company_co2_emissions %>%
-      dplyr::distinct(
-        .data$id,
-        .data$company_name,
-        .data$ald_sector,
-        .data$technology,
-        .data$technology_type,
-        .data$technology_type,
-        .data$region,
-        .data$ald_location
-      ) %>%
-      dplyr::anti_join(company_emissions)
+      dplyr::anti_join(company_emissions, by = dplyr::join_by(
+        company_id, , company_name, ald_sector, ald_business_unit, ald_location
+      ))
   ) == 0)
   return(company_co2_emissions)
 }

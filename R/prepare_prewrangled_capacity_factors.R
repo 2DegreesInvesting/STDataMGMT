@@ -10,8 +10,8 @@
 #' @return NULL
 
 prepare_prewrangled_capacity_factors_WEO2021 <- function(data, start_year) {
-  # WEO2021 start year should be the release year 
-  #start_year <- 2021
+  # WEO2021 start year should be the release year
+  # start_year <- 2021
 
   # WEO2021 end year in raw data is 2040 as it os based on weo2020 at the moment
   end_year <- 2040
@@ -252,7 +252,6 @@ prepare_prewrangled_capacity_factors_WEO2021 <- function(data, start_year) {
 #' @return NULL
 
 prepare_capacity_factors_NGFS2021 <- function(data, start_year) {
-
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(

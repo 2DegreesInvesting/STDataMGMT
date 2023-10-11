@@ -30,4 +30,4 @@ abcd_stress_test_input <-
   ) %>%
   assertr::verify(all(colSums(is.na(.)) == 0))
 
-usethis::use_data(abcd_stress_test_input)
+usethis::use_data(abcd_stress_test_input, overwrite = TRUE)

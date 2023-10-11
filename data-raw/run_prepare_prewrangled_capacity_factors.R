@@ -1,6 +1,6 @@
 devtools::load_all()
 
-##set start year 
+## set start year
 start_year <- 2022
 
 # prepare capacity factor data WEO 2021

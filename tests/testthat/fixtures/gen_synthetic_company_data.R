@@ -49,8 +49,10 @@ generate_company_location <-
         replace = TRUE
       )
     countries_foreach_row <-
-      purrr::map(n_country_foreach_row,
-                 ~ sample(countries, size = .x, replace = FALSE))
+      purrr::map(
+        n_country_foreach_row,
+        ~ sample(countries, size = .x, replace = FALSE)
+      )
     ald_location <-
       tibble::tibble(ald_location = countries_foreach_row)
     company_location <-
@@ -68,8 +70,9 @@ generate_company_production <-
            mean_production) {
     productions_values <-
       replicate(nrow(company_location),
-                rgeom(n_year_plan, 1 / mean_production),
-                simplify = FALSE)
+        rgeom(n_year_plan, 1 / mean_production),
+        simplify = FALSE
+      )
     productions_values <-
       tidyr::unnest_wider(
         tibble::tibble(ald_production = productions_values),
@@ -77,19 +80,19 @@ generate_company_production <-
         names_sep = "_"
       )
     colnames(productions_values) <-
-      paste0("production", sep = "_", 2021:(2021 + n_year_plan))
+      paste0("Equity Ownership ", sep = "_", 2021:(2021 + n_year_plan))
 
     # add random NA. Total NA match proportion parameter
     productions_values <-
       apply(productions_values, 2, function(x) {
         x[sample(c(1:nrow(productions_values)), floor(nrow(productions_values) / (1 /
-                                                                                    prop_na)))] <-
+          prop_na)))] <-
           NA
         x
       })
 
     # Add some random rows with all production values NA
-    productions_values[sample(1:nrow(productions_values), nrow_full_na),] <-
+    productions_values[sample(1:nrow(productions_values), nrow_full_na), ] <-
       NA
 
     company_production <-
@@ -129,8 +132,10 @@ generate_company_activities <-
       generate_company_production(n_year_plan, prop_na, nrow_full_na, mean_production)
 
     company_activities <-
-      dplyr::bind_rows(company_activities_single_sector,
-                       company_activities_multi_sector)
+      dplyr::bind_rows(
+        company_activities_single_sector,
+        company_activities_multi_sector
+      )
 
     company_activities <- company_activities %>%
       dplyr::ungroup()
@@ -142,8 +147,10 @@ generate_company_activities <-
 assign_activities_to_their_emission_unit <- function(base_data) {
   company_emission_unit <- base_data %>%
     dplyr::left_join(production_types,
-                     by = dplyr::join_by(ald_sector, ald_business_unit, activity_unit)) %>%
-    dplyr::select(-activity_unit)
+      by = dplyr::join_by(ald_sector, ald_business_unit, activity_unit)
+    ) %>%
+    dplyr::select(-activity_unit) %>%
+    dplyr::rename(activity_unit = emissions_unit) # rename emissions_unit to ativity_unit bc expected format for prep abcd script
   return(company_emission_unit)
 }
 
@@ -151,12 +158,14 @@ assign_activities_to_their_emission_unit <- function(base_data) {
 #' GENERATE COMPANY EMISSIONS
 generate_company_emissions <- function(company_activities) {
   base_data <-
-    company_activities %>% dplyr::select(company_id,
-                                         company_name,
-                                         ald_sector,
-                                         ald_business_unit,
-                                         ald_location,
-                                         activity_unit)
+    company_activities %>% dplyr::select(
+      company_id,
+      company_name,
+      ald_sector,
+      ald_business_unit,
+      ald_location,
+      activity_unit
+    )
   company_emission_unit <-
     assign_activities_to_their_emission_unit(base_data)
   company_emissions <-
@@ -175,6 +184,5 @@ generate_company_emissions <- function(company_activities) {
 company_activities <- generate_company_activities()
 company_emissions <- generate_company_emissions(company_activities)
 
-usethis::use_data(company_activities)
-usethis::use_data(company_emissions)
-
+usethis::use_data(company_activities, overwrite = TRUE)
+usethis::use_data(company_emissions, overwrite = TRUE)

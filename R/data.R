@@ -35,13 +35,13 @@
 #'   Power      \tab HydroCap             \tab MWh      \tab NA   \cr
 #'   Power      \tab NuclearCap           \tab MWh      \tab NA   \cr
 #'   Power      \tab OilCap               \tab MWh      \tab NA   \cr
-#'   Power      \tab RenewablesCap        \tab MWh      \tab NA   
+#'   Power      \tab RenewablesCap        \tab MWh      \tab NA
 #' }
 #' @source internal
 "production_types"
 
 #' available geographies in the stress test
-#' 
+#'
 #' @source internal
 "scenarios_geographies"
 

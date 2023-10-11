@@ -89,7 +89,7 @@ prewrangled_ownership_tree <- prewrangle_ownership_tree(ownership_tree)
 
 # load abcd data for ids reference
 abcd_data <- readr::read_csv(abcd_input_path) %>%
-  dplyr::rename(company_id=id)
+  dplyr::rename(company_id = id)
 
 # country region bridge-------
 country_region_bridge <- rworldmap::countryRegions %>%
@@ -128,7 +128,7 @@ eikon_data <- prepare_eikon_data(
   security_financial_data = security_financial_data,
   consolidated_financial_data = consolidated_financial_data,
   prewrangled_ownership_tree = prewrangled_ownership_tree,
-  abcd_data=abcd_data,
+  abcd_data = abcd_data,
   country_region_bridge = country_region_bridge,
   n_min_sample = n_min_sample,
   min_ratio_sample_subgroup = min_ratio_sample_subgroup,
