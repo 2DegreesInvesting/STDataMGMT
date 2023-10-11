@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_abcd_stress_test_input.R
 \name{fill_missing_emission_factor}
 \alias{fill_missing_emission_factor}
-\title{use avg EFs per technology to fill missing values}
+\title{use avg EFs per ald_business_unit to fill missing values}
 \usage{
 fill_missing_emission_factor(abcd_data)
 }
@@ -10,5 +10,5 @@ fill_missing_emission_factor(abcd_data)
 \item{abcd_data}{abcd_data}
 }
 \description{
-use avg EFs per technology to fill missing values
+use avg EFs per ald_business_unit to fill missing values
 }
