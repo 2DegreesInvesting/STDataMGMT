@@ -57,3 +57,14 @@
 #'   being assigned a production in MW to have a production in MWh, and vice-versa.
 #' Assign random iso2c country codes to each company sector
 #' Assign random production values at each row, add random nans, set some random rows to full nans
+#' @source generative script in tests folder
+"company_activities"
+
+#' GENERATE COMPANY EMISSIONS
+#' generated from company_activities
+#' @source generative script in tests folder
+"company_emissions"
+
+#' generated from company_activities
+#' @source generative script in tests folder
+"portfolio_data"
