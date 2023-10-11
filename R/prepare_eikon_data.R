@@ -187,54 +187,31 @@ prewrangle_ownership_tree <- function(data) {
 #' Identify which companies in the masterdata_ownership are missing in Eikon
 #'
 #' @param data A data frame holding the masterdata file in which to find the missings
-#' @param company_identifier A data frame holding combinations of company_id,
-#'   company_name and corporate_bond_ticker
 #' @param eikon_data A data frame holding prepared Eikon data set
 #'
 #' @return NULL
-find_missing_companies_ownership <- function(data, company_identifier, eikon_data) {
-  # temporarily add company_name to eikon data to prep anti join
-  eikon_data_company_name <- eikon_data %>%
-    # ADO 1948 - no diff between left_join and inner_join, so I changed to the presumably safer one
-    dplyr::inner_join(
-      company_identifier,
-      by = "company_id"
-    )
-
+find_missing_companies_ownership <- function(data, eikon_data) {
   # take distinct company names
   # identify missing companies by keeping only companies in master data, that cannot be found in eikon
   # (bloomberg_id would be better but it somehow has NAs in the master data while company name does not)
 
-  masterdata_ownership_missing_companies <- data %>%
-    dplyr::distinct(.data$company_name) %>%
-    dplyr::anti_join(eikon_data_company_name, by = "company_name") %>%
+  abcd_data_missing_companies <- data %>%
+    dplyr::distinct(.data$company_id, .data$company_name) %>%
+    dplyr::anti_join(eikon_data, by = "company_id") %>%
     report_diff_rows(
       initial_n_rows = nrow(data),
       cause = "because the other companies were already present in the Eikon Data"
     )
 
-  # add company ID
-  masterdata_ownership_missing_companies <- masterdata_ownership_missing_companies %>%
-    dplyr::inner_join(
-      company_identifier,
-      by = "company_name"
-    ) %>%
-    # as number of rows increase --> company names are not unique because BBG
-    # sometimes sees them as different (they could actually be)
-    # no way to determine which company ID is the "right" one
-    report_diff_rows(
-      initial_n_rows = nrow(masterdata_ownership_missing_companies),
-      cause = "by joining by company name"
-    )
-
   # filter NAs in company ID
-  masterdata_ownership_missing_companies <- masterdata_ownership_missing_companies %>%
-    dplyr::select(.data$company_id) %>%
+  abcd_data_missing_companies <- abcd_data_missing_companies %>%
+    dplyr::select(.data$company_id, .data$company_name) %>%
     dplyr::filter(!is.na(.data$company_id)) %>%
     report_diff_rows(
-      initial_n_rows = nrow(masterdata_ownership_missing_companies),
+      initial_n_rows = nrow(abcd_data_missing_companies),
       cause = "because company IDs are missing"
     )
+  abcd_data_missing_companies
 }
 
 #' Identify which companies in the masterdata_debt are missing in Eikon
@@ -319,29 +296,18 @@ find_missing_companies_credit <- function(data, eikon_data) {
 #' Identify which companies in the masterdata_credit are missing in Eikon
 #'
 #' @param data A data frame holding prepared Eikon data set
-#' @param missing_companies_ownership A data frame with missing companies from
-#'   the masterdata_ownership data set
-#' @param missing_companies_debt A data frame with missing companies from
-#'   the masterdata_debt data set
-#' @param missing_companies_credit A data frame with missing companies from
-#'   the masterdata_credit data set
+#' @param abcd_data abcd_data
 #'
 #' @return NULL
 add_missing_companies_to_eikon <- function(data,
-                                           missing_companies_ownership,
-                                           missing_companies_debt,
-                                           missing_companies_credit) {
+                                           abcd_data) {
   # bind company IDs together
-  masterdata_missing_companies <- rbind.data.frame(
-    missing_companies_ownership,
-    missing_companies_debt,
-    missing_companies_credit
-  )
+  masterdata_missing_companies <- abcd_data
 
   # ensure additional company IDs are unique (e.g. some corporate bond tickers
   # will also belong to companies in the ownership data)
   masterdata_missing_companies <- masterdata_missing_companies %>%
-    dplyr::distinct(.data$company_id, .keep_all = TRUE) %>%
+    dplyr::distinct(.data$company_id, .data$company_name, .keep_all = TRUE) %>%
     report_diff_rows(
       initial_n_rows = nrow(masterdata_missing_companies),
       cause = "because of non unique company IDs"
@@ -521,8 +487,10 @@ select_final_financial_value <- function(data) {
     tidyr::pivot_longer(
       cols = stringr::str_remove_all(names(data)[stringr::str_detect(names(data), "avg_")], "avg_"),
       values_to = "eikon",
-      values_transform = list(eikon = as.character)
-    )
+      values_transform = list(eikon = as.character) # TODO Why is this here ?
+    ) %>%
+    dplyr::mutate(eikon=as.double(.data$eikon))
+
   # pivot long averages
   average_values_long <- data %>%
     dplyr::select(.data$company_id, names(data)[stringr::str_detect(names(data), "avg_")]) %>%
@@ -531,7 +499,8 @@ select_final_financial_value <- function(data) {
       values_to = "avg",
       values_transform = list(avg = as.character)
     ) %>%
-    dplyr::mutate(name = stringr::str_remove_all(.data$name, "avg_"))
+    dplyr::mutate(name = stringr::str_remove_all(.data$name, "avg_"),
+                  avg=as.double(.data$avg))
 
   # join both long formats
   eikon_data_long <- eikon_values_long %>%
@@ -593,6 +562,7 @@ select_final_financial_value <- function(data) {
         ~ as.double(.)
       )
     )
+  data
 }
 
 #' For each company select the final financial value of the best granularity
@@ -603,14 +573,9 @@ select_final_financial_value <- function(data) {
 #'   security_financial_data as prepared in the data_preparation repo
 #' @param consolidated_financial_data A data frame containing the
 #'   consolidated_financial_data as prepared in the data_preparation repo
-#' @param ownership_tree A data frame containing the ownership_tree as provided
+#' @param prewrangled_ownership_tree A data frame containing the ownership_tree as provided
 #'   by Asset Resolution
-#' @param masterdata_ownership A data frame containing the masterdata_ownership
-#'   as prepared in the data_preparation repo
-#' @param masterdata_debt A data frame containing the masterdata_debt as
-#'   prepared in the data_preparation repo
-#' @param masterdata_credit A data frame containing the masterdata_credit as
-#'   provided by Asset Resolution
+#' @param abcd_data abcd_data
 #' @param country_region_bridge A data frame which contains a mapping of
 #'   countries to multiple regional levels of interest
 #' @param n_min_sample A numeric vector of length one, indicating the minimum
@@ -625,10 +590,8 @@ select_final_financial_value <- function(data) {
 prepare_eikon_data <- function(list_eikon_data,
                                security_financial_data,
                                consolidated_financial_data,
-                               ownership_tree,
-                               masterdata_ownership,
-                               masterdata_debt,
-                               masterdata_credit,
+                               prewrangled_ownership_tree,
+                               abcd_data,
                                country_region_bridge,
                                n_min_sample,
                                min_ratio_sample_subgroup,
@@ -642,9 +605,6 @@ prepare_eikon_data <- function(list_eikon_data,
 
   # 2) Expand eikon data across ownership tree and bond_tickers-----
 
-  # prepare ownership tree----
-  prewrangled_ownership_tree <- prewrangle_ownership_tree(ownership_tree)
-
   # join in ownership tree----
   eikon_data <- prewrangled_eikon_data %>%
     # ADO 1948 - apparently no diff between left_join and inner_join, so changed to the more commonly correct one
@@ -656,8 +616,6 @@ prepare_eikon_data <- function(list_eikon_data,
       initial_n_rows = nrow(prewrangled_eikon_data),
       cause = "by joining in the ownership tree"
     )
-
-  rm(ownership_tree, prewrangled_ownership_tree)
 
   # ensure that company_ids are distinct----
   # ... but consider the most granular eikon
@@ -681,43 +639,18 @@ prepare_eikon_data <- function(list_eikon_data,
 
   # 3) Add companies which have ALD but no eikon data (these will obtain averages)----
 
-  # prep consolidated_financial_data for joins
-  consolidated_financial_data_company_name_id_cb_ticker <- consolidated_financial_data %>%
-    dplyr::distinct(.data$company_id, .data$company_name, .data$corporate_bond_ticker)
-
   # masterdata_ownership_missing_companies----
-  masterdata_ownership_missing_companies <- masterdata_ownership %>%
+  abcd_data_missing_companies <- abcd_data %>%
     find_missing_companies_ownership(
-      company_identifier = consolidated_financial_data_company_name_id_cb_ticker,
       eikon_data = eikon_data
     )
 
-  # masterdata_debt_missing_companies----
-  masterdata_debt_missing_companies <- masterdata_debt %>%
-    find_missing_companies_debt(
-      company_identifier = consolidated_financial_data_company_name_id_cb_ticker,
-      eikon_data = eikon_data
-    )
-
-  # masterdata_credit_missing_companies----
-  masterdata_credit_missing_companies <- masterdata_credit %>%
-    find_missing_companies_credit(eikon_data)
-
-  rm(consolidated_financial_data_company_name_id_cb_ticker)
 
   # add additional companies to eikon data----
   eikon_data <- eikon_data %>%
     add_missing_companies_to_eikon(
-      missing_companies_ownership = masterdata_ownership_missing_companies,
-      missing_companies_debt = masterdata_debt_missing_companies,
-      missing_companies_credit = masterdata_credit_missing_companies
+      abcd_data = abcd_data_missing_companies
     )
-
-  rm(
-    masterdata_debt_missing_companies,
-    masterdata_ownership_missing_companies,
-    masterdata_credit_missing_companies
-  )
 
   # for each company ID in the processed eikon data set, define the source of that
   # company (also used as an indicator later on)
@@ -729,13 +662,12 @@ prepare_eikon_data <- function(list_eikon_data,
   # add information such as bloomberg ids, corporate bonds tickers and company name
   eikon_data <- eikon_data %>%
     # ADO 1948 - left and inner behave the same, so I opt for the safer one
-    dplyr::inner_join(
+    dplyr::left_join(
       consolidated_financial_data %>%
         dplyr::select(
           .data$bloomberg_id,
           .data$corporate_bond_ticker,
           .data$company_id,
-          .data$company_name,
           .data$is_ultimate_listed_parent,
           .data$is_ultimate_parent,
           .data$market_cap,
@@ -747,6 +679,17 @@ prepare_eikon_data <- function(list_eikon_data,
       by = "company_id"
     ) %>%
     assertr::verify(nrow(.) == nrow(eikon_data))
+
+  # group duplicate company_id rows,
+  # taking average of non-NA numeric value, any(first non-NA) character value
+  eikon_data <- eikon_data %>%
+    dplyr::group_by(.data$company_id) %>%
+    dplyr::summarise(dplyr::across(dplyr::everything(),
+                                   ~ ifelse(
+                                     is.numeric(.x),
+                                     mean(na.omit(.x)),
+                                     dplyr::first(na.omit(.x))
+                                   )))
 
   # add security mapped sector (this determines the final sector in pacta and can
   # differ from financial sector)
@@ -801,26 +744,26 @@ prepare_eikon_data <- function(list_eikon_data,
       -.data$linking_stake
     )
 
-  # ensure unique company names because will be used to join later
-  # as they are not unique, we just have to gamble that we take the right one
-  eikon_data <- eikon_data %>%
-    # arrange by CB ticker to improve CB ticker coverage (often only one of the
-    # duplicates has a CB ticker)
-    dplyr::arrange(.data$corporate_bond_ticker) %>%
-    dplyr::distinct(.data$company_name, .keep_all = TRUE) %>%
-    report_diff_rows(
-      initial_n_rows = nrow(eikon_data),
-      cause = "to ensure unique company names"
-    )
+  # # ensure unique company names because will be used to join later
+  # # as they are not unique, we just have to gamble that we take the right one
+  # eikon_data <- eikon_data %>%
+  #   # arrange by CB ticker to improve CB ticker coverage (often only one of the
+  #   # duplicates has a CB ticker)
+  #   dplyr::arrange(.data$corporate_bond_ticker) %>%
+  #   dplyr::distinct(.data$company_name, .keep_all = TRUE) %>%
+  #   report_diff_rows(
+  #     initial_n_rows = nrow(eikon_data),
+  #     cause = "to ensure unique company names"
+  #   )
 
   # only filter companies with ALD --> kick out out irrelevant eikon companies or
   # irrelevant added subsidiaries
-  eikon_data <- eikon_data %>%
-    rm_companies_without_abcd(
-      md_ownership = masterdata_ownership,
-      md_debt = masterdata_debt,
-      md_credit = masterdata_credit
-    )
+  # eikon_data <- eikon_data %>%
+  #   rm_companies_without_abcd(
+  #     md_ownership = masterdata_ownership,
+  #     md_debt = masterdata_debt,
+  #     md_credit = masterdata_credit
+  #   )
 
   # 5) create averages by different granularities of sub groups----
   # (but only based on values we obtained directly from eikon)
@@ -955,34 +898,34 @@ prepare_eikon_data <- function(list_eikon_data,
   ) %>%
     assertr::verify(nrow(.) == nrow(eikon_data))
 
-  rm(
-    n_min_sample, min_ratio_sample_subgroup, range_profit_margin,
-    eikon_data_bics_subgroup_region_averages, bics_subgroup_region_averages,
-    bics_subgroup_averages, security_mapped_sector_region_averages,
-    security_mapped_sector_averages, eikon_data_bics_subgroup_averages,
-    eikon_data_global_averages, eikon_data_security_mapped_sector_region_averages,
-    eikon_data_security_mapped_sector_averages, global_averages
-  )
+  # rm(
+  #   n_min_sample, min_ratio_sample_subgroup, range_profit_margin,
+  #   eikon_data_bics_subgroup_region_averages, bics_subgroup_region_averages,
+  #   bics_subgroup_averages, security_mapped_sector_region_averages,
+  #   security_mapped_sector_averages, eikon_data_bics_subgroup_averages,
+  #   eikon_data_global_averages, eikon_data_security_mapped_sector_region_averages,
+  #   eikon_data_security_mapped_sector_averages, global_averages
+  # )
 
   # create new avg rating based on avg PDs. Rating boundaries based on input data
   # TODO: ADO 3542 - this currently throws warnings. we do not use the variable
   # though so we can fix it later
-  for (e in unique(eikon_data$structural)) {
-    eikon_data <- eikon_data %>%
-      dplyr::mutate(
-        avg_structural =
-          dplyr::case_when(
-            dplyr::between(
-              avg_pd,
-              eikon_data %>% dplyr::filter(structural == e) %>% dplyr::summarise(min(pd, na.rm = TRUE)),
-              eikon_data %>% dplyr::filter(structural == e) %>% dplyr::summarise(max(pd, na.rm = TRUE))
-            ) & avg_structural == "NA" ~ e,
-            TRUE ~ avg_structural
-          )
-      )
-
-    rm(e)
-  }
+  # for (e in unique(eikon_data$structural)) {
+  #   eikon_data <- eikon_data %>%
+  #     dplyr::mutate(
+  #       avg_structural =
+  #         dplyr::case_when(
+  #           dplyr::between(
+  #             avg_pd,
+  #             eikon_data %>% dplyr::filter(structural == e) %>% dplyr::summarise(min(pd, na.rm = TRUE)),
+  #             eikon_data %>% dplyr::filter(structural == e) %>% dplyr::summarise(max(pd, na.rm = TRUE))
+  #           ) & avg_structural == "NA" ~ e,
+  #           TRUE ~ avg_structural
+  #         )
+  #     )
+  #
+  #   rm(e)
+  # }
 
   # ensure that no NAs and Inf are in the avg data
   eikon_data %>%
@@ -992,4 +935,6 @@ prepare_eikon_data <- function(list_eikon_data,
   # 6) pick the best financial data point available----
   eikon_data <- eikon_data %>%
     select_final_financial_value()
+
+  eikon_data
 }
