@@ -50,8 +50,16 @@ prepare_ngfs_carbon_price <- function(data,
     ~`2055`, ~`2060`, ~`2065`, ~`2070`, ~`2075`, ~`2080`, ~`2085`, ~`2090`, ~`2095`, ~`2100`,
     "no_carbon_tax", "no_carbon_tax", "Global", "Price|Carbon", "US$2010/t CO2", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
   )
+  
+  flat_carbon_tax_50 <- tibble::tribble(
+    ~model, ~scenario, ~scenario_geography, ~variable, ~unit, ~`2015`, ~`2020`, ~`2025`, ~`2030`, ~`2035`, ~`2040`, ~`2045`, ~`2050`,
+    ~`2055`, ~`2060`, ~`2065`, ~`2070`, ~`2075`, ~`2080`, ~`2085`, ~`2090`, ~`2095`, ~`2100`,
+    "flat_carbon_tax_50", "flat_carbon_tax_50", "Global", "Price|Carbon", "US$2010/t CO2", 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+  )
 
   data <- data %>% rbind(no_carbon_tax)
+  
+  data <- data %>% rbind(flat_carbon_tax_50)
 
   data$`2025` <- ifelse(data$scenario == "NDC_Indonesia_moderate", 2, data$`2025`)
   data$`2030` <- ifelse(data$scenario == "NDC_Indonesia_moderate", NA, data$`2030`)
@@ -124,6 +132,9 @@ prepare_ngfs_carbon_price <- function(data,
           .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
         .data$scenario == "NZ2050_Indonesia_market_assumption" &
+          .data$year >= 2025 ~
+          zoo::na.approx(object = .data$carbon_tax),
+        .data$scenario == "flat_carbon_tax_50" &
           .data$year >= 2025 ~
           zoo::na.approx(object = .data$carbon_tax),
         .data$scenario == "DT_Indonesia" &
