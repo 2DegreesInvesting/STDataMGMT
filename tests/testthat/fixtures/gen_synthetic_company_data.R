@@ -1,26 +1,7 @@
 #' Generation of synthetic data
-
+devtools::load_all()
 library(dplyr)
 
-
-production_types <-
-  readRDS(file = here::here("data", "production_types.rds"))
-
-# random_isin <- function() {
-#   sprintf(
-#     "%s%s",
-#     paste0(sample(LETTERS, 2, TRUE), collapse = ""),
-#     paste0(sample(9, 10, TRUE), collapse = "")
-#   )
-# }
-
-# generate_company_isin <- function(n_companies) {
-#   isin <- replicate(n_companies, random_isin())
-#   company_name <- paste0("company", sep = "-", 1:n_companies)
-#   company_isin <-
-#     tibble::tibble(isin = isin, company_name = company_name)
-#   return(company_isin)
-# }
 
 generate_company_name_ids <- function(n_companies) {
   company_name <- paste0("company", sep = "-", 1:n_companies)
@@ -194,13 +175,6 @@ generate_company_emissions <- function(company_activities) {
 company_activities <- generate_company_activities()
 company_emissions <- generate_company_emissions(company_activities)
 
+usethis::use_data(company_activities)
+usethis::use_data(company_emissions)
 
-saveRDS(
-  company_activities,
-  file = here::here("tests", "testthat", "fixtures", "company_activities.rds")
-)
-
-saveRDS(
-  company_emissions,
-  file = here::here("tests", "testthat", "fixtures", "company_emissions.rds")
-)

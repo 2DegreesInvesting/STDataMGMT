@@ -73,5 +73,4 @@ portfolio_data <- portfolio_data %>% select(
   loss_given_default,
 )
 
-portfolio_data %>%
-  readr::write_rds(file.path("tests","testthat","fixtures","portfolio_data.rds"))
+usethis::use_data(portfolio_data)
