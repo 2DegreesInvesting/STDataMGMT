@@ -19,18 +19,18 @@ generate_company_sectors <- function(
 
   company_sectors <-
     company_name_ids %>%
-    dplyr::cross_join(production_types %>% select(-emissions_unit)) %>%
+    dplyr::cross_join(production_types %>% select(-emissions_factor_unit)) %>%
     dplyr::group_by(company_id, company_name) %>%
     dplyr::sample_n(size = n_multi_sector, replace = FALSE)
 
   MW_to_duplicate <-
     company_sectors %>% 
-    dplyr::filter(activity_unit == "MW")%>% 
-    dplyr::mutate(activity_unit = "MWh")
+    dplyr::filter(ald_production_unit == "MW")%>% 
+    dplyr::mutate(ald_production_unit = "MWh")
   MWh_to_duplicate <-
     company_sectors %>% 
-    dplyr::filter(activity_unit == "MWh")%>% 
-    dplyr::mutate(activity_unit = "MW")
+    dplyr::filter(ald_production_unit == "MWh")%>% 
+    dplyr::mutate(ald_production_unit = "MW")
   company_sectors <- dplyr::bind_rows(
     company_sectors,
     MW_to_duplicate ,
@@ -87,7 +87,7 @@ generate_company_production <- function(
       names_sep = "_"
     )
   colnames(productions_values) <-
-    paste0("Equity Ownership ", sep = "_", 2021:(2021 + n_year_plan))
+    paste0("Equity Ownership", sep = " ", 2021:(2021 + n_year_plan))
 
   # add random NA. Total NA match proportion parameter
   productions_values <-
@@ -154,10 +154,10 @@ generate_company_activities <- function(
 assign_activities_to_their_emission_unit <- function(base_data) {
   company_emission_unit <- base_data %>%
     dplyr::left_join(production_types,
-      by = dplyr::join_by(ald_sector, ald_business_unit, activity_unit)
+      by = dplyr::join_by(ald_sector, ald_business_unit, ald_production_unit)
     ) %>%
-    dplyr::select(-activity_unit) %>%
-    dplyr::rename(activity_unit = emissions_unit) # rename emissions_unit to ativity_unit bc expected format for prep abcd script
+    dplyr::select(-ald_production_unit) %>%
+    # dplyr::rename(ald_production_unit = emissions_factor_unit) # rename emissions_factor_unit to activity_unit bc expected format for prep abcd script
   return(company_emission_unit)
 }
 
@@ -171,7 +171,7 @@ generate_company_emissions <- function(company_activities) {
       ald_sector,
       ald_business_unit,
       ald_location,
-      activity_unit
+      ald_production_unit
     )
   company_emission_unit <-
     assign_activities_to_their_emission_unit(base_data)
@@ -188,8 +188,14 @@ generate_company_emissions <- function(company_activities) {
   return(company_emissions)
 }
 
-company_activities <- generate_company_activities()
+company_activities <- generate_company_activities() 
 company_emissions <- generate_company_emissions(company_activities)
+
+company_activities <- company_activities %>% 
+  dplyr::rename(activity_unit=.data$ald_production_unit)
+
+company_emissions <- company_emissions %>% 
+  dplyr::rename(activity_unit=.data$emissions_factor_unit)
 
 usethis::use_data(company_activities, overwrite = TRUE)
 usethis::use_data(company_emissions, overwrite = TRUE)

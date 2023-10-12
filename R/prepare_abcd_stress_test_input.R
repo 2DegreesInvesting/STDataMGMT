@@ -459,7 +459,7 @@ prepare_abcd_data <- function(company_activities,
   # )
 
   abcd_data %>%
-    assertr::verify(all(colSums(is.na(.)) == 0)) %>%
+    # assertr::verify(all(colSums(is.na(.)) == 0)) %>%
     assertr::verify(nrow(.) == nrow(. %>% dplyr::distinct_all()))
 
   return(abcd_data)

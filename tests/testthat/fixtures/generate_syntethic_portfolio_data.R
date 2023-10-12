@@ -1,6 +1,5 @@
 devtools::load_all()
 library(dplyr)
-library(readr)
 
 portfolio_values <- company_activities %>%
   select(company_id, company_name, ald_sector, ald_business_unit, ald_location) %>%
