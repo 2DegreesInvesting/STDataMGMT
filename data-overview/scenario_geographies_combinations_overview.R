@@ -6,8 +6,8 @@ devtools::load_all()
 # sector x scenario combinations in the climate.stress.test.repo
 
 # Overview of supported scenarios x scenario-geographies x sectors
-# Scenario_AnalysisInput_2021
-Scenario_AnalysisInput_2021 <- readr::read_csv(
+# Scenario_AnalysisInput_2022
+Scenario_AnalysisInput_2022 <- readr::read_csv(
   file.path("data-raw", glue::glue("Scenarios_AnalysisInput_2021.csv"))
 )
 
@@ -18,7 +18,7 @@ Scenario_AnalysisInput_2021 <- readr::read_csv(
 # if active only in power -> 6 technologies
 # if active only in coal -> 1 technology
 # if active only in oil&gas -> 2 technologies
-Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022 %>%
   group_by(scenario_geography, scenario) %>%
   summarise(
     nrow = n(),
@@ -33,45 +33,45 @@ Scenario_AnalysisInput_2021 %>%
 # remove sector if not complete
 p4i_p4b_sector_technology_lookup_df <- p4i_p4b_sector_technology_lookup()
 
-Scenario_AnalysisInput_2021 <- Scenario_AnalysisInput_2021 %>%
-  dplyr::filter(Scenario_AnalysisInput_2021$ald_sector %in% unique(p4i_p4b_sector_technology_lookup_df$sector_p4i))
+Scenario_AnalysisInput_2022 <- Scenario_AnalysisInput_2022 %>%
+  dplyr::filter(Scenario_AnalysisInput_2022$ald_sector %in% unique(p4i_p4b_sector_technology_lookup_df$sector_p4i))
 
-Scenario_AnalysisInput_2021 <- remove_incomplete_sectors(Scenario_AnalysisInput_2021)
+Scenario_AnalysisInput_2022 <- remove_incomplete_sectors(Scenario_AnalysisInput_2022)
 
 ###############################################################################
 # WEO scenarios
 # we have 19 scenario geographies (12 with all sectors and 7 only for power)
-Scenario_AnalysisInput_2021_STEPS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_STEPS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("WEO2021_STEPS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_SDS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_SDS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("WEO2021_SDS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_APS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_APS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("WEO2021_APS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 # this only has 4 scenario geographies
-Scenario_AnalysisInput_2021_NZE_2050 <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_NZE_2050 <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("WEO2021_NZE_2050")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 # joining WEO scenario data for the scenarios with all scenario geographies
-Scenario_AnalysisInput_2021_WEO_without_NZE_2050 <- Scenario_AnalysisInput_2021_APS %>%
+Scenario_AnalysisInput_2022_WEO_without_NZE_2050 <- Scenario_AnalysisInput_2022_APS %>%
   select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_SDS) %>%
+  inner_join(Scenario_AnalysisInput_2022_SDS) %>%
   select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_STEPS) %>%
+  inner_join(Scenario_AnalysisInput_2022_STEPS) %>%
   select(scenario_geography, ald_sector) %>%
   arrange(scenario_geography)
   
-# Scenario_AnalysisInput_2021_WEO_without_NZE_2050 <- Scenario_AnalysisInput_2021_WEO_without_NZE_2050 %>% tribble_paste()
+# Scenario_AnalysisInput_2022_WEO_without_NZE_2050 <- Scenario_AnalysisInput_2022_WEO_without_NZE_2050 %>% tribble_paste()
 tibble::tribble(
                      ~scenario_geography, ~ald_sector,
                      "AdvancedEconomies",      "Coal",
@@ -122,28 +122,28 @@ tibble::tribble(
 ###############################################################################
 # GECO scenarios
 # we have 1 scenario geographies 
-Scenario_AnalysisInput_2021_GECO_CurPol <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GECO_CurPol <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("GECO2021_CurPol")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GECO_NDC_LTS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GECO_NDC_LTS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("GECO2021_NDC-LTS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GECO_1.5c <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GECO_1.5c <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("GECO2021_1.5C-Unif")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 # binding GECO scenario data
-Scenario_AnalysisInput_2021_GECO <- Scenario_AnalysisInput_2021_GECO_CurPol %>%
-  full_join(Scenario_AnalysisInput_2021_GECO_NDC_LTS) %>%
-              full_join(Scenario_AnalysisInput_2021_GECO_1.5c) %>%
+Scenario_AnalysisInput_2022_GECO <- Scenario_AnalysisInput_2022_GECO_CurPol %>%
+  full_join(Scenario_AnalysisInput_2022_GECO_NDC_LTS) %>%
+              full_join(Scenario_AnalysisInput_2022_GECO_1.5c) %>%
               arrange(scenario_geography)
 
-# Scenario_AnalysisInput_2021_GECO <-  Scenario_AnalysisInput_2021_GECO %>% tribble_paste()
+# Scenario_AnalysisInput_2022_GECO <-  Scenario_AnalysisInput_2022_GECO %>% tribble_paste()
 tibble::tribble(
              ~scenario, ~scenario_geography,  ~ald_sector,
      "GECO2021_CurPol",            "Global", "Automotive",
@@ -155,53 +155,53 @@ tibble::tribble(
 # NGFS scenarios
 
 #NGFS GCAM 
-#10 regions (TO DO: INDIA is missing here)
-Scenario_AnalysisInput_2021_GCAM_B2DS <- Scenario_AnalysisInput_2021 %>%
+#11 regions (TO DO: INDIA is missing here)
+Scenario_AnalysisInput_2022_GCAM_B2DS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_GCAM_B2DS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GCAM_CP <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GCAM_CP <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_GCAM_CP")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GCAM_DN0 <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GCAM_DN0 <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_GCAM_DN0")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GCAM_DT <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GCAM_DT <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_GCAM_DT")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GCAM_NDC <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GCAM_NDC <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_GCAM_NDC")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_GCAM_NZ2050 <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_GCAM_NZ2050 <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_GCAM_NZ2050")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 #combine GCAM Scenarios 
-Scenario_AnalysisInput_2021_NGFS_GCAM <- Scenario_AnalysisInput_2021_GCAM_B2DS %>%
+Scenario_AnalysisInput_2022_NGFS_GCAM <- Scenario_AnalysisInput_2022_GCAM_B2DS %>%
   select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_GCAM_CP %>%
+  inner_join(Scenario_AnalysisInput_2022_GCAM_CP %>%
                select(scenario_geography, ald_sector) %>%
-               inner_join(Scenario_AnalysisInput_2021_GCAM_DN0 %>%
+               inner_join(Scenario_AnalysisInput_2022_GCAM_DN0 %>%
                             select(scenario_geography, ald_sector) %>%
-                            inner_join(Scenario_AnalysisInput_2021_GCAM_DT %>%
+                            inner_join(Scenario_AnalysisInput_2022_GCAM_DT %>%
                                          select(scenario_geography, ald_sector) %>%
-                                         inner_join(Scenario_AnalysisInput_2021_GCAM_NDC %>%
+                                         inner_join(Scenario_AnalysisInput_2022_GCAM_NDC %>%
                                                       select(scenario_geography, ald_sector) %>%
-                                                      inner_join(Scenario_AnalysisInput_2021_GCAM_NZ2050 %>%
+                                                      inner_join(Scenario_AnalysisInput_2022_GCAM_NZ2050 %>%
                                                                    select(scenario_geography, ald_sector)))))) %>%
   arrange(scenario_geography)
 
-#Scenario_AnalysisInput_2021_NGFS_GCAM <- Scenario_AnalysisInput_2021_NGFS_GCAM %>% tribble_paste()
+#Scenario_AnalysisInput_2022_NGFS_GCAM <- Scenario_AnalysisInput_2022_NGFS_GCAM %>% tribble_paste()
 
 tibble::tribble(
     ~scenario_geography, ~ald_sector,
@@ -232,59 +232,63 @@ tibble::tribble(
    "ReformingEconomies",      "Coal",
    "ReformingEconomies",   "Oil&Gas",
    "ReformingEconomies",     "Power",
+        "SoutheastAsia",      "Coal",
+        "SoutheastAsia",   "Oil&Gas",
+        "SoutheastAsia",     "Power",
          "UnitedStates",      "Coal",
          "UnitedStates",   "Oil&Gas",
          "UnitedStates",     "Power"
   )
 
+
 #NGFS REMIND 
 #10 regions
-Scenario_AnalysisInput_2021_REMIND_B2DS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_REMIND_B2DS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_REMIND_B2DS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_REMIND_CP <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_REMIND_CP <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_REMIND_CP")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_REMIND_DN0 <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_REMIND_DN0 <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_REMIND_DN0")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_REMIND_DT <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_REMIND_DT <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_REMIND_DT")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_REMIND_NDC <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_REMIND_NDC <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_REMIND_NDC")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_REMIND_NZ2050 <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_REMIND_NZ2050 <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_REMIND_NZ2050")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 #combine REMIND Scenarios 
-Scenario_AnalysisInput_2021_NGFS_REMIND <- Scenario_AnalysisInput_2021_REMIND_B2DS %>%
+Scenario_AnalysisInput_2022_NGFS_REMIND <- Scenario_AnalysisInput_2022_REMIND_B2DS %>%
   select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_REMIND_CP %>%
+  inner_join(Scenario_AnalysisInput_2022_REMIND_CP %>%
                select(scenario_geography, ald_sector) %>%
-               inner_join(Scenario_AnalysisInput_2021_REMIND_DN0 %>%
+               inner_join(Scenario_AnalysisInput_2022_REMIND_DN0 %>%
                             select(scenario_geography, ald_sector) %>%
-                            inner_join(Scenario_AnalysisInput_2021_REMIND_DT %>%
+                            inner_join(Scenario_AnalysisInput_2022_REMIND_DT %>%
                                          select(scenario_geography, ald_sector) %>%
-                                         inner_join(Scenario_AnalysisInput_2021_REMIND_NDC %>%
+                                         inner_join(Scenario_AnalysisInput_2022_REMIND_NDC %>%
                                                       select(scenario_geography, ald_sector) %>%
-                                                      inner_join(Scenario_AnalysisInput_2021_REMIND_NZ2050 %>%
+                                                      inner_join(Scenario_AnalysisInput_2022_REMIND_NZ2050 %>%
                                                                    select(scenario_geography, ald_sector)))))) %>%
   arrange(scenario_geography)
 
-#Scenario_AnalysisInput_2021_NGFS_REMIND <- Scenario_AnalysisInput_2021_NGFS_REMIND %>% tribble_paste()
+#Scenario_AnalysisInput_2022_NGFS_REMIND <- Scenario_AnalysisInput_2022_NGFS_REMIND %>% tribble_paste()
 tibble::tribble(
     ~scenario_geography, ~ald_sector,
                  "Asia",      "Coal",
@@ -321,50 +325,50 @@ tibble::tribble(
 
 # NGFS MESSAGE 
 #7 regions 
-Scenario_AnalysisInput_2021_MESSAGE_B2DS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_MESSAGE_B2DS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_MESSAGE_B2DS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_MESSAGE_CP <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_MESSAGE_CP <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_MESSAGE_CP")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_MESSAGE_DT <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_MESSAGE_DT <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_MESSAGE_DT")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_MESSAGE_DN0 <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_MESSAGE_DN0 <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_MESSAGE_DN0")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_MESSAGE_NDC <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_MESSAGE_NDC <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_MESSAGE_NDC")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_MESSAGE_NZ2050 <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_MESSAGE_NZ2050 <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("NGFS2021_MESSAGE_NZ2050")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 # #combine MESSAGE Scenarios 
 # 7full scenario geographies 
-Scenario_AnalysisInput_2021_NGFS_MESSAGE <- Scenario_AnalysisInput_2021_MESSAGE_B2DS %>%
+Scenario_AnalysisInput_2022_NGFS_MESSAGE <- Scenario_AnalysisInput_2022_MESSAGE_B2DS %>%
   select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_MESSAGE_CP %>%
+  inner_join(Scenario_AnalysisInput_2022_MESSAGE_CP %>%
     select(scenario_geography, ald_sector) %>%
-    inner_join(Scenario_AnalysisInput_2021_MESSAGE_DN0 %>%
+    inner_join(Scenario_AnalysisInput_2022_MESSAGE_DN0 %>%
       select(scenario_geography, ald_sector) %>%
-      inner_join(Scenario_AnalysisInput_2021_MESSAGE_DT %>%
+      inner_join(Scenario_AnalysisInput_2022_MESSAGE_DT %>%
         select(scenario_geography, ald_sector) %>%
   select(scenario_geography, ald_sector))))  %>% 
   arrange(scenario_geography)
 
-#Scenario_AnalysisInput_2021_NGFS_MESSAGE <- Scenario_AnalysisInput_2021_NGFS_MESSAGE %>% tribble_paste()
+#Scenario_AnalysisInput_2022_NGFS_MESSAGE <- Scenario_AnalysisInput_2022_NGFS_MESSAGE %>% tribble_paste()
 tibble::tribble(
     ~scenario_geography, ~ald_sector,
                  "Asia",      "Coal",
@@ -393,23 +397,23 @@ tibble::tribble(
 ###############################################################################
 # Oxford scenario
 
-Scenario_AnalysisInput_2021_Oxford_base <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_Oxford_base <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("Oxford2021_base")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_Oxford_fast <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_Oxford_fast <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("Oxford2021_fast")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 # Binding Oxford scenarios
-Scenario_AnalysisInput_2021_oxford <- Scenario_AnalysisInput_2021_Oxford_base %>%
+Scenario_AnalysisInput_2022_oxford <- Scenario_AnalysisInput_2022_Oxford_base %>%
   select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_Oxford_fast %>%
+  inner_join(Scenario_AnalysisInput_2022_Oxford_fast %>%
     select(scenario_geography, ald_sector))
 
-# Scenario_AnalysisInput_2021_oxford <- Scenario_AnalysisInput_2021_oxford %>% tribble_paste()
+# Scenario_AnalysisInput_2022_oxford <- Scenario_AnalysisInput_2022_oxford %>% tribble_paste()
 tibble::tribble(
   ~scenario_geography, ~ald_sector,
              "Global",     "Power",
@@ -420,32 +424,32 @@ tibble::tribble(
 ###############################################################################
 # IPR scenario
 # 21 regions 
-Scenario_AnalysisInput_2021_IPR_FPS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_IPR_FPS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("IPR2021_FPS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
-Scenario_AnalysisInput_2021_IPR_RPS <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_IPR_RPS <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("IPR2021_RPS")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 #19 regions 
-Scenario_AnalysisInput_2021_IPR_baseline <- Scenario_AnalysisInput_2021 %>%
+Scenario_AnalysisInput_2022_IPR_baseline <- Scenario_AnalysisInput_2022 %>%
   filter(scenario %in% c("IPR2021_baseline")) %>%
   select(scenario, scenario_geography, ald_sector) %>%
   distinct_all()
 
 # Binding IPR scenarios needs to be inner_join
 #5 regions 
-Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_IPR_FPS %>%
+Scenario_AnalysisInput_2022_ipr <- Scenario_AnalysisInput_2022_IPR_FPS %>%
   select(scenario_geography, ald_sector) %>%
-  inner_join(Scenario_AnalysisInput_2021_IPR_RPS %>%
+  inner_join(Scenario_AnalysisInput_2022_IPR_RPS %>%
     select(scenario_geography, ald_sector) %>%
-    inner_join(Scenario_AnalysisInput_2021_IPR_baseline)) %>%
+    inner_join(Scenario_AnalysisInput_2022_IPR_baseline)) %>%
   select(scenario_geography, ald_sector)
 
-# Scenario_AnalysisInput_2021_ipr <- Scenario_AnalysisInput_2021_ipr %>% tribble_paste()
+# Scenario_AnalysisInput_2022_ipr <- Scenario_AnalysisInput_2022_ipr %>% tribble_paste()
 # NOTE TO BERTRAND: RUSSIA 
 tibble::tribble(
   ~scenario_geography, ~ald_sector,
@@ -888,11 +892,11 @@ tibble::tribble(
 # all data
 
 # removing scenario_geography x Power combinations that are missing in capacity factors 
-overlap_all_weo <- Scenario_AnalysisInput_2021_WEO_without_NZE_2050 %>%
+overlap_all_weo <- Scenario_AnalysisInput_2022_WEO_without_NZE_2050 %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_WEO_2021_scenarios$scenario_geography)) 
 
 ## NOTE: excluded  is the power sector in Latin America and EU27 and EmergingMarketAndDevelopingEconomies, as not present in capacity factors
-excluded_weo <- setdiff(Scenario_AnalysisInput_2021_WEO_without_NZE_2050, overlap_all_weo)
+excluded_weo <- setdiff(Scenario_AnalysisInput_2022_WEO_without_NZE_2050, overlap_all_weo)
 
 ## geographies overlap with
 overlap_all_weo <- overlap_all_weo %>% inner_join(abcd_stress_test_geographies) 
@@ -908,24 +912,24 @@ overlap_all_weo <- overlap_all_weo %>%
 
 overlap_all_weo <- overlap_all_weo %>% arrange(scenario_geography, scenario)
 
-overlap_all_weo <- overlap_all_weo %>% rbind(Scenario_AnalysisInput_2021_NZE_2050) 
+overlap_all_weo <- overlap_all_weo %>% rbind(Scenario_AnalysisInput_2022_NZE_2050) 
 
 #18 geographies in total
 #overlap_all_weo <- overlap_all_weo %>% tribble_paste()
 ################################################################################
 # Overlap GECO
 
-overlap_all_weo_geco <- overlap_all_weo %>% rbind(Scenario_AnalysisInput_2021_GECO)
+overlap_all_weo_geco <- overlap_all_weo %>% rbind(Scenario_AnalysisInput_2022_GECO)
 
 ###############################################################################
 ## Overlap NGFS
 
 #GCAM Overlap 
 
-overlap_gcam_ngfs <- Scenario_AnalysisInput_2021_NGFS_GCAM %>%
-  filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_GCAM$scenario_geography))
+overlap_gcam_ngfs <- Scenario_AnalysisInput_2022_NGFS_GCAM %>%
+  dplyr::filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_GCAM$scenario_geography))
 
-excluded_gcam_ngfs <- setdiff(Scenario_AnalysisInput_2021_NGFS_GCAM, overlap_gcam_ngfs)
+excluded_gcam_ngfs <- setdiff(Scenario_AnalysisInput_2022_NGFS_GCAM, overlap_gcam_ngfs)
 
 ## geographies overlap with production data ##this is problematic here
 overlap_gcam_ngfs <- overlap_gcam_ngfs %>% inner_join(abcd_stress_test_geographies)
@@ -945,10 +949,10 @@ overlap_gcam_ngfs <- overlap_gcam_ngfs %>% arrange(scenario_geography, scenario)
 
 #REMIND Overlap 
 
-overlap_remind_ngfs <- Scenario_AnalysisInput_2021_NGFS_REMIND %>%
+overlap_remind_ngfs <- Scenario_AnalysisInput_2022_NGFS_REMIND %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_REMIND$scenario_geography))
 
-excluded_remind_ngfs <- setdiff(Scenario_AnalysisInput_2021_NGFS_REMIND, overlap_remind_ngfs)
+excluded_remind_ngfs <- setdiff(Scenario_AnalysisInput_2022_NGFS_REMIND, overlap_remind_ngfs)
 
 
 ## geographies overlap with production data ##this is problematic here
@@ -969,10 +973,10 @@ overlap_remind_ngfs <- overlap_remind_ngfs %>% arrange(scenario_geography, scena
 
 #MESSAGE Overlap
 
-overlap_message_ngfs <- Scenario_AnalysisInput_2021_NGFS_MESSAGE %>%
+overlap_message_ngfs <- Scenario_AnalysisInput_2022_NGFS_MESSAGE %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_MESSAGE$scenario_geography))
 
-excluded_message_ngfs <- setdiff(Scenario_AnalysisInput_2021_NGFS_MESSAGE, overlap_message_ngfs)
+excluded_message_ngfs <- setdiff(Scenario_AnalysisInput_2022_NGFS_MESSAGE, overlap_message_ngfs)
 
 
 ## geographies overlap with production data ##this is problematic here
@@ -999,10 +1003,10 @@ overlap_all_ngfs <- overlap_remind_ngfs %>%
 ################################################################################
 ## Overlap Oxford
 ## overlap with IPR capacity factors
-overlap_all_oxford <- Scenario_AnalysisInput_2021_oxford %>%
+overlap_all_oxford <- Scenario_AnalysisInput_2022_oxford %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_oxford_scenarios$scenario_geography))
 
-excluded_oxford <- setdiff(Scenario_AnalysisInput_2021_oxford, overlap_all_oxford)
+excluded_oxford <- setdiff(Scenario_AnalysisInput_2022_oxford, overlap_all_oxford)
 
 
 ## geographies overlap with production data
@@ -1021,10 +1025,10 @@ overlap_all_oxford <- overlap_all_oxford %>% arrange(scenario_geography, scenari
 ##############################################################################
 #### Overlap IPR
 ## overlap with IPR capacity factors
-overlap_all_ipr <- Scenario_AnalysisInput_2021_ipr %>%
+overlap_all_ipr <- Scenario_AnalysisInput_2022_ipr %>%
   filter(!(ald_sector == "Power" & !.data$scenario_geography %in% prewrangled_capacity_factors_ipr_scenarios$scenario_geography))
 
-excluded_ipr <- setdiff(Scenario_AnalysisInput_2021_ipr, overlap_all_ipr)
+excluded_ipr <- setdiff(Scenario_AnalysisInput_2022_ipr, overlap_all_ipr)
 
 ## geographies overlap with production data
 overlap_all_ipr <- overlap_all_ipr %>% inner_join(abcd_stress_test_geographies)
@@ -1046,6 +1050,8 @@ overlap_all_combined <- full_join(overlap_all_combined, overlap_all_oxford) %>% 
 
 #overlap_all_combined <- overlap_all_combined %>% tribble_paste()
 dp_set_max_rows(7000) 
+
+
 tibble::tribble(
                      ~scenario_geography,  ~ald_sector,                 ~scenario,
                      "AdvancedEconomies",       "Coal",             "WEO2021_APS",
@@ -1649,6 +1655,24 @@ tibble::tribble(
                                 "Russia",      "Power",             "WEO2021_APS",
                                 "Russia",      "Power",             "WEO2021_SDS",
                                 "Russia",      "Power",           "WEO2021_STEPS",
+                         "SoutheastAsia",       "Coal",      "NGFS2021_GCAM_B2DS",
+                         "SoutheastAsia",    "Oil&Gas",      "NGFS2021_GCAM_B2DS",
+                         "SoutheastAsia",      "Power",      "NGFS2021_GCAM_B2DS",
+                         "SoutheastAsia",       "Coal",        "NGFS2021_GCAM_CP",
+                         "SoutheastAsia",    "Oil&Gas",        "NGFS2021_GCAM_CP",
+                         "SoutheastAsia",      "Power",        "NGFS2021_GCAM_CP",
+                         "SoutheastAsia",       "Coal",       "NGFS2021_GCAM_DN0",
+                         "SoutheastAsia",    "Oil&Gas",       "NGFS2021_GCAM_DN0",
+                         "SoutheastAsia",      "Power",       "NGFS2021_GCAM_DN0",
+                         "SoutheastAsia",       "Coal",        "NGFS2021_GCAM_DT",
+                         "SoutheastAsia",    "Oil&Gas",        "NGFS2021_GCAM_DT",
+                         "SoutheastAsia",      "Power",        "NGFS2021_GCAM_DT",
+                         "SoutheastAsia",       "Coal",       "NGFS2021_GCAM_NDC",
+                         "SoutheastAsia",    "Oil&Gas",       "NGFS2021_GCAM_NDC",
+                         "SoutheastAsia",      "Power",       "NGFS2021_GCAM_NDC",
+                         "SoutheastAsia",       "Coal",    "NGFS2021_GCAM_NZ2050",
+                         "SoutheastAsia",    "Oil&Gas",    "NGFS2021_GCAM_NZ2050",
+                         "SoutheastAsia",      "Power",    "NGFS2021_GCAM_NZ2050",
                           "UnitedStates",      "Power",             "IPR2021_FPS",
                           "UnitedStates",      "Power",             "IPR2021_RPS",
                           "UnitedStates",      "Power",        "IPR2021_baseline",
@@ -1692,3 +1716,4 @@ tibble::tribble(
                           "UnitedStates",      "Power",             "WEO2021_SDS",
                           "UnitedStates",      "Power",           "WEO2021_STEPS"
   )
+
