@@ -7,7 +7,7 @@
 Generative operations are repeated for companies assigned to a single sector
 and companies assigned to multiple sectors}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1609 rows and 11 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1586 rows and 11 columns.
 }
 \source{
 generative script in tests folder

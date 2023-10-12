@@ -19,6 +19,7 @@ Imports:
     magrittr,
     purrr,
     readr,
+    readxl,
     rlang,
     stringi,
     stringr,
