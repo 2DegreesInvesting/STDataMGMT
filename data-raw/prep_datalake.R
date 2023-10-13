@@ -66,7 +66,7 @@ make_eikon_db <- function() {
 
   # load recent data
   eikon_new <-
-    readr::read_csv(file.path("data-raw","datalake_inputs","eikon_data.csv"), na = c("")) %>%
+    readr::read_csv(file.path("data-raw", "datalake_inputs", "eikon_data.csv"), na = c("")) %>%
     dplyr::mutate(
       debt_equity_ratio = as.numeric(.data$credit_structural_leverage),
       corporate_bond_ticker = .data$ticker_symbol,
@@ -84,16 +84,27 @@ make_eikon_db <- function() {
       asset_drift = as.numeric(asset_drift) / 100
     ) %>%
     dplyr::select(
-      .data$isin,
+      isin,
       ticker_symbol,
       pd,
       net_profit_margin,
-      .data$debt_equity_ratio,
-      .data$volatility,
-      .data$asset_drift,
+      debt_equity_ratio,
+      volatility,
+      asset_drift,
       trbc_industry_name
     )
 
+  eikon_new <- eikon_new %>%
+    group_by(isin) %>%
+    summarise(
+      ticker_symbol = dplyr::first(ticker_symbol),
+      pd = median(pd),
+      net_profit_margin = median(net_profit_margin),
+      debt_equity_ratio = median(debt_equity_ratio),
+      volatility = median(volatility),
+      asset_drift = median(asset_drift),
+      trbc_industry_name = dplyr::first(trbc_industry_name)
+    )
 
   DB_assets_eikon <-
     eikon_data_old %>%
@@ -107,8 +118,9 @@ make_asset_impact_db <- function() {
   # load asset_impact data -------
   # asset_impact_company_informations
   asset_impact_data <-
-    readxl::read_excel(fs::path("data-raw","datalake_inputs", "AR-Company-Indicators.xlsx"),
-                       sheet = "Company Information") %>%
+    readxl::read_excel(fs::path("data-raw", "datalake_inputs", "AR-Company-Indicators.xlsx"),
+      sheet = "Company Information"
+    ) %>%
     dplyr::select(c(-LEI)) %>%
     dplyr::rename(
       company_id = `Company ID`,
@@ -118,8 +130,9 @@ make_asset_impact_db <- function() {
     )
 
   company_activities <-
-    read_asset_resolution(fs::path("data-raw", "datalake_inputs","AR-Company-Indicators.xlsx"),
-                          sheet_name = "Company Activities")
+    read_asset_resolution(fs::path("data-raw", "datalake_inputs", "AR-Company-Indicators.xlsx"),
+      sheet_name = "Company Activities"
+    )
 
   DB_asset_impact <- asset_impact_data %>% full_join(
     company_activities %>%
@@ -136,7 +149,7 @@ make_ids_db <- function(DB_asset_impact, DB_assets_eikon) {
   # path_db_analysis_inputs <- fs::path(
   #   r2dii.utils::dbox_port_00(), "07_AnalysisInputs", "2020Q4_05172021_2020_MFM"
   # )
-  path_db_analysis_inputs <- fs::path("data-raw","datalake_inputs")
+  path_db_analysis_inputs <- fs::path("data-raw", "datalake_inputs")
   # security financial data--------
   # read from the dropbox. produced by running the data_preparation repo
   security_financial_data <- readr::read_rds(fs::path(path_db_analysis_inputs, "security_financial_data", ext = "rda"))
@@ -153,11 +166,14 @@ make_ids_db <- function(DB_asset_impact, DB_assets_eikon) {
   # Load asset impact provided isins
   # bind rows with asset impact companies with no isin
   asset_impact_isins <-
-    readxl::read_excel(fs::path("data-raw","datalake_inputs", "AR-Company-Indicators.xlsx"),
-                       sheet = "Company ISINs") %>%
-    dplyr::rename(company_id = `Company ID`,
-                  company_name = `Company Name`,
-                  isin = ISIN)
+    readxl::read_excel(fs::path("data-raw", "datalake_inputs", "AR-Company-Indicators.xlsx"),
+      sheet = "Company ISINs"
+    ) %>%
+    dplyr::rename(
+      company_id = `Company ID`,
+      company_name = `Company Name`,
+      isin = ISIN
+    )
   asset_impact_isins <-
     bind_rows(
       asset_impact_isins,
@@ -168,7 +184,8 @@ make_ids_db <- function(DB_asset_impact, DB_assets_eikon) {
   # remove old data that exist in asset impact,
   # but only if an isin doesn't exist
   usable_old_data_no_new_asset_impact <-
-    usable_old_data %>% distinct(
+    usable_old_data %>%
+    distinct(
       company_name,
       company_id,
       bloomberg_id,
@@ -176,7 +193,8 @@ make_ids_db <- function(DB_asset_impact, DB_assets_eikon) {
       parent_company_id,
       obligor_company_id,
       isin
-    ) %>% anti_join(asset_impact_isins %>% distinct(company_id))
+    ) %>%
+    anti_join(asset_impact_isins %>% distinct(company_id))
 
 
   DB_ids <- bind_rows(
@@ -187,8 +205,10 @@ make_ids_db <- function(DB_asset_impact, DB_assets_eikon) {
 
   # Now add isins without a company_id
   # so add eikon isins only if they aren't in DB_ids
-  DB_ids <- bind_rows(DB_ids,
-                      DB_assets_eikon %>% distinct(isin) %>% anti_join(DB_ids %>% distinct(isin)))
+  DB_ids <- bind_rows(
+    DB_ids,
+    DB_assets_eikon %>% distinct(isin) %>% anti_join(DB_ids %>% distinct(isin))
+  )
 
   DB_ids
 }
@@ -205,9 +225,11 @@ make_ownership_tree_db <- function() {
   # ownership_tree-----------------
   # read from the dropbox. file provided by AR. clarify interval of releases.
   ownership_tree <- readr::read_csv(
-    file.path("data-raw", 
-                "datalake_inputs",
-              "company_ownership_bidirectional.csv"),
+    file.path(
+      "data-raw",
+      "datalake_inputs",
+      "company_ownership_bidirectional.csv"
+    ),
     col_types = readr::cols_only(
       target_company_id = "d",
       company_id = "d",
@@ -219,36 +241,43 @@ make_ownership_tree_db <- function() {
   # make sure ownership structures are unique
   ownership_tree <- ownership_tree %>%
     dplyr::distinct_all() %>%
-    report_diff_rows(initial_n_rows = nrow(ownership_tree),
-                     cause = "by ensuring column structure is unique")
+    report_diff_rows(
+      initial_n_rows = nrow(ownership_tree),
+      cause = "by ensuring column structure is unique"
+    )
 
   prewrangled_ownership_tree <-
-    prewrangle_ownership_tree(ownership_tree)
+    prewrangle_ownership_tree(ownership_tree) %>%
+    rename(parent_company_id=company_id,
+          company_id=target_company_id)
 
   prewrangled_ownership_tree
 }
 
 get_additional_isins <- function(DB_ids) {
   new_ar_id_and_isins <-
-    readxl::read_excel(file.path("data-raw","datalake_inputs","CDI ISINs.xlsx")) %>%
+    readxl::read_excel(file.path("data-raw", "datalake_inputs", "CDI ISINs.xlsx")) %>%
     rename(company_id = ar_company_id) %>%
     distinct(company_id, isin)
 
   unknown_isins <- new_ar_id_and_isins %>%
     anti_join(DB_ids %>%
-                distinct(isin))
+      distinct(isin))
 
   DB_ids_no_isins <- DB_ids %>%
     distinct_at(vars(-isin))
 
   unknown_isins_enhanced <- unknown_isins %>%
     left_join(DB_ids_no_isins,
-              by = join_by(company_id),
-              relationship = "many-to-many") %>%
+      by = join_by(company_id),
+      relationship = "many-to-many"
+    ) %>%
     mutate(trustworthy = T)
 
-  DB_ids_enhanced <- bind_rows(DB_ids,
-                               unknown_isins_enhanced)
+  DB_ids_enhanced <- bind_rows(
+    DB_ids,
+    unknown_isins_enhanced
+  )
 
   DB_ids_enhanced
 }
@@ -273,37 +302,43 @@ DB_ids <- make_ids_db(DB_asset_impact, DB_assets_eikon)
 DB_ids <- get_additional_isins(DB_ids)
 
 
-# this block makes sure that NA isins
-# exist only if no other isin is present
-# for a given company
+# this block makes sure that for a given company, NA isins
+# exist only if no other isin is present.
+# i.e. a company can have either 1 row with NA isin, or multiple rows with multiple isins
 DB_ids_no_nan_isin <- DB_ids %>%
   filter(!is.na(isin))
 DB_ids_nan_isin <- DB_ids %>%
   filter(is.na(isin)) %>%
   anti_join(DB_ids_no_nan_isin, by = "company_id")
-DB_ids <- bind_rows(DB_ids_no_nan_isin,
-                    DB_ids_nan_isin) %>%
+DB_ids <- bind_rows(
+  DB_ids_no_nan_isin,
+  DB_ids_nan_isin
+) %>%
   assertr::verify(length(unique(.$company_id))
-                  == length(unique(DB_ids$company_id)))
+  == length(unique(DB_ids$company_id)))
 
-
+# Check that an isin is associated to only 1 company_id
+DB_ids %>% assertr::verify(max(DB_ids %>% distinct(isin, company_id) %>% group_by(isin, company_id) %>% summarise(nrow = n()) %>% pull(nrow)) == 1)
 
 # check DB_ids contains ids from all other tables
-DB_asset_impact %>% distinct(company_id) %>%
+DB_asset_impact %>%
+  distinct(company_id) %>%
   inner_join(DB_ids %>% distinct(company_id)) %>%
-  assertr::verify(nrow(.) == nrow(DB_asset_impact%>%
-                                    distinct(company_id)))
+  assertr::verify(nrow(.) == nrow(DB_asset_impact %>%
+    distinct(company_id)))
 
-DB_assets_eikon %>% distinct(isin) %>%
+DB_assets_eikon %>%
+  distinct(isin) %>%
   inner_join(DB_ids %>% distinct(isin)) %>%
-  assertr::verify(nrow(.) == nrow(DB_assets_eikon%>%
-                                    distinct(isin)))
+  assertr::verify(nrow(.) == nrow(DB_assets_eikon %>%
+    distinct(isin)))
 
 # check volumes
 DB_assets_eikon %>%
-inner_join(DB_ids %>% distinct(isin, company_id)) %>%
+  inner_join(DB_ids %>% distinct(isin, company_id)) %>%
   inner_join(DB_asset_impact,
-             by = join_by(company_id, ald_location))
+    by = join_by(company_id)
+  )
 
 
 # create last database, probably will be dropped in the future because not provided anymore

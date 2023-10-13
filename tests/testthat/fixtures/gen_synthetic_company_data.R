@@ -24,19 +24,19 @@ generate_company_sectors <- function(
     dplyr::sample_n(size = n_multi_sector, replace = FALSE)
 
   MW_to_duplicate <-
-    company_sectors %>% 
-    dplyr::filter(ald_production_unit == "MW")%>% 
+    company_sectors %>%
+    dplyr::filter(ald_production_unit == "MW") %>%
     dplyr::mutate(ald_production_unit = "MWh")
   MWh_to_duplicate <-
-    company_sectors %>% 
-    dplyr::filter(ald_production_unit == "MWh")%>% 
+    company_sectors %>%
+    dplyr::filter(ald_production_unit == "MWh") %>%
     dplyr::mutate(ald_production_unit = "MW")
   company_sectors <- dplyr::bind_rows(
     company_sectors,
-    MW_to_duplicate ,
-    MWh_to_duplicate 
+    MW_to_duplicate,
+    MWh_to_duplicate
   ) %>%
-  dplyr::distinct_all() # remove alternated existing prod if any
+    dplyr::distinct_all() # remove alternated existing prod if any
   return(company_sectors)
 }
 
@@ -158,7 +158,7 @@ assign_activities_to_their_emission_unit <- function(base_data) {
     ) %>%
     dplyr::select(-ald_production_unit) %>%
     # dplyr::rename(ald_production_unit = emissions_factor_unit) # rename emissions_factor_unit to activity_unit bc expected format for prep abcd script
-  return(company_emission_unit)
+    return(company_emission_unit)
 }
 
 
@@ -188,14 +188,14 @@ generate_company_emissions <- function(company_activities) {
   return(company_emissions)
 }
 
-company_activities <- generate_company_activities() 
+company_activities <- generate_company_activities()
 company_emissions <- generate_company_emissions(company_activities)
 
-company_activities <- company_activities %>% 
-  dplyr::rename(activity_unit=.data$ald_production_unit)
+company_activities <- company_activities %>%
+  dplyr::rename(activity_unit = .data$ald_production_unit)
 
-company_emissions <- company_emissions %>% 
-  dplyr::rename(activity_unit=.data$emissions_factor_unit)
+company_emissions <- company_emissions %>%
+  dplyr::rename(activity_unit = .data$emissions_factor_unit)
 
 usethis::use_data(company_activities, overwrite = TRUE)
 usethis::use_data(company_emissions, overwrite = TRUE)

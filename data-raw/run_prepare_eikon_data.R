@@ -91,6 +91,7 @@ prewrangled_ownership_tree <- prewrangle_ownership_tree(ownership_tree)
 abcd_data <- readr::read_csv(abcd_input_path) %>%
   dplyr::rename(company_id = id)
 
+level_subregion <- "REGION"
 # country region bridge-------
 country_region_bridge <- rworldmap::countryRegions %>%
   dplyr::rename(iso_a3 = ISO3) %>%

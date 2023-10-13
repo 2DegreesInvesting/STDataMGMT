@@ -14,4 +14,4 @@ prewrangled_financial_data_stress_test <- abcd_stress_test_input %>%
     volatility = runif(nrow(.), min = 0, max = 1)
   )
 
-usethis::use_data(prewrangled_financial_data_stress_test, overwrite=TRUE)
+usethis::use_data(prewrangled_financial_data_stress_test, overwrite = TRUE)

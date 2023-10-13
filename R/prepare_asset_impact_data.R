@@ -6,7 +6,8 @@
 #'
 read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
   ar_data <- readxl::read_xlsx(path_ar_data_raw,
-                               sheet = sheet_name) %>%
+    sheet = sheet_name
+  ) %>%
     dplyr::select(-dplyr::starts_with("Direct Ownership"), -.data$`Asset Region`) %>%
     dplyr::rename(
       id = .data$`Company ID`,
@@ -16,7 +17,7 @@ read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
       technology_type = .data$`Asset Technology Type`,
       ald_location = .data$`Asset Country`,
       activity_unit = .data$`Activity Unit`
-    ) 
+    )
   return(ar_data)
 }
 
@@ -82,7 +83,8 @@ aggregate_over_technology_types <- function(ar_data) {
       # removes this column after grouping-dplyr::contains("Equity Ownership ")
     ))) %>%
     dplyr::summarise(dplyr::across(dplyr::contains("Equity Ownership "), .sum_or_all_nans),
-                     .groups = "drop")
+      .groups = "drop"
+    )
   return(ar_data)
 }
 
@@ -113,10 +115,12 @@ remove_prop_emissions <- function(company_emissions) {
 prepare_asset_impact_data <- function(ar_data_path) {
   company_activities <-
     read_asset_resolution(ar_data_path,
-                          sheet_name = "Company Activities")
+      sheet_name = "Company Activities"
+    )
   company_emissions <-
     read_asset_resolution(ar_data_path,
-                          sheet_name = "Company Emissions")
+      sheet_name = "Company Emissions"
+    )
 
   company_activities <- rename_technology(company_activities)
   company_emissions <- rename_technology(company_emissions)
@@ -136,10 +140,14 @@ prepare_asset_impact_data <- function(ar_data_path) {
 
   company_emissions <- remove_prop_emissions(company_emissions)
 
-  company_activities <- company_activities %>% dplyr::rename(ald_business_unit = .data$technology,
-                                                             company_id = .data$id)
-  company_emissions <- company_emissions %>% dplyr::rename(ald_business_unit = .data$technology,
-                                                           company_id = .data$id)
+  company_activities <- company_activities %>% dplyr::rename(
+    ald_business_unit = .data$technology,
+    company_id = .data$id
+  )
+  company_emissions <- company_emissions %>% dplyr::rename(
+    ald_business_unit = .data$technology,
+    company_id = .data$id
+  )
 
   return(
     list(
@@ -147,5 +155,4 @@ prepare_asset_impact_data <- function(ar_data_path) {
       company_emissions = company_emissions
     )
   )
-
 }

@@ -24,10 +24,9 @@ sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
 outputs <- prepare_asset_impact_data(fs::path(path_ar_data_raw,
-      "AR-Company-Indicators_2022Q4",
-      ext = "xlsx"
-    )
-)
+  "AR-Company-Indicators_2022Q4",
+  ext = "xlsx"
+))
 company_activities <- outputs[["company_activities"]]
 company_emissions <- outputs[["company_emissions"]]
 
