@@ -1,3 +1,5 @@
+devtools::load_all()
+
 output_dir <- fs::path("data-raw", "DBs")
 
 eikon_data <- readr::read_rds(fs::path(output_dir, "DB_assets_eikon.rds"))
@@ -5,7 +7,6 @@ companies_data <- readr::read_rds(fs::path(output_dir, "DB_asset_impact.rds"))
 ids_data <- readr::read_rds(fs::path(output_dir, "DB_ids.rds"))
 ownership_tree <- readr::read_rds(fs::path(output_dir, "DB_ownership_tree.rds"))
 
-abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))
 
 # parameters for minimum requirements to reference subgroups in creating averages
 # determine size of subgroup below which we do not use the average because the
@@ -19,9 +20,19 @@ allowed_range_npm <- c(-Inf, Inf)
 
 financial_data <- prepare_financial_data(
   ids_data = ids_data,
-  eikon_data = eikon_data, companies_data = companies_data,
-  ownership_tree = ownership_tree, minimum_sample_size = minimum_sample_size, minimum_ratio_sample = minimum_ratio_sample,
+  eikon_data = eikon_data,
+  companies_data = companies_data,
+  ownership_tree = ownership_tree,
+  minimum_sample_size = minimum_sample_size,
+  minimum_ratio_sample = minimum_ratio_sample,
   allowed_range_npm = allowed_range_npm
 )
 
 abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))
+
+financial_data <- financial_data %>% dplyr::inner_join(abcd_data %>% dplyr::distinct(company_id))
+
+
+financial_data %>% readr::write_csv(
+  file.path("data-raw", "prewrangled_financial_data_stress_test.csv")
+)

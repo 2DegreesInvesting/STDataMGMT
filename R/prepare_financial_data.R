@@ -1,5 +1,3 @@
-library(dplyr)
-
 #' Title
 #'
 #' @param eikon_data eikon_data
