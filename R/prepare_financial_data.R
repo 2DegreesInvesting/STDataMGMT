@@ -1,25 +1,45 @@
 library(dplyr)
 
+#' Title
+#'
+#' @param eikon_data eikon_data
+#' @param ids_data ids_data
+#'
+#' @return a dataframe
+#'
 add_column_company_id_to_eikon_data <- function(eikon_data, ids_data) {
-  isin_to_company_id <- ids_data %>% dplyr::distinct(isin, company_id)
+  isin_to_company_id <- ids_data %>% dplyr::distinct(.data$isin, .data$company_id)
 
   financial_data <- eikon_data %>%
-    dplyr::inner_join(isin_to_company_id, by = dplyr::join_by(isin))
+    dplyr::inner_join(isin_to_company_id, by = c("isin"))
 
   return(financial_data)
 }
 
 
+#' Title
+#'
+#' @param financial_data financial_data
+#' @param companies_data companies_data
+#'
+#' @return a dataframe
+#'
 add_column_ald_sector_to_financial_data <- function(financial_data, companies_data) {
   financial_data <- financial_data %>%
-    dplyr::left_join(companies_data %>% dplyr::distinct(company_id, ald_sector),
-      by = dplyr::join_by(company_id),
+    dplyr::left_join(companies_data %>% dplyr::distinct(.data$company_id, .data$ald_sector),
+      by = c("company_id"),
       relationship = "many-to-many"
     )
 
   return(financial_data)
 }
 
+#' Title
+#'
+#' @param financial_data financial_data
+#'
+#' @return a dataframe
+#'
 match_location_to_region <- function(financial_data) {
   # country region bridge-------
   country_region_bridge <- countrycode::codelist %>%
@@ -32,8 +52,8 @@ match_location_to_region <- function(financial_data) {
 
   # extract location from ISIN (iso country code is the first 2 characters)
   financial_data <- financial_data %>%
-    dplyr::left_join(country_region_bridge, by = dplyr::join_by(ald_location)) %>%
-    dplyr::select(-c(ald_location))
+    dplyr::left_join(country_region_bridge, by = c("ald_location")) %>%
+    dplyr::select(-c(.data$ald_location))
 
   return(financial_data)
 }
@@ -105,6 +125,13 @@ create_averages_eikon <- function(data,
   return(subgroup_averages)
 }
 
+#' Title
+#'
+#' @param financial_data financial_data
+#' @param grp_cols grp_cols
+#'
+#' @return a dataframe
+#'
 aggregate_financial_indicators <- function(financial_data, grp_cols) {
   financial_data <- financial_data %>%
     dplyr::group_by(dplyr::across(grp_cols)) %>%
@@ -122,6 +149,14 @@ aggregate_financial_indicators <- function(financial_data, grp_cols) {
     )
 }
 
+#' Title
+#'
+#' @param missing_companies_in_financial_data missing_companies_in_financial_data
+#' @param financial_data financial_data
+#' @param ownership_tree ownership_tree
+#'
+#' @return a dataframe
+#'
 match_closest_financial_data_to_missing_companies <- function(missing_companies_in_financial_data, financial_data, ownership_tree) {
   # join in ownership tree----
   missing_companies_in_financial_data <- missing_companies_in_financial_data %>%
@@ -163,19 +198,35 @@ match_closest_financial_data_to_missing_companies <- function(missing_companies_
 
   # check that there are no duplicates
   missing_companies_in_financial_data %>%
-    dplyr::distinct(company_id, ald_sector, ald_region) %>%
+    dplyr::distinct(.data$company_id, .data$ald_sector, .data$ald_region) %>%
     assertr::verify(nrow(.) == nrow(missing_companies_in_financial_data))
 
   return(missing_companies_in_financial_data)
 }
 
+#' Title
+#'
+#' @param financial_data financial_data
+#' @param companies_data companies_data
+#'
+#' @return a dataframe
+#'
 get_missing_companies_in_financial_data <- function(financial_data, companies_data) {
   missing_companies_in_financial_data <- companies_data %>%
-    dplyr::distinct(company_id, ald_sector, ald_location) %>%
-    dplyr::anti_join(financial_data, by = dplyr::join_by(company_id))
+    dplyr::distinct(.data$company_id, .data$ald_sector, .data$ald_location) %>%
+    dplyr::anti_join(financial_data, by = "company_id")
   return(missing_companies_in_financial_data)
 }
 
+#' Title
+#'
+#' @param financial_data financial_data
+#' @param minimum_sample_size minimum_sample_size
+#' @param minimum_ratio_sample minimum_ratio_sample
+#' @param allowed_range_npm allowed_range_npm
+#'
+#' @return a dataframe
+#'
 compute_financial_averages <- function(
     financial_data,
     minimum_sample_size,
@@ -223,6 +274,15 @@ compute_financial_averages <- function(
   ))
 }
 
+#' Title
+#'
+#' @param financial_data financial_data
+#' @param ald_sector_region_averages ald_sector_region_averages
+#' @param ald_sector_averages ald_sector_averages
+#' @param global_averages global_averages
+#'
+#' @return a dataframe
+#'
 add_columns_financial_averages <- function(
     financial_data,
     ald_sector_region_averages,
@@ -264,7 +324,7 @@ add_columns_financial_averages <- function(
 
 #' For each company select the final financial value of the best granularity
 #'
-#' @param data A data frame which contains the financial data including the
+#' @param financial_data A data frame which contains the financial data including the
 #'   calculated averages for a combination of sectors and regions
 #'
 #' @return A data frame
@@ -362,103 +422,34 @@ select_final_financial_value_using_averages <- function(financial_data) {
   return(financial_data)
 }
 
-#' Prewrangle the prepared eikon data into the format used by the stress test
-#'
-#' @param eikon_data A data frame which contains the prepared eikon data as
-#'   provided after running prepare_eikon_data()
-#'
-#' @return A list of three data.frames
-prepare_prewrangled_financial_data_stress_test <- function(eikon_data) {
-  # ... ADO 2563 - temporarily remove all production related data from master data
-  # in a next version, we will simply split financial data and production data in
-  # two separate, but closely related files.
-  # for now, we use distinct_all after removing the production data and check there
-  # are no duplicates
-  # ... aggregate to the ticker/company level
-  financial_data_stress_test <- eikon_data %>%
-    dplyr::select(
-      .data$company_name, .data$company_id, .data$corporate_bond_ticker,
-      .data$final_pd, .data$final_profit_margin_preferred,
-      .data$final_profit_margin_unpreferred, .data$final_leverage_s_avg,
-      .data$final_asset_volatility_s_avg
-    )
-
-  names(financial_data_stress_test) <- names(financial_data_stress_test) %>%
-    stringr::str_remove_all("final_")
-
-  financial_data_stress_test <- financial_data_stress_test %>%
-    dplyr::distinct_all() %>%
-    dplyr::mutate(net_profit_margin = .data$profit_margin_preferred) %>%
-    # TODO: logic unclear thus far
-    dplyr::mutate(
-      net_profit_margin = dplyr::case_when(
-        .data$net_profit_margin < 0 &
-          dplyr::between(.data$profit_margin_unpreferred, 0, 1) ~
-          .data$profit_margin_unpreferred,
-        .data$net_profit_margin < 0 & .data$profit_margin_unpreferred < 0 ~ 0,
-        .data$net_profit_margin < 0 & .data$profit_margin_unpreferred > 1 ~ 0,
-        .data$net_profit_margin > 1 &
-          dplyr::between(.data$profit_margin_unpreferred, 0, 1) ~
-          .data$profit_margin_unpreferred,
-        .data$net_profit_margin > 1 & .data$profit_margin_unpreferred > 1 ~ 1,
-        .data$net_profit_margin > 1 & .data$profit_margin_unpreferred < 0 ~ 1,
-        TRUE ~ .data$net_profit_margin
-      )
-    )
-
-  financial_data_stress_test_rm_profit_margin <- financial_data_stress_test %>%
-    dplyr::filter(.data$net_profit_margin <= 0) %>%
-    dplyr::select(
-      .data$company_name, .data$company_id, .data$corporate_bond_ticker,
-      .data$net_profit_margin, .data$profit_margin_unpreferred
-    )
-
-  financial_data_stress_test <- financial_data_stress_test %>%
-    dplyr::filter(.data$net_profit_margin > 0) %>%
-    dplyr::rename(
-      debt_equity_ratio = .data$leverage_s_avg,
-      volatility = .data$asset_volatility_s_avg
-    ) %>%
-    dplyr::select(
-      .data$company_name, .data$company_id, .data$corporate_bond_ticker,
-      .data$pd, .data$net_profit_margin, .data$debt_equity_ratio,
-      .data$volatility
-    )
-
-  financial_data_stress_test_rm_profit_margin <- financial_data_stress_test_rm_profit_margin %>%
-    dplyr::filter(.data$net_profit_margin <= 0) %>%
-    dplyr::select(
-      .data$company_name, .data$company_id, .data$corporate_bond_ticker,
-      .data$net_profit_margin, .data$profit_margin_unpreferred
-    )
-
-  financial_data_stress_test_rm_non_ascii <- financial_data_stress_test %>%
-    dplyr::mutate(enc = stringi::stri_enc_mark(.data$company_name)) %>%
-    dplyr::filter(.data$enc != "ASCII") %>%
-    dplyr::select(-.data$enc)
-
-  # financial_data_stress_test <- financial_data_stress_test %>%
-  #   dplyr::mutate(enc = stringi::stri_enc_mark(.data$company_name)) %>%
-  #   dplyr::filter(.data$enc == "ASCII") %>%
-  #   dplyr::select(-.data$enc)
-
-  # TODO: any logic/bounds needed for debt/equity ratio and volatility?
-
-  list_prewrangled_financial_data <- list(
-    financial_data_stress_test,
-    financial_data_stress_test_rm_profit_margin,
-    financial_data_stress_test_rm_non_ascii
-  )
-}
 
 #' company_id in the ownership tree refer to the company owning the target_company_id
+#'
+#' @param financial_data financial_data
+#' @param ownership_tree ownership_tree
+#'
+#' @return a dataframe
+#'
 keep_available_financial_companies_in_ownership_tree <- function(financial_data, ownership_tree) {
   filtered_ownership_tree <- ownership_tree %>%
-    dplyr::inner_join(financial_data %>% dplyr::distinct(company_id), by = c("parent_company_id" = "company_id"))
+    dplyr::inner_join(financial_data %>% dplyr::distinct(.data$company_id), by = c("parent_company_id" = "company_id"))
   return(filtered_ownership_tree)
 }
 
 
+#' Title
+#'
+#' @param ids_data ids_data
+#' @param eikon_data eikon_data
+#' @param companies_data companies_data
+#' @param ownership_tree ownership_tree
+#' @param minimum_sample_size minimum_sample_size
+#' @param minimum_ratio_sample minimum_ratio_sample
+#' @param allowed_range_npm allowed_range_npm
+#'
+#' @return a dataframe
+#' @export
+#'
 prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
   #### INITIALISE FINANCIAL DATA
   financial_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
@@ -466,7 +457,6 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   financial_data <- add_column_ald_sector_to_financial_data(financial_data, companies_data)
 
   #### AGGREGATE FINANCIAL DATA FROM ISIN TO COMPANY_ID
-  # financial_data <- match_closest_financial_data_to_missing_companies(financial_data, ownership_tree)
   financial_data <- match_location_to_region(financial_data)
   financial_data <- aggregate_financial_indicators(financial_data,
     grp_cols = c("company_id", "ald_sector", "ald_region")
@@ -508,7 +498,7 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   )
 
   # # filter rows without a company ID as they're not useful anymore (only has an impact in averages)
-  financial_data_all_companies <- financial_data_all_companies %>% dplyr::filter(!is.na(company_id))
+  financial_data_all_companies <- financial_data_all_companies %>% dplyr::filter(!is.na(.data$company_id))
 
   # fill NA values in financial indicators
   financial_data_all_companies <- select_final_financial_value_using_averages(financial_data_all_companies)

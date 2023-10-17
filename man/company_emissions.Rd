@@ -6,7 +6,7 @@
 \title{GENERATE COMPANY EMISSIONS
 generated from company_activities}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1586 rows and 11 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1606 rows and 11 columns.
 }
 \source{
 generative script in tests folder
