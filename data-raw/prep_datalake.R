@@ -115,23 +115,22 @@ make_eikon_db <- function() {
 }
 
 make_asset_impact_db <- function() {
-
-read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
-  ar_data <- readxl::read_xlsx(path_ar_data_raw,
-    sheet = sheet_name
-  ) %>%
-    dplyr::select(-dplyr::starts_with("Direct Ownership"), -.data$`Asset Region`) %>%
-    dplyr::rename(
-      id = .data$`Company ID`,
-      company_name = .data$`Company Name`,
-      ald_sector = .data$`Asset Sector`,
-      technology = .data$`Asset Technology`,
-      technology_type = .data$`Asset Technology Type`,
-      ald_location = .data$`Asset Country`,
-      activity_unit = .data$`Activity Unit`
-    )
-  return(ar_data)
-}
+  read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
+    ar_data <- readxl::read_xlsx(path_ar_data_raw,
+      sheet = sheet_name
+    ) %>%
+      dplyr::select(-dplyr::starts_with("Direct Ownership"), -.data$`Asset Region`) %>%
+      dplyr::rename(
+        id = .data$`Company ID`,
+        company_name = .data$`Company Name`,
+        ald_sector = .data$`Asset Sector`,
+        technology = .data$`Asset Technology`,
+        technology_type = .data$`Asset Technology Type`,
+        ald_location = .data$`Asset Country`,
+        activity_unit = .data$`Activity Unit`
+      )
+    return(ar_data)
+  }
 
   # load asset_impact data -------
   # asset_impact_company_informations
@@ -210,8 +209,8 @@ make_ids_db <- function(DB_asset_impact, DB_assets_eikon) {
       bloomberg_id,
       legal_entity_id,
       parent_company_id,
-      obligor_company_id    
-      ) %>%
+      obligor_company_id
+    ) %>%
     anti_join(asset_impact_isins %>% distinct(company_id))
 
 
@@ -233,29 +232,28 @@ make_ids_db <- function(DB_asset_impact, DB_assets_eikon) {
 
 
 make_ownership_tree_db <- function() {
+  #' Prewrangle the ownership tree data from AR
+  #'
+  #' @param data A data frame holding the raw ownership tree data set
+  #' @return NULL
+  prewrangle_ownership_tree <- function(data) {
+    # filter only one direction within ownership_tree
+    ownership_tree <- data %>%
+      dplyr::filter(.data$ownership_level >= 0)
 
-#' Prewrangle the ownership tree data from AR
-#'
-#' @param data A data frame holding the raw ownership tree data set
-#' @return NULL
-prewrangle_ownership_tree <- function(data) {
-  # filter only one direction within ownership_tree
-  ownership_tree <- data %>%
-    dplyr::filter(.data$ownership_level >= 0)
-
-  # only take the majority parent for each company at each ownership level
-  # (otherwise it would get the profit margins from both parents, which one is the better one??)
-  # Note: if linking_stake == NA in raw data, this means 100% is owned by one company
-  ownership_tree <- ownership_tree %>%
-    # need to change NAs to 100%, otherwise slice_max will kick them out
-    dplyr::mutate(linking_stake = dplyr::if_else(is.na(.data$linking_stake), 100, .data$linking_stake)) %>%
-    dplyr::group_by(.data$company_id, .data$ownership_level) %>%
-    # slice the majority parent
-    dplyr::slice_max(.data$linking_stake) %>%
-    dplyr::ungroup() %>%
-    # still have to take distinct in case the linking stake is equal (e.g. 50%/50%)
-    dplyr::distinct(.data$company_id, .data$ownership_level, .keep_all = TRUE)
-}
+    # only take the majority parent for each company at each ownership level
+    # (otherwise it would get the profit margins from both parents, which one is the better one??)
+    # Note: if linking_stake == NA in raw data, this means 100% is owned by one company
+    ownership_tree <- ownership_tree %>%
+      # need to change NAs to 100%, otherwise slice_max will kick them out
+      dplyr::mutate(linking_stake = dplyr::if_else(is.na(.data$linking_stake), 100, .data$linking_stake)) %>%
+      dplyr::group_by(.data$company_id, .data$ownership_level) %>%
+      # slice the majority parent
+      dplyr::slice_max(.data$linking_stake) %>%
+      dplyr::ungroup() %>%
+      # still have to take distinct in case the linking stake is equal (e.g. 50%/50%)
+      dplyr::distinct(.data$company_id, .data$ownership_level, .keep_all = TRUE)
+  }
 
   path_db_datastore <- fs::path(
     "data-raw",
@@ -278,17 +276,19 @@ prewrangle_ownership_tree <- function(data) {
       linking_stake = "d",
       ownership_level = "d"
     )
-  ) 
+  )
   # make sure ownership structures are unique
   ownership_tree <- ownership_tree %>%
-    dplyr::distinct_all() 
+    dplyr::distinct_all()
 
   prewrangled_ownership_tree <-
     prewrangle_ownership_tree(ownership_tree)
 
-  prewrangled_ownership_tree <- prewrangled_ownership_tree %>% 
-  rename(parent_company_id=target_company_id,
-              subsidiary_company_id = company_id)
+  prewrangled_ownership_tree <- prewrangled_ownership_tree %>%
+    rename(
+      parent_company_id = target_company_id,
+      subsidiary_company_id = company_id
+    )
 
   prewrangled_ownership_tree
 }
@@ -327,13 +327,13 @@ get_additional_isins <- function(DB_ids) {
 # primary_key: isin
 # company_id company_name is_ultimate_parent
 # country_of_domicile isin ald_location ald_sector
-DB_asset_impact <- make_asset_impact_db()  %>% 
+DB_asset_impact <- make_asset_impact_db() %>%
   dplyr::filter(company_name != "Unknown")
 # primary key: isin
 # columns : isin structural ticker_symbol pd net_profit_margin
 # debt_equity_ratio volatility asset_drift
 # trbc_industry_name data_version ald_location
-DB_assets_eikon <- make_eikon_db()  %>% 
+DB_assets_eikon <- make_eikon_db() %>%
   select(-c(structural))
 # primary key:  isin
 # columns: company_id bloomberg_id legal_entity_id
@@ -359,11 +359,11 @@ DB_ids <- bind_rows(
   == length(unique(DB_ids$company_id)))
 
 # Check that an isin is associated to only 1 company_id
-DB_ids %>% 
-  assertr::verify(max(DB_ids %>% distinct(isin, company_id) %>% 
-  group_by(isin, company_id) %>% 
-  summarise(nrow = n()) %>%  
-  pull(nrow)) == 1)
+DB_ids %>%
+  assertr::verify(max(DB_ids %>% distinct(isin, company_id) %>%
+    group_by(isin, company_id) %>%
+    summarise(nrow = n()) %>%
+    pull(nrow)) == 1)
 
 # check DB_ids contains ids from all other tables
 DB_asset_impact %>%

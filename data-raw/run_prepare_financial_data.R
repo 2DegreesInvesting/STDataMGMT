@@ -1,26 +1,27 @@
-  output_dir <- fs::path("data-raw", "DBs")
+output_dir <- fs::path("data-raw", "DBs")
 
-  eikon_data <- readr::read_rds(fs::path(output_dir, "DB_assets_eikon.rds"))
-  companies_data <- readr::read_rds(fs::path(output_dir, "DB_asset_impact.rds"))
-  ids_data <- readr::read_rds(fs::path(output_dir, "DB_ids.rds"))
-  ownership_tree <- readr::read_rds(fs::path(output_dir, "DB_ownership_tree.rds"))
-
-  abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))
-
-  # parameters for minimum requirements to reference subgroups in creating averages
-  # determine size of subgroup below which we do not use the average because the
-  # minimum required sample size of reference subgroup
-  minimum_sample_size <- 50
-  # minimum required ratio of reference subgroup to sample
-  minimum_ratio_sample <- 1 / 3
-  # cut off values for profit margins
-  allowed_range_npm <- c(-Inf, Inf)
-
-
-  financial_data <- prepare_financial_data(ids_data=ids_data,
-   eikon_data=eikon_data, companies_data=companies_data,
-    ownership_tree=ownership_tree, minimum_sample_size=minimum_sample_size, minimum_ratio_sample=minimum_ratio_sample
-    , allowed_range_npm=allowed_range_npm)
+eikon_data <- readr::read_rds(fs::path(output_dir, "DB_assets_eikon.rds"))
+companies_data <- readr::read_rds(fs::path(output_dir, "DB_asset_impact.rds"))
+ids_data <- readr::read_rds(fs::path(output_dir, "DB_ids.rds"))
+ownership_tree <- readr::read_rds(fs::path(output_dir, "DB_ownership_tree.rds"))
 
 abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))
 
+# parameters for minimum requirements to reference subgroups in creating averages
+# determine size of subgroup below which we do not use the average because the
+# minimum required sample size of reference subgroup
+minimum_sample_size <- 50
+# minimum required ratio of reference subgroup to sample
+minimum_ratio_sample <- 1 / 3
+# cut off values for profit margins
+allowed_range_npm <- c(-Inf, Inf)
+
+
+financial_data <- prepare_financial_data(
+  ids_data = ids_data,
+  eikon_data = eikon_data, companies_data = companies_data,
+  ownership_tree = ownership_tree, minimum_sample_size = minimum_sample_size, minimum_ratio_sample = minimum_ratio_sample,
+  allowed_range_npm = allowed_range_npm
+)
+
+abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))

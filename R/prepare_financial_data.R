@@ -27,7 +27,8 @@ match_location_to_region <- function(financial_data) {
     dplyr::distinct(.data$region, .data$ecb) %>%
     dplyr::rename(
       ald_location = .data$ecb,
-      ald_region = .data$region)
+      ald_region = .data$region
+    )
 
   # extract location from ISIN (iso country code is the first 2 characters)
   financial_data <- financial_data %>%
@@ -84,10 +85,10 @@ create_averages_eikon <- function(data,
         min(.env$allowed_range_npm, na.rm = TRUE),
         max(.env$allowed_range_npm, na.rm = TRUE)
       )
-    ) %>% 
+    ) %>%
     dplyr::select(-c(.data$size_subgroup, .data$size_sample, .data$ratio_sample_subgroup, .data$sample_sufficient, .data$ratio_sufficient))
 
-  # # OTHER WAY TO DO IT. 
+  # # OTHER WAY TO DO IT.
   # # group duplicate company_id rows,
   # # taking average of non-NA numeric value, any(first non-NA) character value
   # eikon_data <- eikon_data %>%
@@ -100,13 +101,11 @@ create_averages_eikon <- function(data,
   #       dplyr::first(na.omit(.x))
   #     )
   #   ))
-  
+
   return(subgroup_averages)
 }
 
 aggregate_financial_indicators <- function(financial_data, grp_cols) {
-  
-  
   financial_data <- financial_data %>%
     dplyr::group_by(dplyr::across(grp_cols)) %>%
     create_averages_eikon(
@@ -115,23 +114,22 @@ aggregate_financial_indicators <- function(financial_data, grp_cols) {
       allowed_range_npm = c(-Inf, Inf)
     ) %>%
     dplyr::rename(
-      pd = .data$avg_pd, 
+      pd = .data$avg_pd,
       net_profit_margin = .data$avg_net_profit_margin,
       debt_equity_ratio = .data$avg_debt_equity_ratio,
       volatility = .data$avg_volatility,
       asset_drift = .data$avg_asset_drift
     )
-
 }
 
-match_closest_financial_data_to_missing_companies <- function(missing_companies_in_financial_data, financial_data, ownership_tree){
+match_closest_financial_data_to_missing_companies <- function(missing_companies_in_financial_data, financial_data, ownership_tree) {
   # join in ownership tree----
   missing_companies_in_financial_data <- missing_companies_in_financial_data %>%
     dplyr::left_join(
       ownership_tree,
       by = c("company_id" = "subsidiary_company_id"),
       relationship = "many-to-many"
-    ) 
+    )
 
   # ensure that company_ids are distinct----
   # ... but consider the most granular eikon
@@ -141,29 +139,31 @@ match_closest_financial_data_to_missing_companies <- function(missing_companies_
   # and a company_id (in case the parent_company_id doesn't exist in the ownership tree)
   missing_companies_in_financial_data <- missing_companies_in_financial_data %>%
     dplyr::mutate(
-      ownership_level=dplyr::if_else(is.na(.data$ownership_level), 0, .data$ownership_level),
-      parent_company_id=dplyr::if_else(is.na(.data$parent_company_id), .data$company_id, .data$parent_company_id)
-      )
+      ownership_level = dplyr::if_else(is.na(.data$ownership_level), 0, .data$ownership_level),
+      parent_company_id = dplyr::if_else(is.na(.data$parent_company_id), .data$company_id, .data$parent_company_id)
+    )
 
   # filter out rows to keep the closest parent company
   missing_companies_in_financial_data <- missing_companies_in_financial_data %>%
     dplyr::group_by(.data$company_id, .data$ald_sector, .data$ald_region) %>%
     dplyr::slice_min(.data$ownership_level) %>%
-    dplyr::ungroup() 
+    dplyr::ungroup()
 
-  missing_companies_in_financial_data  <- missing_companies_in_financial_data %>%
-    dplyr::left_join(financial_data, 
-    by=c("parent_company_id" = "company_id",
-    "ald_region"="ald_region",
-    "ald_sector"="ald_sector"
-    ))  
-    
-  missing_companies_in_financial_data <- missing_companies_in_financial_data  %>% 
-    dplyr::select(-c(.data$parent_company_id, .data$linking_stake, .data$ownership_level)) 
-    
+  missing_companies_in_financial_data <- missing_companies_in_financial_data %>%
+    dplyr::left_join(financial_data,
+      by = c(
+        "parent_company_id" = "company_id",
+        "ald_region" = "ald_region",
+        "ald_sector" = "ald_sector"
+      )
+    )
+
+  missing_companies_in_financial_data <- missing_companies_in_financial_data %>%
+    dplyr::select(-c(.data$parent_company_id, .data$linking_stake, .data$ownership_level))
+
   # check that there are no duplicates
-  missing_companies_in_financial_data %>% 
-    dplyr::distinct(company_id, ald_sector, ald_region) %>% 
+  missing_companies_in_financial_data %>%
+    dplyr::distinct(company_id, ald_sector, ald_region) %>%
     assertr::verify(nrow(.) == nrow(missing_companies_in_financial_data))
 
   return(missing_companies_in_financial_data)
@@ -171,16 +171,17 @@ match_closest_financial_data_to_missing_companies <- function(missing_companies_
 
 get_missing_companies_in_financial_data <- function(financial_data, companies_data) {
   missing_companies_in_financial_data <- companies_data %>%
-    dplyr::distinct(company_id, ald_sector, ald_location) %>% 
-    dplyr::anti_join(financial_data, by=dplyr::join_by(company_id))
+    dplyr::distinct(company_id, ald_sector, ald_location) %>%
+    dplyr::anti_join(financial_data, by = dplyr::join_by(company_id))
   return(missing_companies_in_financial_data)
 }
 
-compute_financial_averages <- function(financial_data, 
+compute_financial_averages <- function(
+    financial_data,
     minimum_sample_size,
     minimum_ratio_sample,
-    allowed_range_npm){
-    # 5) create averages by different granularities of sub groups----
+    allowed_range_npm) {
+  # 5) create averages by different granularities of sub groups----
   # (but only based on values we obtained directly from eikon)
 
   # create averages by bics subsector and region
@@ -209,26 +210,24 @@ compute_financial_averages <- function(financial_data,
   # create global average
   global_averages <- financial_data %>%
     create_averages_eikon(
-      minimum_sample_size ,
-      minimum_ratio_sample ,
-      allowed_range_npm 
+      minimum_sample_size,
+      minimum_ratio_sample,
+      allowed_range_npm
     ) %>%
     dplyr::mutate(average_type = "global")
 
   return(list(
-    ald_sector_region_averages=ald_sector_region_averages,
-    ald_sector_averages=ald_sector_averages,
-    global_averages=global_averages
+    ald_sector_region_averages = ald_sector_region_averages,
+    ald_sector_averages = ald_sector_averages,
+    global_averages = global_averages
   ))
-
 }
 
 add_columns_financial_averages <- function(
     financial_data,
     ald_sector_region_averages,
     ald_sector_averages,
-    global_averages
-  ) {
+    global_averages) {
   # add most the most granular average calculated to the eikon data----
   # subset companies for which we have good bics_subgroup + regional averages available
   financial_data_ald_sector_region_averages <- financial_data %>%
@@ -236,13 +235,13 @@ add_columns_financial_averages <- function(
 
   # subset companies for which we have good bics_subgroup averages available + which havent subset beforehand
   financial_data_ald_sector_averages <- financial_data %>%
-    dplyr::anti_join(financial_data_ald_sector_region_averages, by = c("company_id","ald_sector", "ald_region")) %>%
+    dplyr::anti_join(financial_data_ald_sector_region_averages, by = c("company_id", "ald_sector", "ald_region")) %>%
     dplyr::inner_join(ald_sector_averages, by = "ald_sector")
 
   # add global averages for companies which havent obtained averages beforehand
   financial_data_global_averages <- financial_data %>%
-    dplyr::anti_join(financial_data_ald_sector_region_averages, by = c("company_id","ald_sector", "ald_region")) %>%
-    dplyr::anti_join(financial_data_ald_sector_averages, by = c( "ald_sector", "company_id") )%>%
+    dplyr::anti_join(financial_data_ald_sector_region_averages, by = c("company_id", "ald_sector", "ald_region")) %>%
+    dplyr::anti_join(financial_data_ald_sector_averages, by = c("ald_sector", "company_id")) %>%
     dplyr::bind_cols(global_averages)
 
   # bind together
@@ -311,7 +310,7 @@ select_final_financial_value_using_averages <- function(financial_data) {
       overall_data_type = paste(.data$final_indicator_type, sep = " | ")
     )
 
-  # order data types based on assumed accuracy 
+  # order data types based on assumed accuracy
   # TODO remove has no effect
   eikon_data_long <- eikon_data_long %>%
     dplyr::mutate(
@@ -349,7 +348,7 @@ select_final_financial_value_using_averages <- function(financial_data) {
   financial_data <- financial_data %>%
     dplyr::select(
       .data$company_id, .data$ald_region, .data$ald_sector,
-      .data$final_pd, 
+      .data$final_pd,
       .data$final_net_profit_margin,
       .data$final_debt_equity_ratio,
       .data$final_volatility,
@@ -359,7 +358,7 @@ select_final_financial_value_using_averages <- function(financial_data) {
   names(financial_data) <- names(financial_data) %>%
     stringr::str_remove_all("final_")
 
-  
+
   return(financial_data)
 }
 
@@ -453,25 +452,25 @@ prepare_prewrangled_financial_data_stress_test <- function(eikon_data) {
 }
 
 #' company_id in the ownership tree refer to the company owning the target_company_id
-keep_available_financial_companies_in_ownership_tree <- function(financial_data, ownership_tree){
-  filtered_ownership_tree <- ownership_tree %>% 
-    dplyr::inner_join(financial_data %>% dplyr::distinct(company_id), by=c("parent_company_id"="company_id"))
+keep_available_financial_companies_in_ownership_tree <- function(financial_data, ownership_tree) {
+  filtered_ownership_tree <- ownership_tree %>%
+    dplyr::inner_join(financial_data %>% dplyr::distinct(company_id), by = c("parent_company_id" = "company_id"))
   return(filtered_ownership_tree)
 }
 
 
 prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
-
   #### INITIALISE FINANCIAL DATA
   financial_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
-  # add ald_sector provided by asset resolution. This will duplicate rows for companies represented in more than 1 sector. 
+  # add ald_sector provided by asset resolution. This will duplicate rows for companies represented in more than 1 sector.
   financial_data <- add_column_ald_sector_to_financial_data(financial_data, companies_data)
 
   #### AGGREGATE FINANCIAL DATA FROM ISIN TO COMPANY_ID
   # financial_data <- match_closest_financial_data_to_missing_companies(financial_data, ownership_tree)
   financial_data <- match_location_to_region(financial_data)
   financial_data <- aggregate_financial_indicators(financial_data,
-   grp_cols=c("company_id", "ald_sector", "ald_region"))
+    grp_cols = c("company_id", "ald_sector", "ald_region")
+  )
 
   #### ADD MISSING COMPANIES FROM PRODUCTION
   # add missing companies from production to the financial data and match with closest parent company
@@ -480,32 +479,33 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   missing_companies_in_financial_data <- get_missing_companies_in_financial_data(financial_data, companies_data)
   missing_companies_in_financial_data <- match_location_to_region(missing_companies_in_financial_data) %>% dplyr::distinct_all()
   missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
-    missing_companies_in_financial_data=missing_companies_in_financial_data,
-    financial_data=financial_data,
-    ownership_tree=ownership_tree
-    )
+    missing_companies_in_financial_data = missing_companies_in_financial_data,
+    financial_data = financial_data,
+    ownership_tree = ownership_tree
+  )
 
 
   #### FILL MISSING VALUES WITH AVERAGES
   # Only use original financial values to compute averages
   financial_averages <- compute_financial_averages(financial_data,
-    minimum_sample_size=minimum_sample_size,
-    minimum_ratio_sample=minimum_ratio_sample, 
-    allowed_range_npm=allowed_range_npm)
+    minimum_sample_size = minimum_sample_size,
+    minimum_ratio_sample = minimum_ratio_sample,
+    allowed_range_npm = allowed_range_npm
+  )
 
   # Join available and missing financial data before filling empty values with averages
   financial_data_all_companies <- dplyr::bind_rows(
     financial_data,
     missing_companies_in_financial_data
-  )  
-  
+  )
+
   # fill na with averages
   financial_data_all_companies <- add_columns_financial_averages(
     financial_data_all_companies,
     financial_averages[["ald_sector_region_averages"]],
     financial_averages[["ald_sector_averages"]],
     financial_averages[["global_averages"]]
-    )
+  )
 
   # # filter rows without a company ID as they're not useful anymore (only has an impact in averages)
   financial_data_all_companies <- financial_data_all_companies %>% dplyr::filter(!is.na(company_id))
@@ -513,8 +513,7 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   # fill NA values in financial indicators
   financial_data_all_companies <- select_final_financial_value_using_averages(financial_data_all_companies)
   # aggregate final financial indicators to company level
-  financial_data_all_companies <- aggregate_financial_indicators(financial_data_all_companies, grp_cols=c("company_id"))
+  financial_data_all_companies <- aggregate_financial_indicators(financial_data_all_companies, grp_cols = c("company_id"))
 
   return(financial_data_all_companies)
-  
 }
