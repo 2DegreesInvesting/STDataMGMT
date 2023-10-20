@@ -35,7 +35,7 @@ interpolation_groups <- c(
    "00_Data",
    "01_ProcessedData",
    "03_ScenarioData",
-   glue::glue("pacta_processed_weo_Scenarios_AnalysisInput_{start_year}.csv")
+   glue::glue("weo_Scenarios_AnalysisInput_{start_year}.csv")
  )
 
  weo_data <- readr::read_csv(
