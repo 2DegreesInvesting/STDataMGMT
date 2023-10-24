@@ -434,6 +434,25 @@ keep_available_financial_companies_in_ownership_tree <- function(financial_data,
   return(filtered_ownership_tree)
 }
 
+#' Lower or equal for min value (0) Stricly higher for the max value (npm==1 is allowed)
+#'
+#' @param financial_data financial_data
+#' @param allowed_range_npm allowed_range_npm
+#'
+#' @return a dataframe
+#'
+remove_implausible_values_in_financial_indicators <- function(financial_data, allowed_range_npm){
+  financial_data  <- financial_data %>%
+    dplyr::mutate(
+      net_profit_margin=dplyr::if_else(
+        (.data$net_profit_margin <= allowed_range_npm[1]) | (.data$net_profit_margin > allowed_range_npm[2]),
+        NA,
+        .data$net_profit_margin
+        )
+    )
+  return(financial_data)
+}
+
 
 #' Title
 #'
@@ -443,7 +462,7 @@ keep_available_financial_companies_in_ownership_tree <- function(financial_data,
 #' @param ownership_tree ownership_tree
 #' @param minimum_sample_size minimum_sample_size
 #' @param minimum_ratio_sample minimum_ratio_sample
-#' @param allowed_range_npm allowed_range_npm
+#' @param allowed_range_npm allowed_range_npm c(min_npm, max_npm)
 #'
 #' @return a dataframe
 #' @export
@@ -459,6 +478,10 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   financial_data <- aggregate_financial_indicators(financial_data,
     grp_cols = c("company_id", "ald_sector", "ald_region")
   )
+  
+  # Remove implausible values
+  financial_data <- remove_implausible_values_in_financial_indicators(financial_data, allowed_range_npm=c(0,1))
+
 
   #### ADD MISSING COMPANIES FROM PRODUCTION
   # add missing companies from production to the financial data and match with closest parent company
@@ -474,6 +497,7 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
 
 
   #### FILL MISSING VALUES WITH AVERAGES
+
   # Only use original financial values to compute averages
   financial_averages <- compute_financial_averages(financial_data,
     minimum_sample_size = minimum_sample_size,
@@ -502,6 +526,11 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   financial_data_all_companies <- select_final_financial_value_using_averages(financial_data_all_companies)
   # aggregate final financial indicators to company level
   financial_data_all_companies <- aggregate_financial_indicators(financial_data_all_companies, grp_cols = c("company_id"))
+
+  # assert no NA anywhere and no implausible values
+  financial_data_all_companies %>%
+    remove_implausible_values_in_financial_indicators(allowed_range_npm=c(0,1)) %>%
+    assertr::verify(sum(is.na(.)) == 0)
 
   return(financial_data_all_companies)
 }

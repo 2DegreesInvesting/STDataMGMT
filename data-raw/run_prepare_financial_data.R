@@ -18,7 +18,7 @@ minimum_ratio_sample <- 1 / 3
 allowed_range_npm <- c(-Inf, Inf)
 
 
-financial_data <- prepare_financial_data(
+prewrangled_financial_data_stress_test <- prepare_financial_data(
   ids_data = ids_data,
   eikon_data = eikon_data,
   companies_data = companies_data,
@@ -30,9 +30,10 @@ financial_data <- prepare_financial_data(
 
 abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))
 
-financial_data <- financial_data %>% dplyr::inner_join(abcd_data %>% dplyr::distinct(company_id))
+prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>% 
+  dplyr::inner_join(abcd_data %>% dplyr::distinct(company_id))
 
 
-financial_data %>% readr::write_csv(
+prewrangled_financial_data_stress_test %>% readr::write_csv(
   file.path("data-raw", "prewrangled_financial_data_stress_test.csv")
 )
