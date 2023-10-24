@@ -30,7 +30,7 @@ prewrangled_financial_data_stress_test <- prepare_financial_data(
 
 abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))
 
-prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>% 
+prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
   dplyr::inner_join(abcd_data %>% dplyr::distinct(company_id))
 
 
