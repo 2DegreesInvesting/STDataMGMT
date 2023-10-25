@@ -27,7 +27,7 @@ prepare_financial_data(
 
 \item{minimum_ratio_sample}{minimum_ratio_sample}
 
-\item{allowed_range_npm}{allowed_range_npm}
+\item{allowed_range_npm}{allowed_range_npm c(min_npm, max_npm)}
 }
 \value{
 a dataframe
