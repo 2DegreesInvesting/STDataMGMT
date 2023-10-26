@@ -39,7 +39,7 @@ abcd_stress_test_input <-
   prepare_abcd_data(
     company_activities = company_activities,
     company_emissions = company_emissions,
-    scenarios_geographies = scenarios_geographies,
+    scenarios_geographies = scenarios_geographies, # loaded from package
     start_year = start_year,
     time_horizon = time_horizon,
     additional_year = additional_year,

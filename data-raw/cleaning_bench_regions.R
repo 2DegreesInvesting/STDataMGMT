@@ -1,13 +1,14 @@
 devtools::load_all()
 library(dplyr)
 
+bench_regions <- readr::read_csv("data-raw/bench_regions.csv")
+
 country_to_iso2c <- countrycode::codelist %>%
   filter(!is.na(iso2c), !is.na(`country.name.en`)) %>%
   distinct(iso2c, `country.name.en`) %>%
   rename(country = `country.name.en`, country_iso = iso2c) %>%
   bind_rows(tibble::tribble(~country, ~country_iso, c("Kosovo"), c("XK")))
 
-bench_regions <- readr::read_csv("data-raw/bench_regions.csv")
 # remove countries with countrycode EU, unknown as a country (is European but which one ?)
 bench_regions <- bench_regions %>% filter(country_iso != "EU")
 # ADD REGIONS ===============================================================
@@ -149,14 +150,13 @@ bench_regions <-
   mutate(reg_count = n()) %>%
   ungroup()
 
-bench_regions %>% readr::write_rds("data-raw/bench_regions.rds")
 
 # RENAME COUNTRY ===============================================================
 
 # remove all country names and replace them by the column `country.name.en`
 # of `countrycode::codelist`
 # using the iso2c as join key
-# 32 countrycodes  concerned: to check:
+# 32 countrycodes  concerned. Proof:
 sum(
   bench_regions %>% distinct(country, country_iso) %>% group_by(country_iso) %>% summarise(nrow = n()) %>% arrange(desc(nrow)) %>% print(n = 100) %>% pull(nrow) > 1
 )
@@ -168,4 +168,5 @@ bench_regions <- bench_regions %>%
   )
 
 
-bench_regions %>% readr::write_rds("data-raw/bench_regions.rds")
+scenario_geographies <- bench_regions
+save(scenario_geographies, file="data/scenario_geographies.rda")

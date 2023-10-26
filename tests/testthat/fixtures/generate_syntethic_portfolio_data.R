@@ -1,7 +1,11 @@
 devtools::load_all()
 library(dplyr)
 
-portfolio_values <- company_activities %>%
+eikon_data <- load("data/eikon_data.rda")
+available_isins <- unique(eikon_data$isin)
+
+portfolio_values <-
+ company_activities %>%
   select(company_id, company_name, ald_sector, ald_business_unit, ald_location) %>%
   mutate(
     value_usd = sample(1e4:1e9, n(), replace = TRUE),
@@ -9,16 +13,20 @@ portfolio_values <- company_activities %>%
   )
 
 
-companies_bonds <-
+companies_fixed_income <-
   portfolio_values %>%
   sample_n(200) %>%
-  mutate(asset_type = "Bonds")
+  mutate(asset_type = "fixed_income") %>%
+companies_fixed_income <- bind_columns(
+  companies_fixed_income, 
+  bind_columns()
+)
 
 companies_equities <-
   portfolio_values %>%
   sample_n(200) %>%
   mutate(
-    asset_type = "Equity"
+    asset_type = "equity"
   )
 
 # companies_id <-
@@ -30,12 +38,12 @@ companies_equities <-
 #     ald_business_unit = business_unit
 #   )
 
-# companies_bonds <-
+# companies_fixed_income <-
 #   bind_cols(companies[sample(1:nrow(companies)), ], bonds)
 # companies_equities <-
 #   bind_cols(companies[sample(1:nrow(companies)), ], equities)
 
-portfolio_data <- bind_rows(companies_bonds, companies_equities)
+portfolio_data <- bind_rows(companies_fixed_income, companies_equities)
 # portfolio_data <- portfolio_data %>%
 #   mutate(
 #     first_maturity = as.Date(portfolio_data$first_maturity, "%d.%m.%y")
@@ -43,23 +51,12 @@ portfolio_data <- bind_rows(companies_bonds, companies_equities)
 portfolio_data[, "loss_given_default"] <- runif(n = nrow(portfolio_data), min = 1e-12, max = .9999999999)
 
 
-random_isin <- function(...) {
-  countries <- countrycode::codelist %>%
-    filter(!is.na(iso2c)) %>%
-    distinct(iso2c) %>%
-    pull(iso2c)
-
-  sprintf(
-    "%s%s",
-    paste0(sample(countries, 1, TRUE), collapse = ""),
-    paste0(sample(9, 10, TRUE), collapse = "")
-  )
-}
-
-portfolio_data[, "isin"] <- purrr::map_vec(1:nrow(portfolio_data), random_isin)
-
+countries <- countrycode::codelist %>%
+  filter(!is.na(iso2c)) %>%
+  distinct(iso2c) %>%
+  pull(iso2c)
 portfolio_data <- portfolio_data %>%
-  mutate(ald_location = substring(isin, 1, 2))
+  mutate(ald_location = if_else(!is.na(isin), substring(isin, 1, 2), sample(countries, 1, TRUE)))
 
 portfolio_data[rbinom(nrow(portfolio_data), 1, 0.3) == 1, "isin"] <- NA
 
