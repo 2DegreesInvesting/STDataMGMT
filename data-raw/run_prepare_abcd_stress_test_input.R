@@ -15,7 +15,7 @@ output_path_stress_test_input <-
   r2dii.utils::path_dropbox_2dii(
     "ST_INPUTS",
     "ST_INPUTS_MASTER"
-  )
+  ) 
 
 start_year <- 2022
 time_horizon <- 5
@@ -47,7 +47,7 @@ abcd_stress_test_input <-
     sector_list = sector_list
   )
 
-abcd_stress_test_input %>%
+abcd_stress_test_input %>% 
   assertr::verify(all(colSums(is.na(.)) == 0))
 
 abcd_stress_test_input %>% readr::write_csv(fs::path(

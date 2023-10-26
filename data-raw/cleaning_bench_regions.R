@@ -4,12 +4,12 @@ library(dplyr)
 bench_regions <- readr::read_csv("data-raw/bench_regions.csv")
 
 country_to_iso2c <- countrycode::codelist %>%
-  filter(!is.na(iso2c), !is.na(`country.name.en`)) %>%
-  distinct(iso2c, `country.name.en`) %>%
-  rename(country = `country.name.en`, country_iso = iso2c) %>%
-  bind_rows(tibble::tribble(~country, ~country_iso, c("Kosovo"), c("XK")))
+  filter(!is.na(ecb), !is.na(`country.name.en`)) %>%
+  distinct(ecb, `country.name.en`) %>%
+  rename(country = `country.name.en`, country_iso = ecb)
 
 # remove countries with countrycode EU, unknown as a country (is European but which one ?)
+# also contains only 1 country (russia)
 bench_regions <- bench_regions %>% filter(country_iso != "EU")
 # ADD REGIONS ===============================================================
 
@@ -112,8 +112,6 @@ new_geos_and_countrycodes <- new_geos_and_countrycodes %>%
   ungroup()
 
 bench_regions <- bind_rows(bench_regions, new_geos_and_countrycodes)
-
-bench_regions %>% readr::write_csv("data-raw/bench_regions.rds")
 
 # REMOVE DUPLICATES ===============================================================
 
