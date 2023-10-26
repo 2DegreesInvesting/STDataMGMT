@@ -52,18 +52,18 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
     )
 
   fossil_fuels_data <- fossil_fuels_data %>%
-    # ADO 1192: technology is wrongly called sector in raw data. rename
-    dplyr::rename(technology = .data$sector) %>%
+    # ADO 1192: ald_business_unit is wrongly called sector in raw data. rename
+    dplyr::rename(ald_business_unit = .data$sector) %>%
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "Crude oil" ~ "Oil",
-        .data$technology == "Natural gas" ~ "Gas",
-        TRUE ~ .data$technology
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "Crude oil" ~ "Oil",
+        .data$ald_business_unit == "Natural gas" ~ "Gas",
+        TRUE ~ .data$ald_business_unit
       )
     ) %>%
     dplyr::mutate(
       sector = dplyr::if_else(
-        .data$technology == "Coal",
+        .data$ald_business_unit == "Coal",
         "Coal",
         "Oil&Gas"
       )
@@ -75,9 +75,9 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
   # ADO 1192 - for some technologies, there are no global price data.
   # approximate with simple mean based on all other given regions
   fossil_fuels_data_global <- fossil_fuels_data %>%
-    dplyr::filter(.data$technology %in% c("Gas", "Coal")) %>%
+    dplyr::filter(.data$ald_business_unit %in% c("Gas", "Coal")) %>%
     dplyr::group_by(
-      .data$source, .data$scenario, .data$sector, .data$technology, .data$year,
+      .data$source, .data$scenario, .data$sector, .data$ald_business_unit, .data$year,
       .data$unit, .data$indicator
     ) %>%
     dplyr::summarise(
@@ -98,6 +98,7 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
   stopifnot(power_data_has_expected_columns)
 
   power_data <- input_data_power %>%
+    dplyr::rename(ald_business_unit=technology) %>%
     tidyr::pivot_longer(
       cols = tidyr::starts_with("20"),
       names_to = "year",
@@ -115,10 +116,10 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
       price = .data$value
     ) %>%
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "Nuclear" ~ "NuclearCap",
-        .data$technology == "Coal" ~ "CoalCap",
-        .data$technology == "Gas CCGT" ~ "GasCap",
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "Nuclear" ~ "NuclearCap",
+        .data$ald_business_unit == "Coal" ~ "CoalCap",
+        .data$ald_business_unit == "Gas CCGT" ~ "GasCap",
         TRUE ~ "RenewablesCap"
       )
     ) %>%
@@ -127,9 +128,9 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
     ) %>%
     dplyr::group_by(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$unit, .data$year, .data$indicator
+      .data$ald_business_unit, .data$unit, .data$year, .data$indicator
     ) %>%
-    # ado 1192 - summarise so that every technology only has one row left per
+    # ado 1192 - summarise so that every ald_business_unit only has one row left per
     # combination. Because of combining multiple wind and solar techs from the
     # raw data into "RenewablesCap" in the processed data, this is not initially
     # the case
@@ -141,14 +142,14 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
     dplyr::select(names(fossil_fuels_data))
 
   missing_power_data <- power_data %>%
-    dplyr::filter(.data$technology %in% c("GasCap", "RenewablesCap")) %>%
+    dplyr::filter(.data$ald_business_unit %in% c("GasCap", "RenewablesCap")) %>%
     # ADO 1192 - use gascap and renwablescap data for oilcap and hydrocap
     # as a placeholder until IEA replies
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "GasCap" ~ "OilCap",
-        .data$technology == "RenewablesCap" ~ "HydroCap",
-        TRUE ~ .data$technology
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "GasCap" ~ "OilCap",
+        .data$ald_business_unit == "RenewablesCap" ~ "HydroCap",
+        TRUE ~ .data$ald_business_unit
       )
     )
 
@@ -157,11 +158,11 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
 
   power_data <- power_data %>%
     dplyr::group_by(
-      .data$source, .data$technology, .data$unit, .data$scenario_geography,
+      .data$source, .data$ald_business_unit, .data$unit, .data$scenario_geography,
       .data$scenario, .data$sector, .data$indicator
     ) %>%
     dplyr::arrange(
-      .data$source, .data$technology, .data$unit, .data$scenario_geography,
+      .data$source, .data$ald_business_unit, .data$unit, .data$scenario_geography,
       .data$scenario, .data$sector, .data$indicator, .data$year
     ) %>%
     tidyr::fill("price", .direction = "down") %>%
@@ -172,7 +173,7 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
   # approximate with simple mean based on all other given regions
   power_data_global <- power_data %>%
     dplyr::group_by(
-      .data$source, .data$scenario, .data$year, .data$sector, .data$technology,
+      .data$source, .data$scenario, .data$year, .data$sector, .data$ald_business_unit,
       .data$unit, .data$indicator
     ) %>%
     dplyr::summarise(
@@ -189,7 +190,7 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
     dplyr::bind_rows(power_data) %>%
     dplyr::relocate(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$indicator, .data$unit, .data$year, .data$price
+      .data$ald_business_unit, .data$indicator, .data$unit, .data$year, .data$price
     )
 
   min_year <- min(data$year, na.rm = TRUE)
@@ -201,7 +202,7 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
       tidyr::nesting(
         !!!rlang::syms(
           c(
-            "source", "scenario", "scenario_geography", "sector", "technology",
+            "source", "scenario", "scenario_geography", "sector", "ald_business_unit",
             "indicator", "unit"
           )
         )
@@ -209,13 +210,13 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
     ) %>%
     dplyr::arrange(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$indicator, .data$unit, .data$year
+      .data$ald_business_unit, .data$indicator, .data$unit, .data$year
     )
 
   data <- data %>%
     dplyr::group_by(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$indicator, .data$unit
+      .data$ald_business_unit, .data$indicator, .data$unit
     ) %>%
     dplyr::mutate(price = zoo::na.approx(object = .data$price)) %>%
     dplyr::ungroup()
@@ -273,7 +274,7 @@ prepare_price_data_long_NGFS2021 <- function(input_data_fossil_fuels_ngfs, start
         TRUE ~ .data$category_c
       )
     ) %>%
-    dplyr::rename(unit = .data$Unit, technology = .data$category_c, indicator = .data$category_a) %>%
+    dplyr::rename(unit = .data$Unit, ald_business_unit = .data$category_c, indicator = .data$category_a) %>%
     dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$Region))
 
   data <- data %>%
@@ -312,24 +313,24 @@ prepare_price_data_long_IPR2021 <- function(data, start_year) {
   # Oil: available only for World and as high and low price. We take the average
   # Unit: We transform in the correct unit for the ST
 
-  ### Creating a technology column
+  ### Creating a ald_business_unit column
 
-  data$technology <- data$Sub_variable_class_1
+  data$ald_business_unit <- data$Sub_variable_class_1
 
   ### Renaming technologies and Sector
 
   data <- data %>%
-    dplyr::mutate(technology = .data$technology) %>%
+    dplyr::mutate(ald_business_unit = .data$ald_business_unit) %>%
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "Oil" ~ "Oil",
-        .data$technology == "Coal" ~ "Coal",
-        .data$technology == "Natural gas" ~ "Gas",
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "Oil" ~ "Oil",
+        .data$ald_business_unit == "Coal" ~ "Coal",
+        .data$ald_business_unit == "Natural gas" ~ "Gas",
       ),
       sector = dplyr::case_when(
-        .data$technology == "Oil" ~ "Oil&Gas",
-        .data$technology == "Gas" ~ "Oil&Gas",
-        .data$technology == "Coal" ~ "Coal",
+        .data$ald_business_unit == "Oil" ~ "Oil&Gas",
+        .data$ald_business_unit == "Gas" ~ "Oil&Gas",
+        .data$ald_business_unit == "Coal" ~ "Coal",
       ),
       Scenario = dplyr::case_when(
         .data$Scenario == "RPS" ~ "IPR2021_RPS",
@@ -356,28 +357,28 @@ prepare_price_data_long_IPR2021 <- function(data, start_year) {
 
   ### Creating Coal Prices
   coal_global <- data %>%
-    dplyr::filter(.data$technology == "Coal") %>%
+    dplyr::filter(.data$ald_business_unit == "Coal") %>%
     dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
     dplyr::summarize(price = mean(.data$price)) %>%
-    dplyr::mutate(Variable_class = "price", scenario_geography = "Global", sector = "Coal", technology = "Coal", unit = "USD / tonne")
+    dplyr::mutate(Variable_class = "price", scenario_geography = "Global", sector = "Coal", ald_business_unit = "Coal", unit = "USD / tonne")
 
   ### Creating Global Gas prices for High and Low
   gas_global <- data %>%
-    dplyr::filter(.data$technology == "Gas") %>%
+    dplyr::filter(.data$ald_business_unit == "Gas") %>%
     dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
     dplyr::summarize(price = mean(.data$price)) %>%
-    dplyr::mutate(scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
+    dplyr::mutate(scenario_geography = "Global", sector = "Oil&Gas", ald_business_unit = "Gas", unit = "USD / MMBtu")
 
   ### Creating Average of the high and low prices
   gas_global <- gas_global %>%
     dplyr::group_by(.data$scenario, .data$year) %>%
-    dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
+    dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", ald_business_unit = "Gas", unit = "USD / MMBtu")
 
-  ### Creating an average of the Oil technology high and low price per scenario and year
+  ### Creating an average of the Oil ald_business_unit high and low price per scenario and year
   oil_avg <- data %>%
-    dplyr::filter(.data$technology == "Oil") %>%
+    dplyr::filter(.data$ald_business_unit == "Oil") %>%
     dplyr::group_by(.data$scenario, .data$year) %>%
-    dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Oil", unit = "USD / Barrel")
+    dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", ald_business_unit = "Oil", unit = "USD / Barrel")
 
   data <- rbind(coal_global, gas_global, oil_avg) ### For now we only take global prices from IPR
 
@@ -428,6 +429,7 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
   stopifnot(power_data_has_expected_columns)
 
   power_data <- input_data_power %>%
+  dplyr::rename(ald_business_unit=technology) %>%
     tidyr::pivot_longer(
       cols = tidyr::starts_with("20"),
       names_to = "year",
@@ -445,10 +447,10 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
       price = .data$value
     ) %>%
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "Nuclear" ~ "NuclearCap",
-        .data$technology == "Coal" ~ "CoalCap",
-        .data$technology == "Gas CCGT" ~ "GasCap",
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "Nuclear" ~ "NuclearCap",
+        .data$ald_business_unit == "Coal" ~ "CoalCap",
+        .data$ald_business_unit == "Gas CCGT" ~ "GasCap",
         TRUE ~ "RenewablesCap"
       )
     ) %>%
@@ -457,9 +459,9 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
     ) %>%
     dplyr::group_by(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$unit, .data$year, .data$indicator
+      .data$ald_business_unit, .data$unit, .data$year, .data$indicator
     ) %>%
-    # ado 1192 - summarise so that every technology only has one row left per
+    # ado 1192 - summarise so that every ald_business_unit only has one row left per
     # combination. Because of combining multiple wind and solar techs from the
     # raw data into "RenewablesCap" in the processed data, this is not initially
     # the case
@@ -470,14 +472,14 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
     dplyr::ungroup()
 
   missing_power_data <- power_data %>%
-    dplyr::filter(.data$technology %in% c("GasCap", "RenewablesCap")) %>%
+    dplyr::filter(.data$ald_business_unit %in% c("GasCap", "RenewablesCap")) %>%
     # ADO 1192 - use gascap and renwablescap data for oilcap and hydrocap
     # as a placeholder until IEA replies
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "GasCap" ~ "OilCap",
-        .data$technology == "RenewablesCap" ~ "HydroCap",
-        TRUE ~ .data$technology
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "GasCap" ~ "OilCap",
+        .data$ald_business_unit == "RenewablesCap" ~ "HydroCap",
+        TRUE ~ .data$ald_business_unit
       )
     )
 
@@ -486,11 +488,11 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
 
   power_data <- power_data %>%
     dplyr::group_by(
-      .data$source, .data$technology, .data$unit, .data$scenario_geography,
+      .data$source, .data$ald_business_unit, .data$unit, .data$scenario_geography,
       .data$scenario, .data$sector, .data$indicator
     ) %>%
     dplyr::arrange(
-      .data$source, .data$technology, .data$unit, .data$scenario_geography,
+      .data$source, .data$ald_business_unit, .data$unit, .data$scenario_geography,
       .data$scenario, .data$sector, .data$indicator, .data$year
     ) %>%
     tidyr::fill("price", .direction = "down") %>%
@@ -501,7 +503,7 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
   # approximate with simple mean based on all other given regions
   power_data_global <- power_data %>%
     dplyr::group_by(
-      .data$source, .data$scenario, .data$year, .data$sector, .data$technology,
+      .data$source, .data$scenario, .data$year, .data$sector, .data$ald_business_unit,
       .data$unit, .data$indicator
     ) %>%
     dplyr::summarise(
@@ -516,7 +518,7 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
   data <- power_data %>%
     dplyr::relocate(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$indicator, .data$unit, .data$year, .data$price
+      .data$ald_business_unit, .data$indicator, .data$unit, .data$year, .data$price
     )
 
   min_year <- min(data$year, na.rm = TRUE)
@@ -528,7 +530,7 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
       tidyr::nesting(
         !!!rlang::syms(
           c(
-            "source", "scenario", "scenario_geography", "sector", "technology",
+            "source", "scenario", "scenario_geography", "sector", "ald_business_unit",
             "indicator", "unit"
           )
         )
@@ -536,13 +538,13 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
     ) %>%
     dplyr::arrange(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$indicator, .data$unit, .data$year
+      .data$ald_business_unit, .data$indicator, .data$unit, .data$year
     )
 
   data <- data %>%
     dplyr::group_by(
       .data$source, .data$scenario, .data$scenario_geography, .data$sector,
-      .data$technology, .data$indicator, .data$unit
+      .data$ald_business_unit, .data$indicator, .data$unit
     ) %>%
     dplyr::mutate(price = zoo::na.approx(object = .data$price)) %>%
     dplyr::ungroup()
@@ -582,7 +584,7 @@ prepare_price_data_long_Oxf2021 <- function(data, start_year) {
 
   data <- data %>%
     dplyr::rename(
-      technology = .data$Technology,
+      ald_business_unit = .data$Technology,
       sector = .data$Sector,
       scenario = .data$Scenario,
       scenario_geography = .data$Region,
@@ -594,14 +596,14 @@ prepare_price_data_long_Oxf2021 <- function(data, start_year) {
 
   # Function to add the years from 2069 to 2100
   add_years <- function(data, start, end) {
-    technologies <- unique(data$technology)
+    technologies <- unique(data$ald_business_unit)
     scenarios <- unique(data$scenario)
     scenario_geography <- unique(data$scenario_geography)
     new_data <- data
     for (year in start:end) {
-      for (technology in technologies) {
+      for (ald_business_unit in technologies) {
         for (scenario in scenarios) {
-          new_row <- data.frame(scenario_geography = scenario_geography, year = year, price = NA, technology = technology, scenario = scenario, sector = "Fossil Fuels", stringsAsFactors = FALSE)
+          new_row <- data.frame(scenario_geography = scenario_geography, year = year, price = NA, ald_business_unit = ald_business_unit, scenario = scenario, sector = "Fossil Fuels", stringsAsFactors = FALSE)
           new_data <- rbind(new_data, new_row)
         }
       }
@@ -622,8 +624,8 @@ prepare_price_data_long_Oxf2021 <- function(data, start_year) {
         .data$scenario == "Oxford - slow_transition" ~ "Oxford2021_slow"
       ),
       sector = dplyr::case_when(
-        .data$technology == "Coal" ~ "Coal",
-        .data$technology %in% c("Gas", "Oil") ~ "Oil&Gas",
+        .data$ald_business_unit == "Coal" ~ "Coal",
+        .data$ald_business_unit %in% c("Gas", "Oil") ~ "Oil&Gas",
       ),
       scenario_geography = dplyr::case_when(
         .data$scenario_geography == "World" ~ "Global"
@@ -643,12 +645,12 @@ prepare_price_data_long_Oxf2021 <- function(data, start_year) {
 
   data <- data %>%
     dplyr::mutate(
-      price = dplyr::if_else(.data$technology == "Oil", .data$price / 3.6, .data$price),
-      price = dplyr::if_else(.data$technology == "Gas", .data$price / 3.6, .data$price),
-      price = dplyr::if_else(.data$technology == "Coal", .data$price / 0.122835, .data$price),
-      unit = dplyr::if_else(.data$technology == "Oil", "GJ", .data$unit),
-      unit = dplyr::if_else(.data$technology == "Gas", "GJ", .data$unit),
-      unit = dplyr::if_else(.data$technology == "Coal", "usd/tonne", .data$unit),
+      price = dplyr::if_else(.data$ald_business_unit == "Oil", .data$price / 3.6, .data$price),
+      price = dplyr::if_else(.data$ald_business_unit == "Gas", .data$price / 3.6, .data$price),
+      price = dplyr::if_else(.data$ald_business_unit == "Coal", .data$price / 0.122835, .data$price),
+      unit = dplyr::if_else(.data$ald_business_unit == "Oil", "GJ", .data$unit),
+      unit = dplyr::if_else(.data$ald_business_unit == "Gas", "GJ", .data$unit),
+      unit = dplyr::if_else(.data$ald_business_unit == "Coal", "usd/tonne", .data$unit),
     )
 
   # delete data for years below 2021 and the Oxford_slow scenario
@@ -658,12 +660,12 @@ prepare_price_data_long_Oxf2021 <- function(data, start_year) {
 
 
   # replace NAs with linear extrapolated values from the last 20 years of observation
-  # for each scenario-geography-technology combination
+  # for each scenario-geography-ald_business_unit combination
 
-  for (i in unique(data$technology)) {
+  for (i in unique(data$ald_business_unit)) {
     for (j in unique(data$scenario)) {
-      model <- stats::lm(price ~ year, data = data[data$year >= 2049 & data$year <= 2069 & data$technology == i & data$scenario == j, ])
-      data$price[data$technology == i & data$scenario == j] <- ifelse(is.na(data$price[data$technology == i & data$scenario == j]), model$coefficients[2] * data$year[data$technology == i & data$scenario == j] + model$coefficients[1], data$price[data$technology == i & data$scenario == j])
+      model <- stats::lm(price ~ year, data = data[data$year >= 2049 & data$year <= 2069 & data$ald_business_unit == i & data$scenario == j, ])
+      data$price[data$ald_business_unit == i & data$scenario == j] <- ifelse(is.na(data$price[data$ald_business_unit == i & data$scenario == j]), model$coefficients[2] * data$year[data$ald_business_unit == i & data$scenario == j] + model$coefficients[1], data$price[data$ald_business_unit == i & data$scenario == j])
     }
   }
   return(data)
