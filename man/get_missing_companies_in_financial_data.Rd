@@ -3,7 +3,7 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{get_missing_companies_in_financial_data}
 \alias{get_missing_companies_in_financial_data}
-\title{Title}
+\title{Companies missing by both ald_sector and ald_location}
 \usage{
 get_missing_companies_in_financial_data(financial_data, companies_data)
 }
@@ -16,5 +16,5 @@ get_missing_companies_in_financial_data(financial_data, companies_data)
 a dataframe
 }
 \description{
-Title
+Companies missing by both ald_sector and ald_location
 }

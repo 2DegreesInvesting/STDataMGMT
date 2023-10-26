@@ -5,7 +5,7 @@
 \alias{prewrangled_financial_data_stress_test}
 \title{generated}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 99 rows and 7 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 100 rows and 6 columns.
 }
 \source{
 generative script in tests folder
