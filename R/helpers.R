@@ -126,7 +126,7 @@ remove_incomplete_sectors <- function(data, p4_type = "P4I") {
               dplyr::select(.data$sector_p4i, .data$technology_p4i),
             by = c(
               "ald_sector" = "sector_p4i",
-              "technology" = "technology_p4i"
+              "ald_business_unit" = "technology_p4i"
             )
           )
       } else {

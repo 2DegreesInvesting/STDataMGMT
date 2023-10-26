@@ -256,4 +256,4 @@ bench_regions_output_path = here::here("data-raw", "bench_regions.rds")
 )
 
 scenarios_geographies <- readr::read_rds(here::here("data-raw", "bench_regions.rds"))
-usethis::use_data(scenarios_geographies)
+usethis::use_data(scenarios_geographies, overwrite=T)

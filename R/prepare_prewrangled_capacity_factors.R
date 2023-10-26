@@ -153,17 +153,17 @@ prepare_prewrangled_capacity_factors_WEO2021 <- function(data, start_year) {
       # TODO: check if region and region_2dii are somehow required. see prior version
       scenario_geography = .data$ScenarioGeography,
       ald_sector = .data$Sector,
-      technology = .data$Technology
+      ald_business_unit = .data$Technology
     ) %>%
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "Coal" ~ "CoalCap",
-        .data$technology == "Oil" ~ "OilCap",
-        .data$technology == "Natural gas" ~ "GasCap",
-        .data$technology == "Hydro" ~ "HydroCap",
-        .data$technology == "Nuclear" ~ "NuclearCap",
-        .data$technology == "Renewables" ~ "RenewablesCap",
-        TRUE ~ .data$technology
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "Coal" ~ "CoalCap",
+        .data$ald_business_unit == "Oil" ~ "OilCap",
+        .data$ald_business_unit == "Natural gas" ~ "GasCap",
+        .data$ald_business_unit == "Hydro" ~ "HydroCap",
+        .data$ald_business_unit == "Nuclear" ~ "NuclearCap",
+        .data$ald_business_unit == "Renewables" ~ "RenewablesCap",
+        TRUE ~ .data$ald_business_unit
       )
     ) %>%
     dplyr::mutate(
@@ -194,13 +194,13 @@ prepare_prewrangled_capacity_factors_WEO2021 <- function(data, start_year) {
 
   capacity_factors <- capacity_factors %>%
     dplyr::select(
-      .data$scenario, .data$scenario_geography, .data$technology, .data$year,
+      .data$scenario, .data$scenario_geography, .data$ald_business_unit, .data$year,
       .data$capacity_factor
     )
 
   output_has_expected_columns <- all(
     c(
-      "scenario", "scenario_geography", "technology", "year", "capacity_factor"
+      "scenario", "scenario_geography", "ald_business_unit", "year", "capacity_factor"
     ) %in% colnames(capacity_factors)
   )
   stopifnot(output_has_expected_columns)
@@ -269,7 +269,7 @@ prepare_capacity_factors_NGFS2021 <- function(data, start_year) {
         .data$Region == "World" ~ "Global",
         TRUE ~ .data$Region
       ),
-      technology = dplyr::case_when(
+      ald_business_unit = dplyr::case_when(
         .data$category_c == "Oil" ~ "OilCap",
         .data$category_c == "Gas" ~ "GasCap",
         .data$category_c == "Coal" ~ "CoalCap",
@@ -294,12 +294,12 @@ prepare_capacity_factors_NGFS2021 <- function(data, start_year) {
 
 
   combine_renewables <- data %>%
-    dplyr::filter(.data$technology == "RenewablesCap") %>%
-    dplyr::group_by(.data$year, .data$technology, .data$scenario_geography, .data$model, .data$scenario, .data$category_a) %>%
+    dplyr::filter(.data$ald_business_unit == "RenewablesCap") %>%
+    dplyr::group_by(.data$year, .data$ald_business_unit, .data$scenario_geography, .data$model, .data$scenario, .data$category_a) %>%
     dplyr::mutate(value = sum(.data$value)) %>%
     unique()
 
-  delete_renewables <- data %>% dplyr::filter(!.data$technology == "RenewablesCap")
+  delete_renewables <- data %>% dplyr::filter(!.data$ald_business_unit == "RenewablesCap")
 
   data <- dplyr::full_join(combine_renewables, delete_renewables)
 
@@ -365,38 +365,38 @@ prepare_capacity_factors_NGFS2021 <- function(data, start_year) {
 
 ### IPR Capacity Factors
 prepare_capacity_factors_IPR2021 <- function(data, start_year) {
-  ### Creating a technology column
+  ### Creating a ald_business_unit column
 
-  data$technology <- ifelse(data$Sector == "Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
-  data$technology <- ifelse(data$Variable_class == "Electricity generation", paste(data$Sub_variable_class_1, data$Sector, sep = "_"), data$technology)
+  data$ald_business_unit <- ifelse(data$Sector == "Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
+  data$ald_business_unit <- ifelse(data$Variable_class == "Electricity generation", paste(data$Sub_variable_class_1, data$Sector, sep = "_"), data$ald_business_unit)
 
-  ### Renaming sector and technology
+  ### Renaming sector and ald_business_unit
 
   data <- data %>%
     dplyr::rename(ald_sector = .data$Sector, Category = .data$Variable_class) %>%
-    dplyr::mutate(technology = .data$technology) %>%
+    dplyr::mutate(ald_business_unit = .data$ald_business_unit) %>%
     dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$technology == "Coal_Power" ~ "CoalCap",
-        .data$technology == "Natural gas_Power" ~ "GasCap",
-        .data$technology == "Nuclear_Power" ~ "NuclearCap",
-        .data$technology == "Hydro_Power" ~ "HydroCap",
-        .data$technology == "Oil_Power" ~ "OilCap",
-        .data$technology == "Biomass_Power" ~ "BiomassCap", ### Is this the same as Biomass?
-        .data$technology == "Offshore wind_Power" ~ "OffWindCap",
-        .data$technology == "Onshore wind_Power" ~ "OnWindCap",
-        .data$technology == "Solar_Power" ~ "SolarCap"
+      ald_business_unit = dplyr::case_when(
+        .data$ald_business_unit == "Coal_Power" ~ "CoalCap",
+        .data$ald_business_unit == "Natural gas_Power" ~ "GasCap",
+        .data$ald_business_unit == "Nuclear_Power" ~ "NuclearCap",
+        .data$ald_business_unit == "Hydro_Power" ~ "HydroCap",
+        .data$ald_business_unit == "Oil_Power" ~ "OilCap",
+        .data$ald_business_unit == "Biomass_Power" ~ "BiomassCap", ### Is this the same as Biomass?
+        .data$ald_business_unit == "Offshore wind_Power" ~ "OffWindCap",
+        .data$ald_business_unit == "Onshore wind_Power" ~ "OnWindCap",
+        .data$ald_business_unit == "Solar_Power" ~ "SolarCap"
       ),
       ald_sector = dplyr::case_when(
-        .data$technology == "CoalCap" ~ "Power",
-        .data$technology == "GasCap" ~ "Power",
-        .data$technology == "OilCap" ~ "Power",
-        .data$technology == "NuclearCap" ~ "Power",
-        .data$technology == "HydroCap" ~ "Power",
-        .data$technology == "BiomassCap" ~ "Power",
-        .data$technology == "OffWindCap" ~ "Power",
-        .data$technology == "OnWindCap" ~ "Power",
-        .data$technology == "SolarCap" ~ "Power"
+        .data$ald_business_unit == "CoalCap" ~ "Power",
+        .data$ald_business_unit == "GasCap" ~ "Power",
+        .data$ald_business_unit == "OilCap" ~ "Power",
+        .data$ald_business_unit == "NuclearCap" ~ "Power",
+        .data$ald_business_unit == "HydroCap" ~ "Power",
+        .data$ald_business_unit == "BiomassCap" ~ "Power",
+        .data$ald_business_unit == "OffWindCap" ~ "Power",
+        .data$ald_business_unit == "OnWindCap" ~ "Power",
+        .data$ald_business_unit == "SolarCap" ~ "Power"
       ),
       Scenario = dplyr::case_when(
         .data$Scenario == "RPS" ~ "IPR2021_RPS",
@@ -429,13 +429,13 @@ prepare_capacity_factors_IPR2021 <- function(data, start_year) {
 
   ### creating Renewablescap
 
-  combine_RenewablesCap <- data[data$technology == "OffWindCap" | data$technology == "OnWindCap" | data$technology == "SolarCap" | data$technology == "BiomassCap", ]
+  combine_RenewablesCap <- data[data$ald_business_unit == "OffWindCap" | data$ald_business_unit == "OnWindCap" | data$ald_business_unit == "SolarCap" | data$ald_business_unit == "BiomassCap", ]
 
   combine_RenewablesCap <- combine_RenewablesCap %>%
     dplyr::group_by(.data$Category, .data$scenario_geography, .data$scenario, .data$ald_sector, .data$units, .data$year) %>%
     dplyr::summarize(value = sum(.data$value))
 
-  combine_RenewablesCap$technology <- "RenewablesCap"
+  combine_RenewablesCap$ald_business_unit <- "RenewablesCap"
 
   ### binding RenewablesCap with data
 
@@ -529,14 +529,14 @@ prepare_capacity_factors_OXF2021 <- function(data) {
   # Function to add the years from 2040 to 2100
 
   add_years <- function(data, start, end) {
-    technologies <- unique(data$technology)
+    technologies <- unique(data$ald_business_unit)
     scenarios <- unique(data$scenario)
     scenario_geography <- unique(data$scenario_geography)
     new_data <- data
     for (year in start:end) {
-      for (technology in technologies) {
+      for (ald_business_unit in technologies) {
         for (scenario in scenarios) {
-          new_row <- data.frame(scenario_geography = scenario_geography, year = year, capacity_factor = NA, technology = technology, scenario = scenario, stringsAsFactors = FALSE)
+          new_row <- data.frame(scenario_geography = scenario_geography, year = year, capacity_factor = NA, ald_business_unit = ald_business_unit, scenario = scenario, stringsAsFactors = FALSE)
           new_data <- rbind(new_data, new_row)
         }
       }
@@ -548,12 +548,12 @@ prepare_capacity_factors_OXF2021 <- function(data) {
   data <- add_years(data, 2041, 2100)
 
 
-  # replace NAs with values from 2040 for each scenario-geography-technology combination
+  # replace NAs with values from 2040 for each scenario-geography-ald_business_unit combination
   for (scn in unique(data$scenario)) {
-    for (tech in unique(data$technology)) {
-      subset <- data[data$scenario == scn & data$scenario_geography == "Global" & data$technology == tech, ]
+    for (tech in unique(data$ald_business_unit)) {
+      subset <- data[data$scenario == scn & data$scenario_geography == "Global" & data$ald_business_unit == tech, ]
       subset$capacity_factor[is.na(subset$capacity_factor)] <- subset$capacity_factor[subset$year == 2040]
-      data[data$scenario == scn & data$scenario_geography == "Global" & data$technology == tech, ] <- subset
+      data[data$scenario == scn & data$scenario_geography == "Global" & data$ald_business_unit == tech, ] <- subset
     }
   }
   return(data)
