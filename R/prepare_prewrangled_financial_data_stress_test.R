@@ -202,7 +202,7 @@ match_closest_financial_data_to_missing_companies <- function(missing_companies_
   return(missing_companies_in_financial_data)
 }
 
-#' Title
+#' Companies missing by both ald_sector and ald_location
 #'
 #' @param financial_data financial_data
 #' @param companies_data companies_data
@@ -467,7 +467,7 @@ remove_implausible_values_in_financial_indicators <- function(financial_data, al
 #' @return a dataframe
 #' @export
 #'
-prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
+prepare_financial_data <- function(ids_data, eikon_data, companies_data, minimum_sample_size, minimum_ratio_sample, allowed_range_npm, ownership_tree=NULL) {
   #### INITIALISE FINANCIAL DATA
   financial_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
   # add ald_sector provided by asset resolution. This will duplicate rows for companies represented in more than 1 sector.
@@ -486,15 +486,17 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   #### ADD MISSING COMPANIES FROM PRODUCTION
   # add missing companies from production to the financial data and match with closest parent company
   # if it exists in the original financial data
-  ownership_tree <- keep_available_financial_companies_in_ownership_tree(financial_data, ownership_tree)
   missing_companies_in_financial_data <- get_missing_companies_in_financial_data(financial_data, companies_data)
   missing_companies_in_financial_data <- match_location_to_region(missing_companies_in_financial_data) %>% dplyr::distinct_all()
-  missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
-    missing_companies_in_financial_data = missing_companies_in_financial_data,
-    financial_data = financial_data,
-    ownership_tree = ownership_tree
-  )
 
+  if (!is.null(ownership_tree)){
+    ownership_tree <- keep_available_financial_companies_in_ownership_tree(financial_data, ownership_tree)
+    missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
+      missing_companies_in_financial_data = missing_companies_in_financial_data,
+      financial_data = financial_data,
+      ownership_tree = ownership_tree
+    )
+}
 
   #### FILL MISSING VALUES WITH AVERAGES
 

@@ -41,7 +41,9 @@ eikon_data <- bind_cols(bind_rows(sample_companies, tibble(company_id=rep(NA, 10
     pd = runif(nrow(.), min = 0, max = 1),
     net_profit_margin = runif(nrow(.), min = 0, max = 1),
     debt_equity_ratio = runif(nrow(.), min = 0, max = 1),
-    volatility = runif(nrow(.), min = 0, max = 1)
-  )
+    volatility = runif(nrow(.), min = 0, max = 1),
+    asset_drift = runif(nrow(.), min = 0, max = 1)
+  ) %>%
+  mutate(ald_location = substr(isin, start = 1, stop = 2))
 
 usethis::use_data(eikon_data, overwrite=TRUE)

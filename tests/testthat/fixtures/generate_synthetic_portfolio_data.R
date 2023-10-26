@@ -1,8 +1,7 @@
 devtools::load_all()
 library(dplyr)
 
-eikon_data <- load("data/eikon_data.rda")
-available_isins <- unique(eikon_data$isin)
+company_activities <- load("data/company_activities.rda")
 
 portfolio_values <-
  company_activities %>%
@@ -17,10 +16,6 @@ companies_fixed_income <-
   portfolio_values %>%
   sample_n(200) %>%
   mutate(asset_type = "fixed_income") %>%
-companies_fixed_income <- bind_columns(
-  companies_fixed_income, 
-  bind_columns()
-)
 
 companies_equities <-
   portfolio_values %>%
@@ -58,18 +53,19 @@ countries <- countrycode::codelist %>%
 portfolio_data <- portfolio_data %>%
   mutate(ald_location = if_else(!is.na(isin), substring(isin, 1, 2), sample(countries, 1, TRUE)))
 
-portfolio_data[rbinom(nrow(portfolio_data), 1, 0.3) == 1, "isin"] <- NA
+# portfolio_data[rbinom(nrow(portfolio_data), 1, 0.3) == 1, "isin"] <- NA
 
 portfolio_data <- portfolio_data %>% select(
+  asset_id, 
   company_id,
-  isin,
+  asset_type,
   ald_sector,
   ald_business_unit,
   ald_location,
-  asset_type,
-  value_usd,
-  term,
+  exposure_value_usd,
+  term_date,
   loss_given_default,
 )
+(~asset_id, ~asset_type, ~ald_sector, ~ald_business_unit, ~ald_location, ~exposure_value_usd, ~expiration_date)
 
 usethis::use_data(portfolio_data, overwrite = TRUE)
