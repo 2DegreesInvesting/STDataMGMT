@@ -29,14 +29,14 @@ interpolation_groups <- c(
 )
 
 
-# WEO data from PACTA routine
-input_path <- r2dii.utils::path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
-  glue::glue("pacta_processed_weo_Scenarios_AnalysisInput_{start_year}.csv")
-)
+#WEO data from PACTA routine
+ input_path <- r2dii.utils::path_dropbox_2dii(
+   "PortCheck",
+   "00_Data",
+   "01_ProcessedData",
+   "03_ScenarioData",
+   glue::glue("weo_Scenarios_AnalysisInput_{start_year}.csv")
+ )
 
 weo_data <- readr::read_csv(
   input_path,

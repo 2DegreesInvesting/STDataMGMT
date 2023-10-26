@@ -1,28 +1,39 @@
 devtools::load_all()
 
-# requires eikon_data
-# this can be obtained by running run_prepare_eikon_data
-# without saving the output file
+output_dir <- fs::path("data-raw", "DBs")
 
-# prepare financial data stress test--------------------------------
-list_prewrangled_financial_data <- eikon_data %>%
-  prepare_prewrangled_financial_data_stress_test()
+eikon_data <- readr::read_rds(fs::path(output_dir, "DB_assets_eikon.rds"))
+companies_data <- readr::read_rds(fs::path(output_dir, "DB_asset_impact.rds"))
+ids_data <- readr::read_rds(fs::path(output_dir, "DB_ids.rds"))
+ownership_tree <- readr::read_rds(fs::path(output_dir, "DB_ownership_tree.rds"))
 
-prewrangled_financial_data_stress_test <- list_prewrangled_financial_data[[1]]
 
-prewrangled_financial_data_stress_test[is.na(prewrangled_financial_data_stress_test)] <- "Missing"
+# parameters for minimum requirements to reference subgroups in creating averages
+# determine size of subgroup below which we do not use the average because the
+# minimum required sample size of reference subgroup
+minimum_sample_size <- 50
+# minimum required ratio of reference subgroup to sample
+minimum_ratio_sample <- 1 / 3
+# cut off values for profit margins
+allowed_range_npm <- c(-Inf, Inf)
 
-prewrangled_financial_data_stress_test %>%
-  readr::write_csv(
-    file.path("data-raw", "prewrangled_financial_data_stress_test.csv")
-  )
 
-# optional - exporting qa files for removed profit margins
-# path_fin_data_st_rm_npm <- file.path(output_path_db_analysis_inputs, "financial_data_stress_test_rm_npm.csv")
-# list_prewrangled_financial_data[[2]] %>%
-#   readr::write_csv(path_fin_data_st_rm_npm)
+prewrangled_financial_data_stress_test <- prepare_financial_data(
+  ids_data = ids_data,
+  eikon_data = eikon_data,
+  companies_data = companies_data,
+  ownership_tree = ownership_tree,
+  minimum_sample_size = minimum_sample_size,
+  minimum_ratio_sample = minimum_ratio_sample,
+  allowed_range_npm = allowed_range_npm
+)
 
-# optional - exporting qa files for ascii character
-# financial_data_stress_test_rm_non_ascii <- file.path(output_path_db_analysis_inputs, "financial_data_stress_test_rm_non_ascii.csv")
-# list_prewrangled_financial_data[[3]] %>%
-#   readr::write_csv(financial_data_stress_test_rm_non_ascii)
+abcd_data <- readr::read_csv(fs::path("data-raw", "abcd_stress_test_input.csv"))
+
+prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
+  dplyr::inner_join(abcd_data %>% dplyr::distinct(company_id))
+
+
+prewrangled_financial_data_stress_test %>% readr::write_csv(
+  file.path("data-raw", "prewrangled_financial_data_stress_test.csv")
+)
