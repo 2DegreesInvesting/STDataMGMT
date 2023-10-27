@@ -42,7 +42,7 @@ generate_company_sectors <- function(
 
 generate_company_location <- function(
     company_sectors, max_assigned_countries) {
-  countries <- countrycode::codelist$iso2c
+  countries <- countrycode::codelist$ecb
   countries <- countries[!is.na(countries)]
   # subsample the country codes, so we're sure some companies will
   # have different technologies in same countries

@@ -5,8 +5,8 @@ devtools::load_all()
 # ===================================
 
 
-start_year <- 2022
-time_horizon <- 5
+start_year <- 2020
+time_horizon <- 10
 additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000

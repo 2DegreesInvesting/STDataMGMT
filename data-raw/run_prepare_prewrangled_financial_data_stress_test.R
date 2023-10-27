@@ -17,9 +17,9 @@ minimum_ratio_sample <- 1 / 3
 # cut off values for profit margins
 allowed_range_npm <- c(-Inf, Inf)
 
+eikon_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
 
 prewrangled_financial_data_stress_test <- prepare_financial_data(
-  ids_data = ids_data,
   eikon_data = eikon_data,
   companies_data = companies_data,
   ownership_tree = ownership_tree,

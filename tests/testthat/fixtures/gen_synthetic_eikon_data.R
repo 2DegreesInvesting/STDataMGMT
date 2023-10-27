@@ -18,9 +18,9 @@ sample_companies <- tibble(company_id=sample_companies)
 
 random_isin <- function(...) {
   countries <- countrycode::codelist %>%
-    filter(!is.na(iso2c)) %>%
-    distinct(iso2c) %>%
-    pull(iso2c)
+    filter(!is.na(ecb)) %>%
+    distinct(ecb) %>%
+    pull(ecb)
 
   sprintf(
     "%s%s",

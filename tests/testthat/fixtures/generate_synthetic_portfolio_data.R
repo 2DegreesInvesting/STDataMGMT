@@ -1,14 +1,14 @@
 devtools::load_all()
 library(dplyr)
 
-company_activities <- load("data/company_activities.rda")
+# company_activities loaded from stdata devtools::load_all()
 
-portfolio_values <-
- company_activities %>%
+
+portfolio_values <- company_activities %>%
   select(company_id, company_name, ald_sector, ald_business_unit, ald_location) %>%
   mutate(
     value_usd = sample(1e4:1e9, n(), replace = TRUE),
-    term = sample(1:5, n(), replace = TRUE)
+    expiration_date = sample(1:5, n(), replace = TRUE)
   )
 
 
@@ -47,9 +47,9 @@ portfolio_data[, "loss_given_default"] <- runif(n = nrow(portfolio_data), min = 
 
 
 countries <- countrycode::codelist %>%
-  filter(!is.na(iso2c)) %>%
-  distinct(iso2c) %>%
-  pull(iso2c)
+  filter(!is.na(ecb)) %>%
+  distinct(ecb) %>%
+  pull(ecb)
 portfolio_data <- portfolio_data %>%
   mutate(ald_location = if_else(!is.na(isin), substring(isin, 1, 2), sample(countries, 1, TRUE)))
 
@@ -63,9 +63,8 @@ portfolio_data <- portfolio_data %>% select(
   ald_business_unit,
   ald_location,
   exposure_value_usd,
-  term_date,
-  loss_given_default,
+  expiration_date,
+  loss_given_default
 )
-(~asset_id, ~asset_type, ~ald_sector, ~ald_business_unit, ~ald_location, ~exposure_value_usd, ~expiration_date)
 
 usethis::use_data(portfolio_data, overwrite = TRUE)
