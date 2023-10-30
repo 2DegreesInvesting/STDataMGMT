@@ -8,7 +8,7 @@
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 20922 rows and 11 columns.
 }
 \source{
-generative script in tests folder
+see generative script in tests folder
 }
 \usage{
 abcd_stress_test_input

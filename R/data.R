@@ -44,7 +44,7 @@
 #' available geographies in the stress test
 #'
 #' @source internal
-"scenario_geographies"
+"scenarios_geographies"
 
 
 

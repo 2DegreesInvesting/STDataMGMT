@@ -8,7 +8,7 @@
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 100 rows and 6 columns.
 }
 \source{
-generative script in tests folder
+see generative script in tests folder
 }
 \usage{
 prewrangled_financial_data_stress_test

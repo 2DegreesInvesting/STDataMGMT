@@ -7,7 +7,7 @@ that contain the LCOE for the power sector. It then derives implied market
 prices. This is done by adding the average net profit margin of the 100
 largest power companies we can find on top of the costs of the start year.
 The absolute margin in that year is then added to all following years as well.
-We adjust the price by calculating the cost changes for each technology and
+We adjust the price by calculating the cost changes for each ald_business_unit and
 scenario as lcoe_t0 / lcoe_t and applying the resulting cost factor to the
 absolute profit margin in each year. This means that if costs increase, the
 absolute average profit margin will be smaller over time, whereas falling
@@ -29,7 +29,7 @@ that contain the LCOE for the power sector. It then derives implied market
 prices. This is done by adding the average net profit margin of the 100
 largest power companies we can find on top of the costs of the start year.
 The absolute margin in that year is then added to all following years as well.
-We adjust the price by calculating the cost changes for each technology and
+We adjust the price by calculating the cost changes for each ald_business_unit and
 scenario as lcoe_t0 / lcoe_t and applying the resulting cost factor to the
 absolute profit margin in each year. This means that if costs increase, the
 absolute average profit margin will be smaller over time, whereas falling

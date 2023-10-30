@@ -6,7 +6,6 @@
 \title{Title}
 \usage{
 prepare_financial_data(
-  ids_data,
   eikon_data,
   companies_data,
   minimum_sample_size,
@@ -16,8 +15,6 @@ prepare_financial_data(
 )
 }
 \arguments{
-\item{ids_data}{ids_data}
-
 \item{eikon_data}{eikon_data}
 
 \item{companies_data}{companies_data}
