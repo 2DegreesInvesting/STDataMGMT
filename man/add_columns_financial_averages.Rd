@@ -3,7 +3,8 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{add_columns_financial_averages}
 \alias{add_columns_financial_averages}
-\title{Title}
+\title{Add financial averages columns to the data in order, f
+rom most granular to less granular}
 \usage{
 add_columns_financial_averages(
   financial_data,
@@ -25,5 +26,6 @@ add_columns_financial_averages(
 a dataframe
 }
 \description{
-Title
+Add financial averages columns to the data in order, f
+rom most granular to less granular
 }
