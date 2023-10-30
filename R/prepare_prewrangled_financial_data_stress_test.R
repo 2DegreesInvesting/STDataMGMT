@@ -146,18 +146,20 @@ aggregate_financial_indicators <- function(financial_data, grp_cols) {
 aggregate_indicator_types <- function(financial_data, grp_cols) {
   indicator_type_cols <- names(financial_data)[grepl("indicator_type_", names(financial_data))]
   financial_data_indicator_types <- financial_data %>% dplyr::select(c("company_id", indicator_type_cols))
+  
   financial_data_indicator_types[indicator_type_cols] <- lapply(
     financial_data_indicator_types[indicator_type_cols],
-     function(x){stringr::str_remove(x, "Financial indicator from ")}
-     )
+    function(x) {
+      stringr::str_remove(x, "Financial indicator from ")
+    }
+  )
 
   aggregated_financial_data_indicator_types <- financial_data_indicator_types %>%
-    fastDummies::dummy_cols(select_columns=indicator_type_cols, remove_selected_columns=TRUE) %>%
+    fastDummies::dummy_cols(select_columns = indicator_type_cols, remove_selected_columns = TRUE) %>%
     dplyr::group_by(dplyr::across(grp_cols)) %>%
-    dplyr::summarise(dplyr::across(dplyr::everything(), sum), .groups = 'drop')
+    dplyr::summarise(dplyr::across(dplyr::everything(), sum), .groups = "drop")
 
   return(aggregated_financial_data_indicator_types)
-
 }
 
 #' Use the ownership tree to assign raw eikon financial data to a subsidiary company when it
@@ -520,13 +522,13 @@ prepare_financial_data <- function(financial_data, companies_data, ownership_tre
   missing_companies_in_financial_data <- get_missing_companies_in_financial_data(financial_data, companies_data)
   missing_companies_in_financial_data <- match_location_to_region(missing_companies_in_financial_data) %>% dplyr::distinct_all()
 
-  if (!is.null(ownership_tree)){
+  if (!is.null(ownership_tree)) {
     ownership_tree <- keep_available_financial_companies_in_ownership_tree(financial_data, ownership_tree)
-  missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
-    missing_companies_in_financial_data = missing_companies_in_financial_data,
-    financial_data = financial_data,
-    ownership_tree = ownership_tree
-  )
+    missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
+      missing_companies_in_financial_data = missing_companies_in_financial_data,
+      financial_data = financial_data,
+      ownership_tree = ownership_tree
+    )
   }
 
   #### FILL MISSING VALUES WITH AVERAGES
@@ -560,14 +562,14 @@ prepare_financial_data <- function(financial_data, companies_data, ownership_tre
   prewrangled_financial_data_stress_test <- aggregate_financial_indicators(
     financial_data_all_companies,
     grp_cols = c("company_id")
-    )
+  )
   financial_data_indicator_types <- aggregate_indicator_types(
     financial_data_all_companies,
     grp_cols = c("company_id")
-    )
+  )
 
   prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
-    dplyr::inner_join(financial_data_indicator_types, by="company_id")
+    dplyr::inner_join(financial_data_indicator_types, by = "company_id")
 
 
   # assert no NA anywhere and no implausible values
