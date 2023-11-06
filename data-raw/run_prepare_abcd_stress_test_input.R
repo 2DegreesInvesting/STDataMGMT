@@ -23,7 +23,38 @@ additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
-outputs <- prepare_asset_impact_data(fs::path(path_ar_data_raw,
+bench_regions <-
+  readr::read_rds(here::here("data-raw", "bench_regions.rds"))
+
+
+#' read Asset Resolution data
+#'
+#' @param path_ar_data_raw path to AR excel input
+#'
+#' @param sheet_name name of excel sheet
+#'
+read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
+  ar_data <- readxl::read_xlsx(path_ar_data_raw,
+    sheet = sheet_name
+  ) |>
+    dplyr::select(-dplyr::starts_with("Direct Ownership")) |>
+    dplyr::rename(
+      id = .data$`Company ID`,
+      company_name = .data$`Company Name`,
+      ald_sector = .data$`Asset Sector`,
+      technology = .data$`Asset Technology`,
+      technology_type = .data$`Asset Technology Type`,
+      region = .data$`Asset Region`,
+      ald_location = .data$`Asset Country`,
+      activity_unit = .data$`Activity Unit`
+    )
+  return(ar_data)
+}
+
+
+company_activities <-
+  read_asset_resolution(
+    fs::path(path_ar_data_raw,
       "AR-Company-Indicators_2022Q4",
       ext = "xlsx"
     )

@@ -3,7 +3,8 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{get_missing_companies_in_financial_data}
 \alias{get_missing_companies_in_financial_data}
-\title{Companies missing by both ald_sector and ald_location}
+\title{Anti join the financial data with companies data to create new rows
+in the financial data for the missing companies.}
 \usage{
 get_missing_companies_in_financial_data(financial_data, companies_data)
 }
@@ -16,5 +17,6 @@ get_missing_companies_in_financial_data(financial_data, companies_data)
 a dataframe
 }
 \description{
-Companies missing by both ald_sector and ald_location
+Anti join the financial data with companies data to create new rows
+in the financial data for the missing companies.
 }

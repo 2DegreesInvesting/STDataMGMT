@@ -3,7 +3,8 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{aggregate_financial_indicators}
 \alias{aggregate_financial_indicators}
-\title{Title}
+\title{Applies the create_averages_eikon() function with minimum tolerance, effectively
+aggregating all financial indicators on the grp_cols columns}
 \usage{
 aggregate_financial_indicators(financial_data, grp_cols)
 }
@@ -16,5 +17,6 @@ aggregate_financial_indicators(financial_data, grp_cols)
 a dataframe
 }
 \description{
-Title
+Applies the create_averages_eikon() function with minimum tolerance, effectively
+aggregating all financial indicators on the grp_cols columns
 }
