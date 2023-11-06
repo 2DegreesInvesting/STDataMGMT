@@ -13,6 +13,7 @@ Imports:
     assertr,
     countrycode,
     crayon,
+    DescTools,
     dplyr,
     fastDummies,
     fs,
