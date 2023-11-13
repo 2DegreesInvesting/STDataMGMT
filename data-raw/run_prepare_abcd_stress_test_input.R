@@ -30,6 +30,9 @@ outputs_list <- prepare_asset_impact_data(ar_data_path=ar_data_path)
 company_activities <- outputs_list[["company_activities"]]
 company_emissions <- outputs_list[["company_emissions"]]
 
+readr::write_rds(company_activities, fs::path("data-raw","DBs","DB_company_activities", ext="rds"))
+readr::write_rds(company_emissions, fs::path("data-raw","DBs","DB_company_emissions", ext="rds"))
+
 # THE PART ABOVE IS ASSET RESOLUTION SPECIFIC
 # ========================
 # CONVERT CLEAN COMPANY DATA TO ABCD BELOW
