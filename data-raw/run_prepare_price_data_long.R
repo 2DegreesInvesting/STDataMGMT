@@ -199,4 +199,5 @@ price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
   dplyr::bind_rows(price_data_long_adjusted_OXF2021)
 
 price_data_long_adjusted %>%
+  dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(file.path("data-raw", "price_data_long.csv"))
