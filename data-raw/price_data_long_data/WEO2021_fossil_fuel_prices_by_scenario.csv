@@ -1,0 +1,37 @@
+﻿source,sector,unit,scenario_geography,scenario,2010,2020,2030,2050
+WEO2021,Crude oil,usd/barrel,Global,STEPS,92,42,77,88
+WEO2021,Natural gas,usd/Mbtu,United States,STEPS,5.2,2,3.6,4.3
+WEO2021,Natural gas,usd/Mbtu,European Union,STEPS,8.8,4.2,7.7,8.3
+WEO2021,Natural gas,usd/Mbtu,China,STEPS,7.9,6.3,8.6,8.9
+WEO2021,Natural gas,usd/Mbtu,Japan,STEPS,13,7.9,8.5,8.9
+WEO2021,Coal,usd/tonne,United States,STEPS,60,43,39,38
+WEO2021,Coal,usd/tonne,European Union,STEPS,109,50,67,63
+WEO2021,Coal,usd/tonne,Japan,STEPS,127,69,77,70
+WEO2021,Coal,usd/tonne,Coastal China,STEPS,137,89,83,74
+WEO2021,Crude oil,usd/barrel,Global,SDS,92,42,56,50
+WEO2021,Natural gas,usd/Mbtu,United States,SDS,5.2,2,1.9,2
+WEO2021,Natural gas,usd/Mbtu,European Union,SDS,8.8,4.2,4.2,4.5
+WEO2021,Natural gas,usd/Mbtu,China,SDS,7.9,6.3,6.3,6.3
+WEO2021,Natural gas,usd/Mbtu,Japan,SDS,13,7.9,5.4,5.3
+WEO2021,Coal,usd/tonne,United States,SDS,60,43,24,22
+WEO2021,Coal,usd/tonne,European Union,SDS,109,50,58,55
+WEO2021,Coal,usd/tonne,Japan,SDS,127,69,67,63
+WEO2021,Coal,usd/tonne,Coastal China,SDS,137,89,72,66
+WEO2021,Crude oil,usd/barrel,Global,APS,92,42,67,64
+WEO2021,Natural gas,usd/Mbtu,United States,APS,5.2,2,3.1,2
+WEO2021,Natural gas,usd/Mbtu,European Union,APS,8.8,4.2,6.5,6.5
+WEO2021,Natural gas,usd/Mbtu,China,APS,7.9,6.3,8.5,8.1
+WEO2021,Natural gas,usd/Mbtu,Japan,APS,13,7.9,7.6,6.8
+WEO2021,Coal,usd/tonne,United States,APS,60,43,25,25
+WEO2021,Coal,usd/tonne,European Union,APS,109,50,66,56
+WEO2021,Coal,usd/tonne,Japan,APS,127,69,73,63
+WEO2021,Coal,usd/tonne,Coastal China,APS,137,89,77,65
+WEO2021,Crude oil,usd/barrel,Global,NZE_2050,92,42,36,24
+WEO2021,Natural gas,usd/Mbtu,United States,NZE_2050,5.2,2,1.9,2
+WEO2021,Natural gas,usd/Mbtu,European Union,NZE_2050,8.8,4.2,3.9,3.6
+WEO2021,Natural gas,usd/Mbtu,China,NZE_2050,7.9,6.3,5.3,4.7
+WEO2021,Natural gas,usd/Mbtu,Japan,NZE_2050,13,7.9,4.4,4.2
+WEO2021,Coal,usd/tonne,United States,NZE_2050,60,43,24,22
+WEO2021,Coal,usd/tonne,European Union,NZE_2050,109,50,52,44
+WEO2021,Coal,usd/tonne,Japan,NZE_2050,127,69,58,50
+WEO2021,Coal,usd/tonne,Coastal China,NZE_2050,137,89,61,51

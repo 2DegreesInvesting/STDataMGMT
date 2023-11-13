@@ -1,0 +1,409 @@
+﻿source,scenario,region,technology,indicator,unit,2020,2030,2050
+WEO2021,SDS,United States,Nuclear,Capital costs,$/kW,5000,4800,4500
+WEO2021,SDS,United States,Coal,Capital costs,$/kW,2100,2100,2100
+WEO2021,SDS,United States,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,SDS,United States,Solar PV,Capital costs,$/kW,1100,640,440
+WEO2021,SDS,United States,Wind onshore,Capital costs,$/kW,1390,1280,1200
+WEO2021,SDS,United States,Wind offshore,Capital costs,$/kW,4040,2420,1660
+WEO2021,SDS,European Union,Nuclear,Capital costs,$/kW,6600,5100,4500
+WEO2021,SDS,European Union,Coal,Capital costs,$/kW,2000,2000,2000
+WEO2021,SDS,European Union,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,SDS,European Union,Solar PV,Capital costs,$/kW,840,510,370
+WEO2021,SDS,European Union,Wind onshore,Capital costs,$/kW,1500,1390,1310
+WEO2021,SDS,European Union,Wind offshore,Capital costs,$/kW,3480,2220,1520
+WEO2021,SDS,China,Nuclear,Capital costs,$/kW,2800,2800,2500
+WEO2021,SDS,China,Coal,Capital costs,$/kW,800,800,800
+WEO2021,SDS,China,Gas CCGT,Capital costs,$/kW,560,560,560
+WEO2021,SDS,China,Solar PV,Capital costs,$/kW,650,380,260
+WEO2021,SDS,China,Wind onshore,Capital costs,$/kW,1260,1160,1090
+WEO2021,SDS,China,Wind offshore,Capital costs,$/kW,2960,1760,1100
+WEO2021,SDS,India,Nuclear,Capital costs,$/kW,2800,2800,2800
+WEO2021,SDS,India,Coal,Capital costs,$/kW,1200,1200,1200
+WEO2021,SDS,India,Gas CCGT,Capital costs,$/kW,700,700,700
+WEO2021,SDS,India,Solar PV,Capital costs,$/kW,600,340,230
+WEO2021,SDS,India,Wind onshore,Capital costs,$/kW,1040,990,960
+WEO2021,SDS,India,Wind offshore,Capital costs,$/kW,2980,1800,1220
+WEO2021,SDS,United States,Nuclear,Capacity factor,%,90,85,80
+WEO2021,SDS,United States,Coal,Capacity factor,%,30,10,
+WEO2021,SDS,United States,Gas CCGT,Capacity factor,%,50,25,
+WEO2021,SDS,United States,Solar PV,Capacity factor,%,21,22,23
+WEO2021,SDS,United States,Wind onshore,Capacity factor,%,42,43,44
+WEO2021,SDS,United States,Wind offshore,Capacity factor,%,42,46,48
+WEO2021,SDS,European Union,Nuclear,Capacity factor,%,75,75,70
+WEO2021,SDS,European Union,Coal,Capacity factor,%,25,,
+WEO2021,SDS,European Union,Gas CCGT,Capacity factor,%,50,40,
+WEO2021,SDS,European Union,Solar PV,Capacity factor,%,13,14,14
+WEO2021,SDS,European Union,Wind onshore,Capacity factor,%,29,29,30
+WEO2021,SDS,European Union,Wind offshore,Capacity factor,%,51,55,58
+WEO2021,SDS,China,Nuclear,Capacity factor,%,80,80,80
+WEO2021,SDS,China,Coal,Capacity factor,%,55,45,5
+WEO2021,SDS,China,Gas CCGT,Capacity factor,%,30,30,30
+WEO2021,SDS,China,Solar PV,Capacity factor,%,17,18,19
+WEO2021,SDS,China,Wind onshore,Capacity factor,%,26,27,27
+WEO2021,SDS,China,Wind offshore,Capacity factor,%,34,40,43
+WEO2021,SDS,India,Nuclear,Capacity factor,%,75,80,80
+WEO2021,SDS,India,Coal,Capacity factor,%,50,40,20
+WEO2021,SDS,India,Gas CCGT,Capacity factor,%,50,55,10
+WEO2021,SDS,India,Solar PV,Capacity factor,%,20,21,21
+WEO2021,SDS,India,Wind onshore,Capacity factor,%,26,28,29
+WEO2021,SDS,India,Wind offshore,Capacity factor,%,32,36,38
+WEO2021,SDS,United States,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,SDS,United States,Coal,Fuel and O&M,$/MWh,65,125,155
+WEO2021,SDS,United States,Gas CCGT,Fuel and O&M,$/MWh,40,65,75
+WEO2021,SDS,United States,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,SDS,United States,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,SDS,United States,Wind offshore,Fuel and O&M,$/MWh,35,20,15
+WEO2021,SDS,European Union,Nuclear,Fuel and O&M,$/MWh,35,35,35
+WEO2021,SDS,European Union,Coal,Fuel and O&M,$/MWh,105,165,210
+WEO2021,SDS,European Union,Gas CCGT,Fuel and O&M,$/MWh,70,95,105
+WEO2021,SDS,European Union,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,SDS,European Union,Wind onshore,Fuel and O&M,$/MWh,15,15,15
+WEO2021,SDS,European Union,Wind offshore,Fuel and O&M,$/MWh,15,10,10
+WEO2021,SDS,China,Nuclear,Fuel and O&M,$/MWh,25,25,25
+WEO2021,SDS,China,Coal,Fuel and O&M,$/MWh,65,115,150
+WEO2021,SDS,China,Gas CCGT,Fuel and O&M,$/MWh,80,100,115
+WEO2021,SDS,China,Solar PV,Fuel and O&M,$/MWh,10,5,5
+WEO2021,SDS,China,Wind onshore,Fuel and O&M,$/MWh,15,15,10
+WEO2021,SDS,China,Wind offshore,Fuel and O&M,$/MWh,25,15,10
+WEO2021,SDS,India,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,SDS,India,Coal,Fuel and O&M,$/MWh,30,30,30
+WEO2021,SDS,India,Gas CCGT,Fuel and O&M,$/MWh,60,45,45
+WEO2021,SDS,India,Solar PV,Fuel and O&M,$/MWh,5,5,5
+WEO2021,SDS,India,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,SDS,India,Wind offshore,Fuel and O&M,$/MWh,25,15,10
+WEO2021,SDS,United States,Nuclear,LCOE,$/MWh,105,105,105
+WEO2021,SDS,United States,Coal,LCOE,$/MWh,150,410,
+WEO2021,SDS,United States,Gas CCGT,LCOE,$/MWh,65,110,
+WEO2021,SDS,United States,Solar PV,LCOE,$/MWh,50,30,25
+WEO2021,SDS,United States,Wind onshore,LCOE,$/MWh,35,30,30
+WEO2021,SDS,United States,Wind offshore,LCOE,$/MWh,115,70,45
+WEO2021,SDS,European Union,Nuclear,LCOE,$/MWh,150,120,115
+WEO2021,SDS,European Union,Coal,LCOE,$/MWh,200,,
+WEO2021,SDS,European Union,Gas CCGT,LCOE,$/MWh,95,120,
+WEO2021,SDS,European Union,Solar PV,LCOE,$/MWh,55,35,30
+WEO2021,SDS,European Union,Wind onshore,LCOE,$/MWh,50,45,45
+WEO2021,SDS,European Union,Wind offshore,LCOE,$/MWh,75,45,30
+WEO2021,SDS,China,Nuclear,LCOE,$/MWh,65,65,60
+WEO2021,SDS,China,Coal,LCOE,$/MWh,80,135,290
+WEO2021,SDS,China,Gas CCGT,LCOE,$/MWh,100,120,135
+WEO2021,SDS,China,Solar PV,LCOE,$/MWh,35,20,15
+WEO2021,SDS,China,Wind onshore,LCOE,$/MWh,50,45,40
+WEO2021,SDS,China,Wind offshore,LCOE,$/MWh,100,55,30
+WEO2021,SDS,India,Nuclear,LCOE,$/MWh,70,70,70
+WEO2021,SDS,India,Coal,LCOE,$/MWh,55,65,95
+WEO2021,SDS,India,Gas CCGT,LCOE,$/MWh,75,60,125
+WEO2021,SDS,India,Solar PV,LCOE,$/MWh,35,20,15
+WEO2021,SDS,India,Wind onshore,LCOE,$/MWh,50,45,40
+WEO2021,SDS,India,Wind offshore,LCOE,$/MWh,135,75,50
+WEO2021,STEPS,United States,Nuclear,Capital costs,$/kW,5000,4800,4500
+WEO2021,STEPS,United States,Coal,Capital costs,$/kW,2100,2100,2100
+WEO2021,STEPS,United States,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,STEPS,United States,Solar PV,Capital costs,$/kW,1100,710,530
+WEO2021,STEPS,United States,Wind onshore,Capital costs,$/kW,1390,1310,1270
+WEO2021,STEPS,United States,Wind offshore,Capital costs,$/kW,4040,2560,1920
+WEO2021,STEPS,European Union,Nuclear,Capital costs,$/kW,6600,5100,4500
+WEO2021,STEPS,European Union,Coal,Capital costs,$/kW,2000,2000,2000
+WEO2021,STEPS,European Union,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,STEPS,European Union,Solar PV,Capital costs,$/kW,840,550,430
+WEO2021,STEPS,European Union,Wind onshore,Capital costs,$/kW,1500,1420,1370
+WEO2021,STEPS,European Union,Wind offshore,Capital costs,$/kW,3480,2260,1720
+WEO2021,STEPS,China,Nuclear,Capital costs,$/kW,2800,2800,2500
+WEO2021,STEPS,China,Coal,Capital costs,$/kW,800,800,800
+WEO2021,STEPS,China,Gas CCGT,Capital costs,$/kW,560,560,560
+WEO2021,STEPS,China,Solar PV,Capital costs,$/kW,650,420,310
+WEO2021,STEPS,China,Wind onshore,Capital costs,$/kW,1260,1190,1140
+WEO2021,STEPS,China,Wind offshore,Capital costs,$/kW,2960,1860,1280
+WEO2021,STEPS,India,Nuclear,Capital costs,$/kW,2800,2800,2800
+WEO2021,STEPS,India,Coal,Capital costs,$/kW,1200,1200,1200
+WEO2021,STEPS,India,Gas CCGT,Capital costs,$/kW,700,700,700
+WEO2021,STEPS,India,Solar PV,Capital costs,$/kW,600,380,270
+WEO2021,STEPS,India,Wind onshore,Capital costs,$/kW,1040,1020,1000
+WEO2021,STEPS,India,Wind offshore,Capital costs,$/kW,2980,1960,1440
+WEO2021,STEPS,United States,Nuclear,Capacity factor,%,90,90,90
+WEO2021,STEPS,United States,Coal,Capacity factor,%,50,60,60
+WEO2021,STEPS,United States,Gas CCGT,Capacity factor,%,50,45,40
+WEO2021,STEPS,United States,Solar PV,Capacity factor,%,21,22,22
+WEO2021,STEPS,United States,Wind onshore,Capacity factor,%,42,43,44
+WEO2021,STEPS,United States,Wind offshore,Capacity factor,%,42,46,48
+WEO2021,STEPS,European Union,Nuclear,Capacity factor,%,75,75,75
+WEO2021,STEPS,European Union,Coal,Capacity factor,%,35,40,40
+WEO2021,STEPS,European Union,Gas CCGT,Capacity factor,%,45,35,25
+WEO2021,STEPS,European Union,Solar PV,Capacity factor,%,13,14,14
+WEO2021,STEPS,European Union,Wind onshore,Capacity factor,%,29,29,30
+WEO2021,STEPS,European Union,Wind offshore,Capacity factor,%,51,55,58
+WEO2021,STEPS,China,Nuclear,Capacity factor,%,80,80,80
+WEO2021,STEPS,China,Coal,Capacity factor,%,55,45,40
+WEO2021,STEPS,China,Gas CCGT,Capacity factor,%,25,20,20
+WEO2021,STEPS,China,Solar PV,Capacity factor,%,17,18,19
+WEO2021,STEPS,China,Wind onshore,Capacity factor,%,26,27,27
+WEO2021,STEPS,China,Wind offshore,Capacity factor,%,34,40,43
+WEO2021,STEPS,India,Nuclear,Capacity factor,%,75,80,80
+WEO2021,STEPS,India,Coal,Capacity factor,%,60,60,50
+WEO2021,STEPS,India,Gas CCGT,Capacity factor,%,45,50,45
+WEO2021,STEPS,India,Solar PV,Capacity factor,%,20,21,21
+WEO2021,STEPS,India,Wind onshore,Capacity factor,%,26,28,29
+WEO2021,STEPS,India,Wind offshore,Capacity factor,%,32,36,38
+WEO2021,STEPS,United States,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,STEPS,United States,Coal,Fuel and O&M,$/MWh,25,25,25
+WEO2021,STEPS,United States,Gas CCGT,Fuel and O&M,$/MWh,30,35,40
+WEO2021,STEPS,United States,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,STEPS,United States,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,STEPS,United States,Wind offshore,Fuel and O&M,$/MWh,35,25,15
+WEO2021,STEPS,European Union,Nuclear,Fuel and O&M,$/MWh,35,35,35
+WEO2021,STEPS,European Union,Coal,Fuel and O&M,$/MWh,90,120,135
+WEO2021,STEPS,European Union,Gas CCGT,Fuel and O&M,$/MWh,80,105,115
+WEO2021,STEPS,European Union,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,STEPS,European Union,Wind onshore,Fuel and O&M,$/MWh,15,15,15
+WEO2021,STEPS,European Union,Wind offshore,Fuel and O&M,$/MWh,15,10,10
+WEO2021,STEPS,China,Nuclear,Fuel and O&M,$/MWh,25,25,25
+WEO2021,STEPS,China,Coal,Fuel and O&M,$/MWh,45,60,75
+WEO2021,STEPS,China,Gas CCGT,Fuel and O&M,$/MWh,80,90,100
+WEO2021,STEPS,China,Solar PV,Fuel and O&M,$/MWh,10,5,5
+WEO2021,STEPS,China,Wind onshore,Fuel and O&M,$/MWh,15,15,10
+WEO2021,STEPS,China,Wind offshore,Fuel and O&M,$/MWh,25,15,10
+WEO2021,STEPS,India,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,STEPS,India,Coal,Fuel and O&M,$/MWh,30,35,30
+WEO2021,STEPS,India,Gas CCGT,Fuel and O&M,$/MWh,75,75,80
+WEO2021,STEPS,India,Solar PV,Fuel and O&M,$/MWh,5,5,5
+WEO2021,STEPS,India,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,STEPS,India,Wind offshore,Fuel and O&M,$/MWh,25,20,15
+WEO2021,STEPS,United States,Nuclear,LCOE,$/MWh,105,100,95
+WEO2021,STEPS,United States,Coal,LCOE,$/MWh,75,70,70
+WEO2021,STEPS,United States,Gas CCGT,LCOE,$/MWh,50,65,70
+WEO2021,STEPS,United States,Solar PV,LCOE,$/MWh,50,30,30
+WEO2021,STEPS,United States,Wind onshore,LCOE,$/MWh,35,30,30
+WEO2021,STEPS,United States,Wind offshore,LCOE,$/MWh,115,70,55
+WEO2021,STEPS,European Union,Nuclear,LCOE,$/MWh,150,125,110
+WEO2021,STEPS,European Union,Coal,LCOE,$/MWh,170,185,200
+WEO2021,STEPS,European Union,Gas CCGT,LCOE,$/MWh,110,140,170
+WEO2021,STEPS,European Union,Solar PV,LCOE,$/MWh,55,40,30
+WEO2021,STEPS,European Union,Wind onshore,LCOE,$/MWh,50,45,45
+WEO2021,STEPS,European Union,Wind offshore,LCOE,$/MWh,75,45,35
+WEO2021,STEPS,China,Nuclear,LCOE,$/MWh,65,65,60
+WEO2021,STEPS,China,Coal,LCOE,$/MWh,60,80,95
+WEO2021,STEPS,China,Gas CCGT,LCOE,$/MWh,100,120,130
+WEO2021,STEPS,China,Solar PV,LCOE,$/MWh,35,20,15
+WEO2021,STEPS,China,Wind onshore,LCOE,$/MWh,50,45,40
+WEO2021,STEPS,China,Wind offshore,LCOE,$/MWh,100,55,35
+WEO2021,STEPS,India,Nuclear,LCOE,$/MWh,70,70,70
+WEO2021,STEPS,India,Coal,LCOE,$/MWh,55,55,55
+WEO2021,STEPS,India,Gas CCGT,LCOE,$/MWh,90,90,95
+WEO2021,STEPS,India,Solar PV,LCOE,$/MWh,35,20,15
+WEO2021,STEPS,India,Wind onshore,LCOE,$/MWh,50,45,40
+WEO2021,STEPS,India,Wind offshore,LCOE,$/MWh,135,80,55
+WEO2021,STEPS,United States,Nuclear,VALCOE,$/MWh,105,100,95
+WEO2021,STEPS,United States,Coal,VALCOE,$/MWh,75,70,65
+WEO2021,STEPS,United States,Gas CCGT,VALCOE,$/MWh,50,60,60
+WEO2021,STEPS,United States,Solar PV,VALCOE,$/MWh,55,40,45
+WEO2021,STEPS,United States,Wind onshore,VALCOE,$/MWh,35,35,40
+WEO2021,STEPS,United States,Wind offshore,VALCOE,$/MWh,110,70,60
+WEO2021,STEPS,European Union,Nuclear,VALCOE,$/MWh,145,125,110
+WEO2021,STEPS,European Union,Coal,VALCOE,$/MWh,160,165,165
+WEO2021,STEPS,European Union,Gas CCGT,VALCOE,$/MWh,100,115,115
+WEO2021,STEPS,European Union,Solar PV,VALCOE,$/MWh,60,70,70
+WEO2021,STEPS,European Union,Wind onshore,VALCOE,$/MWh,55,60,60
+WEO2021,STEPS,European Union,Wind offshore,VALCOE,$/MWh,75,50,45
+WEO2021,STEPS,China,Nuclear,VALCOE,$/MWh,65,65,60
+WEO2021,STEPS,China,Coal,VALCOE,$/MWh,60,70,70
+WEO2021,STEPS,China,Gas CCGT,VALCOE,$/MWh,90,105,95
+WEO2021,STEPS,China,Solar PV,VALCOE,$/MWh,40,45,50
+WEO2021,STEPS,China,Wind onshore,VALCOE,$/MWh,50,50,45
+WEO2021,STEPS,China,Wind offshore,VALCOE,$/MWh,100,60,40
+WEO2021,STEPS,India,Nuclear,VALCOE,$/MWh,70,70,70
+WEO2021,STEPS,India,Coal,VALCOE,$/MWh,55,55,50
+WEO2021,STEPS,India,Gas CCGT,VALCOE,$/MWh,90,80,75
+WEO2021,STEPS,India,Solar PV,VALCOE,$/MWh,40,35,55
+WEO2021,STEPS,India,Wind onshore,VALCOE,$/MWh,55,50,50
+WEO2021,STEPS,India,Wind offshore,VALCOE,$/MWh,135,85,65
+WEO2021,APS,United States,Nuclear,Capital costs,$/kW,5000,4800,4500
+WEO2021,APS,United States,Coal,Capital costs,$/kW,2100,2100,2100
+WEO2021,APS,United States,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,APS,United States,Solar PV,Capital costs,$/kW,1100,660,460
+WEO2021,APS,United States,Wind onshore,Capital costs,$/kW,1390,1290,1220
+WEO2021,APS,United States,Wind offshore,Capital costs,$/kW,4040,2440,1680
+WEO2021,APS,European Union,Nuclear,Capital costs,$/kW,6600,5100,4500
+WEO2021,APS,European Union,Coal,Capital costs,$/kW,2000,2000,2000
+WEO2021,APS,European Union,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,APS,European Union,Solar PV,Capital costs,$/kW,840,530,380
+WEO2021,APS,European Union,Wind onshore,Capital costs,$/kW,1500,1410,1340
+WEO2021,APS,European Union,Wind offshore,Capital costs,$/kW,3480,2240,1540
+WEO2021,APS,China,Nuclear,Capital costs,$/kW,2800,2800,2500
+WEO2021,APS,China,Coal,Capital costs,$/kW,800,800,800
+WEO2021,APS,China,Gas CCGT,Capital costs,$/kW,560,560,560
+WEO2021,APS,China,Solar PV,Capital costs,$/kW,650,400,270
+WEO2021,APS,China,Wind onshore,Capital costs,$/kW,1260,1180,1110
+WEO2021,APS,China,Wind offshore,Capital costs,$/kW,2960,1820,1120
+WEO2021,APS,India,Nuclear,Capital costs,$/kW,2800,2800,2800
+WEO2021,APS,India,Coal,Capital costs,$/kW,1200,1200,1200
+WEO2021,APS,India,Gas CCGT,Capital costs,$/kW,700,700,700
+WEO2021,APS,India,Solar PV,Capital costs,$/kW,600,360,240
+WEO2021,APS,India,Wind onshore,Capital costs,$/kW,1040,1010,990
+WEO2021,APS,India,Wind offshore,Capital costs,$/kW,2980,1880,1260
+WEO2021,APS,United States,Nuclear,Capacity factor,%,90,85,80
+WEO2021,APS,United States,Coal,Capacity factor,%,30,10,
+WEO2021,APS,United States,Gas CCGT,Capacity factor,%,50,25,
+WEO2021,APS,United States,Solar PV,Capacity factor,%,21,22,23
+WEO2021,APS,United States,Wind onshore,Capacity factor,%,42,43,44
+WEO2021,APS,United States,Wind offshore,Capacity factor,%,42,46,48
+WEO2021,APS,European Union,Nuclear,Capacity factor,%,75,75,70
+WEO2021,APS,European Union,Coal,Capacity factor,%,25,,
+WEO2021,APS,European Union,Gas CCGT,Capacity factor,%,50,40,
+WEO2021,APS,European Union,Solar PV,Capacity factor,%,13,14,14
+WEO2021,APS,European Union,Wind onshore,Capacity factor,%,29,29,30
+WEO2021,APS,European Union,Wind offshore,Capacity factor,%,51,55,58
+WEO2021,APS,China,Nuclear,Capacity factor,%,80,80,80
+WEO2021,APS,China,Coal,Capacity factor,%,55,45,5
+WEO2021,APS,China,Gas CCGT,Capacity factor,%,25,25,25
+WEO2021,APS,China,Solar PV,Capacity factor,%,17,18,19
+WEO2021,APS,China,Wind onshore,Capacity factor,%,26,27,27
+WEO2021,APS,China,Wind offshore,Capacity factor,%,34,40,43
+WEO2021,APS,India,Nuclear,Capacity factor,%,75,80,80
+WEO2021,APS,India,Coal,Capacity factor,%,60,60,50
+WEO2021,APS,India,Gas CCGT,Capacity factor,%,45,50,45
+WEO2021,APS,India,Solar PV,Capacity factor,%,20,21,21
+WEO2021,APS,India,Wind onshore,Capacity factor,%,26,28,29
+WEO2021,APS,India,Wind offshore,Capacity factor,%,32,36,38
+WEO2021,APS,United States,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,APS,United States,Coal,Fuel and O&M,$/MWh,65,125,155
+WEO2021,APS,United States,Gas CCGT,Fuel and O&M,$/MWh,40,65,75
+WEO2021,APS,United States,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,APS,United States,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,APS,United States,Wind offshore,Fuel and O&M,$/MWh,35,20,15
+WEO2021,APS,European Union,Nuclear,Fuel and O&M,$/MWh,35,35,35
+WEO2021,APS,European Union,Coal,Fuel and O&M,$/MWh,105,165,210
+WEO2021,APS,European Union,Gas CCGT,Fuel and O&M,$/MWh,70,95,105
+WEO2021,APS,European Union,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,APS,European Union,Wind onshore,Fuel and O&M,$/MWh,15,15,15
+WEO2021,APS,European Union,Wind offshore,Fuel and O&M,$/MWh,15,10,10
+WEO2021,APS,China,Nuclear,Fuel and O&M,$/MWh,25,25,25
+WEO2021,APS,China,Coal,Fuel and O&M,$/MWh,45,95,150
+WEO2021,APS,China,Gas CCGT,Fuel and O&M,$/MWh,80,105,115
+WEO2021,APS,China,Solar PV,Fuel and O&M,$/MWh,10,5,5
+WEO2021,APS,China,Wind onshore,Fuel and O&M,$/MWh,15,15,10
+WEO2021,APS,China,Wind offshore,Fuel and O&M,$/MWh,25,15,10
+WEO2021,APS,India,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,APS,India,Coal,Fuel and O&M,$/MWh,30,35,30
+WEO2021,APS,India,Gas CCGT,Fuel and O&M,$/MWh,75,75,80
+WEO2021,APS,India,Solar PV,Fuel and O&M,$/MWh,5,5,5
+WEO2021,APS,India,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,APS,India,Wind offshore,Fuel and O&M,$/MWh,25,15,10
+WEO2021,APS,United States,Nuclear,LCOE,$/MWh,105,105,105
+WEO2021,APS,United States,Coal,LCOE,$/MWh,150,410,
+WEO2021,APS,United States,Gas CCGT,LCOE,$/MWh,65,110,
+WEO2021,APS,United States,Solar PV,LCOE,$/MWh,50,30,25
+WEO2021,APS,United States,Wind onshore,LCOE,$/MWh,35,30,30
+WEO2021,APS,United States,Wind offshore,LCOE,$/MWh,115,70,45
+WEO2021,APS,European Union,Nuclear,LCOE,$/MWh,150,120,115
+WEO2021,APS,European Union,Coal,LCOE,$/MWh,200,,
+WEO2021,APS,European Union,Gas CCGT,LCOE,$/MWh,95,120,
+WEO2021,APS,European Union,Solar PV,LCOE,$/MWh,55,35,30
+WEO2021,APS,European Union,Wind onshore,LCOE,$/MWh,50,45,45
+WEO2021,APS,European Union,Wind offshore,LCOE,$/MWh,75,45,30
+WEO2021,APS,China,Nuclear,LCOE,$/MWh,65,65,60
+WEO2021,APS,China,Coal,LCOE,$/MWh,60,115,290
+WEO2021,APS,China,Gas CCGT,LCOE,$/MWh,100,125,135
+WEO2021,APS,China,Solar PV,LCOE,$/MWh,35,20,15
+WEO2021,APS,China,Wind onshore,LCOE,$/MWh,50,45,40
+WEO2021,APS,China,Wind offshore,LCOE,$/MWh,100,55,30
+WEO2021,APS,India,Nuclear,LCOE,$/MWh,70,70,70
+WEO2021,APS,India,Coal,LCOE,$/MWh,55,55,60
+WEO2021,APS,India,Gas CCGT,LCOE,$/MWh,90,90,95
+WEO2021,APS,India,Solar PV,LCOE,$/MWh,35,20,15
+WEO2021,APS,India,Wind onshore,LCOE,$/MWh,50,45,40
+WEO2021,APS,India,Wind offshore,LCOE,$/MWh,135,75,50
+WEO2021,NZE_2050,United States,Nuclear,Capital costs,$/kW,5000,4800,4500
+WEO2021,NZE_2050,United States,Coal,Capital costs,$/kW,2100,2100,2100
+WEO2021,NZE_2050,United States,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,NZE_2050,United States,Solar PV,Capital costs,$/kW,1140,620,420
+WEO2021,NZE_2050,United States,Wind onshore,Capital costs,$/kW,1540,1420,1320
+WEO2021,NZE_2050,United States,Wind offshore,Capital costs,$/kW,4040,2080,1480
+WEO2021,NZE_2050,European Union,Nuclear,Capital costs,$/kW,6600,5100,4500
+WEO2021,NZE_2050,European Union,Coal,Capital costs,$/kW,2000,2000,2000
+WEO2021,NZE_2050,European Union,Gas CCGT,Capital costs,$/kW,1000,1000,1000
+WEO2021,NZE_2050,European Union,Solar PV,Capital costs,$/kW,790,460,340
+WEO2021,NZE_2050,European Union,Wind onshore,Capital costs,$/kW,1540,1420,1300
+WEO2021,NZE_2050,European Union,Wind offshore,Capital costs,$/kW,3600,2020,1420
+WEO2021,NZE_2050,China,Nuclear,Capital costs,$/kW,2800,2800,2500
+WEO2021,NZE_2050,China,Coal,Capital costs,$/kW,800,800,800
+WEO2021,NZE_2050,China,Gas CCGT,Capital costs,$/kW,560,560,560
+WEO2021,NZE_2050,China,Solar PV,Capital costs,$/kW,750,400,280
+WEO2021,NZE_2050,China,Wind onshore,Capital costs,$/kW,1220,1120,1040
+WEO2021,NZE_2050,China,Wind offshore,Capital costs,$/kW,2840,1560,1000
+WEO2021,NZE_2050,India,Nuclear,Capital costs,$/kW,2800,2800,2800
+WEO2021,NZE_2050,India,Coal,Capital costs,$/kW,1200,1200,1200
+WEO2021,NZE_2050,India,Gas CCGT,Capital costs,$/kW,700,700,700
+WEO2021,NZE_2050,India,Solar PV,Capital costs,$/kW,580,310,320
+WEO2021,NZE_2050,India,Wind onshore,Capital costs,$/kW,1040,980,940
+WEO2021,NZE_2050,India,Wind offshore,Capital costs,$/kW,2980,1680,1180
+WEO2021,NZE_2050,United States,Nuclear,Capacity factor,%,90,80,75
+WEO2021,NZE_2050,United States,Coal,Capacity factor,%,20,,
+WEO2021,NZE_2050,United States,Gas CCGT,Capacity factor,%,55,25,
+WEO2021,NZE_2050,United States,Solar PV,Capacity factor,%,21,22,23
+WEO2021,NZE_2050,United States,Wind onshore,Capacity factor,%,42,43,44
+WEO2021,NZE_2050,United States,Wind offshore,Capacity factor,%,42,46,48
+WEO2021,NZE_2050,European Union,Nuclear,Capacity factor,%,75,75,70
+WEO2021,NZE_2050,European Union,Coal,Capacity factor,%,20,,
+WEO2021,NZE_2050,European Union,Gas CCGT,Capacity factor,%,40,20,
+WEO2021,NZE_2050,European Union,Solar PV,Capacity factor,%,13,14,14
+WEO2021,NZE_2050,European Union,Wind onshore,Capacity factor,%,29,30,31
+WEO2021,NZE_2050,European Union,Wind offshore,Capacity factor,%,51,56,59
+WEO2021,NZE_2050,China,Nuclear,Capacity factor,%,80,80,80
+WEO2021,NZE_2050,China,Coal,Capacity factor,%,60,,
+WEO2021,NZE_2050,China,Gas CCGT,Capacity factor,%,45,35,
+WEO2021,NZE_2050,China,Solar PV,Capacity factor,%,17,18,19
+WEO2021,NZE_2050,China,Wind onshore,Capacity factor,%,26,27,27
+WEO2021,NZE_2050,China,Wind offshore,Capacity factor,%,34,41,43
+WEO2021,NZE_2050,India,Nuclear,Capacity factor,%,70,70,70
+WEO2021,NZE_2050,India,Coal,Capacity factor,%,50,,
+WEO2021,NZE_2050,India,Gas CCGT,Capacity factor,%,55,50,
+WEO2021,NZE_2050,India,Solar PV,Capacity factor,%,20,21,21
+WEO2021,NZE_2050,India,Wind onshore,Capacity factor,%,26,28,29
+WEO2021,NZE_2050,India,Wind offshore,Capacity factor,%,32,37,38
+WEO2021,NZE_2050,United States,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,NZE_2050,United States,Coal,Fuel and O&M,$/MWh,90,170,235
+WEO2021,NZE_2050,United States,Gas CCGT,Fuel and O&M,$/MWh,50,80,105
+WEO2021,NZE_2050,United States,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,NZE_2050,United States,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,NZE_2050,United States,Wind offshore,Fuel and O&M,$/MWh,35,20,15
+WEO2021,NZE_2050,European Union,Nuclear,Fuel and O&M,$/MWh,35,35,35
+WEO2021,NZE_2050,European Union,Coal,Fuel and O&M,$/MWh,120,205,275
+WEO2021,NZE_2050,European Union,Gas CCGT,Fuel and O&M,$/MWh,65,95,120
+WEO2021,NZE_2050,European Union,Solar PV,Fuel and O&M,$/MWh,10,10,10
+WEO2021,NZE_2050,European Union,Wind onshore,Fuel and O&M,$/MWh,15,15,15
+WEO2021,NZE_2050,European Union,Wind offshore,Fuel and O&M,$/MWh,15,10,5
+WEO2021,NZE_2050,China,Nuclear,Fuel and O&M,$/MWh,25,25,25
+WEO2021,NZE_2050,China,Coal,Fuel and O&M,$/MWh,75,135,195
+WEO2021,NZE_2050,China,Gas CCGT,Fuel and O&M,$/MWh,75,100,120
+WEO2021,NZE_2050,China,Solar PV,Fuel and O&M,$/MWh,10,5,5
+WEO2021,NZE_2050,China,Wind onshore,Fuel and O&M,$/MWh,15,10,10
+WEO2021,NZE_2050,China,Wind offshore,Fuel and O&M,$/MWh,25,15,10
+WEO2021,NZE_2050,India,Nuclear,Fuel and O&M,$/MWh,30,30,30
+WEO2021,NZE_2050,India,Coal,Fuel and O&M,$/MWh,35,50,75
+WEO2021,NZE_2050,India,Gas CCGT,Fuel and O&M,$/MWh,45,45,50
+WEO2021,NZE_2050,India,Solar PV,Fuel and O&M,$/MWh,5,5,5
+WEO2021,NZE_2050,India,Wind onshore,Fuel and O&M,$/MWh,10,10,10
+WEO2021,NZE_2050,India,Wind offshore,Fuel and O&M,$/MWh,25,15,10
+WEO2021,NZE_2050,United States,Nuclear,LCOE,$/MWh,105,110,110
+WEO2021,NZE_2050,United States,Coal,LCOE,$/MWh,220,,
+WEO2021,NZE_2050,United States,Gas CCGT,LCOE,$/MWh,70,125,
+WEO2021,NZE_2050,United States,Solar PV,LCOE,$/MWh,50,30,20
+WEO2021,NZE_2050,United States,Wind onshore,LCOE,$/MWh,35,35,30
+WEO2021,NZE_2050,United States,Wind offshore,LCOE,$/MWh,115,60,40
+WEO2021,NZE_2050,European Union,Nuclear,LCOE,$/MWh,150,120,115
+WEO2021,NZE_2050,European Union,Coal,LCOE,$/MWh,250,,
+WEO2021,NZE_2050,European Union,Gas CCGT,LCOE,$/MWh,100,115,
+WEO2021,NZE_2050,European Union,Solar PV,LCOE,$/MWh,55,35,25
+WEO2021,NZE_2050,European Union,Wind onshore,LCOE,$/MWh,55,45,40
+WEO2021,NZE_2050,European Union,Wind offshore,LCOE,$/MWh,75,40,25
+WEO2021,NZE_2050,China,Nuclear,LCOE,$/MWh,65,65,60
+WEO2021,NZE_2050,China,Coal,LCOE,$/MWh,90,,
+WEO2021,NZE_2050,China,Gas CCGT,LCOE,$/MWh,90,115,
+WEO2021,NZE_2050,China,Solar PV,LCOE,$/MWh,40,25,15
+WEO2021,NZE_2050,China,Wind onshore,LCOE,$/MWh,45,40,40
+WEO2021,NZE_2050,China,Wind offshore,LCOE,$/MWh,95,45,30
+WEO2021,NZE_2050,India,Nuclear,LCOE,$/MWh,75,75,75
+WEO2021,NZE_2050,India,Coal,LCOE,$/MWh,65,,
+WEO2021,NZE_2050,India,Gas CCGT,LCOE,$/MWh,55,60,
+WEO2021,NZE_2050,India,Solar PV,LCOE,$/MWh,35,20,15
+WEO2021,NZE_2050,India,Wind onshore,LCOE,$/MWh,50,45,40
+WEO2021,NZE_2050,India,Wind offshore,LCOE,$/MWh,130,70,45
