@@ -194,6 +194,7 @@ output_list <- regroup_and_rename_geographies(
   )
 
   scenarios_geographies <- output_list[["bench_regions"]]
+  trisk_input_dfs <- output_list[["trisk_input_dfs"]]
 
   ## ------------------------------ WRITE OUTPUTS
   usethis::use_data(scenarios_geographies, overwrite = T)

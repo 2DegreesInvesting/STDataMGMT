@@ -391,7 +391,14 @@ DB_assets_eikon %>%
 DB_ownership_tree <- make_ownership_tree_db()
 
 
-outputs_list <- prepare_asset_impact_data(ar_data_path=ar_data_path)
+path_ar_data_raw <-
+  r2dii.utils::path_dropbox_2dii(
+    "ST_INPUTS",
+    "ST_INPUTS_PRODUCTION",
+    "AR-Company-Indicators_2022Q4.xlsx"
+  )
+
+outputs_list <- prepare_asset_impact_data(ar_data_path=path_ar_data_raw)
 DB_company_activities <- outputs_list[["company_activities"]]
 DB_company_emissions <- outputs_list[["company_emissions"]]
 

@@ -198,7 +198,7 @@ prepared_data_IPR_OXF <- dplyr::full_join(prepared_IPR_data, prepared_OXF_data)
 prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_data_IPR_OXF)
 
 prepared_data_combined %>% 
-  dplyr::rename(ald_business_unit=.data$technology)
+  dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(
   file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
 )

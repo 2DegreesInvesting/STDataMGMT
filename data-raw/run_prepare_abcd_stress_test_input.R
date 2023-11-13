@@ -7,17 +7,14 @@ devtools::load_all()
 data(scenarios_geographies)
 
 ## PARAMETERS
-path_ar_data_raw <-
-  r2dii.utils::path_dropbox_2dii(
-    "ST_INPUTS",
-    "ST_INPUTS_PRODUCTION"
-  )
 
 output_path_stress_test_input <-
-  r2dii.utils::path_dropbox_2dii(
-    "ST_INPUTS",
-    "ST_INPUTS_MASTER"
-  )
+  fs::path(
+    "data-raw",
+  "abcd_stress_test_input",
+  ext = "csv"
+)
+  
 
 start_year <- 2022
 time_horizon <- 5
@@ -43,8 +40,4 @@ abcd_stress_test_input <-
 abcd_stress_test_input %>% 
   assertr::verify(all(colSums(is.na(.)) == 0))
 
-abcd_stress_test_input %>% readr::write_csv(fs::path(
-  output_path_stress_test_input,
-  "abcd_stress_test_input",
-  ext = "csv"
-))
+abcd_stress_test_input %>% readr::write_csv(output_path_stress_test_input)
