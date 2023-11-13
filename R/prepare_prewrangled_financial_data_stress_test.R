@@ -504,7 +504,7 @@ remove_implausible_values_in_financial_indicators <- function(financial_data, al
 prepare_financial_data <- function(financial_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
   #### INITIALISE FINANCIAL DATA
   # add ald_sector provided by asset resolution. This will duplicate rows for companies represented in more than 1 sector.
-  financial_data <- add_column_ald_sector_to_financial_data(eikon_data, companies_data)
+  financial_data <- add_column_ald_sector_to_financial_data(financial_data, companies_data)
 
   #### AGGREGATE FINANCIAL DATA FROM ISIN TO COMPANY_ID
   financial_data <- match_location_to_region(financial_data)

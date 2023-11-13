@@ -98,7 +98,7 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
   stopifnot(power_data_has_expected_columns)
 
   power_data <- input_data_power %>%
-    dplyr::rename(ald_business_unit=technology) %>%
+    dplyr::rename(ald_business_unit=.data$technology) %>%
     tidyr::pivot_longer(
       cols = tidyr::starts_with("20"),
       names_to = "year",
@@ -429,7 +429,7 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
   stopifnot(power_data_has_expected_columns)
 
   power_data <- input_data_power %>%
-  dplyr::rename(ald_business_unit=technology) %>%
+  dplyr::rename(ald_business_unit=.data$technology) %>%
     tidyr::pivot_longer(
       cols = tidyr::starts_with("20"),
       names_to = "year",

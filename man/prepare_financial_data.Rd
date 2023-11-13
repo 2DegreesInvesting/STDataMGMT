@@ -8,10 +8,10 @@
 prepare_financial_data(
   financial_data,
   companies_data,
+  ownership_tree,
   minimum_sample_size,
   minimum_ratio_sample,
-  allowed_range_npm,
-  ownership_tree = NULL
+  allowed_range_npm
 )
 }
 \arguments{
@@ -19,13 +19,13 @@ prepare_financial_data(
 
 \item{companies_data}{companies_data}
 
+\item{ownership_tree}{ownership_tree}
+
 \item{minimum_sample_size}{minimum_sample_size}
 
 \item{minimum_ratio_sample}{minimum_ratio_sample}
 
 \item{allowed_range_npm}{allowed_range_npm c(min_npm, max_npm)}
-
-\item{ownership_tree}{ownership_tree}
 }
 \value{
 a dataframe

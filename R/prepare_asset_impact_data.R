@@ -78,8 +78,8 @@ rename_ald_sector <- function(ar_data) {
 #'
 aggregate_over_technology_types <- function(ar_data) {
   ar_data <- ar_data %>%
-    dplyr::group_by(dplyr::across(c(
-      -.data$technology_type,
+    dplyr::group_by(dplyr::across(-c(
+      .data$technology_type
       # removes this column after grouping-dplyr::contains("Equity Ownership ")
     ))) %>%
     dplyr::summarise(dplyr::across(dplyr::contains("Equity Ownership "), .sum_or_all_nans),
