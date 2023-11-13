@@ -5,7 +5,7 @@
 \alias{scenarios_geographies}
 \title{available geographies in the stress test}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 1824 rows and 6 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2509 rows and 5 columns.
 }
 \source{
 internal
