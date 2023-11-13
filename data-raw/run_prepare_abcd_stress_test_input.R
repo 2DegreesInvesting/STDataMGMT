@@ -1,4 +1,10 @@
+# This script generates the abcd input from asset_resolution data
+# as well as the production_type.rda reference dataset in this packge
+# TODO all the code before abcd_data should be translated to SQL
+
 devtools::load_all()
+
+data(scenarios_geographies)
 
 ## PARAMETERS
 path_ar_data_raw <-
@@ -22,34 +28,24 @@ km_per_vehicle <- 15000
 bench_regions <-
   readr::read_rds(here::here("data-raw", "bench_regions.rds"))
 
-company_activities <-
-  read_asset_resolution(
-    fs::path(path_ar_data_raw,
+ar_data_path <- fs::path(path_ar_data_raw,
       "AR-Company-Indicators_2022Q4",
-      ext = "xlsx"
-    ),
-    sheet_name = "Company Activities"
-  )
-company_emissions <-
-  read_asset_resolution(
-    fs::path(path_ar_data_raw,
-      "AR-Company-Indicators_2022Q4",
-      ext = "xlsx"
-    ),
-    sheet_name = "Company Emissions"
-  )
+      ext = "xlsx")
 
-outputs_list <-
-  prepare_assets_data(company_activities, company_emissions)
 
-clean_company_activities <- outputs_list[["company_activities"]]
-clean_company_emissions <- outputs_list[["company_emissions"]]
+outputs_list <- prepare_asset_impact_data(ar_data_path=ar_data_path)
+company_activities <- outputs_list[["company_activities"]]
+company_emissions <- outputs_list[["company_emissions"]]
 
-abcd_data <-
+# THE PART ABOVE IS ASSET RESOLUTION SPECIFIC
+# ========================
+# CONVERT CLEAN COMPANY DATA TO ABCD BELOW
+
+abcd_stress_test_input <-
   prepare_abcd_data(
-    company_activities = clean_company_activities,
-    company_emissions = clean_company_emissions,
-    scenarios_geographies = bench_regions,
+    company_activities = company_activities,
+    company_emissions = company_emissions,
+    scenarios_geographies = scenarios_geographies, # loaded from package
     start_year = start_year,
     time_horizon = time_horizon,
     additional_year = additional_year,
@@ -57,10 +53,10 @@ abcd_data <-
     sector_list = sector_list
   )
 
-abcd_data %>%
+abcd_stress_test_input %>% 
   assertr::verify(all(colSums(is.na(.)) == 0))
 
-abcd_data %>% readr::write_csv(fs::path(
+abcd_stress_test_input %>% readr::write_csv(fs::path(
   output_path_stress_test_input,
   "abcd_stress_test_input",
   ext = "csv"

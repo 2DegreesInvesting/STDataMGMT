@@ -3,7 +3,7 @@
 \name{prepare_abcd_data}
 \alias{prepare_abcd_data}
 \title{Creates the abcd stress test input data, using companies emissions and productions.
-Aggregate absolute values of production and emissions over technology types and regions.
+Aggregate absolute values of production and emissions over ald_business_unit types and regions.
 Computes the emissions factor ratio out of absolute emissions and productions.}
 \usage{
 prepare_abcd_data(
@@ -18,9 +18,11 @@ prepare_abcd_data(
 )
 }
 \arguments{
-\item{company_activities}{production of companies, 1 row per year}
+\item{company_activities}{production of companies in different countries.
+Production amount is indicated in equity_ownership columns, 1 column per year}
 
-\item{company_emissions}{emissions of companies (in tCO2 or tCO2e), 1 row per year}
+\item{company_emissions}{emissions of companies in different countries.
+Emission amount is indicated in equity_ownership columns, 1 column per year}
 
 \item{scenarios_geographies}{mapping between country code and climate scenario geographies}
 
@@ -40,6 +42,6 @@ companies production matched to the appropriate emission, 1 row per year and sce
 }
 \description{
 Creates the abcd stress test input data, using companies emissions and productions.
-Aggregate absolute values of production and emissions over technology types and regions.
+Aggregate absolute values of production and emissions over ald_business_unit types and regions.
 Computes the emissions factor ratio out of absolute emissions and productions.
 }

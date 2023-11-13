@@ -11,7 +11,7 @@ create_emissions_factor_ratio(abcd_data, km_per_vehicle)
 
 \item{km_per_vehicle}{It appears that AR data assumes that vehicles will
 drive 15000 km to compute the CO2/km emission factor
-TODO check if this is true on every vehicle technology}
+TODO check if this is true on every vehicle ald_business_unit}
 }
 \description{
 convert EF from tCO2 (or tCO2e) to the ratio of tCO2 (or tCO2e) over production
