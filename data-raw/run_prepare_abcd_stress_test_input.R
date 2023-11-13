@@ -25,22 +25,13 @@ additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
-
-outputs_list <- prepare_asset_impact_data(ar_data_path=ar_data_path)
-company_activities <- outputs_list[["company_activities"]]
-company_emissions <- outputs_list[["company_emissions"]]
-
-readr::write_rds(company_activities, fs::path("data-raw","DBs","DB_company_activities", ext="rds"))
-readr::write_rds(company_emissions, fs::path("data-raw","DBs","DB_company_emissions", ext="rds"))
-
-# THE PART ABOVE IS ASSET RESOLUTION SPECIFIC
-# ========================
-# CONVERT CLEAN COMPANY DATA TO ABCD BELOW
+DB_company_activities  <-  readr::read_rds(fs::path("data-raw","DBs","DB_company_activities", ext="rds"))
+DB_company_emissions  <-  readr::read_rds(fs::path("data-raw","DBs","DB_company_emissions", ext="rds"))
 
 abcd_stress_test_input <-
   prepare_abcd_data(
-    company_activities = company_activities,
-    company_emissions = company_emissions,
+    company_activities = DB_company_activities,
+    company_emissions = DB_company_emissions,
     scenarios_geographies = scenarios_geographies, # loaded from package
     start_year = start_year,
     time_horizon = time_horizon,
