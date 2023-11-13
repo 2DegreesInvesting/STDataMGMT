@@ -110,7 +110,8 @@ make_eikon_db <- function() {
     eikon_data_old %>%
     anti_join(eikon_new, by = "isin") %>%
     bind_rows(eikon_new) %>%
-    mutate(ald_location = substr(isin, start = 1, stop = 2))
+    mutate(ald_location = substr(isin, start = 1, stop = 2)) %>%
+    select(-c(ticker_symbol, trbc_industry_name))
   DB_assets_eikon
 }
 
@@ -406,9 +407,9 @@ output_dir <- fs::path("data-raw", "DBs")
 dir.create(output_dir, showWarnings = F, recursive = T)
 
 
-DB_company_activities %>% readr::write_rds(fs::path(output_dir,"DB_company_activities", ext="rds"))
-DB_company_emissions %>% readr::write_rds(fs::path(output_dir,"DB_company_emissions", ext="rds"))
-DB_assets_eikon %>% readr::write_rds(fs::path(output_dir, "DB_assets_eikon.rds"))
-DB_asset_impact %>% readr::write_rds(fs::path(output_dir, "DB_asset_impact.rds"))
-DB_ids %>% readr::write_rds(fs::path(output_dir, "DB_ids.rds"))
-DB_ownership_tree %>% readr::write_rds(fs::path(output_dir, "DB_ownership_tree.rds"))
+DB_company_activities %>% arrow::write_parquet(fs::path(output_dir,"DB_company_activities", ext="parquet"))
+DB_company_emissions %>% arrow::write_parquet(fs::path(output_dir,"DB_company_emissions", ext="parquet"))
+DB_assets_eikon %>% arrow::write_parquet(fs::path(output_dir, "DB_assets_eikon.parquet"))
+DB_asset_impact %>% arrow::write_parquet(fs::path(output_dir, "DB_asset_impact.parquet"))
+DB_ids %>% arrow::write_parquet(fs::path(output_dir, "DB_ids.parquet"))
+DB_ownership_tree %>% arrow::write_parquet(fs::path(output_dir, "DB_ownership_tree.parquet"))

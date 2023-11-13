@@ -47,3 +47,4 @@ Desktop.ini
 *.icloud
 .Rproj.user
 STDataMGMT.Rproj
+inst/doc

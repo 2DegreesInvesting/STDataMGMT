@@ -3,7 +3,7 @@
 \name{fill_partially_missing_values}
 \alias{fill_partially_missing_values}
 \title{Fill ald_production and emissions_factor for a given ald_business_unit at a company
-with values of previous years, or with interpolation for values in the middle.}
+with values of previous years, or with interpolation for values in the middle, or 0 for values in previous years.}
 \usage{
 fill_partially_missing_values(abcd_data)
 }
@@ -12,5 +12,5 @@ fill_partially_missing_values(abcd_data)
 }
 \description{
 Fill ald_production and emissions_factor for a given ald_business_unit at a company
-with values of previous years, or with interpolation for values in the middle.
+with values of previous years, or with interpolation for values in the middle, or 0 for values in previous years.
 }

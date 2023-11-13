@@ -1,4 +1,4 @@
-#' @importFrom rlang %||% abort warn .data .env
+#' @importFrom rlang %||% abort warn .data .env :=
 #' @importFrom magrittr %>%
 NULL
 

@@ -289,7 +289,7 @@ aggregate_over_locations <- function(abcd_data) {
 }
 
 #' Fill ald_production and emissions_factor for a given ald_business_unit at a company
-#'  with values of previous years, or with interpolation for values in the middle.
+#'  with values of previous years, or with interpolation for values in the middle, or 0 for values in previous years.
 #'
 #' @param abcd_data abcd_data
 #'
@@ -314,10 +314,13 @@ fill_partially_missing_values <- function(abcd_data) {
       emissions_factor = zoo::na.approx(.data$emissions_factor, na.rm = F),
     ) %>%
     # Fill years in the beginning and et the end, by extending the first or last non-na value
-    tidyr::fill(.data$ald_production, .direction = "downup") %>%
-    tidyr::fill(.data$emissions_factor, .direction = "downup") %>%
-    dplyr::ungroup()
-
+    tidyr::fill(.data$ald_production, .direction = "down") %>%
+    tidyr::fill(.data$emissions_factor, .direction = "down") %>%
+    dplyr::ungroup()  %>%
+    dplyr::mutate(
+      ald_production=tidyr::replace_na(.data$ald_production, 0) ,
+     emissions_factor= tidyr::replace_na(.data$emissions_factor, 0)
+    )
   return(abcd_data)
 }
 

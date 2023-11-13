@@ -19,4 +19,11 @@ prewrangled_financial_data_stress_test <- STDataMGMT::prepare_financial_data(
   allowed_range_npm = c(-Inf, Inf)
 )
 
+abcd_stress_test_input <- arrow::read_parquet(synth_fp$abcd_stress_test_input)
+
+prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
+  dplyr::inner_join(abcd_stress_test_input %>% dplyr::distinct(company_id))
+
+
+
 arrow::write_parquet(prewrangled_financial_data_stress_test, synth_fp$prewrangled_financial_data_stress_test)
