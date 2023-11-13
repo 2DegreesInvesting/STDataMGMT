@@ -3,7 +3,8 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{match_closest_financial_data_to_missing_companies}
 \alias{match_closest_financial_data_to_missing_companies}
-\title{Title}
+\title{Use the ownership tree to assign raw eikon financial data to a subsidiary company when it
+doesn't own any financial information in the raw data}
 \usage{
 match_closest_financial_data_to_missing_companies(
   missing_companies_in_financial_data,
@@ -22,5 +23,6 @@ match_closest_financial_data_to_missing_companies(
 a dataframe
 }
 \description{
-Title
+Use the ownership tree to assign raw eikon financial data to a subsidiary company when it
+doesn't own any financial information in the raw data
 }

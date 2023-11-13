@@ -25,13 +25,6 @@ additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
-bench_regions <-
-  readr::read_rds(here::here("data-raw", "bench_regions.rds"))
-
-ar_data_path <- fs::path(path_ar_data_raw,
-      "AR-Company-Indicators_2022Q4",
-      ext = "xlsx")
-
 
 outputs_list <- prepare_asset_impact_data(ar_data_path=ar_data_path)
 company_activities <- outputs_list[["company_activities"]]

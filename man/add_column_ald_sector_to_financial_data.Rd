@@ -3,7 +3,8 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{add_column_ald_sector_to_financial_data}
 \alias{add_column_ald_sector_to_financial_data}
-\title{Title}
+\title{Map the columns (company_id, ald_sector) from companies data to the financial data
+where applicable (through a left join)}
 \usage{
 add_column_ald_sector_to_financial_data(financial_data, companies_data)
 }
@@ -16,5 +17,6 @@ add_column_ald_sector_to_financial_data(financial_data, companies_data)
 a dataframe
 }
 \description{
-Title
+Map the columns (company_id, ald_sector) from companies data to the financial data
+where applicable (through a left join)
 }

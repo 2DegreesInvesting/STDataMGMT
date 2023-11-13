@@ -3,7 +3,9 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{compute_financial_averages}
 \alias{compute_financial_averages}
-\title{Title}
+\title{compute averages on sector/region , sector, global, using the
+create_averages_eikon() function
+TODO global/region}
 \usage{
 compute_financial_averages(
   financial_data,
@@ -22,8 +24,10 @@ compute_financial_averages(
 \item{allowed_range_npm}{allowed_range_npm}
 }
 \value{
-a dataframe
+a list of dataframes
 }
 \description{
-Title
+compute averages on sector/region , sector, global, using the
+create_averages_eikon() function
+TODO global/region
 }

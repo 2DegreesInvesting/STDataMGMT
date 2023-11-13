@@ -1,21 +1,5 @@
-#' Title
-#'
-#' @param eikon_data eikon_data
-#' @param ids_data ids_data
-#'
-#' @return a dataframe
-#'
-add_column_company_id_to_eikon_data <- function(eikon_data, ids_data) {
-  isin_to_company_id <- ids_data %>% dplyr::distinct(.data$isin, .data$company_id)
-
-  financial_data <- eikon_data %>%
-    dplyr::inner_join(isin_to_company_id, by = c("isin"))
-
-  return(financial_data)
-}
-
-
-#' Title
+#' Map the columns (company_id, ald_sector) from companies data to the financial data
+#' where applicable (through a left join)
 #'
 #' @param financial_data financial_data
 #' @param companies_data companies_data
@@ -32,7 +16,8 @@ add_column_ald_sector_to_financial_data <- function(financial_data, companies_da
   return(financial_data)
 }
 
-#' Title
+#' Decrease regional granularity by matching
+#' the ald_location countries in financial data to macro regions
 #'
 #' @param financial_data financial_data
 #'
@@ -123,7 +108,9 @@ create_averages_eikon <- function(data,
   return(subgroup_averages)
 }
 
-#' Title
+
+#' Applies the create_averages_eikon() function with minimum tolerance, effectively
+#' aggregating all financial indicators on the grp_cols columns
 #'
 #' @param financial_data financial_data
 #' @param grp_cols grp_cols
@@ -147,7 +134,36 @@ aggregate_financial_indicators <- function(financial_data, grp_cols) {
     )
 }
 
-#' Title
+#' Aggregate financial data indicator types using dummies.
+#' This does NOT return dummies as boolean, but as the sum of all indicator
+#' types when grouped by company_id.
+#'
+#' @param financial_data financial_data
+#' @param grp_cols grp_cols
+#'
+#' @return a dataframe
+#'
+aggregate_indicator_types <- function(financial_data, grp_cols) {
+  indicator_type_cols <- names(financial_data)[grepl("indicator_type_", names(financial_data))]
+  financial_data_indicator_types <- financial_data %>% dplyr::select(c("company_id", indicator_type_cols))
+  
+  financial_data_indicator_types[indicator_type_cols] <- lapply(
+    financial_data_indicator_types[indicator_type_cols],
+    function(x) {
+      stringr::str_remove(x, "Financial indicator from ")
+    }
+  )
+
+  aggregated_financial_data_indicator_types <- financial_data_indicator_types %>%
+    fastDummies::dummy_cols(select_columns = indicator_type_cols, remove_selected_columns = TRUE) %>%
+    dplyr::group_by(dplyr::across(grp_cols)) %>%
+    dplyr::summarise(dplyr::across(dplyr::everything(), sum), .groups = "drop")
+
+  return(aggregated_financial_data_indicator_types)
+}
+
+#' Use the ownership tree to assign raw eikon financial data to a subsidiary company when it
+#' doesn't own any financial information in the raw data
 #'
 #' @param missing_companies_in_financial_data missing_companies_in_financial_data
 #' @param financial_data financial_data
@@ -202,7 +218,8 @@ match_closest_financial_data_to_missing_companies <- function(missing_companies_
   return(missing_companies_in_financial_data)
 }
 
-#' Title
+#' Anti join the financial data with companies data to create new rows
+#' in the financial data for the missing companies.
 #'
 #' @param financial_data financial_data
 #' @param companies_data companies_data
@@ -216,14 +233,17 @@ get_missing_companies_in_financial_data <- function(financial_data, companies_da
   return(missing_companies_in_financial_data)
 }
 
-#' Title
+
+#' compute averages on sector/region , sector, global, using the
+#' create_averages_eikon() function
+#' TODO global/region
 #'
 #' @param financial_data financial_data
 #' @param minimum_sample_size minimum_sample_size
 #' @param minimum_ratio_sample minimum_ratio_sample
 #' @param allowed_range_npm allowed_range_npm
 #'
-#' @return a dataframe
+#' @return a list of dataframes
 #'
 compute_financial_averages <- function(
     financial_data,
@@ -272,7 +292,8 @@ compute_financial_averages <- function(
   ))
 }
 
-#' Title
+#' Add financial averages columns to the data in order, f
+#' rom most granular to less granular
 #'
 #' @param financial_data financial_data
 #' @param ald_sector_region_averages ald_sector_region_averages
@@ -401,7 +422,6 @@ select_final_financial_value_using_averages <- function(financial_data) {
         ~ as.double(.)
       )
     )
-
   # select final columns and clean column names
   financial_data <- financial_data %>%
     dplyr::select(
@@ -410,7 +430,11 @@ select_final_financial_value_using_averages <- function(financial_data) {
       .data$final_net_profit_margin,
       .data$final_debt_equity_ratio,
       .data$final_volatility,
-      .data$final_asset_drift
+      .data$final_asset_drift,
+      .data$final_indicator_type_net_profit_margin,
+      .data$final_indicator_type_debt_equity_ratio,
+      .data$final_indicator_type_volatility,
+      .data$final_indicator_type_asset_drift
     )
 
   names(financial_data) <- names(financial_data) %>%
@@ -454,10 +478,20 @@ remove_implausible_values_in_financial_indicators <- function(financial_data, al
 }
 
 
-#' Title
+#' Main financial data preparation script
 #'
-#' @param ids_data ids_data
-#' @param eikon_data eikon_data
+#' @description Prepare the financial data following those steps :
+#'  - Using the country associated to each asset, aggregate the financial indicators from country to region
+#'    when a company owns several assets in different countries, but same region.
+#'  - Remove implausible values from the raw data, by setting the cell where it appears to NA .
+#'    Those values will be filled with averages later on.
+#'  - If the ownership tree is provided as an input, match missing financial values of subsidiaries
+#'    to their closest parent compahy, if the parent company has non-NA financial values in the raw data.
+#'  - Compute averages, and pick the most granular one possible to fill missing values
+#'  - As financial indicators are still at the (company_id, ald_sector, region) granularity level,
+#'    aggregate those to the company level to be used in the stress test.
+#'
+#' @param financial_data financial_data
 #' @param companies_data companies_data
 #' @param ownership_tree ownership_tree
 #' @param minimum_sample_size minimum_sample_size
@@ -467,9 +501,8 @@ remove_implausible_values_in_financial_indicators <- function(financial_data, al
 #' @return a dataframe
 #' @export
 #'
-prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
+prepare_financial_data <- function(financial_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
   #### INITIALISE FINANCIAL DATA
-  financial_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
   # add ald_sector provided by asset resolution. This will duplicate rows for companies represented in more than 1 sector.
   financial_data <- add_column_ald_sector_to_financial_data(financial_data, companies_data)
 
@@ -486,15 +519,17 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
   #### ADD MISSING COMPANIES FROM PRODUCTION
   # add missing companies from production to the financial data and match with closest parent company
   # if it exists in the original financial data
-  ownership_tree <- keep_available_financial_companies_in_ownership_tree(financial_data, ownership_tree)
   missing_companies_in_financial_data <- get_missing_companies_in_financial_data(financial_data, companies_data)
   missing_companies_in_financial_data <- match_location_to_region(missing_companies_in_financial_data) %>% dplyr::distinct_all()
-  missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
-    missing_companies_in_financial_data = missing_companies_in_financial_data,
-    financial_data = financial_data,
-    ownership_tree = ownership_tree
-  )
 
+  if (!is.null(ownership_tree)) {
+    ownership_tree <- keep_available_financial_companies_in_ownership_tree(financial_data, ownership_tree)
+    missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
+      missing_companies_in_financial_data = missing_companies_in_financial_data,
+      financial_data = financial_data,
+      ownership_tree = ownership_tree
+    )
+  }
 
   #### FILL MISSING VALUES WITH AVERAGES
 
@@ -510,6 +545,8 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
     financial_data,
     missing_companies_in_financial_data
   )
+  # # filter rows without a company ID as they're not useful anymore (only has an impact in averages)
+  financial_data_all_companies <- financial_data_all_companies %>% dplyr::filter(!is.na(.data$company_id))
 
   # fill na with averages
   financial_data_all_companies <- add_columns_financial_averages(
@@ -519,18 +556,27 @@ prepare_financial_data <- function(ids_data, eikon_data, companies_data, ownersh
     financial_averages[["global_averages"]]
   )
 
-  # # filter rows without a company ID as they're not useful anymore (only has an impact in averages)
-  financial_data_all_companies <- financial_data_all_companies %>% dplyr::filter(!is.na(.data$company_id))
-
   # fill NA values in financial indicators
   financial_data_all_companies <- select_final_financial_value_using_averages(financial_data_all_companies)
   # aggregate final financial indicators to company level
-  financial_data_all_companies <- aggregate_financial_indicators(financial_data_all_companies, grp_cols = c("company_id"))
+  prewrangled_financial_data_stress_test <- aggregate_financial_indicators(
+    financial_data_all_companies,
+    grp_cols = c("company_id")
+  )
+  financial_data_indicator_types <- aggregate_indicator_types(
+    financial_data_all_companies,
+    grp_cols = c("company_id")
+  )
+
+  prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
+    dplyr::inner_join(financial_data_indicator_types, by = "company_id")
+
 
   # assert no NA anywhere and no implausible values
-  financial_data_all_companies %>%
+  prewrangled_financial_data_stress_test %>%
     remove_implausible_values_in_financial_indicators(allowed_range_npm = c(0, 1)) %>%
     assertr::verify(sum(is.na(.)) == 0)
 
-  return(financial_data_all_companies)
+
+  return(prewrangled_financial_data_stress_test)
 }
