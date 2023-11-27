@@ -105,5 +105,5 @@ prepared_data <- prepared_data_WEO2021 %>%
 prepared_data %>% 
   dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(
-  file.path("data-raw", "prewrangled_capacity_factors.csv")
+  file.path("data-raw", "st_inputs","prewrangled_capacity_factors.csv")
 )

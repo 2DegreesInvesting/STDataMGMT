@@ -177,11 +177,11 @@ bench_regions_input_path <- here::here("data-raw", "bench_regions.csv")
 bench_regions <- cleaning_bench_regions(bench_regions_input_path)
 
 path_prewrangled_capacity_factors <-
-  here::here("data-raw", "prewrangled_capacity_factors.csv")
+  here::here("data-raw", "st_inputs","prewrangled_capacity_factors.csv")
 path_price_data_long <-
-  here::here("data-raw", "price_data_long.csv")
+  here::here("data-raw", "st_inputs","price_data_long.csv")
 path_Scenarios_AnalysisInput <-
-  here::here("data-raw", "Scenarios_AnalysisInput_2021.csv")
+  here::here("data-raw","st_inputs", "Scenarios_AnalysisInput_2021.csv")
 
 matching_tol <- 1
 

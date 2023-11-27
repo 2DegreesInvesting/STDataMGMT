@@ -200,5 +200,5 @@ prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_data
 prepared_data_combined %>% 
   dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(
-  file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
+  file.path("data-raw", "st_inputs",glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
 )

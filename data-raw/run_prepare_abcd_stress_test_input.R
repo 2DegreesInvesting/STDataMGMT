@@ -11,6 +11,7 @@ data(scenarios_geographies)
 output_path_stress_test_input <-
   fs::path(
     "data-raw",
+    "st_inputs",
   "abcd_stress_test_input",
   ext = "csv"
 )

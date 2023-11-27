@@ -46,5 +46,5 @@ prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test
 
 
 prewrangled_financial_data_stress_test %>% readr::write_csv(
-  file.path("data-raw", "prewrangled_financial_data_stress_test.csv")
+  file.path("data-raw", "st_inputs","prewrangled_financial_data_stress_test.csv")
 )
