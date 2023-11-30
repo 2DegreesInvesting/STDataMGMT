@@ -92,7 +92,7 @@ generate_company_production <- function(
       names_sep = "_"
     )
   colnames(productions_values) <-
-    paste0("Equity Ownership", sep = " ", 2021:(2021 + n_year_plan))
+    paste0("Equity Ownership", sep = " ", 2022:(2022 + n_year_plan))
 
   # add random NA. Total NA match proportion parameter
   productions_values <-

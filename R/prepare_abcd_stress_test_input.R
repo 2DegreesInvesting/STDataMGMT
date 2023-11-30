@@ -116,6 +116,7 @@ filter_years_abcd_data <- function(abcd_data,
 #' @param abcd_data abcd_data
 #'
 fill_missing_emission_factor <- function(abcd_data) {
+  # compute average emissions_factor
   avg_emission_factors <- abcd_data %>%
     dplyr::group_by(
       .data$ald_sector,
@@ -124,7 +125,8 @@ fill_missing_emission_factor <- function(abcd_data) {
     ) %>%
     dplyr::summarise(emissions_factor = mean(.data$emissions_factor, na.rm = T)) %>%
     dplyr::ungroup()
-
+  
+  # fill missing emission factors with averages
   abcd_missing_ef <- abcd_data %>%
     dplyr::filter(is.na(.data$emissions_factor))
 
@@ -135,14 +137,22 @@ fill_missing_emission_factor <- function(abcd_data) {
     )
 
   # Fill nans when there is no avg emission factor for some technologies
+  # and thus, no 
   # TODO why is there no emission factor on HDV ?
-  # abcd_missing_ef <-
-  #   abcd_missing_ef %>%
-  #   dplyr::mutate(emissions_factor = tidyr::replace_na(emissions_factor, 0))
+  abcd_missing_ef <-
+    abcd_missing_ef %>%
+    dplyr::mutate(emissions_factor = tidyr::replace_na(emissions_factor, 0))
 
   abcd_data <- abcd_data %>%
     dplyr::filter(!is.na(.data$emissions_factor)) %>%
     dplyr::bind_rows(abcd_missing_ef)
+
+  # Set the emission factor to 0 when production is 0
+  abcd_data  <- abcd_data %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(
+      emissions_factor = dplyr::if_else(.data$ald_production == 0, 0, .data$emissions_factor)
+    )
 
   return(abcd_data)
 }
@@ -207,11 +217,11 @@ create_emissions_factor_ratio <- function(abcd_data, km_per_vehicle) {
 }
 
 
-#' Drop rows where production OR emission are nan
+#' Drop rows where production is always NA or 0 over the time period
 #' @param abcd_data abcd_data
 #'
-drop_empty_prod_or_ef <- function(abcd_data) {
-  nan_on_all_years <- abcd_data %>%
+drop_always_empty_production <- function(abcd_data) {
+  empty_on_all_years <- abcd_data %>%
     dplyr::group_by(dplyr::across(
       c(
         -.data$year,
@@ -220,14 +230,13 @@ drop_empty_prod_or_ef <- function(abcd_data) {
       )
     )) %>%
     dplyr::summarise(
-      all_nans_prod = all(is.na(.data$ald_production)),
-      all_nans_emiss = all(is.na(.data$emissions_factor))
+      all_nans_prod = all(is.na(.data$ald_production)) | (sum(.data$ald_production) == 0)
     ) %>%
     dplyr::ungroup()
 
-  rows_to_drop <- nan_on_all_years %>%
-    dplyr::filter(.data$all_nans_prod | .data$all_nans_emiss) %>%
-    dplyr::select(c(-.data$all_nans_prod, -.data$all_nans_emiss))
+  rows_to_drop <- empty_on_all_years %>%
+    dplyr::filter(.data$all_nans_prod == TRUE) %>%
+    dplyr::select(c(-.data$all_nans_prod))
 
   abcd_data <- abcd_data %>% dplyr::anti_join(rows_to_drop)
 
@@ -432,7 +441,7 @@ prepare_abcd_data <- function(company_activities,
   # to check :
   #  abcd_data %>% group_by(company_id, company_name, ald_location, ald_sector, ald_business_unit, ald_production_unit, emissions_factor_unit) %>% summarise(nna=sum(is.na(emissions_factor))) %>% ungroup() %>% distinct(nna)
 
-  abcd_data <- drop_empty_prod_or_ef(abcd_data)
+  abcd_data <- drop_always_empty_production(abcd_data)
 
   abcd_data <- create_plan_prod_columns(abcd_data)
 
@@ -446,8 +455,6 @@ prepare_abcd_data <- function(company_activities,
       time_horizon = time_horizon,
       additional_year = additional_year
     )
-
-
 
     # assertr::verify(all(colSums(is.na(.)) == 0)) %>%
     # assertr::assertTrue(nrow(.) == nrow(. %>% dplyr::distinct_all()))
