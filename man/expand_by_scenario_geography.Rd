@@ -6,7 +6,7 @@
 \usage{
 expand_by_scenario_geography(
   abcd_data,
-  bench_regions,
+  scenarios_geographies,
   .default = "Global",
   .iso2c = "ald_location"
 )
@@ -14,7 +14,7 @@ expand_by_scenario_geography(
 \arguments{
 \item{abcd_data}{abcd_data}
 
-\item{bench_regions}{bench_regions}
+\item{scenarios_geographies}{scenarios_geographies}
 
 \item{.default}{.default}
 

@@ -30,11 +30,9 @@ interpolation_groups <- c(
 
 
 #WEO data from PACTA routine
- input_path <- r2dii.utils::path_dropbox_2dii(
-   "PortCheck",
-   "00_Data",
-   "01_ProcessedData",
-   "03_ScenarioData",
+ input_path <- fs::path(
+   "data-raw",
+   "scenario_analysis_input_data",
    glue::glue("weo_Scenarios_AnalysisInput_{start_year}.csv")
  )
 
@@ -54,11 +52,9 @@ interpolation_groups <- c(
  )
  
 #GECO data from PACTA routine 
- input_path <- r2dii.utils::path_dropbox_2dii(
-   "PortCheck",
-   "00_Data",
-   "01_ProcessedData",
-   "03_ScenarioData",
+ input_path <- fs::path(
+      "data-raw",
+   "scenario_analysis_input_data",
    glue::glue("pacta_processed_geco_Scenarios_AnalysisInput_{start_year}.csv")
  )
  
@@ -95,11 +91,9 @@ prepared_data <- prepare_scenario_data(data = weo_geco_data)
 
 
 #NGFS 
-input_path <- r2dii.utils::path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
+input_path <- fs::path(
+     "data-raw",
+   "scenario_analysis_input_data",
   glue::glue("ngfs_Scenarios_AnalysisInput_{start_year}.csv")
 )
 
@@ -139,11 +133,9 @@ preprepared_ngfs_data <- preprepared_ngfs_data %>%
 ### IPR Scenario
 ### Read IPR
 
-input_path <- r2dii.utils::path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
+input_path <- fs::path(
+  "data-raw",
+   "scenario_analysis_input_data",
   glue::glue("ipr_Scenarios_AnalysisInput_{start_year}.csv")
 )
 
@@ -180,11 +172,9 @@ prepared_IPR_data <- prepared_IPR_data %>%
 ### Oxford Scenario
 ### Read Oxford
 
-input_path <- r2dii.utils::path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
+input_path <- fs::path(
+  "data-raw",
+   "scenario_analysis_input_data",
   glue::glue("oxford_Scenarios_AnalysisInput_{start_year}.csv")
 )
 
@@ -207,6 +197,8 @@ prepared_data_IEA_NGFS <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
 prepared_data_IPR_OXF <- dplyr::full_join(prepared_IPR_data, prepared_OXF_data)
 prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_data_IPR_OXF)
 
-prepared_data_combined %>% readr::write_csv(
+prepared_data_combined %>% 
+  dplyr::rename(ald_business_unit=.data$technology) %>%
+  readr::write_csv(
   file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
 )

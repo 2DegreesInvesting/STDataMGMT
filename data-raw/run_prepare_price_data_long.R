@@ -10,12 +10,9 @@ start_year <- 2022
 
 # raw data obtained from WEO2021 report, page 101
 ## read input data----
-input_path_fossil_fuels <- path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
-  "RawData",
+input_path_fossil_fuels <- fs::path(
+  "data-raw",
+  "price_data_long_data",
   "WEO2021_fossil_fuel_prices_by_scenario.csv"
 )
 
@@ -32,12 +29,9 @@ input_data_fossil_fuels <- readr::read_csv(
 )
 
 # raw data obtained from WEO2021 report, pages 333-336
-input_path_power <- path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
-  "RawData",
+input_path_power <- fs::path(
+  "data-raw",
+  "price_data_long_data",
   "WEO2021_power_generation_technology_costs.csv"
 )
 
@@ -71,7 +65,7 @@ price_data_long_adjusted_WEO2021 <- prepare_lcoe_adjusted_price_data_weo(
 
 # prepare price data NGFS2021----
 ## read input data
-input_path_fossil_fuels_ngfs <- file.path("data-raw", "raw_price_data_long_NGFS2021.csv")
+input_path_fossil_fuels_ngfs <- file.path("data-raw", "price_data_long_data","raw_price_data_long_NGFS2021.csv")
 
 input_data_fossil_fuels_ngfs <- readr::read_csv(
   input_path_fossil_fuels_ngfs,
@@ -91,7 +85,7 @@ input_data_fossil_fuels_ngfs <- readr::read_csv(
 )
 
 ## NOTE.: NGFS uses LCOE price data Oxford2021
-input_path_lcoe_oxford <- file.path("data-raw", "raw_Oxford_LCOE_wrangled.csv")
+input_path_lcoe_oxford <- file.path("data-raw", "price_data_long_data","raw_Oxford_LCOE_wrangled.csv")
 
 input_data_lcoe_oxford <- readr::read_delim(
   file.path(input_path_lcoe_oxford),
@@ -125,7 +119,7 @@ price_data_long_adjusted_NGFS2021 <- price_data_long_NGFS2021 %>%
 
 ### prepare price data IPR 2021
 ## read input data----
-input_path_fossil_fuels_ipr <- file.path("data-raw", "raw_price_data_long_IPR2021.csv")
+input_path_fossil_fuels_ipr <- file.path("data-raw", "price_data_long_data","raw_price_data_long_IPR2021.csv")
 
 input_data_fossil_fuels_ipr <- readr::read_delim(
   file.path(input_path_fossil_fuels_ipr),
@@ -170,7 +164,7 @@ price_data_long_adjusted_IPR2021 <- price_data_long_IPR2021 %>%
 ## prepare price data Oxford
 ## read input data
 
-input_path_fossil_fuels_oxf <- file.path("data-raw", "raw_price_data_long_OXF2021.csv")
+input_path_fossil_fuels_oxf <- file.path("data-raw", "price_data_long_data","raw_price_data_long_OXF2021.csv")
 
 input_data_fossil_fuels_oxf <- readr::read_delim(
   file.path(input_path_fossil_fuels_oxf),
@@ -199,4 +193,5 @@ price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
   dplyr::bind_rows(price_data_long_adjusted_OXF2021)
 
 price_data_long_adjusted %>%
+  dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(file.path("data-raw", "price_data_long.csv"))
