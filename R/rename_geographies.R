@@ -8,12 +8,14 @@
 load_trisk_inputs <-
   function(path_prewrangled_capacity_factors,
            path_price_data_long,
-           path_Scenarios_AnalysisInput) {
+           path_Scenarios_AnalysisInput,
+           path_ngfs_carbon_price) {
     {
       trisk_input_dfs_paths <- c(
         path_prewrangled_capacity_factors,
         path_price_data_long,
-        path_Scenarios_AnalysisInput
+        path_Scenarios_AnalysisInput,
+        path_ngfs_carbon_price
       )
 
       trisk_input_dfs <-
@@ -220,6 +222,7 @@ regroup_and_rename_geographies <-
            path_prewrangled_capacity_factors,
            path_price_data_long,
            path_Scenarios_AnalysisInput,
+           path_ngfs_carbon_price,
            matching_tol = 1) {
     # Check there are no duplicates country_iso in a geography
     stopifnot(max(
@@ -233,7 +236,8 @@ regroup_and_rename_geographies <-
       load_trisk_inputs(
         path_prewrangled_capacity_factors,
         path_price_data_long,
-        path_Scenarios_AnalysisInput
+        path_Scenarios_AnalysisInput,
+        path_ngfs_carbon_price
       )
 
     # Check if all geographies from trisk input dfs exist in bench_regions

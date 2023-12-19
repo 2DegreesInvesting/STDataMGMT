@@ -3,7 +3,7 @@ devtools::load_all()
 # set overall parameters----
 # based on internal research, see stress.testing.internal repo
 average_npm_power <- 0.115
-start_year <- 2022
+# start_year <- 2022 # defined in workflow.R
 
 
 # prepare price data WEO 2021----

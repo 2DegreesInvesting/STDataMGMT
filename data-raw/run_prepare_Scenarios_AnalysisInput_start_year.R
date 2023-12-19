@@ -1,8 +1,8 @@
 devtools::load_all()
 
 #set start_year
-start_year_despite_old_data <- 2022 
-start_year <- 2021
+start_year_despite_old_data <- start_year   # defined in workflow.R
+start_year <- 2021 # TODO FIX with start_year // remove start_year from files names
 
 #vector of low carbon technologies 
 green_techs <- c(
