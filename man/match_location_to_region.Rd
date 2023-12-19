@@ -3,7 +3,8 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{match_location_to_region}
 \alias{match_location_to_region}
-\title{Title}
+\title{Decrease regional granularity by matching
+the ald_location countries in financial data to macro regions}
 \usage{
 match_location_to_region(financial_data)
 }
@@ -14,5 +15,6 @@ match_location_to_region(financial_data)
 a dataframe
 }
 \description{
-Title
+Decrease regional granularity by matching
+the ald_location countries in financial data to macro regions
 }

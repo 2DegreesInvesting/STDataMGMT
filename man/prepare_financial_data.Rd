@@ -3,11 +3,10 @@
 %   R/prepare_prewrangled_financial_data_stress_test.R
 \name{prepare_financial_data}
 \alias{prepare_financial_data}
-\title{Title}
+\title{Main financial data preparation script}
 \usage{
 prepare_financial_data(
-  ids_data,
-  eikon_data,
+  financial_data,
   companies_data,
   ownership_tree,
   minimum_sample_size,
@@ -16,9 +15,7 @@ prepare_financial_data(
 )
 }
 \arguments{
-\item{ids_data}{ids_data}
-
-\item{eikon_data}{eikon_data}
+\item{financial_data}{financial_data}
 
 \item{companies_data}{companies_data}
 
@@ -34,5 +31,16 @@ prepare_financial_data(
 a dataframe
 }
 \description{
-Title
+Prepare the financial data following those steps :
+\itemize{
+\item Using the country associated to each asset, aggregate the financial indicators from country to region
+when a company owns several assets in different countries, but same region.
+\item Remove implausible values from the raw data, by setting the cell where it appears to NA .
+Those values will be filled with averages later on.
+\item If the ownership tree is provided as an input, match missing financial values of subsidiaries
+to their closest parent compahy, if the parent company has non-NA financial values in the raw data.
+\item Compute averages, and pick the most granular one possible to fill missing values
+\item As financial indicators are still at the (company_id, ald_sector, region) granularity level,
+aggregate those to the company level to be used in the stress test.
+}
 }
