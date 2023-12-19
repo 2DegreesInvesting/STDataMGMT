@@ -33,9 +33,6 @@ interpolation_groups <- c(
  input_path <- fs::path(
    "data-raw",
    "scenario_analysis_input_data",
- input_path <- fs::path(
-   "data-raw",
-   "scenario_analysis_input_data",
    glue::glue("weo_Scenarios_AnalysisInput_{start_year}.csv")
  )
 
@@ -55,9 +52,6 @@ interpolation_groups <- c(
  )
  
 #GECO data from PACTA routine 
- input_path <- fs::path(
-      "data-raw",
-   "scenario_analysis_input_data",
  input_path <- fs::path(
       "data-raw",
    "scenario_analysis_input_data",
@@ -97,9 +91,6 @@ prepared_data <- prepare_scenario_data(data = weo_geco_data)
 
 
 #NGFS 
-input_path <- fs::path(
-     "data-raw",
-   "scenario_analysis_input_data",
 input_path <- fs::path(
      "data-raw",
    "scenario_analysis_input_data",
@@ -145,9 +136,6 @@ preprepared_ngfs_data <- preprepared_ngfs_data %>%
 input_path <- fs::path(
   "data-raw",
    "scenario_analysis_input_data",
-input_path <- fs::path(
-  "data-raw",
-   "scenario_analysis_input_data",
   glue::glue("ipr_Scenarios_AnalysisInput_{start_year}.csv")
 )
 
@@ -184,9 +172,6 @@ prepared_IPR_data <- prepared_IPR_data %>%
 ### Oxford Scenario
 ### Read Oxford
 
-input_path <- fs::path(
-  "data-raw",
-   "scenario_analysis_input_data",
 input_path <- fs::path(
   "data-raw",
    "scenario_analysis_input_data",

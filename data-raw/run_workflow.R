@@ -22,7 +22,3 @@ rm(list = ls())
 print("=================== RUNNING run_prepare_prewrangled_financial_data_stress_test ===================")
 source(fs::path("data-raw", "run_prepare_prewrangled_financial_data_stress_test.R"))
 rm(list = ls())
-
-print("=================== RUNNING run_prepare_abcd_stress_test_input ===================")
-source(fs::path("data-raw", "run_prepare_abcd_stress_test_input.R"))
-rm(list = ls())
