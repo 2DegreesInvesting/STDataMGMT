@@ -141,7 +141,7 @@ fill_missing_emission_factor <- function(abcd_data) {
   # TODO why is there no emission factor on HDV ?
   abcd_missing_ef <-
     abcd_missing_ef %>%
-    dplyr::mutate(emissions_factor = tidyr::replace_na(emissions_factor, 0))
+    dplyr::mutate(emissions_factor = tidyr::replace_na(.data$regroup_and_rename_geographiesemissions_factor, 0))
 
   abcd_data <- abcd_data %>%
     dplyr::filter(!is.na(.data$emissions_factor)) %>%

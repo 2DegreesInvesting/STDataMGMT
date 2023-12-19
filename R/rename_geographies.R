@@ -3,6 +3,7 @@
 #' @param path_prewrangled_capacity_factors path_prewrangled_capacity_factors
 #' @param path_price_data_long path_price_data_long
 #' @param path_Scenarios_AnalysisInput path_Scenarios_AnalysisInput
+#' @param path_ngfs_carbon_price path_ngfs_carbon_price
 #'
 #' @return trisk_input_dfs
 load_trisk_inputs <-
@@ -212,6 +213,7 @@ rename_stress_test_inputs <-
 #' @param path_prewrangled_capacity_factors path_prewrangled_capacity_factors
 #' @param path_price_data_long path_price_data_long
 #' @param path_Scenarios_AnalysisInput path_Scenarios_AnalysisInput
+#' @param path_ngfs_carbon_price path_ngfs_carbon_price
 #' @param matching_tol  percentage of country matching allowed to group 2 geographies
 #'
 #' @return list containing bench_regions and trisk_input_dfs
