@@ -52,3 +52,5 @@ data-raw/DBs
 data-raw/st_inputs
 data-raw/synthetic_inputs
 .vscode
+/doc/
+/Meta/
