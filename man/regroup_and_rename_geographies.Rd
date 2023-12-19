@@ -9,6 +9,7 @@ regroup_and_rename_geographies(
   path_prewrangled_capacity_factors,
   path_price_data_long,
   path_Scenarios_AnalysisInput,
+  path_ngfs_carbon_price,
   matching_tol = 1
 )
 }

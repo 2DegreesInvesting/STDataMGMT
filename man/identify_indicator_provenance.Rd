@@ -9,8 +9,7 @@ the "purity" of an indicator is expressed as the ratio of raw values over total 
 \usage{
 identify_indicator_provenance(
   prewrangled_financial_data_stress_test,
-  financial_features = c("net_profit_margin", "debt_equity_ratio", "volatility",
-    "asset_drift")
+  financial_features = c("net_profit_margin", "debt_equity_ratio", "volatility")
 )
 }
 \arguments{

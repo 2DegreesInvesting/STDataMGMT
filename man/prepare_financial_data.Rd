@@ -4,10 +4,8 @@
 \name{prepare_financial_data}
 \alias{prepare_financial_data}
 \title{Main financial data preparation script}
-\title{Main financial data preparation script}
 \usage{
 prepare_financial_data(
-  financial_data,
   financial_data,
   companies_data,
   ownership_tree,
@@ -17,7 +15,6 @@ prepare_financial_data(
 )
 }
 \arguments{
-\item{financial_data}{financial_data}
 \item{financial_data}{financial_data}
 
 \item{companies_data}{companies_data}
