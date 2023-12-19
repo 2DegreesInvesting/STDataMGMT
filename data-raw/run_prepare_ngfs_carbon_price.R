@@ -2,7 +2,7 @@ devtools::load_all()
 
 # make sure to set the relevant start year when running the data preparation
 # example:
-start_year_ngfs <- 2022
+start_year_ngfs <- start_year # defined in workflow.R
 
 input_path <- file.path("data-raw", "raw_ngfs_carbon_price.csv")
 data <- readr::read_csv(
@@ -23,4 +23,4 @@ ngfs_carbon_price <- data %>%
   prepare_ngfs_carbon_price(start_year = start_year_ngfs)
 
 ngfs_carbon_price %>%
-  readr::write_csv(file.path("data-raw", "ngfs_carbon_price.csv"))
+  readr::write_csv(file.path("data-raw", "st_inputs",  "ngfs_carbon_price.csv"))

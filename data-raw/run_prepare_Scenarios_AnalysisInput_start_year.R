@@ -1,8 +1,8 @@
 devtools::load_all()
 
 #set start_year
-start_year_despite_old_data <- 2022 
-start_year <- 2021
+start_year_despite_old_data <- start_year   # defined in workflow.R
+start_year <- 2021 # TODO FIX with start_year // remove start_year from files names
 
 #vector of low carbon technologies 
 green_techs <- c(
@@ -200,5 +200,5 @@ prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_data
 prepared_data_combined %>% 
   dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(
-  file.path("data-raw", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
+  file.path("data-raw", "st_inputs",glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
 )

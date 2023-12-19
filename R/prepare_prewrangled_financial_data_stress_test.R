@@ -74,7 +74,6 @@ create_averages_eikon <- function(data,
       avg_net_profit_margin = stats::median(.data$net_profit_margin, na.rm = TRUE),
       avg_debt_equity_ratio = stats::median(.data$debt_equity_ratio, na.rm = TRUE),
       avg_volatility = stats::median(.data$volatility, na.rm = TRUE),
-      avg_asset_drift = stats::median(.data$asset_drift, na.rm = TRUE),
       .groups = "drop"
     ) %>%
     dplyr::filter(
@@ -130,7 +129,6 @@ aggregate_financial_indicators <- function(financial_data, grp_cols) {
       net_profit_margin = .data$avg_net_profit_margin,
       debt_equity_ratio = .data$avg_debt_equity_ratio,
       volatility = .data$avg_volatility,
-      asset_drift = .data$avg_asset_drift
     )
 }
 
@@ -146,7 +144,7 @@ aggregate_financial_indicators <- function(financial_data, grp_cols) {
 aggregate_indicator_types <- function(financial_data, grp_cols) {
   indicator_type_cols <- names(financial_data)[grepl("indicator_type_", names(financial_data))]
   financial_data_indicator_types <- financial_data %>% dplyr::select(c("company_id", indicator_type_cols))
-  
+
   financial_data_indicator_types[indicator_type_cols] <- lapply(
     financial_data_indicator_types[indicator_type_cols],
     function(x) {
@@ -430,11 +428,9 @@ select_final_financial_value_using_averages <- function(financial_data) {
       .data$final_net_profit_margin,
       .data$final_debt_equity_ratio,
       .data$final_volatility,
-      .data$final_asset_drift,
       .data$final_indicator_type_net_profit_margin,
       .data$final_indicator_type_debt_equity_ratio,
       .data$final_indicator_type_volatility,
-      .data$final_indicator_type_asset_drift
     )
 
   names(financial_data) <- names(financial_data) %>%
@@ -477,14 +473,42 @@ remove_implausible_values_in_financial_indicators <- function(financial_data, al
   return(financial_data)
 }
 
+#' Aggregate indicator columns to differentiate between raw and averages
+#' Since financial features for 1 company are obtained from multiple countries aggregated,
+#'  the "purity" of an indicator is expressed as the ratio of raw values over total (averaged +raw)
+#'
+#' @param prewrangled_financial_data_stress_test prewrangled_financial_data_stress_test
+#' @param financial_features  financial_features
+#'
+#' @return a dataframe
+identify_indicator_provenance <- function(prewrangled_financial_data_stress_test,
+                                          financial_features=c("net_profit_margin", "debt_equity_ratio", "volatility")){
+  indicator_provenance_columns <- colnames(prewrangled_financial_data_stress_test)[grepl("indicator_type_",colnames(prewrangled_financial_data_stress_test))]
+
+  for (ff in financial_features){
+    ipc_ff <- indicator_provenance_columns[grepl(ff, indicator_provenance_columns)]
+    eikon_indicator_counter <- paste0("indicator_type_", ff, "_Eikon")
+
+    prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
+      dplyr::rowwise() %>%
+      dplyr::mutate(!!paste0(ff, "_rawdata_ratio")  := !!rlang::sym(eikon_indicator_counter)/sum(dplyr::c_across(dplyr::all_of(ipc_ff)))) %>%
+      dplyr::select(-dplyr::all_of(ipc_ff))
+  }
+
+  return(prewrangled_financial_data_stress_test)
+
+}
+
 
 #' Main financial data preparation script
 #'
 #' @description Prepare the financial data following those steps :
-#'  - Using the country associated to each asset, aggregate the financial indicators from country to region
-#'    when a company owns several assets in different countries, but same region.
 #'  - Remove implausible values from the raw data, by setting the cell where it appears to NA .
 #'    Those values will be filled with averages later on.
+#'  - Using the country associated to each asset, map each country to a world region.
+#'    We're not using the scenarios regions, because that would create duplicate rows.
+#'  - When a company owns several assets in different countries, but same region, aggregate the financial indicators from country to region.
+#'  - Add new rows with NA financial value for the missing company_id from companies_data.
 #'  - If the ownership tree is provided as an input, match missing financial values of subsidiaries
 #'    to their closest parent compahy, if the parent company has non-NA financial values in the raw data.
 #'  - Compute averages, and pick the most granular one possible to fill missing values
@@ -571,6 +595,7 @@ prepare_financial_data <- function(financial_data, companies_data, ownership_tre
   prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
     dplyr::inner_join(financial_data_indicator_types, by = "company_id")
 
+  prewrangled_financial_data_stress_test <- identify_indicator_provenance(prewrangled_financial_data_stress_test)
 
   # assert no NA anywhere and no implausible values
   prewrangled_financial_data_stress_test %>%

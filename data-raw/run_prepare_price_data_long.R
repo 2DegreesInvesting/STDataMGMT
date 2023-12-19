@@ -3,7 +3,7 @@ devtools::load_all()
 # set overall parameters----
 # based on internal research, see stress.testing.internal repo
 average_npm_power <- 0.115
-start_year <- 2022
+# start_year <- 2022 # defined in workflow.R
 
 
 # prepare price data WEO 2021----
@@ -194,4 +194,4 @@ price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
 
 price_data_long_adjusted %>%
   dplyr::rename(ald_business_unit=.data$technology) %>%
-  readr::write_csv(file.path("data-raw", "price_data_long.csv"))
+  readr::write_csv(file.path("data-raw","st_inputs", "price_data_long.csv"))

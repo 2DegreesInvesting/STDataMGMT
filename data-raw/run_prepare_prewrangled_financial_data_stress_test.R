@@ -2,10 +2,22 @@ devtools::load_all()
 
 output_dir <- fs::path("data-raw", "DBs")
 
-eikon_data <- readr::read_rds(fs::path(output_dir, "DB_assets_eikon.rds"))
-companies_data <- readr::read_rds(fs::path(output_dir, "DB_asset_impact.rds"))
-ids_data <- readr::read_rds(fs::path(output_dir, "DB_ids.rds"))
-ownership_tree <- readr::read_rds(fs::path(output_dir, "DB_ownership_tree.rds"))
+eikon_data <- arrow::read_parquet(fs::path(output_dir, "DB_assets_eikon.parquet"))
+companies_data <- arrow::read_parquet(fs::path(output_dir, "DB_asset_impact.parquet"))
+ids_data <- arrow::read_parquet(fs::path(output_dir, "DB_ids.parquet"))
+ownership_tree <- arrow::read_parquet(fs::path(output_dir, "DB_ownership_tree.parquet"))
+
+
+add_column_company_id_to_eikon_data <- function(eikon_data, ids_data) {
+  isin_to_company_id <- ids_data %>% dplyr::distinct(.data$isin, .data$company_id)
+
+  financial_data <- eikon_data %>%
+    dplyr::inner_join(isin_to_company_id, by = c("isin"))
+
+  return(financial_data)
+}
+
+financial_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
 
 
 add_column_company_id_to_eikon_data <- function(eikon_data, ids_data) {
@@ -46,5 +58,5 @@ prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test
 
 
 prewrangled_financial_data_stress_test %>% readr::write_csv(
-  file.path("data-raw", "prewrangled_financial_data_stress_test.csv")
+  file.path("data-raw", "st_inputs","prewrangled_financial_data_stress_test.csv")
 )

@@ -3,17 +3,20 @@
 #' @param path_prewrangled_capacity_factors path_prewrangled_capacity_factors
 #' @param path_price_data_long path_price_data_long
 #' @param path_Scenarios_AnalysisInput path_Scenarios_AnalysisInput
+#' @param path_ngfs_carbon_price path_ngfs_carbon_price
 #'
 #' @return trisk_input_dfs
 load_trisk_inputs <-
   function(path_prewrangled_capacity_factors,
            path_price_data_long,
-           path_Scenarios_AnalysisInput) {
+           path_Scenarios_AnalysisInput,
+           path_ngfs_carbon_price) {
     {
       trisk_input_dfs_paths <- c(
         path_prewrangled_capacity_factors,
         path_price_data_long,
-        path_Scenarios_AnalysisInput
+        path_Scenarios_AnalysisInput,
+        path_ngfs_carbon_price
       )
 
       trisk_input_dfs <-
@@ -210,6 +213,7 @@ rename_stress_test_inputs <-
 #' @param path_prewrangled_capacity_factors path_prewrangled_capacity_factors
 #' @param path_price_data_long path_price_data_long
 #' @param path_Scenarios_AnalysisInput path_Scenarios_AnalysisInput
+#' @param path_ngfs_carbon_price path_ngfs_carbon_price
 #' @param matching_tol  percentage of country matching allowed to group 2 geographies
 #'
 #' @return list containing bench_regions and trisk_input_dfs
@@ -220,6 +224,7 @@ regroup_and_rename_geographies <-
            path_prewrangled_capacity_factors,
            path_price_data_long,
            path_Scenarios_AnalysisInput,
+           path_ngfs_carbon_price,
            matching_tol = 1) {
     # Check there are no duplicates country_iso in a geography
     stopifnot(max(
@@ -233,7 +238,8 @@ regroup_and_rename_geographies <-
       load_trisk_inputs(
         path_prewrangled_capacity_factors,
         path_price_data_long,
-        path_Scenarios_AnalysisInput
+        path_Scenarios_AnalysisInput,
+        path_ngfs_carbon_price
       )
 
     # Check if all geographies from trisk input dfs exist in bench_regions

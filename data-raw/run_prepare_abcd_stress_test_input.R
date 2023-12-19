@@ -11,19 +11,20 @@ data(scenarios_geographies)
 output_path_stress_test_input <-
   fs::path(
     "data-raw",
+    "st_inputs",
   "abcd_stress_test_input",
   ext = "csv"
 )
   
 
-start_year <- 2022
+# start_year <- 2022 # defined in workflow.R
 time_horizon <- 5
 additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
-DB_company_activities  <-  readr::read_rds(fs::path("data-raw","DBs","DB_company_activities", ext="rds"))
-DB_company_emissions  <-  readr::read_rds(fs::path("data-raw","DBs","DB_company_emissions", ext="rds"))
+DB_company_activities  <-  arrow::read_parquet(fs::path("data-raw","DBs","DB_company_activities", ext="parquet"))
+DB_company_emissions  <-  arrow::read_parquet(fs::path("data-raw","DBs","DB_company_emissions", ext="parquet"))
 
 abcd_stress_test_input <-
   prepare_abcd_data(

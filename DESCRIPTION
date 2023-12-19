@@ -27,7 +27,10 @@ Imports:
     tidyr,
     zoo
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
+LazyData: true
+VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
-LazyData: true

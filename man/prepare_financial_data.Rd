@@ -33,10 +33,12 @@ a dataframe
 \description{
 Prepare the financial data following those steps :
 \itemize{
-\item Using the country associated to each asset, aggregate the financial indicators from country to region
-when a company owns several assets in different countries, but same region.
 \item Remove implausible values from the raw data, by setting the cell where it appears to NA .
 Those values will be filled with averages later on.
+\item Using the country associated to each asset, map each country to a world region.
+We're not using the scenarios regions, because that would create duplicate rows.
+\item When a company owns several assets in different countries, but same region, aggregate the financial indicators from country to region.
+\item Add new rows with NA financial value for the missing company_id from companies_data.
 \item If the ownership tree is provided as an input, match missing financial values of subsidiaries
 to their closest parent compahy, if the parent company has non-NA financial values in the raw data.
 \item Compute averages, and pick the most granular one possible to fill missing values

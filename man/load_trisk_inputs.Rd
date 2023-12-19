@@ -7,7 +7,8 @@
 load_trisk_inputs(
   path_prewrangled_capacity_factors,
   path_price_data_long,
-  path_Scenarios_AnalysisInput
+  path_Scenarios_AnalysisInput,
+  path_ngfs_carbon_price
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ load_trisk_inputs(
 \item{path_price_data_long}{path_price_data_long}
 
 \item{path_Scenarios_AnalysisInput}{path_Scenarios_AnalysisInput}
+
+\item{path_ngfs_carbon_price}{path_ngfs_carbon_price}
 }
 \value{
 trisk_input_dfs

@@ -172,16 +172,20 @@ cleaning_bench_regions <- function(bench_regions_input_path) {
 }
 
 
+# start_year <- 2022 # defined in workflow.R
+
 
 bench_regions_input_path <- here::here("data-raw", "bench_regions.csv")
 bench_regions <- cleaning_bench_regions(bench_regions_input_path)
 
 path_prewrangled_capacity_factors <-
-  here::here("data-raw", "prewrangled_capacity_factors.csv")
+  here::here("data-raw", "st_inputs","prewrangled_capacity_factors.csv")
 path_price_data_long <-
-  here::here("data-raw", "price_data_long.csv")
+  here::here("data-raw", "st_inputs","price_data_long.csv")
 path_Scenarios_AnalysisInput <-
-  here::here("data-raw", "Scenarios_AnalysisInput_2021.csv")
+  here::here("data-raw","st_inputs", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
+path_ngfs_carbon_price  <- 
+  here::here("data-raw", "st_inputs",  "ngfs_carbon_price.csv")
 
 matching_tol <- 1
 
@@ -190,6 +194,7 @@ output_list <- regroup_and_rename_geographies(
     path_prewrangled_capacity_factors = path_prewrangled_capacity_factors,
     path_price_data_long = path_price_data_long,
     path_Scenarios_AnalysisInput = path_Scenarios_AnalysisInput,
+    path_ngfs_carbon_price = path_ngfs_carbon_price,
     matching_tol = matching_tol
   )
 

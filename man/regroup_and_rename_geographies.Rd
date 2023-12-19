@@ -9,6 +9,7 @@ regroup_and_rename_geographies(
   path_prewrangled_capacity_factors,
   path_price_data_long,
   path_Scenarios_AnalysisInput,
+  path_ngfs_carbon_price,
   matching_tol = 1
 )
 }
@@ -20,6 +21,8 @@ regroup_and_rename_geographies(
 \item{path_price_data_long}{path_price_data_long}
 
 \item{path_Scenarios_AnalysisInput}{path_Scenarios_AnalysisInput}
+
+\item{path_ngfs_carbon_price}{path_ngfs_carbon_price}
 
 \item{matching_tol}{percentage of country matching allowed to group 2 geographies}
 }

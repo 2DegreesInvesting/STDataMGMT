@@ -13,3 +13,5 @@
 ^test_validate_data_sets$
 ^test_investigate_data_sets$
 ^data-overview$
+^doc$
+^Meta$
