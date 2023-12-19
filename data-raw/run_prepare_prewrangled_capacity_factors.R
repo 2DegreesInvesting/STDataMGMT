@@ -18,6 +18,10 @@ input_path <- fs::path(
   "data-raw",
   "capacity_factors_data",
   "WEO2020_Raw_Data.csv"
+input_path <- fs::path(
+  "data-raw",
+  "capacity_factors_data",
+  "WEO2020_Raw_Data.csv"
 )
 
 data <- readr::read_csv(
@@ -40,6 +44,7 @@ data <- readr::read_csv(
 prepared_data_WEO2021 <- prepare_prewrangled_capacity_factors_WEO2021(data, start_year = start_year)
 
 ## read data
+input_path <- fs::path("data-raw", "capacity_factors_data","raw_capacity_factors_NGFS2021.csv")
 input_path <- fs::path("data-raw", "capacity_factors_data","raw_capacity_factors_NGFS2021.csv")
 
 data <- readr::read_csv(
@@ -64,6 +69,7 @@ prepared_data_NGFS2021 <- prepare_capacity_factors_NGFS2021(data, start_year = s
 
 ### IPR data
 
+input_path <- fs::path("data-raw", "capacity_factors_data","raw_capacity_factors_IPR2021.csv")
 input_path <- fs::path("data-raw", "capacity_factors_data","raw_capacity_factors_IPR2021.csv")
 
 data <- readr::read_csv(

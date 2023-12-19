@@ -20,6 +20,18 @@ add_column_company_id_to_eikon_data <- function(eikon_data, ids_data) {
 financial_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
 
 
+add_column_company_id_to_eikon_data <- function(eikon_data, ids_data) {
+  isin_to_company_id <- ids_data %>% dplyr::distinct(.data$isin, .data$company_id)
+
+  financial_data <- eikon_data %>%
+    dplyr::inner_join(isin_to_company_id, by = c("isin"))
+
+  return(financial_data)
+}
+
+financial_data <- add_column_company_id_to_eikon_data(eikon_data, ids_data)
+
+
 # parameters for minimum requirements to reference subgroups in creating averages
 # determine size of subgroup below which we do not use the average because the
 # minimum required sample size of reference subgroup

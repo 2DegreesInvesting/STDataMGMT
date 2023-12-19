@@ -2,7 +2,13 @@
 # as well as the production_type.rda reference dataset in this packge
 # TODO all the code before abcd_data should be translated to SQL
 
+# This script generates the abcd input from asset_resolution data
+# as well as the production_type.rda reference dataset in this packge
+# TODO all the code before abcd_data should be translated to SQL
+
 devtools::load_all()
+
+data(scenarios_geographies)
 
 data(scenarios_geographies)
 
@@ -31,6 +37,9 @@ abcd_stress_test_input <-
     company_activities = DB_company_activities,
     company_emissions = DB_company_emissions,
     scenarios_geographies = scenarios_geographies, # loaded from package
+    company_activities = DB_company_activities,
+    company_emissions = DB_company_emissions,
+    scenarios_geographies = scenarios_geographies, # loaded from package
     start_year = start_year,
     time_horizon = time_horizon,
     additional_year = additional_year,
@@ -41,4 +50,5 @@ abcd_stress_test_input <-
 abcd_stress_test_input %>% 
   assertr::verify(all(colSums(is.na(.)) == 0))
 
+abcd_stress_test_input %>% readr::write_csv(output_path_stress_test_input)
 abcd_stress_test_input %>% readr::write_csv(output_path_stress_test_input)

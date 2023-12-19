@@ -1,5 +1,7 @@
 #' Map the columns (company_id, ald_sector) from companies data to the financial data
 #' where applicable (through a left join)
+#' Map the columns (company_id, ald_sector) from companies data to the financial data
+#' where applicable (through a left join)
 #'
 #' @param financial_data financial_data
 #' @param companies_data companies_data
@@ -16,6 +18,8 @@ add_column_ald_sector_to_financial_data <- function(financial_data, companies_da
   return(financial_data)
 }
 
+#' Decrease regional granularity by matching
+#' the ald_location countries in financial data to macro regions
 #' Decrease regional granularity by matching
 #' the ald_location countries in financial data to macro regions
 #'
@@ -107,6 +111,9 @@ create_averages_eikon <- function(data,
   return(subgroup_averages)
 }
 
+
+#' Applies the create_averages_eikon() function with minimum tolerance, effectively
+#' aggregating all financial indicators on the grp_cols columns
 
 #' Applies the create_averages_eikon() function with minimum tolerance, effectively
 #' aggregating all financial indicators on the grp_cols columns
@@ -218,6 +225,8 @@ match_closest_financial_data_to_missing_companies <- function(missing_companies_
 
 #' Anti join the financial data with companies data to create new rows
 #' in the financial data for the missing companies.
+#' Anti join the financial data with companies data to create new rows
+#' in the financial data for the missing companies.
 #'
 #' @param financial_data financial_data
 #' @param companies_data companies_data
@@ -231,6 +240,10 @@ get_missing_companies_in_financial_data <- function(financial_data, companies_da
   return(missing_companies_in_financial_data)
 }
 
+
+#' compute averages on sector/region , sector, global, using the
+#' create_averages_eikon() function
+#' TODO global/region
 
 #' compute averages on sector/region , sector, global, using the
 #' create_averages_eikon() function
@@ -290,6 +303,8 @@ compute_financial_averages <- function(
   ))
 }
 
+#' Add financial averages columns to the data in order, f
+#' rom most granular to less granular
 #' Add financial averages columns to the data in order, f
 #' rom most granular to less granular
 #'
@@ -526,6 +541,7 @@ identify_indicator_provenance <- function(prewrangled_financial_data_stress_test
 #' @export
 #'
 prepare_financial_data <- function(financial_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
+prepare_financial_data <- function(financial_data, companies_data, ownership_tree, minimum_sample_size, minimum_ratio_sample, allowed_range_npm) {
   #### INITIALISE FINANCIAL DATA
   # add ald_sector provided by asset resolution. This will duplicate rows for companies represented in more than 1 sector.
   financial_data <- add_column_ald_sector_to_financial_data(financial_data, companies_data)
@@ -555,6 +571,15 @@ prepare_financial_data <- function(financial_data, companies_data, ownership_tre
     )
   }
 
+  if (!is.null(ownership_tree)) {
+    ownership_tree <- keep_available_financial_companies_in_ownership_tree(financial_data, ownership_tree)
+    missing_companies_in_financial_data <- match_closest_financial_data_to_missing_companies(
+      missing_companies_in_financial_data = missing_companies_in_financial_data,
+      financial_data = financial_data,
+      ownership_tree = ownership_tree
+    )
+  }
+
   #### FILL MISSING VALUES WITH AVERAGES
 
   # Only use original financial values to compute averages
@@ -569,6 +594,8 @@ prepare_financial_data <- function(financial_data, companies_data, ownership_tre
     financial_data,
     missing_companies_in_financial_data
   )
+  # # filter rows without a company ID as they're not useful anymore (only has an impact in averages)
+  financial_data_all_companies <- financial_data_all_companies %>% dplyr::filter(!is.na(.data$company_id))
   # # filter rows without a company ID as they're not useful anymore (only has an impact in averages)
   financial_data_all_companies <- financial_data_all_companies %>% dplyr::filter(!is.na(.data$company_id))
 
@@ -599,9 +626,12 @@ prepare_financial_data <- function(financial_data, companies_data, ownership_tre
 
   # assert no NA anywhere and no implausible values
   prewrangled_financial_data_stress_test %>%
+  prewrangled_financial_data_stress_test %>%
     remove_implausible_values_in_financial_indicators(allowed_range_npm = c(0, 1)) %>%
     assertr::verify(sum(is.na(.)) == 0)
 
+
+  return(prewrangled_financial_data_stress_test)
 
   return(prewrangled_financial_data_stress_test)
 }
