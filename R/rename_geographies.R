@@ -242,10 +242,7 @@ regroup_and_rename_geographies <-
         path_ngfs_carbon_price
       )
 
-    # Check if all geographies from trisk input dfs exist in bench_regions
-    all_geographies <- get_all_unique_geographies(trisk_input_dfs)
-    stopifnot(all(all_geographies %in% bench_regions$scenario_geography |
-      all_geographies %in% bench_regions$scenario_geography_newname))
+
 
     bench_regions <- bench_regions %>%
       dplyr::mutate(scenario_geography_newname = .data$scenario_geography)
@@ -262,6 +259,10 @@ regroup_and_rename_geographies <-
 
     trisk_input_dfs <-
       rename_stress_test_inputs(bench_regions, trisk_input_dfs)
+
+    # Check if all geographies from trisk input dfs have been renamed and exist in bench_regions
+    all_geographies <- get_all_unique_geographies(trisk_input_dfs)
+    stopifnot(all(all_geographies %in% bench_regions$scenario_geography_newname))
 
     return(list(trisk_input_dfs = trisk_input_dfs, bench_regions = bench_regions))
   }

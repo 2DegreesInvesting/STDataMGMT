@@ -123,8 +123,9 @@ cleaning_bench_regions <- function(bench_regions_input_path) {
     bench_regions %>% mutate(country_iso = if_else(is.na(country_iso), "NA", country_iso))
 
   # clean duplicates countries in bench_regions Global geographies
-  # (actually not a problem, since there is a distinct(scenario_geography, country_iso) in the prod script:
-  #     || otherwise those country's production would be counted twice or more in ABCD
+  # (actually not a problem, since there is a distinct(scenario_geography, country_iso)
+  # in the prod script:
+  #      otherwise those country's production would be counted twice or more in ABCD
   # 7 geographies concerned. To check :
   duplicate_regions <- bench_regions %>%
     group_by(scenario_geography) %>%
@@ -184,7 +185,7 @@ path_price_data_long <-
   here::here("data-raw", "st_inputs","price_data_long.csv")
 path_Scenarios_AnalysisInput <-
   here::here("data-raw","st_inputs", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
-path_ngfs_carbon_price  <- 
+path_ngfs_carbon_price  <-
   here::here("data-raw", "st_inputs",  "ngfs_carbon_price.csv")
 
 matching_tol <- 1

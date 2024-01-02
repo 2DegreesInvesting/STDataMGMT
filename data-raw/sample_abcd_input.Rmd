@@ -231,15 +231,14 @@ sample_selection <- abcd_sampled %>%
 ## PARAMETERS
 
 output_path_stress_test_input <-
-  fs::path(
+  here::here(
     "data-raw",
     "st_inputs",
-  "sample_abcd_stress_test_input",
-  ext = "csv"
+    "sample_abcd_stress_test_input.csv"
 )
   
 
-# start_year <- 2022 # defined in workflow.R
+start_year <- 2022 
 time_horizon <- 5
 additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")

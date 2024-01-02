@@ -4,6 +4,7 @@ print("=================== RUNNING run_prepare_Scenarios_AnalysisInput_start_yea
 source(fs::path("data-raw", "run_prepare_Scenarios_AnalysisInput_start_year.R"))
 rm(list = ls()[ls() != "start_year"])
 
+start_year <- 2022 # because overwritten in run_prepare_Scenarios_AnalysisInput_start_year.R
 print("=================== RUNNING run_prepare_prewrangled_capacity_factors ===================")
 source(fs::path("data-raw", "run_prepare_prewrangled_capacity_factors.R"))
 rm(list = ls()[ls() != "start_year"])
