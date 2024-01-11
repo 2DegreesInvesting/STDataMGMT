@@ -130,13 +130,13 @@ preprepared_ngfs_data <- preprepared_ngfs_data %>%
   dplyr::mutate(fair_share_perc = dplyr::if_else(is.na(fair_share_perc), 0, fair_share_perc))
 
 
-### IPR Scenario
+### IPR Scenario 2023
 ### Read IPR
 
 input_path <- fs::path(
   "data-raw",
    "scenario_analysis_input_data",
-  "ipr_Scenarios_AnalysisInput.csv"
+  "ipr2023_Scenarios_AnalysisInput.csv"
 )
 
 IPR <- as.data.frame(readr::read_csv(
@@ -154,16 +154,22 @@ IPR <- as.data.frame(readr::read_csv(
   )
 ))
 
-prepared_IPR_data <- prepare_IPR_scenario_data(IPR,
+prepared_IPR_data <- prepare_IPR_scenario_data2023(IPR,
                                                start_year = start_year)
+
 # IPR baseline scenario
-# IPR baseline is a duplicate of the WEO2021 STEPs scenario
+# IPR baseline is a duplicate of the WEO2021 STEPs scenario for Coal, OG and Power
+# IPR baseline is a duplicate of the JRC Geco scenario for Automotive
 
 IPR_baseline <- prepare_IPR_baseline_scenario(prepared_data)
+
+IPR_baseline_automotive <- prepare_IPR_baseline_scenario_automotive(prepared_data)
 
 # joining IPR scenarios
 
 prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline)
+prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline_automotive)
+
 
 # replace nan fair_share_perc by 0. Nans appear when dividing per 0 in the tmsr computation
 prepared_IPR_data <- prepared_IPR_data %>%
