@@ -307,19 +307,19 @@ prepare_price_data_long_NGFS2022 <- function(input_data_fossil_fuels_ngfs, start
 
 ### IPR price data function
 
-prepare_price_data_long_IPR2021 <- function(data, start_year) {
+prepare_price_data_long_IPR2023 <- function(data, start_year) {
   ### Objective: extract the prices for Oil coal and Gas
   # Coal: only available for Europe, USA; CHN and JPN. We take the average to get a global variable
   # Gas: only available for USA, Europe and Asia, Plus available as high price and low price. We create a global low and global high and take the average from that
   # Oil: available only for World and as high and low price. We take the average
   # Unit: We transform in the correct unit for the ST
-
+  
   ### Creating a technology column
-
+  
   data$technology <- data$Sub_variable_class_1
-
+  
   ### Renaming technologies and Sector
-
+  
   data <- data %>%
     dplyr::mutate(technology = .data$technology) %>%
     dplyr::mutate(
@@ -334,19 +334,17 @@ prepare_price_data_long_IPR2021 <- function(data, start_year) {
         .data$technology == "Coal" ~ "Coal",
       ),
       Scenario = dplyr::case_when(
-        .data$Scenario == "RPS" ~ "IPR2021_RPS",
-        .data$Scenario == "FPS" ~ "IPR2021_FPS"
+        .data$Scenario == "RPS" ~ "IPR2023_RPS",
+        .data$Scenario == "FPS" ~ "IPR2023_FPS"
       )
     )
-
-
-
+  
   ### further deleting unnecessary columns
-
+  
   data <- dplyr::select(data, -c("Sub_variable_class_1"))
-
+  
   ### renaming column names
-
+  
   data <- data %>%
     dplyr::rename(
       scenario = .data$Scenario,
@@ -354,37 +352,37 @@ prepare_price_data_long_IPR2021 <- function(data, start_year) {
       unit = .data$Units,
       price = .data$value
     )
-
-
+  
+  
   ### Creating Coal Prices
   coal_global <- data %>%
     dplyr::filter(.data$technology == "Coal") %>%
     dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
     dplyr::summarize(price = mean(.data$price)) %>%
     dplyr::mutate(Variable_class = "price", scenario_geography = "Global", sector = "Coal", technology = "Coal", unit = "USD / tonne")
-
+  
   ### Creating Global Gas prices for High and Low
   gas_global <- data %>%
     dplyr::filter(.data$technology == "Gas") %>%
     dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
     dplyr::summarize(price = mean(.data$price)) %>%
     dplyr::mutate(scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
-
+  
   ### Creating Average of the high and low prices
   gas_global <- gas_global %>%
     dplyr::group_by(.data$scenario, .data$year) %>%
     dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
-
+  
   ### Creating an average of the Oil technology high and low price per scenario and year
   oil_avg <- data %>%
     dplyr::filter(.data$technology == "Oil") %>%
     dplyr::group_by(.data$scenario, .data$year) %>%
     dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Oil", unit = "USD / Barrel")
-
+  
   data <- rbind(coal_global, gas_global, oil_avg) ### For now we only take global prices from IPR
-
+  
   ### Unit Adjustment: We use $/GJ for Oil and Gas. For coal we use $/tonne
-
+  
   data <- data %>%
     dplyr::mutate(
       price = dplyr::case_when(
@@ -400,19 +398,18 @@ prepare_price_data_long_IPR2021 <- function(data, start_year) {
         .data$unit == "USD / tonne" ~ "usd/tonne"
       )
     )
-
+  
   ### renaming Variable_Class to "indicator"
-
+  
   colnames(data)[which(colnames(data) == "Variable_class")] <- "indicator"
-
+  
   ### filtering for start year
-
-  # start_year <- 2021
   data$year <- as.numeric(as.character(data$year))
   data <- data %>% dplyr::filter(.data$year >= start_year)
-
+  
   return(data)
 }
+
 
 ### Function reading LCOE data for IPR2021
 ### For IPR we are using WEO2021 LCOE for the power prices
@@ -420,7 +417,7 @@ prepare_price_data_long_IPR2021 <- function(data, start_year) {
 ### Output of the function is then matched to IPR with a different function (prepare_lcoe_adjusted_price_data_IPR2021)which can be found
 ### in Prepare_LCOE_adjusted_price_data.R
 
-prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
+prepare_price_data_long_Power_IPR2023 <- function(input_data_power) {
   first_year <- 2020
   power_data_has_expected_columns <- all(
     c(
@@ -563,11 +560,11 @@ prepare_price_data_long_Power_IPR2021 <- function(input_data_power) {
 ## IPR baseline price data
 ## IPR baseline data is a duplicate of WEO2021 STEPS data
 
-prepare_price_data_long_IPR2021_baseline <- function(data) {
+prepare_price_data_long_IPR2023_baseline <- function(data) {
   data <- data %>%
     dplyr::filter(.data$scenario == "WEO2021_STEPS") %>%
     dplyr::mutate(scenario = dplyr::case_when(
-      .data$scenario == "WEO2021_STEPS" ~ "IPR2021_baseline"
+      .data$scenario == "WEO2021_STEPS" ~ "IPR2023_baseline"
     ))
 }
 

@@ -117,9 +117,9 @@ price_data_long_adjusted_NGFS2022 <- price_data_long_NGFS2022 %>%
   dplyr::bind_rows(lcoe_adjusted_price_data_oxford2021_2022)
 
 
-### prepare price data IPR 2021
+### prepare price data IPR 2023
 ## read input data----
-input_path_fossil_fuels_ipr <- file.path("data-raw", "price_data_long_data","raw_price_data_long_IPR2021.csv")
+input_path_fossil_fuels_ipr <- file.path("data-raw", "price_data_long_data","raw_price_data_long_IPR2023.csv")
 
 input_data_fossil_fuels_ipr <- readr::read_delim(
   file.path(input_path_fossil_fuels_ipr),
@@ -135,16 +135,16 @@ input_data_fossil_fuels_ipr <- readr::read_delim(
   )
 )
 
-price_data_long_IPR2021 <- prepare_price_data_long_IPR2021(input_data_fossil_fuels_ipr,
+price_data_long_IPR2023 <- prepare_price_data_long_IPR2023(input_data_fossil_fuels_ipr,
   start_year = start_year
 )
 
 ## NOTE: IPR prices for the power sector uses LCOE data from WEO2021 (input_data_power, see above)
 
-price_data_power_IPR2021 <- prepare_price_data_long_Power_IPR2021(input_data_power)
+price_data_power_IPR2023 <- prepare_price_data_long_Power_IPR2023(input_data_power)
 
-lcoe_adjusted_price_data_IPR2021 <- prepare_lcoe_adjusted_price_data_IPR2021(
-  input_data = price_data_power_IPR2021,
+lcoe_adjusted_price_data_IPR2023 <- prepare_lcoe_adjusted_price_data_IPR2023(
+  input_data = price_data_power_IPR2023,
   average_npm_power = average_npm_power,
   start_year = start_year
 ) %>%
@@ -152,13 +152,13 @@ lcoe_adjusted_price_data_IPR2021 <- prepare_lcoe_adjusted_price_data_IPR2021(
 
 ## IPR baseline
 
-price_data_IPR2021_baseline <- prepare_price_data_long_IPR2021_baseline(price_data_long_adjusted_WEO2021)
+price_data_IPR2023_baseline <- prepare_price_data_long_IPR2023_baseline(price_data_long_adjusted_WEO2021)
 
 ### Total combined IPR2021 price data
 
-price_data_long_adjusted_IPR2021 <- price_data_long_IPR2021 %>%
-  dplyr::bind_rows(lcoe_adjusted_price_data_IPR2021) %>%
-  dplyr::bind_rows(price_data_IPR2021_baseline)
+price_data_long_adjusted_IPR2023 <- price_data_long_IPR2023 %>%
+  dplyr::bind_rows(lcoe_adjusted_price_data_IPR2023) %>%
+  dplyr::bind_rows(price_data_IPR2023_baseline)
 
 
 ## prepare price data Oxford

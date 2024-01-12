@@ -257,7 +257,7 @@ prepare_lcoe_adjusted_price_data_oxford2022 <- function(input_data_lcoe_oxford,
 ### In the current approach, we match IEA SDS to both IPR RPS and IPR FPS
 
 
-prepare_lcoe_adjusted_price_data_IPR2021 <- function(input_data,
+prepare_lcoe_adjusted_price_data_IPR2023 <- function(input_data,
                                                      average_npm_power,
                                                      start_year) {
   unadjusted_price_data <- input_data %>%
@@ -317,11 +317,11 @@ prepare_lcoe_adjusted_price_data_IPR2021 <- function(input_data,
   ## Matching IEA scenarios to IPR scenarios
   FPS <- prices_adjusted[prices_adjusted$scenario == "SDS", ]
 
-  FPS$scenario[FPS$scenario == "SDS"] <- "IPR2021_FPS"
+  FPS$scenario[FPS$scenario == "SDS"] <- "IPR2023_FPS"
 
   RPS <- prices_adjusted[prices_adjusted$scenario == "SDS", ]
 
-  RPS$scenario[RPS$scenario == "SDS"] <- "IPR2021_RPS"
+  RPS$scenario[RPS$scenario == "SDS"] <- "IPR2023_RPS"
 
   prices_adjusted <- rbind(FPS, RPS)
 
