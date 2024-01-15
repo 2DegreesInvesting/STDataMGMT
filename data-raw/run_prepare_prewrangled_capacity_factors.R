@@ -62,9 +62,9 @@ data <- readr::read_csv(
 ## prepare data
 prepared_data_NGFS2022 <- prepare_capacity_factors_NGFS2022(data, start_year = start_year)
 
-### IPR data
+### IPR2023 data
 
-input_path <- fs::path("data-raw", "capacity_factors_data","raw_capacity_factors_IPR2021.csv")
+input_path <- fs::path("data-raw", "capacity_factors_data","raw_capacity_factors_IPR2023.csv")
 
 data <- readr::read_csv(
   input_path,
@@ -83,13 +83,13 @@ data <- readr::read_csv(
 )
 
 ## prepare IPR data
-prepared_data_IPR2021 <- prepare_capacity_factors_IPR2021(data, start_year = start_year)
+prepared_data_IPR2023 <- prepare_capacity_factors_IPR2023(data, start_year = start_year)
 
-## IPR baseline CF is a duplicate of IPR2021_FPS
-IPR_baseline <- prepare_capacity_factors_IPR2021_baseline(prepared_data_IPR2021)
+## IPR baseline CF is a duplicate of IPR2023_FPS
+IPR_baseline <- prepare_capacity_factors_IPR2023_baseline(prepared_data_IPR2023)
 
 # merging IPR CF data
-prepared_data_IPR2021 <- dplyr::full_join(prepared_data_IPR2021, IPR_baseline)
+prepared_data_IPR2023 <- dplyr::full_join(prepared_data_IPR2023, IPR_baseline)
 
 ### Oxford data
 # Oxford uses Capacity Factors from WEO2021
@@ -99,7 +99,7 @@ prepared_data_OXF2021 <- prepare_capacity_factors_OXF2021(prepared_data_WEO2021)
 ## combine and write data
 prepared_data <- prepared_data_WEO2021 %>%
   dplyr::bind_rows(prepared_data_NGFS2022) %>%
-  dplyr::bind_rows(prepared_data_IPR2021) %>%
+  dplyr::bind_rows(prepared_data_IPR2023) %>%
   dplyr::bind_rows(prepared_data_OXF2021)
 
 prepared_data %>%

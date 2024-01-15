@@ -368,7 +368,7 @@ prepare_capacity_factors_NGFS2022 <- function(data, start_year) {
 }
 
 ### IPR Capacity Factors
-prepare_capacity_factors_IPR2021 <- function(data, start_year) {
+prepare_capacity_factors_IPR2023 <- function(data, start_year) {
   ### Creating a technology column
 
   data$technology <- ifelse(data$Sector == "Power", paste(data$Sub_variable_class_2, data$Sector, sep = "_"), data$Sub_variable_class_1)
@@ -403,8 +403,8 @@ prepare_capacity_factors_IPR2021 <- function(data, start_year) {
         .data$technology == "SolarCap" ~ "Power"
       ),
       Scenario = dplyr::case_when(
-        .data$Scenario == "RPS" ~ "IPR2021_RPS",
-        .data$Scenario == "FPS" ~ "IPR2021_FPS"
+        .data$Scenario == "RPS" ~ "IPR2023_RPS",
+        .data$Scenario == "FPS" ~ "IPR2023_FPS"
       )
     )
 
@@ -505,13 +505,13 @@ prepare_capacity_factors_IPR2021 <- function(data, start_year) {
 }
 
 # IPR Baseline Scenario Capacity Factors
-# IPR Baseline is a duplicate of IPR2021_FPS capacity factors
+# IPR Baseline is a duplicate of IPR2023_FPS capacity factors
 
-prepare_capacity_factors_IPR2021_baseline <- function(data) {
+prepare_capacity_factors_IPR2023_baseline <- function(data) {
   data <- data %>%
-    dplyr::filter(.data$scenario == "IPR2021_FPS") %>%
+    dplyr::filter(.data$scenario == "IPR2023_FPS") %>%
     dplyr::mutate(scenario = dplyr::case_when(
-      .data$scenario == "IPR2021_FPS" ~ "IPR2021_baseline"
+      .data$scenario == "IPR2023_FPS" ~ "IPR2023_baseline"
     ))
 }
 ### Oxford Capacity Factors
