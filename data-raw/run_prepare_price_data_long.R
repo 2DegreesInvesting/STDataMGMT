@@ -189,7 +189,7 @@ price_data_long_adjusted_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_f
 
 price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
   dplyr::bind_rows(price_data_long_adjusted_NGFS2022) %>%
-  dplyr::bind_rows(price_data_long_adjusted_IPR2021) %>%
+  dplyr::bind_rows(price_data_long_adjusted_IPR2023) %>%
   dplyr::bind_rows(price_data_long_adjusted_OXF2021)
 
 price_data_long_adjusted %>%
