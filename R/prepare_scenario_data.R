@@ -507,7 +507,7 @@ prepare_IPR_scenario_data2023 <- function(data, start_year) {
   #the GECO2021 scenarios
   
   data <- data %>%
-    filter(!(ald_sector == "Automotive" & year >= 2042))
+    dplyr::filter(!(.data$ald_sector == "Automotive" & .data$year >= 2042))
 }
 
 ## IPR Baseline Scenario part I
