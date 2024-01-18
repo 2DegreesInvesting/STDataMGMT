@@ -1,7 +1,7 @@
 devtools::load_all()
 
 box::use(
-  tests/ testthat / fixtures/  synthetic_file_paths[synth_fp]
+  fixtures/  synthetic_file_paths[synth_fp]
 )
 
 

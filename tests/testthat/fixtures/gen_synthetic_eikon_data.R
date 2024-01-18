@@ -1,7 +1,7 @@
 devtools::load_all()
 
 box::use(
-  tests/ testthat / fixtures/ synthetic_file_paths[synth_fp]
+  fixtures/ synthetic_file_paths[synth_fp]
 )
 library(dplyr)
 library(tibble)
@@ -43,7 +43,7 @@ random_isins <- tibble(isin = c(random_isins_with_companies, random_isins_no_com
 stopifnot(nrow(random_isins) == length(unique(random_isins$isin))) # check all isin unique
 
 
-eikon_data <- bind_cols(bind_rows(sample_companies, tibble(company_id = rep(NA, 100))), random_isins) 
+eikon_data <- bind_cols(bind_rows(sample_companies, tibble(company_id = rep(NA, 100))), random_isins)
 
 eikon_nrow <- nrow(eikon_data)
 

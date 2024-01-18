@@ -110,7 +110,8 @@ ngfs_data <- readr::read_csv(
     year = "d",
     value = "d"
   )
-)
+) %>%
+  dplyr::mutate(Scenario = gsub("°" , " ", .data$Scenario))
 
 preprepared_ngfs_data <- preprepare_ngfs_scenario_data(ngfs_data,
                                                        start_year= start_year)
@@ -216,17 +217,17 @@ shock_scenarios <- c(
     "WEO2021_NZE_2050",
     "GECO2021_1.5C-Unif",
     "GECO2021_NDC-LTS",
-    "NGFS2023_GCAM_Below 2°C",
+    "NGFS2023_GCAM_B2DS",
     "NGFS2023_GCAM_FW",
     "NGFS2023_GCAM_LD",
     "NGFS2023_GCAM_DT",
     "NGFS2023_GCAM_NZ2050",
-    "NGFS2023_MESSAGE_Below 2°C",
+    "NGFS2023_MESSAGE_B2DS",
     "NGFS2023_MESSAGE_FW",
     "NGFS2023_MESSAGE_LD",
     "NGFS2023_MESSAGE_DT",
     "NGFS2023_MESSAGE_NZ2050",
-    "NGFS2023_REMIND_Below 2°C",
+    "NGFS2023_REMIND_B2DS",
     "NGFS2023_REMIND_FW",
     "NGFS2023_REMIND_LD",
     "NGFS2023_REMIND_DT",
@@ -249,5 +250,5 @@ prepared_data_combined <- prepared_data_combined %>%
 prepared_data_combined %>%
   dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(
-  file.path("data-raw", "st_inputs",glue::glue("Scenarios_AnalysisInput.csv"))
+  file.path("data-raw", "st_inputs", "Scenarios_AnalysisInput.csv")
 )
