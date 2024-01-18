@@ -184,7 +184,7 @@ path_prewrangled_capacity_factors <-
 path_price_data_long <-
   here::here("data-raw", "st_inputs","price_data_long.csv")
 path_Scenarios_AnalysisInput <-
-  here::here("data-raw","st_inputs", glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
+  here::here("data-raw","st_inputs", glue::glue("Scenarios_AnalysisInput.csv"))
 path_ngfs_carbon_price  <-
   here::here("data-raw", "st_inputs",  "ngfs_carbon_price.csv")
 

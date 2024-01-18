@@ -249,5 +249,5 @@ prepared_data_combined <- prepared_data_combined %>%
 prepared_data_combined %>%
   dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(
-  file.path("data-raw", "st_inputs",glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
+  file.path("data-raw", "st_inputs",glue::glue("Scenarios_AnalysisInput.csv"))
 )
