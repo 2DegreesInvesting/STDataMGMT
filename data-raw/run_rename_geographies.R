@@ -173,9 +173,6 @@ cleaning_bench_regions <- function(bench_regions_input_path) {
 }
 
 
-# start_year <- 2022 # defined in workflow.R
-
-
 bench_regions_input_path <- here::here("data-raw", "bench_regions.csv")
 bench_regions <- cleaning_bench_regions(bench_regions_input_path)
 

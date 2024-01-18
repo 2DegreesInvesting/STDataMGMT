@@ -237,10 +237,10 @@ shock_scenarios <- c(
 )
 
 prepared_data_combined <- prepared_data_combined %>%
-  mutate(
-    scenario_type= case_when(
-      scenario %in% baseline_scenarios ~ "baseline",
-      scenario %in% shock_scenarios ~ "shock",
+  dplyr::mutate(
+    scenario_type= dplyr::case_when(
+      .data$scenario %in% baseline_scenarios ~ "baseline",
+      .data$scenario %in% shock_scenarios ~ "shock",
       TRUE ~ NA_character_  # Assign NA for scenarios not in either list
     )
   ) %>%
