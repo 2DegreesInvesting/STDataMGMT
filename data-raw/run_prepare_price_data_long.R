@@ -183,7 +183,7 @@ price_data_long_adjusted_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_f
   start_year = start_year
 )
 
-### NOTE: Oxford power prices are already in the data through lcoe_adjusted_price_data_oxford2021
+### NOTE: Oxford power prices are already in the data through lcoe_adjusted_price_data_oxford2021_2022
 
 ## combine and write all price data----
 
