@@ -175,7 +175,7 @@ prepared_IPR_data <- prepared_IPR_data %>%
 
 input_path <- fs::path(
   "data-raw",
-   "scenario_analysis_input_data",
+  "scenario_analysis_input_data",
   "oxford_Scenarios_AnalysisInput.csv"
 )
 
@@ -204,11 +204,14 @@ baseline_scenarios <- c(
   "GECO2021_CurPol",
   "WEO2021_APS",
   "NGFS2023_GCAM_CP",
-  "NGFS2023_GCAM_NDC",
   "NGFS2023_MESSAGE_CP",
-  "NGFS2023_MESSAGE_NDC",
   "NGFS2023_REMIND_CP",
+  "NGFS2023_MESSAGE_FW",
+  "NGFS2023_REMIND_FW",
+  "NGFS2023_GCAM_FW",
+  "NGFS2023_MESSAGE_NDC",
   "NGFS2023_REMIND_NDC",
+  "NGFS2023_GCAM_NDC",
   "IPR2021_baseline",
   "Oxford2021_base"
 )
@@ -218,19 +221,16 @@ shock_scenarios <- c(
     "GECO2021_1.5C-Unif",
     "GECO2021_NDC-LTS",
     "NGFS2023_GCAM_B2DS",
-    "NGFS2023_GCAM_FW",
-    "NGFS2023_GCAM_LD",
-    "NGFS2023_GCAM_DT",
-    "NGFS2023_GCAM_NZ2050",
     "NGFS2023_MESSAGE_B2DS",
-    "NGFS2023_MESSAGE_FW",
-    "NGFS2023_MESSAGE_LD",
-    "NGFS2023_MESSAGE_DT",
-    "NGFS2023_MESSAGE_NZ2050",
     "NGFS2023_REMIND_B2DS",
-    "NGFS2023_REMIND_FW",
+    "NGFS2023_GCAM_LD",
+    "NGFS2023_MESSAGE_LD",
     "NGFS2023_REMIND_LD",
+    "NGFS2023_GCAM_DT",
+    "NGFS2023_MESSAGE_DT",
     "NGFS2023_REMIND_DT",
+    "NGFS2023_GCAM_NZ2050",
+    "NGFS2023_MESSAGE_NZ2050",
     "NGFS2023_REMIND_NZ2050",
     "IPR2021_FPS",
     "IPR2021_RPS",
