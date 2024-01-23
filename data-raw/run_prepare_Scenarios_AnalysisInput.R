@@ -88,11 +88,9 @@ prepared_data <- prepare_scenario_data(data = weo_geco_data)
 
 
 #NGFS Phase IV
-input_path <- r2dii.utils::path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
+input_path <- fs::path(
+  "data-raw",
+  "scenario_analysis_input_data",
   "ngfs_Scenarios_AnalysisInput_phase4.csv"
 )
 
@@ -136,7 +134,7 @@ preprepared_ngfs_data <- preprepared_ngfs_data %>%
 
 input_path <- fs::path(
   "data-raw",
-   "scenario_analysis_input_data",
+  "scenario_analysis_input_data",
   "ipr_Scenarios_AnalysisInput.csv"
 )
 

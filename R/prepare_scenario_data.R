@@ -320,7 +320,6 @@ preprepare_ngfs_scenario_data <- function(data, start_year) {
     ) %>%
     dplyr::rename(units = .data$Unit) %>%
     dplyr::ungroup() %>%  ##think it needs to be ungrouped here
-    dplyr::filter(!((.data$sector == "Power") & (.data$units!="GW"))) %>%
     dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_c, .data$category_a, .data$category_b, .data$Region))
 
 
@@ -330,7 +329,7 @@ preprepare_ngfs_scenario_data <- function(data, start_year) {
     dplyr::mutate(value = sum(.data$value)) %>%
     unique()
 
-  delete_renewables <- data %>% dplyr::filter(!.data$technology %in% c("RenewablesCap", "Non-Biomass Renewables"))
+  delete_renewables <- data %>% dplyr::filter(!.data$technology %in% c("RenewablesCap"))
 
   data <- dplyr::full_join(combine_renewables_cap, delete_renewables) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
