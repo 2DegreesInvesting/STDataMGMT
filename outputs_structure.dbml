@@ -1,0 +1,102 @@
+Table abcd_stress_test_input {
+  scenario_geography varchar
+  company_id int 
+  company_name varchar  
+  ald_sector varchar
+  ald_business_unit varchar
+  ald_production_unit varchar
+  emissions_factor_unit varchar
+  year int
+  plan_tech_prod float
+  plan_emission_factor float
+  plan_sec_prod float
+}
+
+Table ngfs_carbon_price {
+  scenario varchar
+  scenario_geography varchar 
+  model varchar
+  variable varchar
+  unit varchar
+  year int
+  carbon_tax float
+}
+
+Table prewrangled_capacity_factors {
+  scenario varchar
+  scenario_geography varchar
+  ald_business_unit varchar 
+  year int
+  capacity_factor float
+}
+
+Table price_data_long {
+  scenario varchar
+  scenario_geography varchar 
+  sector varchar
+  ald_business_unit varchar
+  unit varchar
+  year int
+  indicator varchar
+  price float
+}
+
+Table Scenarios_AnalysisInput_2022 {
+  scenario varchar
+  scenario_geography varchar 
+  ald_sector varchar
+  ald_business_unit varchar 
+  units varchar
+  year int
+  direction varchar
+  fair_share_perc float
+}
+
+Table prewrangled_financial_data_stress_test {
+  company_id int
+  pd float
+  net_profit_margin float
+  debt_equity_ratio float
+  volatility float
+}
+
+
+
+
+Ref: "price_data_long"."year" < "Scenarios_AnalysisInput_2022"."year"
+
+Ref: "price_data_long"."scenario_geography" < "Scenarios_AnalysisInput_2022"."scenario_geography"
+
+Ref: "price_data_long"."scenario" < "Scenarios_AnalysisInput_2022"."scenario"
+
+Ref: "price_data_long"."sector" < "Scenarios_AnalysisInput_2022"."ald_sector"
+
+Ref: "price_data_long"."ald_business_unit" < "Scenarios_AnalysisInput_2022"."ald_business_unit"
+
+Ref: "price_data_long"."unit" < "Scenarios_AnalysisInput_2022"."units"
+
+Ref: "ngfs_carbon_price"."year" < "Scenarios_AnalysisInput_2022"."year"
+
+Ref: "ngfs_carbon_price"."scenario" < "Scenarios_AnalysisInput_2022"."scenario"
+
+Ref: "ngfs_carbon_price"."scenario_geography" < "Scenarios_AnalysisInput_2022"."scenario_geography"
+
+Ref: "prewrangled_capacity_factors"."scenario_geography" < "Scenarios_AnalysisInput_2022"."scenario_geography"
+
+Ref: "prewrangled_capacity_factors"."ald_business_unit" < "Scenarios_AnalysisInput_2022"."ald_business_unit"
+
+Ref: "prewrangled_capacity_factors"."scenario" < "Scenarios_AnalysisInput_2022"."scenario"
+
+Ref: "prewrangled_capacity_factors"."year" < "Scenarios_AnalysisInput_2022"."year"
+
+Ref: "Scenarios_AnalysisInput_2022"."year" < "abcd_stress_test_input"."year"
+
+Ref: "Scenarios_AnalysisInput_2022"."scenario_geography" < "abcd_stress_test_input"."scenario_geography"
+
+Ref: "Scenarios_AnalysisInput_2022"."ald_sector" < "abcd_stress_test_input"."ald_sector"
+
+Ref: "Scenarios_AnalysisInput_2022"."units" < "abcd_stress_test_input"."ald_production_unit"
+
+Ref: "Scenarios_AnalysisInput_2022"."ald_business_unit" < "abcd_stress_test_input"."ald_business_unit"
+
+Ref: "prewrangled_financial_data_stress_test"."company_id" < "abcd_stress_test_input"."company_id"

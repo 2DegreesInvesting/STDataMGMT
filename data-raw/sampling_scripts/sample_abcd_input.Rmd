@@ -1,0 +1,488 @@
+---
+title: "sample_abcd_input"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{sample_abcd_input}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(STDataMGMT)
+library(dplyr)
+  library(ggplot2)
+library(tidyr)
+
+  
+```
+
+
+# Functions
+
+
+```{r}
+
+count_n_companies <- function(abcd_data, group_cols=NULL){
+  abcd_data |>
+  distinct_at(c("company_id", group_cols)) |>
+  group_by_at(group_cols) |>
+  summarise(n_companies = dplyr::n(), .groups="drop")
+}
+
+sum_company_prod_volume <- function(abcd_data,group_cols=NULL){
+  abcd_data |>
+    group_by_at(c("company_id", group_cols)) |>
+    summarise(plan_tech_prod=sum(plan_tech_prod), .groups="drop")
+}
+
+sum_total_prod_volume <- function(abcd_data, group_cols=NULL){
+  abcd_data|>
+  group_by_at(group_cols) |>
+  summarise(plan_tech_prod=sum(plan_tech_prod), .groups="drop")
+}
+
+sum_yearly_prod_volume <- function(abcd_data, group_cols=NULL){
+  abcd_data |>
+  group_by_at(c("year", group_cols)) |>
+  summarise(plan_tech_prod=sum(plan_tech_prod), .groups="drop")
+}
+
+
+add_company_diversity_col <- function(abcd_data){
+    companies_diversity <- abcd_data |>
+    distinct(company_id, ald_sector, ald_business_unit) |>
+    group_by(company_id) |>
+    summarise(n_bu = n())
+    
+    abcd_data |> inner_join(companies_diversity)
+}
+
+  # Function to calculate RMSE between two curves
+  calculate_rmse <- function(curve1, curve2, group_cols=NULL) {
+    # Assuming curve1 and curve2 are data frames with columns 'year' and 'plan_tech_prod'
+    # Merge the two dataframes on 'year'
+    merged_curves <- merge(curve1, curve2, by = c("year", group_cols))
+    
+    # Calculate the RMSE
+    merged_curves <- merged_curves |>
+      group_by_at(group_cols) |>
+      summarise(rmse_group = sqrt(mean((
+        .data$plan_tech_prod.x - .data$plan_tech_prod.y
+      ) ^ 2
+      )), .groups="drop")
+    
+    # Averages the RMSE
+    rmse <-mean(merged_curves$rmse_group)
+    
+    return(rmse)
+  }
+  
+  # Function for greedy search to sample companies
+  sample_companies_greedy <-
+    function(abcd_data,
+             uniform_ratio,
+             group_cols=NULL,
+             n_sampling_attempts = 5,
+             greedy_lr = 0.02,
+             use_weighting=TRUE) {
+      
+      full_prod_volume_per_group <- sum_total_prod_volume(abcd_data, group_cols=group_cols)
+      yearly_full_prod_volume_per_group <-sum_yearly_prod_volume(abcd_data, group_cols=group_cols)
+      
+      best_sample <- NULL
+      best_ratio_diff <- Inf
+      best_rmse <- Inf
+      greedy_sampling_ratio <- 1
+      
+      # cat(abcd_data |> distinct(ald_sector, ald_business_unit))
+      
+      if (use_weighting){
+        abcd_data <- add_company_diversity_col(abcd_data)
+      } else {
+        abcd_data$n_bu <- 1
+      }
+      
+      while (greedy_sampling_ratio > greedy_lr * 2) {
+        current_samples <- list()
+        
+        for (i in 1:n_sampling_attempts) {
+          
+          # take a random sample of companies
+          sampled_companies <-abcd_data |>
+            distinct(company_id, n_bu) |>
+            sample_frac(greedy_sampling_ratio, weight=.data$n_bu) 
+          
+          sampled_data <-
+            abcd_data |> filter(company_id %in% sampled_companies$company_id)
+          
+          # compute the total production of the sample
+          sampled_prod_volume_per_group <- sum_total_prod_volume(sampled_data, group_cols=group_cols)
+          
+          # then compute the volume this total production represents regarding the full data
+          new_ratio <-
+            inner_join(
+              sampled_prod_volume_per_group,
+              full_prod_volume_per_group,
+              by = group_cols
+            ) |>
+            mutate(perc_prod_kept = plan_tech_prod.x / plan_tech_prod.y)
+          
+          # compute the total yearly prod on 
+          yearly_sampled_prod_volume_per_group <- sum_yearly_prod_volume(sampled_data, group_cols=group_cols)
+          
+          # compute the RMSE per group between full and sampled datasets' yearly productions
+          rmse <- calculate_rmse(
+            yearly_full_prod_volume_per_group,
+            yearly_sampled_prod_volume_per_group,
+            group_cols=group_cols
+          )
+          
+          # compute the average rmse as the evaluation metric
+          avg_rmse <- mean(rmse)
+          
+          current_samples[[i]] <-
+            list(
+              data = sampled_data,
+              ratio_diff = mean(abs(new_ratio$perc_prod_kept - uniform_ratio)),
+              rmse = avg_rmse
+            )
+        }
+        
+        # Find the best sample in this iteration according to the rmse
+        best_sample_in_iteration <- sapply(current_samples, function(x) x$rmse)
+        min_diff_index <- which.min(best_sample_in_iteration)
+        
+        print(current_samples[[min_diff_index]]$ratio_diff)
+        
+        # select the sample having best RMSE in the sample, if it is better than last ratio_diff
+        if (current_samples[[min_diff_index]]$ratio_diff < best_ratio_diff) {
+            
+            best_sample <- current_samples[[min_diff_index]]$data
+            best_ratio_diff <- current_samples[[min_diff_index]]$ratio_diff
+            best_rmse <- current_samples[[min_diff_index]]$rmse
+          
+        }
+        
+        greedy_sampling_ratio <- greedy_sampling_ratio - greedy_lr
+      }
+      return(best_sample |> select(-c(n_bu)))
+    }
+  
+
+```
+
+
+
+# Load or generate ABCD input
+
+```{r}
+if (!file.exists(here::here("data-raw", "st_inputs", "abcd_stress_test_input.csv"))) {
+  source(file = here::here("data-raw", "run_prepare_abcd_stress_test_input.R"))
+} 
+abcd_full <- readr::read_csv(here::here("data-raw", "st_inputs", "abcd_stress_test_input.csv"))
+```
+
+# Sample the data 
+
+```{r}
+
+# Set the grouping cols to be used as stratas for the sampling
+group_cols <- c("scenario_geography", "ald_sector", "ald_business_unit")
+
+abcd_sampled <- sample_companies_greedy(
+  abcd_full, 
+  group_cols=group_cols,
+  uniform_ratio = 0.5,
+  use_weighting=FALSE
+  )
+
+```
+
+# Revert to original data, and recreate abcd data
+
+## Create sampling filter
+```{r}
+data(scenarios_geographies) #loaded from package
+
+sample_selection <- abcd_sampled %>%
+  distinct(company_id, ald_sector, ald_business_unit, scenario_geography) %>%
+  inner_join(
+    scenarios_geographies %>% 
+      rename(ald_location=country_iso) %>%
+      distinct(scenario_geography_newname, ald_location),
+    by = c("scenario_geography" = "scenario_geography_newname"),
+    relationship = "many-to-many"
+  ) %>%
+  select(c(company_id, ald_sector, ald_business_unit, ald_location)) %>%
+  distinct_all() # distinct all because different geographies can share the same country
+
+```
+
+## recreate abcd with filtering  // duplicate of data-raw/run_prepare_abcd_stress_test_input.R
+
+```{r}
+## PARAMETERS
+
+output_path_stress_test_input <-
+  here::here(
+    "data-raw",
+    "st_inputs",
+    "sample_abcd_stress_test_input.csv"
+)
+  
+
+start_year <- 2022 
+time_horizon <- 5
+additional_year <- NULL
+sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
+km_per_vehicle <- 15000
+
+DB_company_activities  <-   arrow::read_parquet(here::here("data-raw","DBs","DB_company_activities.parquet")) %>%
+  inner_join(sample_selection)
+DB_company_emissions  <-  arrow::read_parquet(here::here("data-raw","DBs","DB_company_emissions.parquet"))%>%
+  inner_join(sample_selection)
+
+abcd_stress_test_input <-
+  prepare_abcd_data(
+    company_activities = DB_company_activities,
+    company_emissions = DB_company_emissions,
+    scenarios_geographies = scenarios_geographies, # loaded from package
+    start_year = start_year,
+    time_horizon = time_horizon,
+    additional_year = additional_year,
+    km_per_vehicle = km_per_vehicle,
+    sector_list = sector_list
+  )
+
+abcd_stress_test_input %>% 
+  assertr::verify(all(colSums(is.na(.)) == 0))
+
+abcd_stress_test_input %>% readr::write_csv(output_path_stress_test_input)
+```
+
+
+
+# Evaluate sampling 
+
+```{r}
+
+## Aggregations full
+
+n_companies_full <- count_n_companies(abcd_full, group_cols=group_cols)
+company_volume_prod_full <- sum_company_prod_volume(abcd_full, group_cols=group_cols)
+total_volume_prod_full <- sum_total_prod_volume(abcd_full, group_cols=group_cols)
+yearly_volume_prod_full <- sum_yearly_prod_volume(abcd_full, group_cols=group_cols)
+
+
+## Aggregations sampled
+
+n_companies_sampled <- count_n_companies(abcd_stress_test_input, group_cols=group_cols)
+company_volume_prod_sampled <- sum_company_prod_volume(abcd_stress_test_input, group_cols=group_cols)
+total_volume_prod_sampled <- sum_total_prod_volume(abcd_stress_test_input, group_cols=group_cols)
+yearly_volume_prod_sampled <- sum_yearly_prod_volume(abcd_stress_test_input, group_cols=group_cols)
+
+```
+
+
+
+## Summary dataframes
+
+### Number of companies per sector & BU
+
+```{r message=FALSE, warning=FALSE}
+for (scenario in unique(abcd_stress_test_input$scenario_geography)){
+  companies_comparison <- inner_join(
+    abcd_full|> 
+    dplyr::filter(scenario_geography == scenario) |>
+    count_n_companies(group_cols=group_cols)
+    , 
+    abcd_stress_test_input |> 
+    dplyr::filter(scenario_geography == scenario)  |>
+    count_n_companies(group_cols=group_cols),
+    by=c("scenario_geography", "ald_sector", "ald_business_unit"),
+    suffix = c(".full", ".sampled")
+  )
+  
+
+
+# Pivot the data
+data_long <- companies_comparison %>%
+  pivot_longer(cols = c("n_companies.full", "n_companies.sampled"),
+               names_to = "company_type",
+               values_to = "n_companies")
+
+# Create the plot
+plot <- ggplot(data_long, aes(x = interaction(ald_sector, ald_business_unit), y = n_companies, fill = company_type)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(title = unique(data_long$scenario_geography),
+       x = "Sector and Business Unit",
+       y = "Number of Companies") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+print(plot)
+
+  }
+```
+
+
+
+### diff companies, production,  between full and sampled
+
+```{r}
+comp_n_companies <- inner_join(n_companies_full, n_companies_sampled, by=group_cols, suffix=c(".full", ".sampled"))
+
+comp_total_volume_prod <- inner_join(total_volume_prod_full, total_volume_prod_toydata, by=group_cols, suffix=c(".full", ".sampled")) |> mutate(perc_prod_kept = plan_tech_prod.toydata / plan_tech_prod.fulldata)
+
+o <- inner_join(comp_n_companies, comp_total_volume_prod, by=group_cols) |>
+  select(ald_sector, ald_business_unit, n_companies.fulldata, n_companies.toydata, perc_prod_kept)
+  
+
+# inner_join(
+# inner_join(
+#   abcd_full_global|> 
+#   group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+#   summarise(total_prod = sum(plan_tech_prod), .groups="drop") |>
+#   group_by(ald_production_unit) |>
+#   mutate(perc_prod_total_full = as.integer(total_prod/sum(total_prod) * 100)) |>
+#   ungroup() |>
+#   select(-c(total_prod))
+#   , 
+#   abcd_data|> 
+#   group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+#   summarise(total_prod = sum(plan_tech_prod), .groups="drop") |>
+#   group_by(ald_production_unit) |>
+#   mutate(perc_prod_total = as.integer(total_prod/sum(total_prod) * 100)) |>
+#   ungroup() 
+# 
+#   ),
+#   
+#     abcd_data |> 
+#   dplyr::distinct(ald_sector, ald_business_unit, company_id) |> # remove duplicates on year 
+#   dplyr::group_by(ald_sector, ald_business_unit) |>
+#   dplyr::summarise(n_companies=n())
+# )|>
+#   mutate(
+#     prod_company_provided = round(total_prod/n_companies, 3),
+#     prod_company_provided_perc = prod_company_provided/total_prod
+#   )
+
+
+ladata <- inner_join(
+abcd_full_global |>
+    group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+    summarise(bu_prod_full = sum(plan_tech_prod), .groups = "drop") |>
+    group_by(ald_production_unit) |>
+    mutate(
+      unit_prod_full = sum(bu_prod_full),
+      perc_bu_prod_full = as.integer(bu_prod_full / unit_prod_full * 100)
+    ) |>
+    ungroup()
+  
+  ,
+inner_join(
+  abcd_data |>
+    dplyr::distinct(ald_sector, ald_business_unit, company_id) |> # remove duplicates on year
+    dplyr::group_by(ald_sector, ald_business_unit) |>
+    dplyr::summarise(n_companies = n())
+  ,
+  abcd_data |>
+    group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+    summarise(bu_prod = sum(plan_tech_prod), .groups = "drop") |>
+    group_by(ald_production_unit) |>
+    mutate(
+      unit_prod = sum(bu_prod),
+      perc_bu_prod = as.integer(bu_prod / unit_prod * 100)
+    ) |>
+    ungroup()
+  
+) |>
+  mutate(
+    prod_company_in_bu = bu_prod / n_companies,
+    prod_company_in_unit = round(prod_company_in_bu / unit_prod * 100, 3)
+  )
+
+)|> 
+  select(ald_sector,
+         ald_business_unit,
+         perc_bu_prod,
+         perc_bu_prod_full,
+         prod_company_in_unit) |>
+  inner_join(o) |>
+  mutate(perc_companies_kept = n_companies.toydata / n_companies.fulldata)
+
+
+ladata
+```
+
+
+## Plotting
+
+### diff yearly prod full vs toy
+
+```{r echo=FALSE, fig.height=6, fig.width=8}
+comp_yearly_volume_prod <-
+  inner_join(
+    yearly_volume_prod_full,
+    yearly_volume_prod_sampled,
+    by = c(
+      "scenario_geography",
+      "year" ,
+      "ald_sector",
+      "ald_business_unit"
+    ),
+    suffix = c(".fulldata", ".sampled")
+  )
+
+
+long_data <- comp_yearly_volume_prod |>
+  tidyr::pivot_longer(
+    cols = starts_with("plan_tech_prod"),
+    names_to = "production_type",
+    values_to = "production_value"
+  )
+
+# Loop through each combination and create a plot
+for (geography in unique(long_data$scenario_geography)) {
+  # Subset the data for the current combination
+  subset_data <- long_data |>
+    filter(
+      scenario_geography == geography
+    )
+  
+  # Create the plot
+  p <-
+    ggplot(
+      subset_data,
+      aes(
+        x = year,
+        y = production_value,
+        color = production_type,
+        group = production_type
+      )
+    ) +
+    geom_line(aes(linetype = production_type)) +
+    facet_wrap( ~ald_sector+ald_business_unit, scales="free_y")+
+    theme_minimal() +
+    labs(
+      title = paste(
+        "Production Comparison:",
+        geography
+      ),
+      x = "Year",
+      y = "Production Value",
+      color = "Production Type"
+    ) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    scale_linetype_manual(values = c("twodash", "dotted"))
+  
+  # Print the plot
+  print(p)
+}
+```
