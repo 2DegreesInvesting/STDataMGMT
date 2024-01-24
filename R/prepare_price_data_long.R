@@ -243,7 +243,7 @@ prepare_price_data_long_WEO2021 <- function(input_data_fossil_fuel,
 #' @export
 
 
-prepare_price_data_long_NGFS2022 <- function(input_data_fossil_fuels_ngfs, start_year) {
+prepare_price_data_long_NGFS2023 <- function(input_data_fossil_fuels_ngfs, start_year) {
   data <- input_data_fossil_fuels_ngfs %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
     dplyr::mutate(
@@ -302,7 +302,7 @@ prepare_price_data_long_NGFS2022 <- function(input_data_fossil_fuels_ngfs, start
   data <- data %>%
     dplyr::rename(price = .data$value) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
-    dplyr::mutate(scenario = paste("NGFS2022", .data$scenario, sep = "_"))
+    dplyr::mutate(scenario = paste("NGFS2023", .data$scenario, sep = "_"))
 }
 
 ### IPR price data function

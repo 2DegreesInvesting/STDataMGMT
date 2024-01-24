@@ -251,7 +251,7 @@ prepare_prewrangled_capacity_factors_WEO2021 <- function(data, start_year) {
 #' @family data preparation functions
 #' @return NULL
 
-prepare_capacity_factors_NGFS2022 <- function(data, start_year) {
+prepare_capacity_factors_NGFS2023 <- function(data, start_year) {
 
   data <- data %>%
     dplyr::mutate(scenario = .data$Scenario) %>%
@@ -364,7 +364,7 @@ prepare_capacity_factors_NGFS2022 <- function(data, start_year) {
   data <- data %>%
     dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
-    dplyr::mutate(scenario = paste("NGFS2022", .data$scenario, sep = "_"))
+    dplyr::mutate(scenario = paste("NGFS2023", .data$scenario, sep = "_"))
 }
 
 ### IPR Capacity Factors

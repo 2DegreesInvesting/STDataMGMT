@@ -88,11 +88,9 @@ prepared_data <- prepare_scenario_data(data = weo_geco_data)
 
 
 #NGFS Phase IV
-input_path <- r2dii.utils::path_dropbox_2dii(
-  "PortCheck",
-  "00_Data",
-  "01_ProcessedData",
-  "03_ScenarioData",
+input_path <- fs::path(
+  "data-raw",
+  "scenario_analysis_input_data",
   "ngfs_Scenarios_AnalysisInput_phase4.csv"
 )
 
@@ -110,7 +108,8 @@ ngfs_data <- readr::read_csv(
     year = "d",
     value = "d"
   )
-)
+) %>%
+  dplyr::mutate(Scenario = gsub("°" , " ", .data$Scenario))
 
 preprepared_ngfs_data <- preprepare_ngfs_scenario_data(ngfs_data,
                                                        start_year= start_year)
@@ -180,7 +179,7 @@ prepared_IPR_data <- prepared_IPR_data %>%
 
 input_path <- fs::path(
   "data-raw",
-   "scenario_analysis_input_data",
+  "scenario_analysis_input_data",
   "oxford_Scenarios_AnalysisInput.csv"
 )
 
@@ -203,8 +202,57 @@ prepared_data_IEA_NGFS <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
 prepared_data_IPR_OXF <- dplyr::full_join(prepared_IPR_data, prepared_OXF_data)
 prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_data_IPR_OXF)
 
+
+baseline_scenarios <- c(
+  "WEO2021_STEPS",
+  "GECO2021_CurPol",
+  "WEO2021_APS",
+  "NGFS2023_GCAM_CP",
+  "NGFS2023_MESSAGE_CP",
+  "NGFS2023_REMIND_CP",
+  "NGFS2023_MESSAGE_FW",
+  "NGFS2023_REMIND_FW",
+  "NGFS2023_GCAM_FW",
+  "NGFS2023_MESSAGE_NDC",
+  "NGFS2023_REMIND_NDC",
+  "NGFS2023_GCAM_NDC",
+  "IPR2021_baseline",
+  "Oxford2021_base"
+)
+shock_scenarios <- c(
+    "WEO2021_SDS",
+    "WEO2021_NZE_2050",
+    "GECO2021_1.5C-Unif",
+    "GECO2021_NDC-LTS",
+    "NGFS2023_GCAM_B2DS",
+    "NGFS2023_MESSAGE_B2DS",
+    "NGFS2023_REMIND_B2DS",
+    "NGFS2023_GCAM_LD",
+    "NGFS2023_MESSAGE_LD",
+    "NGFS2023_REMIND_LD",
+    "NGFS2023_GCAM_DT",
+    "NGFS2023_MESSAGE_DT",
+    "NGFS2023_REMIND_DT",
+    "NGFS2023_GCAM_NZ2050",
+    "NGFS2023_MESSAGE_NZ2050",
+    "NGFS2023_REMIND_NZ2050",
+    "IPR2021_FPS",
+    "IPR2021_RPS",
+    "Oxford2021_fast"
+)
+
+prepared_data_combined <- prepared_data_combined %>%
+  dplyr::mutate(
+    scenario_type= dplyr::case_when(
+      .data$scenario %in% baseline_scenarios ~ "baseline",
+      .data$scenario %in% shock_scenarios ~ "shock",
+      TRUE ~ NA_character_  # Assign NA for scenarios not in either list
+    )
+  ) %>%
+  assertr::verify(sum(is.na(scenario_type)) == 0)
+
 prepared_data_combined %>%
   dplyr::rename(ald_business_unit=.data$technology) %>%
   readr::write_csv(
-  file.path("data-raw", "st_inputs",glue::glue("Scenarios_AnalysisInput_{start_year}.csv"))
+  file.path("data-raw", "st_inputs", "Scenarios_AnalysisInput.csv")
 )

@@ -243,7 +243,7 @@ prepare_lcoe_adjusted_price_data_oxford2022 <- function(input_data_lcoe_oxford,
 
   prices_adjusted_final <- dplyr::full_join(oxford_fast_transition, oxford_slow_transition) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
-    dplyr::mutate(scenario = paste("NGFS2022", .data$scenario, sep = "_"))
+    dplyr::mutate(scenario = paste("NGFS2023", .data$scenario, sep = "_"))
 
   # merging NGFS and Oxford prices
   prices_adjusted_final <- dplyr::full_join(prices_adjusted_final, prices_oxford)

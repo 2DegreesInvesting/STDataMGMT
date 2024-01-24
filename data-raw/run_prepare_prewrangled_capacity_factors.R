@@ -60,7 +60,7 @@ data <- readr::read_csv(
 )
 
 ## prepare data
-prepared_data_NGFS2022 <- prepare_capacity_factors_NGFS2022(data, start_year = start_year)
+prepared_data_NGFS2023 <- prepare_capacity_factors_NGFS2023(data, start_year = start_year)
 
 ### IPR2023 data
 
@@ -98,7 +98,7 @@ prepared_data_OXF2021 <- prepare_capacity_factors_OXF2021(prepared_data_WEO2021)
 
 ## combine and write data
 prepared_data <- prepared_data_WEO2021 %>%
-  dplyr::bind_rows(prepared_data_NGFS2022) %>%
+  dplyr::bind_rows(prepared_data_NGFS2023) %>%
   dplyr::bind_rows(prepared_data_IPR2023) %>%
   dplyr::bind_rows(prepared_data_OXF2021)
 
