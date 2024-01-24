@@ -7,7 +7,10 @@
 create_automotive_prices(Scenarios_AnalysisInput)
 }
 \arguments{
-\item{Scenarios_AnalysisInput}{}
+\item{Scenarios_AnalysisInput}{Scenarios_AnalysisInput}
+}
+\value{
+the automotive price dataframe
 }
 \description{
 Synthetic creation of automotive prices by setting them to 1,
