@@ -185,13 +185,27 @@ price_data_long_adjusted_OXF2021 <- prepare_price_data_long_Oxf2021(input_data_f
 
 ### NOTE: Oxford power prices are already in the data through lcoe_adjusted_price_data_oxford2021_2022
 
+## prepare price data Automotive
+
+# scenarios with automotive sector are identified in the scenario file
+Scenarios_AnalysisInput <- readr::read_csv(fs::path(
+  "data-raw","st_inputs","Scenarios_AnalysisInput.csv"
+))
+
+auto_prices <- create_automotive_prices(Scenarios_AnalysisInput)
+
 ## combine and write all price data----
 
 price_data_long_adjusted <- price_data_long_adjusted_WEO2021 %>%
   dplyr::bind_rows(price_data_long_adjusted_NGFS2023) %>%
   dplyr::bind_rows(price_data_long_adjusted_IPR2023) %>%
-  dplyr::bind_rows(price_data_long_adjusted_OXF2021)
+  dplyr::bind_rows(price_data_long_adjusted_OXF2021) %>%
+  dplyr::bind_rows(auto_prices)
 
 price_data_long_adjusted %>%
-  dplyr::rename(ald_business_unit=.data$technology) %>%
-  readr::write_csv(file.path("data-raw","st_inputs", "price_data_long.csv"))
+  dplyr::rename(ald_business_unit = .data$technology,
+                ald_sector = .data$sector) %>%
+  # doing hardcoded filtering directly upon import as we currently do not
+  # differentiate scenario_geographies for price data
+  dplyr::filter(scenario_geography == "Global") %>%
+  readr::write_csv(file.path("data-raw", "st_inputs", "price_data_long.csv"))

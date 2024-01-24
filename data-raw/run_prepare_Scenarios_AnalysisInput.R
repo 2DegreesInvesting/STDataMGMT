@@ -216,7 +216,7 @@ baseline_scenarios <- c(
   "NGFS2023_MESSAGE_NDC",
   "NGFS2023_REMIND_NDC",
   "NGFS2023_GCAM_NDC",
-  "IPR2021_baseline",
+  "IPR2023_baseline",
   "Oxford2021_base"
 )
 shock_scenarios <- c(
@@ -236,8 +236,8 @@ shock_scenarios <- c(
     "NGFS2023_GCAM_NZ2050",
     "NGFS2023_MESSAGE_NZ2050",
     "NGFS2023_REMIND_NZ2050",
-    "IPR2021_FPS",
-    "IPR2021_RPS",
+    "IPR2023_FPS",
+    "IPR2023_RPS",
     "Oxford2021_fast"
 )
 

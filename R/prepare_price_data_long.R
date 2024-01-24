@@ -277,7 +277,7 @@ prepare_price_data_long_NGFS2023 <- function(input_data_fossil_fuels_ngfs, start
     ) %>%
     dplyr::rename(unit = .data$Unit, technology = .data$category_c, indicator = .data$category_a) %>%
     dplyr::select(-c(.data$Model, .data$Variable, .data$Scenario, .data$category_b, .data$Region))
-  
+
   data <- data %>%
     dplyr::group_by(dplyr::across(-c(.data$year, .data$value))) %>%
     tidyr::complete(year = tidyr::full_seq(.data$year, 1)) %>%
@@ -285,20 +285,20 @@ prepare_price_data_long_NGFS2023 <- function(input_data_fossil_fuels_ngfs, start
       value = zoo::na.approx(.data$value, .data$year, na.rm = FALSE)
     ) %>%
     dplyr::ungroup()
-  
+
   data <- data %>% dplyr::filter(.data$year >= start_year)
-  
+
   data_oil_gas <- data %>%
     dplyr::filter(.data$sector == "Oil&Gas") %>%
     dplyr::mutate(unit = "$/GJ")
-  
+
   data_coal <- data %>%
     dplyr::filter(.data$sector == "Coal") %>%
     dplyr::group_by(.data$year, .data$scenario_geography, .data$model, .data$scenario) %>%
     dplyr::mutate(value = .data$value / 0.03414368, unit = "$/tonnes")
-  
+
   data <- dplyr::full_join(data_oil_gas, data_coal)
-  
+
   data <- data %>%
     dplyr::rename(price = .data$value) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
@@ -313,13 +313,13 @@ prepare_price_data_long_IPR2023 <- function(data, start_year) {
   # Gas: only available for USA, Europe and Asia, Plus available as high price and low price. We create a global low and global high and take the average from that
   # Oil: available only for World and as high and low price. We take the average
   # Unit: We transform in the correct unit for the ST
-  
+
   ### Creating a technology column
-  
+
   data$technology <- data$Sub_variable_class_1
-  
+
   ### Renaming technologies and Sector
-  
+
   data <- data %>%
     dplyr::mutate(technology = .data$technology) %>%
     dplyr::mutate(
@@ -338,13 +338,13 @@ prepare_price_data_long_IPR2023 <- function(data, start_year) {
         .data$Scenario == "FPS" ~ "IPR2023_FPS"
       )
     )
-  
+
   ### further deleting unnecessary columns
-  
+
   data <- dplyr::select(data, -c("Sub_variable_class_1"))
-  
+
   ### renaming column names
-  
+
   data <- data %>%
     dplyr::rename(
       scenario = .data$Scenario,
@@ -352,37 +352,37 @@ prepare_price_data_long_IPR2023 <- function(data, start_year) {
       unit = .data$Units,
       price = .data$value
     )
-  
-  
+
+
   ### Creating Coal Prices
   coal_global <- data %>%
     dplyr::filter(.data$technology == "Coal") %>%
     dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
     dplyr::summarize(price = mean(.data$price)) %>%
     dplyr::mutate(Variable_class = "price", scenario_geography = "Global", sector = "Coal", technology = "Coal", unit = "USD / tonne")
-  
+
   ### Creating Global Gas prices for High and Low
   gas_global <- data %>%
     dplyr::filter(.data$technology == "Gas") %>%
     dplyr::group_by(.data$scenario, .data$Variable_class, .data$year) %>%
     dplyr::summarize(price = mean(.data$price)) %>%
     dplyr::mutate(scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
-  
+
   ### Creating Average of the high and low prices
   gas_global <- gas_global %>%
     dplyr::group_by(.data$scenario, .data$year) %>%
     dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Gas", unit = "USD / MMBtu")
-  
+
   ### Creating an average of the Oil technology high and low price per scenario and year
   oil_avg <- data %>%
     dplyr::filter(.data$technology == "Oil") %>%
     dplyr::group_by(.data$scenario, .data$year) %>%
     dplyr::summarize(price = mean(.data$price), Variable_class = "price", scenario_geography = "Global", sector = "Oil&Gas", technology = "Oil", unit = "USD / Barrel")
-  
+
   data <- rbind(coal_global, gas_global, oil_avg) ### For now we only take global prices from IPR
-  
+
   ### Unit Adjustment: We use $/GJ for Oil and Gas. For coal we use $/tonne
-  
+
   data <- data %>%
     dplyr::mutate(
       price = dplyr::case_when(
@@ -398,15 +398,15 @@ prepare_price_data_long_IPR2023 <- function(data, start_year) {
         .data$unit == "USD / tonne" ~ "usd/tonne"
       )
     )
-  
+
   ### renaming Variable_Class to "indicator"
-  
+
   colnames(data)[which(colnames(data) == "Variable_class")] <- "indicator"
-  
+
   ### filtering for start year
   data$year <- as.numeric(as.character(data$year))
   data <- data %>% dplyr::filter(.data$year >= start_year)
-  
+
   return(data)
 }
 
@@ -667,3 +667,37 @@ prepare_price_data_long_Oxf2021 <- function(data, start_year) {
   }
   return(data)
 }
+
+
+#' Create automotive prices
+#'
+#' @description
+#' Synthetic creation of automotive prices by setting them to 1,
+#' where automotive sectors exist in the scenario data
+#'
+#'
+#' @param Scenarios_AnalysisInput Scenarios_AnalysisInput
+#'
+#' @return the automotive price dataframe
+#' @export
+#'
+create_automotive_prices <- function(Scenarios_AnalysisInput) {
+  automotive_scenario_data <- Scenarios_AnalysisInput %>%
+    dplyr::filter(.data$ald_sector == "Automotive") %>%
+    dplyr::distinct(.data$scenario,
+                    .data$ald_sector,
+                    .data$ald_business_unit,
+                    .data$year) %>%
+    dplyr::rename(technology = .data$ald_business_unit,
+                  sector = .data$ald_sector)
+
+  auto_prices <- automotive_scenario_data %>%
+    dplyr::mutate(price = 1,
+                  scenario_geography = "Global",
+                  indicator="price",
+                  unit="dummy")
+
+  return(auto_prices)
+}
+
+
