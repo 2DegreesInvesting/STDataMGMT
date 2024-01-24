@@ -364,7 +364,7 @@ prepare_capacity_factors_NGFS2023 <- function(data, start_year) {
   data <- data %>%
     dplyr::select(-c(.data$capacity, .data$generation, .data$units)) %>%
     tidyr::unite("scenario", c(.data$model, .data$scenario), sep = "_") %>%
-    dplyr::mutate(scenario = paste("NGFS2023", .data$scenario, sep = "_"))
+    dplyr::mutate(scenario = paste0("NGFS2023", .data$scenario))
 }
 
 ### IPR Capacity Factors
