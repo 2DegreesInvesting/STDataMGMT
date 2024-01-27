@@ -40,7 +40,7 @@ data <- readr::read_csv(
 prepared_data_WEO2021 <- prepare_prewrangled_capacity_factors_WEO2021(data, start_year = start_year)
 
 ##NGFS--- read data
-input_path <- file.path("data-raw", "raw_capacity_factors_NGFSphase4.csv")
+input_path <- file.path("data-raw", "capacity_factors_data", "raw_capacity_factors_NGFSphase4.csv")
 
 data <- readr::read_csv(
   input_path,
