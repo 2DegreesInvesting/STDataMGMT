@@ -27,7 +27,7 @@ library(STDataMGMT)
 # ===================================
 
 
-```{r}
+```{r, eval=FALSE}
 
 
 company_activities <- STDataMGMT::synthetic_company_activities
@@ -60,7 +60,7 @@ print(abcd_stress_test_input)
 # PREWRANGLED FINANCIAL DATA STRESS TEST
 # ===================================
 
-```{r}
+```{r, eval=FALSE}
 
 company_activities <- STDataMGMT::synthetic_company_activities
 eikon_data <- STDataMGMT::synthetic_eikon_data

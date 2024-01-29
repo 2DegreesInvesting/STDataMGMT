@@ -54,3 +54,5 @@ data-raw/synthetic_inputs
 .vscode
 /doc/
 /Meta/
+data-raw/datalake_inputs/*
+data-raw/financial_data_oldinputs/*
