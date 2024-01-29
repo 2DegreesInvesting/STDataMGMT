@@ -1,5 +1,3 @@
-devtools::load_all()
-
 box::use(
   fixtures/ synthetic_file_paths[synth_fp]
 )
