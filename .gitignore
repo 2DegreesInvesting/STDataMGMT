@@ -49,7 +49,7 @@ Desktop.ini
 STDataMGMT.Rproj
 inst/doc
 data-raw/DBs
-data-raw/st_inputs
+data-raw/st_inputs/*.csv
 data-raw/synthetic_inputs
 .vscode
 /doc/

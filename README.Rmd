@@ -22,7 +22,7 @@ The preprocessing functions included in this repo have for purpose to generate d
 
 TRISK input dataframes follow this structure : 
 
-![alt text](https://github.com/STDATA_/2DegreesInvesting/STDataMGMT/outputs_diagram.jpg?raw=true)
+![](man/figures/outputs_diagram.jpg)
 
 
 # STDataMGMT
