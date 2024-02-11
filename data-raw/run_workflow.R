@@ -40,7 +40,7 @@ usethis::use_data(ngfs_carbon_price, overwrite = TRUE)
 
 
 
-# CLOSED SOURCE DATA
+# ===== CLOSED SOURCE DATA // Examples those script's input dataframes structure can be found in vignettes/examples.Rmd
 
 
 print("=================== RUNNING run_prepare_abcd_stress_test_input ===================")
