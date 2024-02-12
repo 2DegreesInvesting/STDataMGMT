@@ -395,6 +395,8 @@ prepare_abcd_data <- function(company_activities,
                               additional_year,
                               km_per_vehicle,
                               sector_list) {
+  # TODO CHECK THAT IF A PRODUCTION IS IN MW IT IS ALSO IN MWh
+  
   company_activities <-
     pivot_equity_ownership_columns(company_activities)
   company_emissions <-
