@@ -414,7 +414,8 @@ prepare_IPR_scenario_data2023 <- function(data, start_year) {
       ),
       Scenario = dplyr::case_when(
         .data$Scenario == "RPS" ~ "IPR2023_RPS",
-        .data$Scenario == "FPS" ~ "IPR2023_FPS"
+        .data$Scenario == "FPS" & .data$ald_sector != "Automotive" ~ "IPR2023_FPS",
+        .data$Scenario == "FPS" & .data$ald_sector == "Automotive" ~ "IPR2023Automotive_FPS"
       )
     )
 
@@ -529,7 +530,7 @@ prepare_IPR_baseline_scenario_automotive <- function(data) {
   data <- data %>%
     dplyr::filter(.data$scenario == "GECO2021_CurPol") %>%
     dplyr::mutate(scenario = dplyr::case_when(
-      .data$scenario == "GECO2021_CurPol" ~ "IPR2023_baseline"
+      .data$scenario == "GECO2021_CurPol" ~ "IPR2023Automotive_baseline"
     ))
   return(data)
 }
