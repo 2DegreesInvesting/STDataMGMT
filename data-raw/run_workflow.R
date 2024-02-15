@@ -23,23 +23,6 @@ source(fs::path("data-raw", "run_rename_geographies.R"))
 rm(list = ls()[ls() != "start_year"])
 
 
-
-# # ===== SAVE AS PACKAGE DATA // bad idea
-
-# Scenarios_AnalysisInput <- readr::read_csv(here::here("data-raw", "st_inputs", "Scenarios_AnalysisInput.csv"))
-# usethis::use_data(Scenarios_AnalysisInput, overwrite = TRUE)
-
-# prewrangled_capacity_factors <- readr::read_csv(here::here("data-raw", "st_inputs", "prewrangled_capacity_factors.csv"))
-# usethis::use_data(prewrangled_capacity_factors, overwrite = TRUE)
-
-# price_data_long <- readr::read_csv(here::here("data-raw", "st_inputs", "price_data_long.csv"))
-# usethis::use_data(price_data_long, overwrite = TRUE)
-
-# ngfs_carbon_price <- readr::read_csv(here::here("data-raw", "st_inputs", "ngfs_carbon_price.csv"))
-# usethis::use_data(ngfs_carbon_price, overwrite = TRUE)
-
-
-
 # CLOSED SOURCE DATA
 
 # used only in run_prepare_abcd_stress_test_input.R 
@@ -47,10 +30,10 @@ rm(list = ls()[ls() != "start_year"])
 # countrycode::codelist %>%
 #   filter(country.name.en == "Slobakia") %>%
 #   dplyr::pull(.data$ecb)
-country_filter <- c("SK") 
+country_filter <- c() 
 
 # those 2 are deleted from the environment after the run_prepare_abcd_stress_test_input.R 
-filter_hqs <- TRUE
+filter_hqs <- FALSE
 filter_assets <- FALSE
 
 print("=================== RUNNING run_prepare_abcd_stress_test_input ===================")

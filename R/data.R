@@ -1,23 +1,3 @@
-# EXPORTED DATASETS ========================================
-
-#' master Scenarios_AnalysisInput used in the stress test
-#' @source see generative script in tests folder
-"Scenarios_AnalysisInput"
-
-#' master price_data_long used in the stress test
-#' @source see generative script in tests folder
-"price_data_long"
-
-#' master prewrangled_capacity_factors used in the stress test
-#' @source see generative script in tests folder
-"prewrangled_capacity_factors"
-
-#' master ngfs_carbon_price used in the stress test
-#' @source see generative script in tests folder
-"ngfs_carbon_price"
-
-# PREPROCESSING DATASETS ========================================
-
 #' available geographies in the stress test
 #'
 #' @source internal
