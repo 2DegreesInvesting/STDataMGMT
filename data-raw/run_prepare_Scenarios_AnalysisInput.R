@@ -218,7 +218,7 @@ baseline_scenarios <- c(
   "NGFS2023GCAM_NDC",
   "IPR2023_baseline",
   "IPR2023Automotive_baseline",
-  "Oxford2021_base",
+  "Oxford2021_base"
 )
 shock_scenarios <- c(
     "WEO2021_SDS",
