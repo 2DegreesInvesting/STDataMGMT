@@ -199,9 +199,24 @@ prepared_IPR_data <- prepare_IPR_scenario_data2023(IPR,
 
 IPR_baseline <- prepare_IPR_baseline_scenario(prepared_data)
 
-IPR_baseline_automotive <- prepare_IPR_baseline_scenario_automotive(prepared_data)
+# IPR Automotive
 
-# joining IPR scenarios
+ipr_automotive_baseline_data <- geco2021_data
+ipr_automotive_baseline_data <- ipr_automotive_baseline_data %>%
+  interpolate_yearly(!!!rlang::syms(interpolation_groups)) %>%
+  dplyr::filter(year >= start_year) %>%
+  add_market_share_columns(start_year = start_year)
+
+# Different green tech categorization for the IPR baseline, based on IPR FPS 
+green_techs_ipr <- c("RenewablesCap", "HydroCap", "NuclearCap", "SolarCap", "OffWindCap", "OnWindCap", "BiomassCap",
+                     "Electric", "FuelCell")
+
+ipr_automotive_baseline_data <- ipr_automotive_baseline_data %>%
+  format_p4i(green_techs_ipr)
+
+IPR_baseline_automotive <- prepare_IPR_baseline_scenario_automotive(ipr_automotive_baseline_data)
+
+#joining IPR scenarios
 
 prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline)
 prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline_automotive)
