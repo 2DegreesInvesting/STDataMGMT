@@ -531,13 +531,6 @@ prepare_IPR_baseline_scenario_automotive <- function(data) {
     dplyr::filter(.data$scenario == "GECO2021_CurPol") %>%
     dplyr::mutate(scenario = dplyr::case_when(
       .data$scenario == "GECO2021_CurPol" ~ "IPR2023Automotive_baseline"
-    ))%>%
-    #### Manual Fix: IPR Automotive FPS has Hybrid rather a declining technology, since it is rapidly increasing
-    #### first and then decreasing. We change the geco baseline direction here manually to declining aswell
-    #### to do: rethink direction parameter and the use of tmsr and smsp accordingly
-    dplyr::mutate(direction = dplyr::case_when(   
-      .data$technology == "Hybrid" ~ "declining",
-      TRUE ~ .data$direction
     ))
   return(data)
 }
