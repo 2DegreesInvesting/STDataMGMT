@@ -48,14 +48,17 @@ interpolation_groups <- c(
    )
  )
 
-#GECO data from PACTA routine
+# We use GECO2021 data for IPR2023 Automotive baseline and GECO2023 data for our 
+# usual GECO Automotive Scenarios. 
+# Todo: decouple GECO2021 from WEO routine
+#GECO2021 data from PACTA routine
  input_path <- fs::path(
       "data-raw",
    "scenario_analysis_input_data",
    "pacta_processed_geco_Scenarios_AnalysisInput.csv"
  )
 
- geco_data <- readr::read_csv(
+ geco2021_data <- readr::read_csv(
    input_path,
    col_types = readr::cols_only(
      source = "c",
@@ -73,7 +76,7 @@ interpolation_groups <- c(
 # combine WEO with GECO data
  weo_geco_data <- rbind(
    weo_data,
-   geco_data
+   geco2021_data
  )
 
  weo_geco_data <- weo_geco_data %>%
@@ -86,6 +89,40 @@ interpolation_groups <- c(
 
 prepared_data <- prepare_scenario_data(data = weo_geco_data)
 
+## GECO2023 (only Automotive)
+
+input_path <- fs::path(
+  "data-raw",
+  "scenario_analysis_input_data",
+  "GECO2023_AnalysisInput.csv"
+)
+
+geco2023_data <- readr::read_csv(
+  input_path,
+  col_types = readr::cols_only(
+    source = "c",
+    scenario = "c",
+    scenario_geography = "c",
+    sector = "c",
+    technology = "c",
+    units = "c",
+    indicator = "c",
+    year = "d",
+    value = "d"
+  )
+)
+
+# interpolating and tsmr and smsr calculations
+
+geco2023_data <- geco2023_data %>%
+  interpolate_yearly(!!!rlang::syms(interpolation_groups)) %>%
+  dplyr::filter(.data$year >= start_year) %>%
+  add_market_share_columns(start_year = start_year)
+
+geco2023_data <- geco2023_data %>%
+  format_p4i(green_techs)
+
+prepared_geco23_data <- prepare_geco2023(data=geco2023_data)
 
 #NGFS Phase IV
 input_path <- fs::path(
@@ -162,9 +199,24 @@ prepared_IPR_data <- prepare_IPR_scenario_data2023(IPR,
 
 IPR_baseline <- prepare_IPR_baseline_scenario(prepared_data)
 
-IPR_baseline_automotive <- prepare_IPR_baseline_scenario_automotive(prepared_data)
+# IPR Automotive
 
-# joining IPR scenarios
+ipr_automotive_baseline_data <- geco2021_data
+ipr_automotive_baseline_data <- ipr_automotive_baseline_data %>%
+  interpolate_yearly(!!!rlang::syms(interpolation_groups)) %>%
+  dplyr::filter(year >= start_year) %>%
+  add_market_share_columns(start_year = start_year)
+
+# Different green tech categorization for the IPR baseline, based on IPR FPS 
+green_techs_ipr <- c("RenewablesCap", "HydroCap", "NuclearCap", "SolarCap", "OffWindCap", "OnWindCap", "BiomassCap",
+                     "Electric", "FuelCell")
+
+ipr_automotive_baseline_data <- ipr_automotive_baseline_data %>%
+  format_p4i(green_techs_ipr)
+
+IPR_baseline_automotive <- prepare_IPR_baseline_scenario_automotive(ipr_automotive_baseline_data)
+
+#joining IPR scenarios
 
 prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline)
 prepared_IPR_data <- dplyr::full_join(prepared_IPR_data, IPR_baseline_automotive)
@@ -201,11 +253,13 @@ prepared_OXF_data <- prepare_OXF_scenario_data(OXF,
 prepared_data_IEA_NGFS <- dplyr::full_join(prepared_data, preprepared_ngfs_data)
 prepared_data_IPR_OXF <- dplyr::full_join(prepared_IPR_data, prepared_OXF_data)
 prepared_data_combined <- dplyr::full_join(prepared_data_IEA_NGFS, prepared_data_IPR_OXF)
+prepared_data_combined <- dplyr::full_join(prepared_data_combined, prepared_geco23_data)
 
 
 baseline_scenarios <- c(
   "WEO2021_STEPS",
   "GECO2021_CurPol",
+  "GECO2023_CurPol",
   "WEO2021_APS",
   "NGFS2023GCAM_CP",
   "NGFS2023MESSAGE_CP",
@@ -225,6 +279,8 @@ shock_scenarios <- c(
     "WEO2021_NZE_2050",
     "GECO2021_1.5C-Unif",
     "GECO2021_NDC-LTS",
+    "GECO2023_1.5C",
+    "GECO2023_NDC-LTS",
     "NGFS2023GCAM_B2DS",
     "NGFS2023MESSAGE_B2DS",
     "NGFS2023REMIND_B2DS",
