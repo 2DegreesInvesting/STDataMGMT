@@ -83,7 +83,8 @@ data <- readr::read_csv(
 )
 
 ## prepare IPR data
-prepared_data_IPR2023 <- prepare_capacity_factors_IPR2023(data, start_year = start_year)
+prepared_data_IPR2023 <- prepare_capacity_factors_IPR2023(data, start_year = start_year) %>% 
+  dplyr::filter(.data$scenario_geography != "IND") # delete dulicated india geography
 
 ## IPR baseline CF is a duplicate of IPR2023_FPS
 IPR_baseline <- prepare_capacity_factors_IPR2023_baseline(prepared_data_IPR2023)
