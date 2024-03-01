@@ -87,7 +87,7 @@ prepared_data_IPR2023 <- prepare_capacity_factors_IPR2023(data, start_year = sta
   dplyr::filter(.data$scenario_geography != "IND") # delete dulicated india geography
 
 ## IPR baseline CF is a duplicate of IPR2023_FPS
-IPR_baseline <- prepare_capacity_factors_IPR2023_baseline(prepared_data_IPR2023
+IPR_baseline <- prepare_capacity_factors_IPR2023_baseline(prepared_data_IPR2023)
 
 # merging IPR CF data
 prepared_data_IPR2023 <- dplyr::full_join(prepared_data_IPR2023, IPR_baseline)

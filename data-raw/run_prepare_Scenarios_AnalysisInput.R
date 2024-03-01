@@ -199,8 +199,6 @@ prepared_IPR_data <- prepare_IPR_scenario_data2023(IPR,
 
 IPR_baseline <- prepare_IPR_baseline_scenario(prepared_data)
 
-IPR_baseline_automotive <- prepare_IPR_baseline_scenario_automotive(prepared_data)
-
 # IPR Automotive
 
 ipr_automotive_baseline_data <- geco2021_data
