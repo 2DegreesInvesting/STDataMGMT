@@ -6,8 +6,69 @@ devtools::load_all()
 
 data(scenarios_geographies)
 
-## PARAMETERS
+# LOAD RAW Asset Impact ========================================
 
+
+# parameters ========================================
+path_ar_data_raw <-
+  r2dii.utils::path_dropbox_2dii(
+    "ST_INPUTS",
+    "ST_INPUTS_PRODUCTION",
+    "AR-Company-Indicators_2022Q4.xlsx"
+  )
+
+
+# following parameters are defined in workflow.R
+
+# leave empty to use all countries
+# country_filter <- c() 
+
+# only use assets with HQ in the selected countries
+# filter_hqs <- FALSE
+
+# only use assets in the selected countries
+# filter_assets <- FALSE
+# parameters ========================================
+
+
+
+outputs_list <- prepare_asset_impact_data(ar_data_path = path_ar_data_raw)
+DB_company_activities <- outputs_list[["company_activities"]]
+DB_company_emissions <- outputs_list[["company_emissions"]]
+
+
+# Apply filterings dependant on company informations
+
+company_informations <- read_asset_resolution(path_ar_data_raw,
+                                              sheet_name = "Company Information")
+
+# check that company/country pairs are uniques
+company_informations %>%
+  dplyr::group_by(company_id, ald_location) %>%
+  dplyr::summarise(nrows = dplyr::n()) %>%
+  dplyr::ungroup() %>%
+  assertr::verify(max(nrows) == 1)
+
+DB_company_activities <- DB_company_activities %>%
+  filter_countries_coverage(
+    company_informations = company_informations,
+    country_filter = country_filter,
+    filter_hqs = filter_hqs,
+    filter_assets = filter_assets
+  )
+
+DB_company_emissions <- DB_company_emissions %>%
+  filter_countries_coverage(
+    company_informations = company_informations,
+    country_filter = country_filter,
+    filter_hqs = filter_hqs,
+    filter_assets = filter_assets
+  )
+
+
+## TRANSFORM RAW Asset Impact to ABCD input ====================
+
+# parameters ========================================
 output_path_stress_test_input <-
   fs::path(
     "data-raw",
@@ -22,9 +83,7 @@ time_horizon <- 5
 additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
-
-DB_company_activities  <-  arrow::read_parquet(fs::path("data-raw","DBs","DB_company_activities", ext="parquet"))
-DB_company_emissions  <-  arrow::read_parquet(fs::path("data-raw","DBs","DB_company_emissions", ext="parquet"))
+# parameters ========================================
 
 abcd_stress_test_input <-
   prepare_abcd_data(

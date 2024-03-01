@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_asset_impact_data.R
 \name{prepare_asset_impact_data}
 \alias{prepare_asset_impact_data}
-\title{Prepare Asset Resolution data before transformation to abcd}
+\title{Prepare Asset Impact data before transformation to abcd}
 \usage{
 prepare_asset_impact_data(ar_data_path)
 }
@@ -10,5 +10,5 @@ prepare_asset_impact_data(ar_data_path)
 \item{ar_data_path}{file path to the source Asset Resolution xlsx}
 }
 \description{
-Prepare Asset Resolution data before transformation to abcd
+Prepare Asset Impact data before transformation to abcd
 }

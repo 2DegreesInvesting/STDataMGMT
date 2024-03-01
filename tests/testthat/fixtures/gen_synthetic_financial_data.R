@@ -1,16 +1,18 @@
-devtools::load_all()
 
 box::use(
   fixtures/ synthetic_file_paths[synth_fp],
 )
 
+library(STDataMGMT)
+
+get_path_to_root_from_test
 company_activities <- arrow::read_parquet(synth_fp$company_activities)
 eikon_data <- arrow::read_parquet(synth_fp$eikon_data)
 
 
 companies_data <- company_activities |> dplyr::distinct(company_id, ald_sector, ald_location)
 
-prewrangled_financial_data_stress_test <- STDataMGMT::prepare_financial_data(
+prewrangled_financial_data_stress_test <- prepare_financial_data(
   financial_data = eikon_data,
   companies_data = companies_data,
   ownership_tree = NULL,

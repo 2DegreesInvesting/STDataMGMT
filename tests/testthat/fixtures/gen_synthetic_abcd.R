@@ -1,9 +1,8 @@
-devtools::load_all()
-
 box::use(
   fixtures/  synthetic_file_paths[synth_fp]
 )
 
+library(STDataMGMT)
 
 company_activities <- arrow::read_parquet(synth_fp$company_activities)
 company_emissions <- arrow::read_parquet(synth_fp$company_emissions)

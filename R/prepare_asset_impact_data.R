@@ -5,11 +5,14 @@
 #' @param sheet_name name of excel sheet
 #'
 read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
+  if (sheet_name %in% c("Company Activities", "Company Emissions")) {
+    
+  
   ar_data <- readxl::read_xlsx(path_ar_data_raw,
                                sheet = sheet_name) %>%
     dplyr::select(-dplyr::starts_with("Direct Ownership")) %>%
     dplyr::rename(
-      id = .data$`Company ID`,
+      company_id = .data$`Company ID`,
       company_name = .data$`Company Name`,
       ald_sector = .data$`Asset Sector`,
       technology = .data$`Asset Technology`,
@@ -18,6 +21,19 @@ read_asset_resolution <- function(path_ar_data_raw, sheet_name) {
       ald_location = .data$`Asset Country`,
       activity_unit = .data$`Activity Unit`
     )
+  } else if (sheet_name == "Company Information") {
+    ar_data <- readxl::read_xlsx(path_ar_data_raw,
+                                 sheet = sheet_name) %>%
+      dplyr::rename(
+        company_id = .data$`Company ID`,
+        company_name = .data$`Company Name`,
+        is_ultimate_parent = .data$`Is Ultimate Parent`,
+        ald_location = .data$`Country of Domicile`,
+        lei = .data$`LEI`
+      )
+  } else {
+    stop("Sheet name not recognized")
+  }
   return(ar_data)
 }
 
@@ -107,11 +123,72 @@ remove_prop_emissions <- function(company_emissions) {
   return(company_co2_emissions)
 }
 
-#' Prepare Asset Resolution data before transformation to abcd
+
+
+#' Filter companies by country
+#'
+#' If filter_hqs and filter_assets are both TRUE,
+#' the function will only rowser where both the asset
+#' and its HeadQuarters are in the country.
+#'
+#' @param ar_data tibble, Asset Impact data
+#' @param company_informations tibble, company informations
+#' @param country_filter character vector, countries to keep in ouput
+#' @param filter_hqs logical, whether to only keep the (worldwide)
+#'  assets whose HeadQuarters are in the country
+#' @param filter_assets logical, wether to only keep the assets in the country
+#'
+#' @return tibble, raw Asset Impact data
+#'
+filter_countries_coverage <- function(ar_data,
+                                      company_informations,
+                                      country_filter = c(),
+                                      filter_hqs = FALSE,
+                                      filter_assets = FALSE) {
+  
+  # only filter countries if country_filter is non-empty
+  # and at least one of filter_hqs or filter_assets is TRUE
+  if ((length(country_filter) > 0) & (filter_hqs | filter_assets)) {
+    
+    # keep companies with HQs in the selected countries
+    # NOTE : SUBSIDIARIES FILTERED OUT
+    hqs_in_countries <- company_informations %>%
+      dplyr::filter(.data$ald_location %in% country_filter &
+                      .data$is_ultimate_parent == TRUE) %>%
+      dplyr::distinct(.data$company_id)
+    
+    
+    if (filter_hqs & !filter_assets) {
+      # only keep companies with HQs in the selected countries
+      # assets belonging to HQs can be worldwide
+      ar_data <- ar_data %>%
+        dplyr::inner_join(hqs_in_countries, by = c("company_id"))
+      
+    }
+    else if (!filter_hqs & filter_assets) {
+      # keep only assets in the country, HQS can be worldwide
+      ar_data <- ar_data %>%
+        dplyr::filter(.data$ald_location %in% country_filter)
+    }
+    else if (filter_hqs & filter_assets) {
+      # apply both filters
+      # only keep companies with HQs in the selected countries and assets in the selected country
+      ar_data <- ar_data %>%
+        dplyr::inner_join(hqs_in_countries, by = c("company_id")) %>%
+        dplyr::filter(.data$ald_location %in% country_filter)
+    }
+  }
+  return(ar_data)
+}
+
+#' Prepare Asset Impact data before transformation to abcd
 #' @param ar_data_path file path to the source Asset Resolution xlsx
 #'
 #' @export
 prepare_asset_impact_data <- function(ar_data_path) {
+  
+  # Asset Impact specific data preparation
+  
   company_activities <-
     read_asset_resolution(ar_data_path,
                           sheet_name = "Company Activities")
@@ -137,13 +214,13 @@ prepare_asset_impact_data <- function(ar_data_path) {
 
   company_emissions <- remove_prop_emissions(company_emissions)
 
-  company_activities <- company_activities %>% dplyr::rename(ald_business_unit = .data$technology,
-                                                             company_id = .data$id) %>%
-                                                             dplyr::select(-c(.data$region))
-  company_emissions <- company_emissions %>% dplyr::rename(ald_business_unit = .data$technology,
-                                                           company_id = .data$id)%>%
-                                                             dplyr::select(-c(.data$region))
-
+  company_activities <- company_activities %>% 
+    dplyr::rename(ald_business_unit = .data$technology) %>%
+    dplyr::select(-c(.data$region))
+  company_emissions <- company_emissions %>% 
+    dplyr::rename(ald_business_unit = .data$technology) %>%
+    dplyr::select(-c(.data$region))
+  
   return(
     list(
       company_activities = company_activities,

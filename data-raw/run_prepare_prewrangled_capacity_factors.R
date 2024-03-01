@@ -40,7 +40,7 @@ data <- readr::read_csv(
 prepared_data_WEO2021 <- prepare_prewrangled_capacity_factors_WEO2021(data, start_year = start_year)
 
 ##NGFS--- read data
-input_path <- file.path("data-raw", "raw_capacity_factors_NGFSphase4.csv")
+input_path <- file.path("data-raw", "capacity_factors_data", "raw_capacity_factors_NGFSphase4.csv")
 
 data <- readr::read_csv(
   input_path,
@@ -83,10 +83,11 @@ data <- readr::read_csv(
 )
 
 ## prepare IPR data
-prepared_data_IPR2023 <- prepare_capacity_factors_IPR2023(data, start_year = start_year)
+prepared_data_IPR2023 <- prepare_capacity_factors_IPR2023(data, start_year = start_year) %>% 
+  dplyr::filter(.data$scenario_geography != "IND") # delete dulicated india geography
 
 ## IPR baseline CF is a duplicate of IPR2023_FPS
-IPR_baseline <- prepare_capacity_factors_IPR2023_baseline(prepared_data_IPR2023)
+IPR_baseline <- prepare_capacity_factors_IPR2023_baseline(prepared_data_IPR2023
 
 # merging IPR CF data
 prepared_data_IPR2023 <- dplyr::full_join(prepared_data_IPR2023, IPR_baseline)

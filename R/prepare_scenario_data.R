@@ -255,6 +255,51 @@ prepare_scenario_data <- function(data) {
 }
 
 
+#' Function reads GECO2023 raw automotive data and wrangles it into the
+#' required Format. 
+#'@param data The dataset to be processed. This should be a data frame that 
+#' includes the necessary columns for processing.
+#'
+#' @return A data frame with the processed GECO 2023 data.
+
+
+prepare_geco2023 <- function(data) {
+  # renaming and wrangling
+  
+  data<- data %>%
+    dplyr::select(
+      -c(
+        .data$Sub_Technology, .data$Indicator, .data$mktFSRatio, .data$techFSRatio
+      )
+    ) %>%
+    dplyr::rename(
+      scenario_source = .data$Source,
+      scenario_geography = .data$ScenarioGeography,
+      scenario = .data$Scenario,
+      ald_sector = .data$Sector,
+      units = .data$Units,
+      technology = .data$Technology,
+      year = .data$Year,
+      direction = .data$Direction,
+      fair_share_perc = .data$FairSharePerc
+    ) %>%
+    dplyr::relocate(
+      .data$scenario_source, .data$scenario_geography, .data$scenario,
+      .data$ald_sector, .data$units, .data$technology, .data$year,
+      .data$direction, .data$fair_share_perc
+    ) %>%
+    dplyr::mutate(
+      scenario = stringr::str_c(.data$scenario_source, .data$scenario, sep = "_")
+    ) %>%
+    dplyr::distinct_all()
+  
+  # removing source column and renaming world into global
+  
+  data <- data %>%
+    dplyr::select(-.data$scenario_source) %>%
+    dplyr::mutate(scenario_geography = ifelse(.data$scenario_geography == "World", "Global", .data$scenario_geography))
+}
+
 
 #' This function reads  NGFS raw scenario data as found in the dropbox
 #' under "Processed Data" and wrangles it to fit the required format for the
@@ -527,11 +572,59 @@ prepare_IPR_baseline_scenario <- function(data) {
 ## IPR Baseline Scenario part II Automotive
 ## builts upon the GECO2021 CurPol scenario
 prepare_IPR_baseline_scenario_automotive <- function(data) {
+  data_has_expected_columns <- all(
+    c(
+      "Source", "Technology", "ScenarioGeography", "Sector", "Units",
+      "Indicator", "Scenario", "Sub_Technology", "Year", "Direction", "mktFSRatio", "techFSRatio",
+      "FairSharePerc"
+    ) %in% colnames(data)
+  )
+  
+  stopifnot(data_has_expected_columns)
+  
+  data <- data %>%
+    dplyr::filter(
+      !(stringr::str_detect(.data$Source, "GECO2021") & .data$Sector != "Automotive")
+    ) %>%
+    dplyr::filter(
+      !(.data$Technology == "RenewablesCap" & !is.na(.data$Sub_Technology)) # THIS NEEDS TO BE INVESTIGATED AS SUBTECHNOLOGIES CURRENTLY ALWAYS EMPTY
+    ) %>%
+    dplyr::select(
+      -c(
+        .data$Sub_Technology, .data$Indicator, .data$mktFSRatio, .data$techFSRatio
+      )
+    ) %>%
+    dplyr::rename(
+      scenario_source = .data$Source,
+      scenario_geography = .data$ScenarioGeography,
+      scenario = .data$Scenario,
+      ald_sector = .data$Sector,
+      units = .data$Units,
+      technology = .data$Technology,
+      year = .data$Year,
+      direction = .data$Direction,
+      fair_share_perc = .data$FairSharePerc
+    ) %>%
+    dplyr::relocate(
+      .data$scenario_source, .data$scenario_geography, .data$scenario,
+      .data$ald_sector, .data$units, .data$technology, .data$year,
+      .data$direction, .data$fair_share_perc
+    ) %>%
+    dplyr::mutate(
+      scenario = stringr::str_c(.data$scenario_source, .data$scenario, sep = "_")
+    ) %>%
+    dplyr::distinct_all()
+  
+  data <- data %>%
+    dplyr::select(-.data$scenario_source)
+  
+  # final adjustment to IPR
   data <- data %>%
     dplyr::filter(.data$scenario == "GECO2021_CurPol") %>%
     dplyr::mutate(scenario = dplyr::case_when(
       .data$scenario == "GECO2021_CurPol" ~ "IPR2023Automotive_baseline"
     ))
+  
   return(data)
 }
 

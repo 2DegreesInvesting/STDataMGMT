@@ -1,6 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+## ST input dataframes structure
+
+The preprocessing functions included in this repo have for purpose to
+generate dataframes to use as an input of the climate stress testing
+tool TRISK available on this repository :
+
+TRISK input dataframes follow this structure :
+
+![](man/figures/outputs_diagram.jpg)
+
 # STDataMGMT
 
 The goal of STDataMGMT is to provide the input data required for the

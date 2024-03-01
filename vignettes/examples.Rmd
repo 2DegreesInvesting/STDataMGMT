@@ -1,0 +1,85 @@
+---
+title: "run_synthetic_workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{run_synthetic_workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Run the script `tests/testthat/fixtures/synthetic_file_paths.R` to generate all synthetic files.
+
+```{r setup}
+library(dplyr)
+library(tibble)
+library(STDataMGMT)
+```
+
+# ===================================
+# ABCD STRESS TEST INPUT
+# ===================================
+
+
+```{r, eval=FALSE}
+
+
+company_activities <- STDataMGMT::synthetic_company_activities
+company_emissions <- STDataMGMT::synthetic_company_emissions
+
+start_year <- 2020
+time_horizon <- 10
+additional_year <- NULL
+sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
+km_per_vehicle <- 15000
+
+abcd_stress_test_input <-
+  STDataMGMT::prepare_abcd_data(
+    company_activities = company_activities,
+    company_emissions = company_emissions,
+    scenarios_geographies = STDataMGMT::scenarios_geographies,
+    start_year = start_year,
+    time_horizon = time_horizon,
+    additional_year = additional_year,
+    km_per_vehicle = km_per_vehicle,
+    sector_list = sector_list
+  )
+
+
+# knitr::kable(abcd_stress_test_input)
+print(abcd_stress_test_input)
+```
+
+# ===================================
+# PREWRANGLED FINANCIAL DATA STRESS TEST
+# ===================================
+
+```{r, eval=FALSE}
+
+company_activities <- STDataMGMT::synthetic_company_activities
+eikon_data <- STDataMGMT::synthetic_eikon_data
+
+
+companies_data <- company_activities |> dplyr::distinct(company_id, ald_sector, ald_location)
+
+prewrangled_financial_data_stress_test <- STDataMGMT::prepare_financial_data(
+  financial_data = eikon_data,
+  companies_data = companies_data,
+  ownership_tree = NULL,
+  minimum_sample_size = 1,
+  minimum_ratio_sample = 0,
+  allowed_range_npm = c(-Inf, Inf)
+)
+
+prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test %>%
+  dplyr::inner_join(abcd_stress_test_input %>% dplyr::distinct(company_id))
+
+# knitr::kable(prewrangled_financial_data_stress_test)
+print(prewrangled_financial_data_stress_test)
+```

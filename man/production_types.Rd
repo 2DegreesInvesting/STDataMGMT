@@ -3,17 +3,19 @@
 \docType{data}
 \name{production_types}
 \alias{production_types}
-\title{Available production types in the stress test}
+\title{Used to generate company synthetic datasets
+TODO remove to be}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 27 rows and 4 columns.
 }
 \source{
-internal
+Scenario analysis input available production types
 }
 \usage{
 production_types
 }
 \description{
-Available production types in the stress test
+Used to generate company synthetic datasets
+TODO remove to be
 }
 \keyword{datasets}

@@ -66,8 +66,19 @@ match_emissions_to_production <- function(company_activities,
     )
 
   abcd_data <-
-    dplyr::full_join(company_activities, company_emissions)
-
+    dplyr::full_join(
+      company_activities,
+      company_emissions,
+      by = c(
+        "company_id",
+        "company_name",
+        "ald_sector",
+        "ald_business_unit",
+        "ald_location",
+        "year"
+      )
+    )
+  
   return(abcd_data)
 }
 
@@ -188,7 +199,7 @@ create_emissions_factor_ratio <- function(abcd_data, km_per_vehicle) {
           .data$ald_production_unit,
           sep = "/"
         ),
-        NA
+        "unknown" # unkown emissions_factor_unit
       )
     )
 
@@ -395,6 +406,8 @@ prepare_abcd_data <- function(company_activities,
                               additional_year,
                               km_per_vehicle,
                               sector_list) {
+  # TODO CHECK THAT IF A PRODUCTION IS IN MW IT IS ALSO IN MWh
+  
   company_activities <-
     pivot_equity_ownership_columns(company_activities)
   company_emissions <-
@@ -438,6 +451,10 @@ prepare_abcd_data <- function(company_activities,
   # to check :
   #  abcd_data %>% group_by(company_id, company_name, ald_location, ald_sector, ald_business_unit, ald_production_unit, emissions_factor_unit) %>% summarise(nna=sum(is.na(emissions_factor))) %>% ungroup() %>% distinct(nna)
 
+    abcd_data %>%
+      assertr::verify(all(colSums(is.na(.)) == 0)) 
+      # assertr::assert(nrow(.) == nrow(. %>% dplyr::distinct_all()))
+
   abcd_data <- drop_always_empty_production(abcd_data)
 
   abcd_data <- create_plan_prod_columns(abcd_data)
@@ -453,8 +470,8 @@ prepare_abcd_data <- function(company_activities,
       additional_year = additional_year
     )
 
-    # assertr::verify(all(colSums(is.na(.)) == 0)) %>%
-    # assertr::assertTrue(nrow(.) == nrow(. %>% dplyr::distinct_all()))
+
+    
   stopifnot(nrow(abcd_data) == nrow(abcd_data %>% dplyr::distinct_all()))
 
   return(abcd_data)

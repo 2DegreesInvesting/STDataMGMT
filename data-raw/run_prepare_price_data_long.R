@@ -65,7 +65,7 @@ price_data_long_adjusted_WEO2021 <- prepare_lcoe_adjusted_price_data_weo(
 
 # prepare price data NGFS2023----
 ## read input data
-input_path_fossil_fuels_ngfs <- file.path("data-raw", "raw_price_data_long_NGFSphase4.csv")
+input_path_fossil_fuels_ngfs <- file.path("data-raw", "price_data_long_data", "raw_price_data_long_NGFSphase4.csv")
 
 input_data_fossil_fuels_ngfs <- readr::read_csv(
   input_path_fossil_fuels_ngfs,
