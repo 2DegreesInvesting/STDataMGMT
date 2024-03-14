@@ -39,8 +39,7 @@ additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
-abcd_stress_test_input <-
-  STDataMGMT::prepare_abcd_data(
+abcd_stress_test_input <- prepare_abcd_data(
     company_activities = company_activities,
     company_emissions = company_emissions,
     scenarios_geographies = STDataMGMT::scenarios_geographies,
