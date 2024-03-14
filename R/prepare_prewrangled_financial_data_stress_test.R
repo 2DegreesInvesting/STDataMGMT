@@ -70,7 +70,6 @@ create_averages_eikon <- function(data,
       ratio_sample_subgroup = .data$size_sample / .data$size_subgroup,
       sample_sufficient = dplyr::if_else(.data$size_sample > .env$minimum_sample_size, TRUE, FALSE),
       ratio_sufficient = dplyr::if_else(.data$ratio_sample_subgroup > .env$minimum_ratio_sample, TRUE, FALSE),
-      avg_pd = stats::median(.data$pd, na.rm = TRUE),
       avg_net_profit_margin = stats::median(.data$net_profit_margin, na.rm = TRUE),
       avg_debt_equity_ratio = stats::median(.data$debt_equity_ratio, na.rm = TRUE),
       avg_volatility = stats::median(.data$volatility, na.rm = TRUE),
@@ -125,7 +124,6 @@ aggregate_financial_indicators <- function(financial_data, grp_cols) {
       allowed_range_npm = c(-Inf, Inf)
     ) %>%
     dplyr::rename(
-      pd = .data$avg_pd,
       net_profit_margin = .data$avg_net_profit_margin,
       debt_equity_ratio = .data$avg_debt_equity_ratio,
       volatility = .data$avg_volatility,
@@ -424,7 +422,6 @@ select_final_financial_value_using_averages <- function(financial_data) {
   financial_data <- financial_data %>%
     dplyr::select(
       .data$company_id, .data$ald_region, .data$ald_sector,
-      .data$final_pd,
       .data$final_net_profit_margin,
       .data$final_debt_equity_ratio,
       .data$final_volatility,

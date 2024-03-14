@@ -39,8 +39,7 @@ additional_year <- NULL
 sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
 km_per_vehicle <- 15000
 
-abcd_stress_test_input <-
-  STDataMGMT::prepare_abcd_data(
+abcd_stress_test_input <- prepare_abcd_data(
     company_activities = company_activities,
     company_emissions = company_emissions,
     scenarios_geographies = STDataMGMT::scenarios_geographies,
@@ -63,12 +62,13 @@ print(abcd_stress_test_input)
 ```{r, eval=FALSE}
 
 company_activities <- STDataMGMT::synthetic_company_activities
-eikon_data <- STDataMGMT::synthetic_eikon_data
+eikon_data <- STDataMGMT::synthetic_eikon_data |>
+  dplyr::select(-c(asset_drift, pd))
 
 
 companies_data <- company_activities |> dplyr::distinct(company_id, ald_sector, ald_location)
 
-prewrangled_financial_data_stress_test <- STDataMGMT::prepare_financial_data(
+prewrangled_financial_data_stress_test <- prepare_financial_data(
   financial_data = eikon_data,
   companies_data = companies_data,
   ownership_tree = NULL,
@@ -83,3 +83,17 @@ prewrangled_financial_data_stress_test <- prewrangled_financial_data_stress_test
 # knitr::kable(prewrangled_financial_data_stress_test)
 print(prewrangled_financial_data_stress_test)
 ```
+
+
+
+```{r}
+readr::write_csv(
+  prewrangled_financial_data_stress_test,
+  file.path(
+    "data-raw",
+    "st_inputs",
+    "prewrangled_financial_data_stress_test.csv"
+    )
+)
+```
+
