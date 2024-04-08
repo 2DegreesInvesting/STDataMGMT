@@ -335,7 +335,7 @@ baseline_scenarios <- c(
   "IPR2023_baseline",
   "IPR2023Automotive_baseline",
   "Oxford2021_base",
-  "Steel_baseline"
+  "MP_Baseline"
 )
 shock_scenarios <- c(
     "WEO2021_SDS",
@@ -361,7 +361,7 @@ shock_scenarios <- c(
     "IPR2023_FPS",
     "IPR2023Automotive_FPS",
     "Oxford2021_fast",
-    "Steel_NZ"
+    "MP_CarbonCost_NZ"
 )
 
 prepared_data_combined <- prepared_data_combined %>%

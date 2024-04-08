@@ -436,8 +436,8 @@ prepare_lc_adjusted_price_data_steel <- function(input_data,
   prices_adjusted <- prices_adjusted %>%
     dplyr::mutate(
       scenario = dplyr::case_when(
-        (.data$sector == "Steel") & (.data$scenario == "baseline") ~ "Steel_baseline",
-        (.data$sector == "Steel") & (.data$scenario == "carbon_cost") ~ "Steel_NZ",
+        (.data$sector == "Steel") & (.data$scenario == "baseline") ~ "MP_Baseline",
+        (.data$sector == "Steel") & (.data$scenario == "carbon_cost") ~ "MP_CarbonCost_NZ",
         TRUE ~ scenario
       )
     )
