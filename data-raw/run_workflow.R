@@ -90,14 +90,11 @@ print("=================== RUNNING run_prepare_prewrangled_financial_data_stress
 source(fs::path("data-raw", "run_prepare_prewrangled_financial_data_stress_test.R"))
 rm(list = ls()[ls() != c("country_filter", "start_year")])
 
-
-
-
-
 # ===== TEST TRISK ON ALL COMBINATIONS OF SCENARIO/GEOGRAPHY
 
 
-scenario_geography_x_ald_sector <- r2dii.climate.stress.test::get_scenario_geography_x_ald_sector(st_input_folder) |>
+scenario_geography_x_ald_sector <- r2dii.climate.stress.test::get_scenario_geography_x_ald_sector(
+  here::here("data-raw", "st_inputs")) |>
   dplyr::distinct(.data$baseline_scenario, .data$shock_scenario, .data$scenario_geography)
 
 for (i in 1:nrow(scenario_geography_x_ald_sector)) {
