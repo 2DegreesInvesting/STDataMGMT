@@ -6,11 +6,18 @@
 2023 vintage has only global data}
 \usage{
 prepare_scenario_data_weo23(data)
+
+prepare_scenario_data_weo23(data)
 }
 \arguments{
-\item{data}{data}
+\item{data}{data that contains the scenario data file that is to be
+processed}
 }
 \description{
 WEO2023 preparation
 2023 vintage has only global data
+
+Scenario processing for weo23
+This script takes preprocessed data from weo23 and wrangles it
+Only global data for now
 }
