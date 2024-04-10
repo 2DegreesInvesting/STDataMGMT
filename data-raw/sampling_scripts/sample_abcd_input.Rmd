@@ -17,10 +17,8 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(STDataMGMT)
 library(dplyr)
-  library(ggplot2)
+library(ggplot2)
 library(tidyr)
-
-  
 ```
 
 
@@ -336,153 +334,153 @@ print(plot)
 ### diff companies, production,  between full and sampled
 
 ```{r}
-comp_n_companies <- inner_join(n_companies_full, n_companies_sampled, by=group_cols, suffix=c(".full", ".sampled"))
-
-comp_total_volume_prod <- inner_join(total_volume_prod_full, total_volume_prod_toydata, by=group_cols, suffix=c(".full", ".sampled")) |> mutate(perc_prod_kept = plan_tech_prod.toydata / plan_tech_prod.fulldata)
-
-o <- inner_join(comp_n_companies, comp_total_volume_prod, by=group_cols) |>
-  select(ald_sector, ald_business_unit, n_companies.fulldata, n_companies.toydata, perc_prod_kept)
-  
-
-# inner_join(
-# inner_join(
-#   abcd_full_global|> 
-#   group_by(ald_sector, ald_business_unit, ald_production_unit) |>
-#   summarise(total_prod = sum(plan_tech_prod), .groups="drop") |>
-#   group_by(ald_production_unit) |>
-#   mutate(perc_prod_total_full = as.integer(total_prod/sum(total_prod) * 100)) |>
-#   ungroup() |>
-#   select(-c(total_prod))
-#   , 
-#   abcd_data|> 
-#   group_by(ald_sector, ald_business_unit, ald_production_unit) |>
-#   summarise(total_prod = sum(plan_tech_prod), .groups="drop") |>
-#   group_by(ald_production_unit) |>
-#   mutate(perc_prod_total = as.integer(total_prod/sum(total_prod) * 100)) |>
-#   ungroup() 
+# comp_n_companies <- inner_join(n_companies_full, n_companies_sampled, by=group_cols, suffix=c(".full", ".sampled"))
 # 
-#   ),
+# comp_total_volume_prod <- inner_join(total_volume_prod_full, total_volume_prod_toydata, by=group_cols, suffix=c(".full", ".sampled")) |> mutate(perc_prod_kept = plan_tech_prod.toydata / plan_tech_prod.fulldata)
+# 
+# o <- inner_join(comp_n_companies, comp_total_volume_prod, by=group_cols) |>
+#   select(ald_sector, ald_business_unit, n_companies.fulldata, n_companies.toydata, perc_prod_kept)
 #   
-#     abcd_data |> 
-#   dplyr::distinct(ald_sector, ald_business_unit, company_id) |> # remove duplicates on year 
-#   dplyr::group_by(ald_sector, ald_business_unit) |>
-#   dplyr::summarise(n_companies=n())
-# )|>
+# 
+# # inner_join(
+# # inner_join(
+# #   abcd_full_global|> 
+# #   group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+# #   summarise(total_prod = sum(plan_tech_prod), .groups="drop") |>
+# #   group_by(ald_production_unit) |>
+# #   mutate(perc_prod_total_full = as.integer(total_prod/sum(total_prod) * 100)) |>
+# #   ungroup() |>
+# #   select(-c(total_prod))
+# #   , 
+# #   abcd_data|> 
+# #   group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+# #   summarise(total_prod = sum(plan_tech_prod), .groups="drop") |>
+# #   group_by(ald_production_unit) |>
+# #   mutate(perc_prod_total = as.integer(total_prod/sum(total_prod) * 100)) |>
+# #   ungroup() 
+# # 
+# #   ),
+# #   
+# #     abcd_data |> 
+# #   dplyr::distinct(ald_sector, ald_business_unit, company_id) |> # remove duplicates on year 
+# #   dplyr::group_by(ald_sector, ald_business_unit) |>
+# #   dplyr::summarise(n_companies=n())
+# # )|>
+# #   mutate(
+# #     prod_company_provided = round(total_prod/n_companies, 3),
+# #     prod_company_provided_perc = prod_company_provided/total_prod
+# #   )
+# 
+# 
+# ladata <- inner_join(
+# abcd_full_global |>
+#     group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+#     summarise(bu_prod_full = sum(plan_tech_prod), .groups = "drop") |>
+#     group_by(ald_production_unit) |>
+#     mutate(
+#       unit_prod_full = sum(bu_prod_full),
+#       perc_bu_prod_full = as.integer(bu_prod_full / unit_prod_full * 100)
+#     ) |>
+#     ungroup()
+#   
+#   ,
+# inner_join(
+#   abcd_data |>
+#     dplyr::distinct(ald_sector, ald_business_unit, company_id) |> # remove duplicates on year
+#     dplyr::group_by(ald_sector, ald_business_unit) |>
+#     dplyr::summarise(n_companies = n())
+#   ,
+#   abcd_data |>
+#     group_by(ald_sector, ald_business_unit, ald_production_unit) |>
+#     summarise(bu_prod = sum(plan_tech_prod), .groups = "drop") |>
+#     group_by(ald_production_unit) |>
+#     mutate(
+#       unit_prod = sum(bu_prod),
+#       perc_bu_prod = as.integer(bu_prod / unit_prod * 100)
+#     ) |>
+#     ungroup()
+#   
+# ) |>
 #   mutate(
-#     prod_company_provided = round(total_prod/n_companies, 3),
-#     prod_company_provided_perc = prod_company_provided/total_prod
+#     prod_company_in_bu = bu_prod / n_companies,
+#     prod_company_in_unit = round(prod_company_in_bu / unit_prod * 100, 3)
 #   )
-
-
-ladata <- inner_join(
-abcd_full_global |>
-    group_by(ald_sector, ald_business_unit, ald_production_unit) |>
-    summarise(bu_prod_full = sum(plan_tech_prod), .groups = "drop") |>
-    group_by(ald_production_unit) |>
-    mutate(
-      unit_prod_full = sum(bu_prod_full),
-      perc_bu_prod_full = as.integer(bu_prod_full / unit_prod_full * 100)
-    ) |>
-    ungroup()
-  
-  ,
-inner_join(
-  abcd_data |>
-    dplyr::distinct(ald_sector, ald_business_unit, company_id) |> # remove duplicates on year
-    dplyr::group_by(ald_sector, ald_business_unit) |>
-    dplyr::summarise(n_companies = n())
-  ,
-  abcd_data |>
-    group_by(ald_sector, ald_business_unit, ald_production_unit) |>
-    summarise(bu_prod = sum(plan_tech_prod), .groups = "drop") |>
-    group_by(ald_production_unit) |>
-    mutate(
-      unit_prod = sum(bu_prod),
-      perc_bu_prod = as.integer(bu_prod / unit_prod * 100)
-    ) |>
-    ungroup()
-  
-) |>
-  mutate(
-    prod_company_in_bu = bu_prod / n_companies,
-    prod_company_in_unit = round(prod_company_in_bu / unit_prod * 100, 3)
-  )
-
-)|> 
-  select(ald_sector,
-         ald_business_unit,
-         perc_bu_prod,
-         perc_bu_prod_full,
-         prod_company_in_unit) |>
-  inner_join(o) |>
-  mutate(perc_companies_kept = n_companies.toydata / n_companies.fulldata)
-
-
-ladata
-```
-
-
-## Plotting
-
-### diff yearly prod full vs toy
-
-```{r echo=FALSE, fig.height=6, fig.width=8}
-comp_yearly_volume_prod <-
-  inner_join(
-    yearly_volume_prod_full,
-    yearly_volume_prod_sampled,
-    by = c(
-      "scenario_geography",
-      "year" ,
-      "ald_sector",
-      "ald_business_unit"
-    ),
-    suffix = c(".fulldata", ".sampled")
-  )
-
-
-long_data <- comp_yearly_volume_prod |>
-  tidyr::pivot_longer(
-    cols = starts_with("plan_tech_prod"),
-    names_to = "production_type",
-    values_to = "production_value"
-  )
-
-# Loop through each combination and create a plot
-for (geography in unique(long_data$scenario_geography)) {
-  # Subset the data for the current combination
-  subset_data <- long_data |>
-    filter(
-      scenario_geography == geography
-    )
-  
-  # Create the plot
-  p <-
-    ggplot(
-      subset_data,
-      aes(
-        x = year,
-        y = production_value,
-        color = production_type,
-        group = production_type
-      )
-    ) +
-    geom_line(aes(linetype = production_type)) +
-    facet_wrap( ~ald_sector+ald_business_unit, scales="free_y")+
-    theme_minimal() +
-    labs(
-      title = paste(
-        "Production Comparison:",
-        geography
-      ),
-      x = "Year",
-      y = "Production Value",
-      color = "Production Type"
-    ) +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    scale_linetype_manual(values = c("twodash", "dotted"))
-  
-  # Print the plot
-  print(p)
-}
+# 
+# )|> 
+#   select(ald_sector,
+#          ald_business_unit,
+#          perc_bu_prod,
+#          perc_bu_prod_full,
+#          prod_company_in_unit) |>
+#   inner_join(o) |>
+#   mutate(perc_companies_kept = n_companies.toydata / n_companies.fulldata)
+# 
+# 
+# ladata
+# ```
+# 
+# 
+# ## Plotting
+# 
+# ### diff yearly prod full vs toy
+# 
+# ```{r echo=FALSE, fig.height=6, fig.width=8}
+# comp_yearly_volume_prod <-
+#   inner_join(
+#     yearly_volume_prod_full,
+#     yearly_volume_prod_sampled,
+#     by = c(
+#       "scenario_geography",
+#       "year" ,
+#       "ald_sector",
+#       "ald_business_unit"
+#     ),
+#     suffix = c(".fulldata", ".sampled")
+#   )
+# 
+# 
+# long_data <- comp_yearly_volume_prod |>
+#   tidyr::pivot_longer(
+#     cols = starts_with("plan_tech_prod"),
+#     names_to = "production_type",
+#     values_to = "production_value"
+#   )
+# 
+# # Loop through each combination and create a plot
+# for (geography in unique(long_data$scenario_geography)) {
+#   # Subset the data for the current combination
+#   subset_data <- long_data |>
+#     filter(
+#       scenario_geography == geography
+#     )
+#   
+#   # Create the plot
+#   p <-
+#     ggplot(
+#       subset_data,
+#       aes(
+#         x = year,
+#         y = production_value,
+#         color = production_type,
+#         group = production_type
+#       )
+#     ) +
+#     geom_line(aes(linetype = production_type)) +
+#     facet_wrap( ~ald_sector+ald_business_unit, scales="free_y")+
+#     theme_minimal() +
+#     labs(
+#       title = paste(
+#         "Production Comparison:",
+#         geography
+#       ),
+#       x = "Year",
+#       y = "Production Value",
+#       color = "Production Type"
+#     ) +
+#     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+#     scale_linetype_manual(values = c("twodash", "dotted"))
+#   
+#   # Print the plot
+#   print(p)
+# }
 ```
