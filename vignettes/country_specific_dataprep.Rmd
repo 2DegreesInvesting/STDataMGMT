@@ -21,7 +21,10 @@ library(dplyr)
 
 ## Parameters
 ```{r}
+output_dir <- here::here("data-raw", "countries_samplings")
+country_focus <- "India"
 
+dir.create(output_dir, showWarnings = FALSE)
 # Asset Impact params
 
 path_ar_data_raw <-
@@ -35,20 +38,20 @@ path_ar_data_raw <-
 # leave empty to use all countries
 # country_filter <- c()
 country_filter <- countrycode::codelist %>%
-  filter(country.name.en == "France") %>%
+  filter(country.name.en == country_focus) %>%
   dplyr::pull(.data$ecb)
 
 # only use assets with HQ in the selected countries
-filter_hqs <- FALSE
+filter_hqs <- TRUE
 # only use assets in the selected countries
-filter_assets <- TRUE
-
+filter_assets <- FALSE
+# use both : only use HQs in the country with assets in the country
 
 # abcd  params ========================================
-# start_year <- 2022 # defined in workflow.R
+start_year <- 2022 # defined in workflow.R
 time_horizon <- 5
 additional_year <- NULL
-sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal")
+sector_list <- c("Automotive", "Power", "Oil&Gas", "Coal", "Cement", "Steel")
 km_per_vehicle <- 15000
 
 ```
@@ -78,6 +81,8 @@ company_informations %>%
   dplyr::ungroup() %>%
   assertr::verify(max(nrows) == 1)
 
+# THE FILTERING HAPPENS HERE ****************************
+
 DB_company_activities <- DB_company_activities %>%
   STDataMGMT:::filter_countries_coverage(
     company_informations = company_informations,
@@ -93,7 +98,7 @@ DB_company_emissions <- DB_company_emissions %>%
     filter_hqs = filter_hqs,
     filter_assets = filter_assets
   )
-
+#  ********************************************************
 ```
 
 
@@ -188,5 +193,119 @@ abcd_stress_test_input %>%
   summarise(n = n()) %>%
   arrange(desc(n)) %>%
   print(n = Inf)
+```
+
+
+# Save the data 
+
+
+```{r}
+
+# Generating file suffix based on filtering options
+suffix <- ifelse(filter_hqs & filter_assets, "HQsAssetsInCountry",
+                 ifelse(filter_hqs, "HQsInCountry",
+                        ifelse(filter_assets, "AssetsInCountry", "Global")))
+
+```
+
+
+### abcd input
+
+``` {r}
+
+# Construct file name using the country_focus and suffix
+file_name <- paste0("abcd_stress_test_input_", country_focus, "_", suffix, ".csv")
+
+
+# Full path to the output file
+output_file_path <- here::here(output_dir, file_name)
+
+readr::write_csv(abcd_stress_test_input, output_file_path)
+
+```
+
+
+### build and save the stat desc
+
+Number of companies per country
+Number of companies per sector
+Number of companies per Business Unit (BU)
+Unique company count
+Business Unit distribution
+Sector distribution
+Geographies distribution
+
+```{r}
+library(openxlsx)
+library(dplyr)
+library(readr) # Assuming data reading might be necessary
+library(tidyr) # For data manipulation
+
+# Assuming the DB_company_activities and abcd_stress_test_input are already loaded and prepared as per your Rmd
+
+# Create a new workbook
+wb <- createWorkbook()
+
+# Helper function to add data to the workbook
+add_data_sheet <- function(wb, data, sheetName) {
+  addWorksheet(wb, sheetName)
+  writeData(wb, sheetName, data)
+}
+
+# Number of companies per country
+companies_per_country <- DB_company_activities %>%
+  distinct(company_id, ald_location) %>%
+  group_by(ald_location) %>%
+  summarise(n = n()) %>%
+  arrange(desc(n))
+add_data_sheet(wb, companies_per_country, "Unique Companies per Country")
+
+# Unique company count
+unique_companies_count <- length(unique(DB_company_activities$company_id))
+unique_companies_sheet <- data.frame(Unique_Companies_Count = unique_companies_count)
+add_data_sheet(wb, unique_companies_sheet, "UC Count RAWDATA")
+
+# Unique company count
+unique_companies_count <- length(unique(abcd_stress_test_input$company_id))
+unique_companies_sheet <- data.frame(Unique_Companies_Count = unique_companies_count)
+add_data_sheet(wb, unique_companies_sheet, "UC Count ABCD")
+
+
+# Business Unit distribution
+bu_distribution <- abcd_stress_test_input %>%
+  filter(scenario_geography=="Global") %>%
+  distinct(company_id, ald_sector, ald_business_unit) %>%
+  group_by(ald_sector, ald_business_unit) %>%
+  summarise(n_business_unit = n()) %>%
+  arrange(desc(n_business_unit))
+add_data_sheet(wb, bu_distribution, "UC BU Global geo")
+
+# Sector distribution
+sector_distribution <- abcd_stress_test_input %>%
+  filter(scenario_geography=="Global") %>%
+  distinct(company_id, ald_sector) %>%
+  group_by(ald_sector) %>%
+  summarise(n_sectors = n()) %>%
+  arrange(desc(n_sectors))
+add_data_sheet(wb, sector_distribution, "UC Sector Global geo")
+
+# Geographies distribution
+geographies_distribution <- abcd_stress_test_input %>%
+  distinct(company_id, scenario_geography) %>%
+  group_by(scenario_geography) %>%
+  summarise(n_companies = n()) %>%
+  arrange(desc(n_companies))
+add_data_sheet(wb, geographies_distribution, "UC Geographies Distribution")
+
+# Save the workbook to a file
+# Construct file name using the country_focus and suffix
+
+# Full path to the output file
+file_name <- paste0("descriptive_statistics_", country_focus, "_", suffix, ".xlsx")
+output_file_path <- here::here(output_dir, file_name)
+saveWorkbook(wb, output_file_path, overwrite = TRUE)
+
+cat("Excel file with descriptive statistics saved to:", file_name, "\n")
+
 ```
 
