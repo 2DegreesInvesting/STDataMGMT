@@ -4,7 +4,6 @@
 ST input dataframes structure <span style="float: left;">
 <a href='https://github.com/2DegreesInvesting/r2dii.climate.stress.test'>
 <img src='https://cinea.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2021-01/life_1.jpg?itok=J1KQ12Nw' align='right' style="height: 43px; padding-right: 10px;" />
-<img src='https://imgur.com/A5ASZPE.png' align='right' style="height: 43px;" />
 </a> </span>
 </h1>
 
@@ -342,3 +341,14 @@ values in the raw data. - Compute averages, and pick the most granular
 one possible to fill missing values - As financial indicators are still
 at the (company_id, ald_sector, region) granularity level, aggregate
 those to the company level to be used in the stress test.
+
+
+
+## Funding
+
+EU LIFE Project Grant
+
+Co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or CINEA. Neither the European Union nor the granting authority can be held responsible for them.
+
+Scientific Transition Risk Exercises for Stress tests & Scenario Analysis has received funding from the European Union’s Life programme under Grant No. LIFE21-GIC-DE-Stress under the LIFE-2021-SAP-CLIMA funding call.
+
