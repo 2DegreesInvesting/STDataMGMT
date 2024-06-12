@@ -963,8 +963,8 @@ prepare_steel_scenario_data <- function(data, start_year, max_year=2050) {
   # Rename scenarios
   data <- data %>%
     dplyr::mutate(scenario = dplyr::case_when(
-      .data$scenario == "Baseline" ~ "Steel_baseline",
-      .data$scenario == "Carbon Cost" ~ "Steel_NZ",
+      .data$scenario == "Baseline" ~ "MP_Baseline",
+      .data$scenario == "Carbon Cost" ~ "MP_CarbonCost_NZ",
       TRUE ~ scenario  # Keeps all other values as they are
     ))
 }

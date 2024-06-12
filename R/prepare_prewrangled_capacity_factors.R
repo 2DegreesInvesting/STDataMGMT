@@ -730,8 +730,8 @@ prepare_capacity_factors_GEM_steel <- function(data, start_year, max_year=2050){
   
   # Step 3: Duplicate all observations for the scenario column
   data <- data %>%
-    dplyr::mutate(scenario = "Steel_baseline") %>%
-    dplyr::bind_rows(dplyr::mutate(data, scenario = "Steel_NZ"))
+    dplyr::mutate(scenario = "MP_Baseline") %>%
+    dplyr::bind_rows(dplyr::mutate(data, scenario = "MP_CarbonCost_NZ"))
   
   # Expand dataset first without attempting to fill 'value'
   data <- data %>%
